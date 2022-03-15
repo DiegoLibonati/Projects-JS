@@ -20,9 +20,7 @@
 
 
 
-<h3 align="center">
-    Contact.  
-</h3>
+# Contact
 
 <p align="center">
  <a href="https://www.instagram.com/die_libonati/?hl=es-la"><img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/ig2.png" width="30px" alt="instagram"></a> &nbsp; &nbsp;
