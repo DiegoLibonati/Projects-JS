@@ -1,0 +1,121 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+nav{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.nav-container{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    background-color:aqua;
+    transform: translateX(-100%);
+    transition: 1s;
+    position: fixed;
+    top:-.05rem;
+    z-index: 1;
+}
+
+@media screen and (min-width:768px){
+    .nav-container{
+        width: 50%;
+    }
+}
+
+.nav-show{
+    transform: translateX(0%);
+}
+
+.header-container{
+    position: relative;
+    width: 100%;
+    height: 7rem;
+    background-color: rgb(255, 255, 255);
+}
+
+    .header-container button{
+        background-color: white;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+    }
+
+    .header-container i{
+        margin: 1rem;
+        font-size: 5rem;
+    }
+
+    .btnCl{
+        position: absolute;
+        left: 85%;
+        margin: 2rem;
+        background-color: aqua;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-close{
+        transition: 0s;
+    }
+
+    .btnCl i{
+        font-size: 2.5rem;
+        color: red;
+
+    }
+
+    .nav-title{
+     font-size: 4rem;   
+     margin: 1rem;
+    }
+
+
+    .nav-menu{
+        position: absolute;
+        top:10%;
+    }
+
+        .nav-menu li{
+            font-size: 2rem;
+            margin: 1rem;
+            margin-top: 3rem;
+        }
+
+    .nav-redes{
+        display: flex;
+        justify-content: center;
+        
+    }
+
+        .nav-redes li a{
+            font-size: 3rem;
+            margin: 1rem;
+        }
+
+.hola{
+    position: relative;
+    width: 100%;
+    min-height: 10rem;
+    background-color: red;
+}

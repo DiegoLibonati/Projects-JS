@@ -1,0 +1,131 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style-type: none;
+    
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+
+.contenedor{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        background-color: aquamarine;
+    }
+
+        .title{
+            margin: 1rem;
+
+        }
+            .title h1{
+                font-size: 2.5rem;
+                letter-spacing: .3rem;
+            }
+
+        .list{
+            margin: 1rem;
+        }
+            .list ul{
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+                .list ul li{
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    letter-spacing: .3rem;
+                    font-size: 1.5rem;
+                }
+
+        .redes{
+            display: initial;
+            margin: 1rem;
+        }
+
+            .redes a{
+                font-size: 1.5rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                color: black;
+            }
+
+
+    .boton{
+        display:none;
+    }
+
+@media screen and (max-width: 768px){
+
+    .contenedor{
+        display: flex;
+        flex-flow: row nowrap;
+        background-color: rgb(0, 111, 207);
+        justify-content: space-between;
+        width: 100%;
+        margin: 0;
+    }
+    
+        .title{
+            display: flex;
+            flex-direction: row;
+            margin: 1rem;
+        }
+            .title h1{
+                font-size: 2rem;
+                letter-spacing: .3rem;
+            }
+    
+        .list{
+            background-color: aquamarine;
+            width: 100%;
+            position: absolute;
+            transform: translateX(-200%);
+            transition: 1s;
+        }
+            .list ul{
+                display: flex;
+                flex-flow: column wrap;
+                align-items: flex-start; 
+                
+            }
+    
+                .list ul li{
+                    padding: 2rem;
+                    letter-spacing: .3rem;
+                    font-size: 1.5rem;
+                }
+    
+    
+        .show_menu{
+            transform: translateY(59%);
+            margin: 0px;
+        }
+    
+        .redes{
+            display:none;
+        }
+    
+        .boton{
+            display: inline;
+            margin:1rem;
+            align-self: center;
+        }
+            .boton button{
+                font-size: 1.5rem;
+            }
+    
+            .rotate_button{
+                transform:rotate(90deg)
+            }
+
+}
