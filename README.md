@@ -19,6 +19,11 @@
 7. Sidebar: Responsive
 
 
+
+<h3 align="center">
+    Contact.  
+</h3>
+
 <p align="center">
  <a href="https://www.instagram.com/die_libonati/?hl=es-la"><img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/ig2.png" width="30px" alt="instagram"></a> &nbsp; &nbsp;
  <a href="https://www.facebook.com/dielibonati/"><img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/face.png" width="30px" alt="facebook"></a> &nbsp; &nbsp;
@@ -26,6 +31,3 @@
  <a href="https://github.com/DiegoLibonati"><img src="https://github.com/chandan-reddy-k/chandan-reddy-k/blob/master/assets/github.svg" width="30px" alt="github"></a> &nbsp; &nbsp;
 </p>
 
-<h3 align="center">
-    Contact.  
-</h3>
