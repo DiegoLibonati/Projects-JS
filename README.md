@@ -1,5 +1,3 @@
-# Projects-JS-CSS-HTML
-
 <h1 align="center"> Hey 👋🏽, I'm Libonati Diego </h1>
 
 <h3 align="center">
@@ -9,3 +7,13 @@
 <h3 align="center">
 <img align="center" alt="cat coding" src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/cat.gif" width="200" />
  </h3>
+
+# Projects-JS-CSS-HTML
+
+1. Color Flipper
+2. Counter
+3. Modal
+4. Navbar: Responsive
+5. Questions
+6. Reviews
+7. Sidebar: Responsive
