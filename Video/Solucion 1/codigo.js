@@ -1,6 +1,8 @@
 const video = document.getElementById("myVideo");
 const btns = document.querySelectorAll(".button");
 
+
+
 btns.forEach(function(btn){
     btn.addEventListener("click", (e)=>{
         const hola = e.currentTarget.dataset.id;
@@ -11,4 +13,10 @@ btns.forEach(function(btn){
                 video.pause();
             }
     });
+});
+
+const preloader = document.querySelector(".preloader");
+
+window.addEventListener("load", ()=>{
+    preloader.classList.add("hide_preloader");
 });
