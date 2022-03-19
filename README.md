@@ -19,6 +19,7 @@
 7. Sidebar: Responsive
 8. Menu
 9. Video
+10. Scroll Page
 
 
 
