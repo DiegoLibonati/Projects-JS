@@ -1,0 +1,14 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(187, 202, 224);
+}
+
