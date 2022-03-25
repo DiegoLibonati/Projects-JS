@@ -22,6 +22,7 @@
 10. Scroll Page
 11. Tabs
 12. Countdown
+13. Lorem Ipsum
 
 
 # Contact
