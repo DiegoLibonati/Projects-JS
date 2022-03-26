@@ -25,7 +25,7 @@
 7. Sidebar: Responsive
 <img src="">
 8. Menu
-<img src="">
+<img src="https://giphy.com/gifs/srUmLGsvQ2aIUjyThI">
 9. Video
 <img src="https://drive.google.com/uc?export=view&id=1913oZeBZPBNiUuk8gu3ZSbLBA2l_VQtG">
 10. Scroll Page
