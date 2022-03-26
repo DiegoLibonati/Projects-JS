@@ -27,7 +27,7 @@
 8. Menu
 <img src="">
 9. Video
-<img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://doc-14-50-docs.googleusercontent.com/docs/securesc/lnubgqdgi88bqdj1ggrasi53ov1gjl99/7sn7lh3urhonrptqkb9j8s9sq9ri49r2/1648321950000/10059684817401583508/10059684817401583508/1Dbsp5GkUz5IOkFbhFaJMAsQ8fdJh9e9L?ax=ACxEAsaWt6ESsHXB3rjDhZZKIiLT3BJSEtqLvoU6_rtbrj6L2et2NqgjQO8F-cnZ52rpbQLEvPi5V5XaAQ1Gt3ksAbVSNP2d26d5nul54R2rTnxpLhByqOn35JlL4JRcjpYhVPSJp42rbdkIKK4_WHx7PlPpIv6d--ZMm67wau5hVctf5pZadF4vw6AIXkywd4cHRkuHZJNMfB6RHEgWJqZuryZnI_p3WVRR41I4dML6-UUfr-D3aUlBiiI-9i0qckp53cPcZkXPJc5o2zmcOSI3dHBL7OIsyijGzbFCmWLtO55M6UuQOf171hmbJSw9kNrjvEYnxtCo8trH3tfS_f_3wLhqazfX4_uiL9Ok1W1OzQcmbZecdcHRkqhD6dJRZu8PN4ViWQusISGXD0Q8fHo4jtQ_BA76flbk67RcOJK45poiKsjCyX4uthHqiXezWI8iUcd7e9xnbFOPUtBFa6QyWBkYyPtNFHyYwTmewC2AaiXynNlealwiGT1TlUWqzpC_IV2LpSTgmqZ1DV-6FYJRTxteLnMV3BnhNYFZ8D3MmepSYL4KzHPpV7YNG8ap86-ClqMUlcsMotyUIdKCUoFNcfsJfcIrCFXSfyeX9ORozZ1rLzhVV285SUa_tOl3qpza2sw_yT9e3Vi5ewinUXSd8qnGbuZE1RzTUjqpO2Pszrz_h5den2FnAu2Ra7-cqeG67tUIUdw_pw6wvYu43-44LFXPF78_bjEUKSE1spZE_5J9bSF3YTk&authuser=0" width="673" height="378">
+![image](https://drive.google.com/uc?export=view&id=1913oZeBZPBNiUuk8gu3ZSbLBA2l_VQtG)
 10. Scroll Page
 <img src="">
 11. Tabs
