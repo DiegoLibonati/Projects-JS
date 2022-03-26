@@ -27,7 +27,7 @@
 8. Menu
 <img src="">
 9. Video
-[image](https://drive.google.com/uc?export=view&id=1913oZeBZPBNiUuk8gu3ZSbLBA2l_VQtG)[/image]
+<img src="https://drive.google.com/uc?export=view&id=1913oZeBZPBNiUuk8gu3ZSbLBA2l_VQtG">
 10. Scroll Page
 <img src="">
 11. Tabs
