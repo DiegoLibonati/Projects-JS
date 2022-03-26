@@ -10,35 +10,35 @@
 
 # Projects-JS-CSS-HTML
 
-1. Color Flipper
+# Color Flipper
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/colorflip.gif">
-2. Counter
+# Counter
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/counter.gif">
-3. Modal
+#  Modal
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/modal.gif">
-4. Navbar: Responsive
+#  Navbar: Responsive
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/nav.gif">
-5. Questions
+#  Questions
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/questions.gif">
-6. Reviews
+#  Reviews
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/reviews.gif">
-7. Sidebar: Responsive
+#  Sidebar: Responsive
 <img src="">
-8. Menu
+# Menu
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/menu.gif">
-9. Video
+#  Video
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/video.gif">
-10. Scroll Page
+# Scroll Page
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/scroll.gif">
-11. Tabs
+# Tabs
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/tabs.gif">
-12. Countdown
+# Countdown
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/countdown.gif">
-13. Lorem Ipsum
+# Lorem Ipsum
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/lorem.gif">
-14. Grocery
+# Grocery
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/grocery.gif">
-15. Slider
+# Slider
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/slider.gif">
 
 
