@@ -8,7 +8,8 @@
 <img align="center" alt="cat coding" src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/cat.gif" width="200" />
  </h3>
 
-# Projects-JS-CSS-HTML
+# Projects JS
+The idea of this projects is can practice JS. CSS and HTML are secundary in this repository
 
 # Color Flipper
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/colorflip.gif"> <br>
