@@ -11,7 +11,7 @@
 # Projects-JS-CSS-HTML
 
 # Color Flipper
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/colorflip.gif">
+<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/colorflip.gif"> <br>
 # Counter
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/counter.gif">
 #  Modal
