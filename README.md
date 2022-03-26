@@ -11,20 +11,21 @@
 # Projects-JS-CSS-HTML
 
 1. Color Flipper
-2. Counter
-3. Modal
-4. Navbar: Responsive
-5. Questions
-6. Reviews
-7. Sidebar: Responsive
-8. Menu
-9. Video
-10. Scroll Page
-11. Tabs
-12. Countdown
-13. Lorem Ipsum
-14. Grocery
-15. Slider
+<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/2022-03-26%2014-34-10.gif">
+3. Counter
+4. Modal
+5. Navbar: Responsive
+6. Questions
+7. Reviews
+8. Sidebar: Responsive
+9. Menu
+10. Video
+11. Scroll Page
+12. Tabs
+13. Countdown
+14. Lorem Ipsum
+15. Grocery
+16. Slider
 
 
 # Contact
