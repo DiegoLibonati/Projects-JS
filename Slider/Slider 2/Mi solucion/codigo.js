@@ -2,6 +2,8 @@ const imgContainer = document.querySelector(".imgs-center");
 
 const containerBtns = document.querySelectorAll(".button");
 
+
+
 class Galeria {
     constructor(img){
         this.img = img;
@@ -25,6 +27,7 @@ let i=0;
 imgContainer.innerHTML = Galery[0].mostrarImagenes();
 
 function nextImg(){
+
     i++
     console.log(i)
 
@@ -55,6 +58,7 @@ containerBtns.forEach(function(btn){
 
         if (valueButton == "Next"){
             nextImg();
+
         } else if (valueButton == "Prev"){
             prevImg();
         } else {
@@ -62,7 +66,5 @@ containerBtns.forEach(function(btn){
         }
     });
 });
-
-
 
 
