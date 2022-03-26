@@ -13,7 +13,7 @@
 1. Color Flipper
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/2022-03-26%2014-34-10.gif">
 2. Counter
-<img src="https://lh3.google.com/u/0/d/1xVY7vZzVNSHjvzauIqkeb_oKucct3OUz=w1920-h929-iv1">
+<img src="https://lh3.google.com/u/0/d/1xVY7vZzVNSHjvzauIqkeb_oKucct3OUz=w1920-h929-iv1.gif">
 4. Modal
 5. Navbar: Responsive
 6. Questions
