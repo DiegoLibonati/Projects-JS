@@ -1,0 +1,149 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+height: 100vh;
+width: 100vw;
+}
+
+.padre{
+    height: 100%;
+    width: 100%;
+    transition: all 1s;
+}
+
+.header_container{
+background-color: rgb(255, 255, 255);
+border: .5rem solid rgb(255, 0, 0);
+transition: all 2s;
+}
+
+    .div_center{
+        min-height: 11rem;
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+    }
+        .div_center h2{
+            padding: 1rem;
+            font-size: 2.3rem;
+        }
+
+@media screen and (min-width: 768px){
+    .div_center{
+        justify-content: space-around;
+    }
+
+    .div_center h2{
+        padding: .3;
+        font-size: 3.5rem;
+    }
+}
+
+
+.section_container{
+
+}
+
+    .article_center{
+        margin:;
+    }
+
+        .user{
+            width: 100%;
+            min-height: 30rem;
+        }
+
+            .user img{
+                position: absolute;
+                width: 100%;
+                min-height: 30rem;
+                transition: opacity 2s;
+                padding: 2rem;
+            }
+
+            #imgRock{
+                opacity: 1;
+            }
+
+            #imgPaper{
+                opacity: 0;
+            }
+
+            #imgScissor{
+                opacity: 0;
+            }
+
+            .select_user{
+                position: relative;
+                width: 100%;
+                min-height: 5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-flow: column wrap;
+            }
+                .select_center{
+                    width: 50%;
+                    min-height: 2rem;
+                    margin-top: 1rem;
+                }
+
+                .select_user button{
+                    padding: 1rem;
+                    margin-top: 1rem;
+                }
+
+
+@media screen and (min-width: 768px){
+
+}
+
+.article_modal{
+    position: absolute;
+    width: 75vw;
+    height: 25vh;
+    background-color: red;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+    z-index: 100;
+}
+
+    .modal_center{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+
+        .a{
+            position: absolute;
+            top:0;
+            right: 0;
+            padding: .5rem;
+            margin: 1rem;
+        }
+
+
+
+.blurEffect{
+    filter: blur(2rem)
+}
