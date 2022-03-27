@@ -12,8 +12,6 @@ const pTr = document.getElementById("p3");
 const openNewModal = document.querySelector(".article_modal");
 const closeModalBtn = document.querySelector(".a");
 
-const backgroundBlur = document.querySelector(".padre")
-
 const selectMachineValue = ["Rock", "Paper", "Scissor"];
 
 
@@ -22,7 +20,13 @@ selectValue.addEventListener("input", ()=>{
         imgRock.style.opacity = "1";
         imgPaper.style.opacity = "0";
         imgScissor.style.opacity = "0";
+        imgPaper.style.position = "absolute";
+        imgRock.style.position = "relative";
+        imgScissor.style.position = "absolute";
     } else if (selectValue.value == "Paper"){
+        imgPaper.style.position = "relative";
+        imgRock.style.position = "absolute";
+        imgScissor.style.position = "absolute";
         imgRock.style.opacity = "0";
         imgPaper.style.opacity = "1";
         imgScissor.style.opacity = "0";
@@ -30,6 +34,9 @@ selectValue.addEventListener("input", ()=>{
         imgRock.style.opacity = "0";
         imgPaper.style.opacity = "0";
         imgScissor.style.opacity = "1";
+        imgPaper.style.position = "absolute";
+        imgRock.style.position = "absolute";
+        imgScissor.style.position = "relative";
     }
 })
 
@@ -41,13 +48,13 @@ playBtn.addEventListener("click", (e)=>{
     finalValue(selectValue.value, vM);
 
     openNewModal.style.display = "block";
-    backgroundBlur.classList.add("blurEffect");
+    document.querySelector(".section_container").classList.add("blurEffect");
     playBtn.style.display ="none";
 });
 
 closeModalBtn.addEventListener("click", ()=>{
     openNewModal.style.display = "none";
-    backgroundBlur.classList.remove("blurEffect");
+    document.querySelector(".section_container").classList.remove("blurEffect");
     playBtn.style.display = "block";
 });
 
