@@ -20,13 +20,7 @@ selectValue.addEventListener("input", ()=>{
         imgRock.style.opacity = "1";
         imgPaper.style.opacity = "0";
         imgScissor.style.opacity = "0";
-        imgPaper.style.position = "absolute";
-        imgRock.style.position = "relative";
-        imgScissor.style.position = "absolute";
     } else if (selectValue.value == "Paper"){
-        imgPaper.style.position = "relative";
-        imgRock.style.position = "absolute";
-        imgScissor.style.position = "absolute";
         imgRock.style.opacity = "0";
         imgPaper.style.opacity = "1";
         imgScissor.style.opacity = "0";
@@ -34,9 +28,6 @@ selectValue.addEventListener("input", ()=>{
         imgRock.style.opacity = "0";
         imgPaper.style.opacity = "0";
         imgScissor.style.opacity = "1";
-        imgPaper.style.position = "absolute";
-        imgRock.style.position = "absolute";
-        imgScissor.style.position = "relative";
     }
 })
 
@@ -119,6 +110,8 @@ const colors = ["red", "green", "blue"];
 function changeColor(color){
     color = Math.floor(Math.random() * colors.length);
     document.querySelector(".header_container").style.border = `.5rem solid ${colors[color]}`;
+
+    document.querySelector(".header_container").style.transition = "border 2s";
 }
 
 setInterval(changeColor,2000); 
