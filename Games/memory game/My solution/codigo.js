@@ -94,7 +94,7 @@ function gameFunction(e){
             const end = new Date()
             finalTime = end.getTime() - readyGo.getTime();
             inSec = Math.floor(finalTime / 1000);
-            document.querySelector(".tiempo").innerHTML = `Finish the game in ${inSec} seconds. Congrats`;
+            document.querySelector(".tiempo h2").innerHTML = `Finish the game in ${inSec} seconds. Congrats`;
         }
 
         isTrue = [];
