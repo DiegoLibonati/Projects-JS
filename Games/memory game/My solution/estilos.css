@@ -16,6 +16,8 @@ width: 100vw;
 }
 
 .imagenes{
+    display: flex;
+    flex-flow: column wrap;
     width: 120px;
     height: 120px;
 }
