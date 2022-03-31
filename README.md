@@ -41,6 +41,12 @@ The idea of this projects is can practice JS. CSS and HTML are secundary in this
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/grocery.gif"> <br>
 # Slider
 <img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/slider.gif"> <br>
+# Contact Send Mail
+
+
+# GAMES
+# Rock, paper, scissor
+# Memory Game
 
 
 # Contact
