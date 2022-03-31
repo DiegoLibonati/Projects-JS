@@ -1,0 +1,73 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+    .section_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+
+            .section_container form{
+                display: flex;
+                flex-flow: column wrap;
+                align-items: center;
+                width: 50rem;
+                background-color: rgb(255, 255, 255);
+                padding: 1rem;
+                margin: 1rem;
+                box-shadow: .3rem .3rem .3rem .3rem rgb(0, 0, 0);
+            }
+
+                .section_container h2{
+                    font-size: 5rem;
+                    padding: 1rem;
+                }
+
+                #nombre{
+                    width: 75%;
+                    padding: 1rem;
+                    margin: 1rem;
+                    font-size: 2rem;
+                }
+
+                #correo{
+                    width: 75%;
+                    padding: 1rem;
+                    margin: 1rem;
+                    font-size: 2rem;
+                }
+
+                #mensaje{
+                    width: 75%;
+                    padding: 1rem;
+                    margin: 1rem;
+                    resize: none;
+                    font-size: 2rem;
+                }
+
+                #btnEnviar{
+                    padding: 1rem;
+                    margin: 1rem;
+                    width: 25%;
+                    font-size: 2rem;
+                    border: none;
+                    background-color: rgba(0,0,0, 0.2);
+                    border-radius: 2rem;
+                }
