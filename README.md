@@ -45,6 +45,7 @@ The idea of this projects is can practice JS. CSS and HTML are secundary in this
 
 
 # GAMES
+Projects JS creating games.
 # Rock, paper, scissor
 # Memory Game
 
