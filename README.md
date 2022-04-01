@@ -48,6 +48,7 @@ The idea of this projects is can practice JS. CSS and HTML are secundary in this
 Projects JS creating games.
 # Rock, paper, scissor
 # Memory Game
+# Whac-a-mole
 
 
 # Contact
