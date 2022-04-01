@@ -1,17 +1,18 @@
 const gridDisplay = document.querySelector(".grid");
+const btnPlayAgain = document.getElementById("playAgain");
 
-const gridArray = [];
+let gridArray = [];
 let ratArray = [];
 let contador = 0;
 let runTime = 60;
 
-gridCreate();
+gridCreate(gridDisplay);
 
-function gridCreate(){
+function gridCreate(gridValue){
     for (i = 0; i < 25; i++){
         const grid = document.createElement("div");
         grid.setAttribute("id", i);
-        gridDisplay.append(grid);
+        gridValue.append(grid);
         gridArray.push(i);
     }
 }
@@ -67,21 +68,49 @@ function scoreUpdate(){
     document.getElementById("score").innerHTML = contador;
 }
 
-function timeConfig(){
-    runTime--
+function timeConfig(gridValue){
 
-    if(runTime == 0){
+    if(runTime <= 0){
         clearInterval(clearTime);
         clearInterval(clearGame);
-        document.getElementById("time").innerHTML = 0;
+        document.getElementById("time").innerHTML = "The time is over";
+        document.querySelector(".contador_container p").innerHTML = `You score was ${contador}, Congrats. if you want, push in PLAY AGAIN`
+        gridValue.remove();
+
     } else {
+        runTime--
         document.getElementById("time").innerHTML = runTime;
     }
 }
 
-const clearGame = setInterval(spawnEnemy, 3000);
-const clearTime = setInterval(timeConfig, 1000);
+let clearGame = setInterval(spawnEnemy, 3000);
+let clearTime = setInterval(function() {timeConfig(gridDisplay)}, 1000);
+
+btnPlayAgain.addEventListener("click", (e)=>{
+    e.preventDefault()
+
+    gridArray = [];
+    ratArray = [];
+    contador = 0;
+    runTime = 60;
+
+    const newGridDiv = document.createElement("div");
+    newGridDiv.setAttribute("class", "grid");
+    
+    const parentDiv = document.querySelector(".section_container");
+
+    const beforeThis = document.querySelector(".btns_container");
+
+    parentDiv.insertBefore(newGridDiv, beforeThis);
+
+    gridCreate(newGridDiv);
+
+    document.querySelector(".contador_container p").innerHTML = `Score: <span id="score">0</span>`
 
 
+    clearGame = setInterval(spawnEnemy, 3000);
+    clearTime = setInterval(function() {timeConfig(newGridDiv)}, 1000);
+
+});
 
 

@@ -76,8 +76,10 @@ width: 100%;
         padding: 1rem;
     }
 
-        .contador_container h2{
+        .contador_container p{
             font-size: 3rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
 
         #score{
@@ -86,6 +88,22 @@ width: 100%;
 
         #time{
             font-size: 3rem;
+        }
+
+    .btns_container{
+        width: 80%;
+        margin: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        #playAgain{
+            font-size: 1.5rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            background-color: rgba(0,0,0,.3);
+            color: white;
         }
 
     .grid{
