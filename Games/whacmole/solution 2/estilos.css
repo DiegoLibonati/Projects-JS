@@ -1,0 +1,22 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: rgb(181, 153, 200);
+}
+
+.mole{
+    background-color: blue;
+}
