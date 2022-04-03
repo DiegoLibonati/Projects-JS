@@ -1,0 +1,48 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+    .blocks_container{
+        position: absolute;
+        width: 56rem;
+        height: 30rem;
+        border: .1rem solid #000;
+        margin-top: 2rem;
+    }
+
+    .block{
+        position: absolute;
+        width: 10rem;
+        height: 2rem;
+        background-color: #00f;
+    }
+
+    .user {
+        position: absolute;
+        width: 10rem;
+        height: 2rem;
+        background-color: rgb(255, 0, 0);
+    }
+
+        .ball{
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 1rem;
+            background-color: rgb(242, 255, 0);
+        }
