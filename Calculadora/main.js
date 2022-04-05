@@ -22,13 +22,12 @@ btnsSelect.forEach(function(btn){
 
         checkOperation(valueBtn);
 
-
     })
 
 });
 
 function checkOperation(valueBtn){
-    if (valueBtn !== "resultado" && valueBtn !== "suma" && valueBtn !== "resta" && valueBtn !== "multiplicacion" && valueBtn !== "division"){
+    if (valueBtn !== "resultado" && valueBtn !== "suma" && valueBtn !== "resta" && valueBtn !== "multiplicacion" && valueBtn !== "division" && valueBtn !== "masmenos"){
         concatOrNot(valueBtn);
     }
 
@@ -47,7 +46,9 @@ function checkOperation(valueBtn){
     } else if (valueBtn === "resultado"){
         result();
         formDisplay.reset();
-    } 
+    } else if (valueBtn === "masmenos"){
+        changeOp();
+    }
 
 
     for (i = 0; i < posibleNums.length; i++){
@@ -56,7 +57,6 @@ function checkOperation(valueBtn){
             memoryDisplay.textContent = ``;
         }
     }
-
 
 }
 
@@ -145,12 +145,10 @@ function result(){
             nums = [];
             nums.push(total);
         } else {
-            memoryDisplay.textContent = `${nums[0]} +`
-        }
+                memoryDisplay.textContent = `${nums[0]} +`
+            }
 
-
-
-    } else if (resta == true){
+        } else if (resta == true){
 
         total = 0;
     
@@ -206,6 +204,42 @@ function result(){
             memoryDisplay.textContent = `${nums[0]} *`
         }
     }
+
+    return
+}
+
+function changeOp(){
+    let x = parseFloat(windowDisplay.value);
+    let xDos = (x * 0) + -x;
+
+
+    if (total){
+        if (Math.sign(total) == 1){
+            windowDisplay.value = `-${total}`;
+            total = windowDisplay.value;
+            nums = [];
+        } else {
+            windowDisplay.value = (total * 0) + -total;
+            total = windowDisplay.value;
+            nums = [];
+        }    
+    } else {
+
+        if (nums.length == 0){
+            if (Math.sign(x) == 1){
+                windowDisplay.value = `-${x}`;
+            } else {
+                windowDisplay.value = xDos;
+            }    
+        } else if (nums.length == 1){
+            if (Math.sign(x) == 1){
+                windowDisplay.value = `-${x}`;
+            } else {
+                windowDisplay.value = xDos;
+            } 
+        } 
+    }
+
 
     return
 }
