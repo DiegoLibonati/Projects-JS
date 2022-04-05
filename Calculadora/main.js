@@ -12,6 +12,7 @@ let multiplicacion = false;
 let division = false;
 
 let nums = [];
+let posibleNums = [0, 1 ,2 ,3, 4, 5, 6, 7, 8, 9];
 
 btnsSelect.forEach(function(btn){
 
@@ -20,6 +21,7 @@ btnsSelect.forEach(function(btn){
         valueBtn = e.currentTarget.dataset.id;
 
         checkOperation(valueBtn);
+
 
     })
 
@@ -32,20 +34,30 @@ function checkOperation(valueBtn){
 
     if (valueBtn === "suma"){
         sum();
-        windowDisplay.value = 0;
+        formDisplay.reset();
     } else if (valueBtn === "resta"){
         subtraction();
-        windowDisplay.value = 0;
+        formDisplay.reset();
     } else if (valueBtn === "multiplicacion"){
         mult();
-        windowDisplay.value = 0;
+        formDisplay.reset();
     } else if (valueBtn === "division"){
         div();
-        windowDisplay.value = 0;
+        formDisplay.reset();
     } else if (valueBtn === "resultado"){
         result();
-        windowDisplay.value = 0;
+        formDisplay.reset();
+    } 
+
+
+    for (i = 0; i < posibleNums.length; i++){
+        if (nums[0] == total && valueBtn == posibleNums[i]){
+            nums = [];
+            memoryDisplay.textContent = ``;
+        }
     }
+
+
 }
 
 function concatOrNot(num){
@@ -53,7 +65,6 @@ function concatOrNot(num){
     if (operation == false){
         windowDisplay.value += num;
     } else {
-        operation = false;
         formDisplay.reset();
     }
 
@@ -70,6 +81,8 @@ function sum(){
 
     result();
 
+    operation = false;
+
 }
 
 function subtraction(){
@@ -82,6 +95,8 @@ function subtraction(){
 
     result();
 
+    operation = false;
+
 }
 
 function mult(){
@@ -92,6 +107,8 @@ function mult(){
     multiplicacion = true;
 
     result();
+
+    operation = false;
 
 }
 
@@ -104,19 +121,20 @@ function div(){
 
     result();
 
+    operation = false;
+
 }
 
 function result(){
 
     if (suma == true){
 
-
         total = 0;
 
-        if (Number.isNaN(parseInt(windowDisplay.value))){
-            alert("Introduzca un numero antes de sumar")
+        if (Number.isNaN(parseFloat(windowDisplay.value))){
+            memoryDisplay.textContent = `${nums[0]} +`
         } else {
-            nums.push(parseInt(windowDisplay.value));
+            nums.push(parseFloat(windowDisplay.value));
         }
         
         if (nums.length == 2){
@@ -130,14 +148,16 @@ function result(){
             memoryDisplay.textContent = `${nums[0]} +`
         }
 
+
+
     } else if (resta == true){
 
         total = 0;
     
-        if (Number.isNaN(parseInt(windowDisplay.value))){
-            alert("Introduzca un numero antes de sumar")
+        if (Number.isNaN(parseFloat(windowDisplay.value))){
+            memoryDisplay.textContent = `${nums[0]} -`
         } else {
-            nums.push(parseInt(windowDisplay.value));
+            nums.push(parseFloat(windowDisplay.value));
         }
     
         if (nums.length == 2){
@@ -151,10 +171,10 @@ function result(){
     } else if (division == true){
         total = 0;
 
-        if (Number.isNaN(parseInt(windowDisplay.value))){
-            alert("Introduzca un numero antes de sumar")
+        if (Number.isNaN(parseFloat(windowDisplay.value))){
+            memoryDisplay.textContent = `${nums[0]} /`
         } else {
-            nums.push(parseInt(windowDisplay.value));
+            nums.push(parseFloat(windowDisplay.value));
         }
 
 
@@ -170,10 +190,10 @@ function result(){
     } else if (multiplicacion == true){
         total = 0;
 
-        if (Number.isNaN(parseInt(windowDisplay.value))){
-            alert("Introduzca un numero antes de sumar")
+        if (Number.isNaN(parseFloat(windowDisplay.value))){
+            memoryDisplay.textContent = `${nums[0]} *`
         } else {
-            nums.push(parseInt(windowDisplay.value));
+            nums.push(parseFloat(windowDisplay.value));
         }
     
     
