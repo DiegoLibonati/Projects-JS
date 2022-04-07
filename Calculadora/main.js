@@ -5,14 +5,17 @@ const btnsSelect = document.querySelectorAll(".btns_container button");
 
 let value;
 let operation = false;
-let total;
+let total = 0;
 let suma = false;
 let resta = false;
 let multiplicacion = false;
 let division = false;
+let x;
+let xDos;
 
 let nums = [];
 let posibleNums = [0, 1 ,2 ,3, 4, 5, 6, 7, 8, 9];
+let ceActive = false;
 
 btnsSelect.forEach(function(btn){
 
@@ -27,7 +30,18 @@ btnsSelect.forEach(function(btn){
 });
 
 function checkOperation(valueBtn){
-    if (valueBtn !== "resultado" && valueBtn !== "suma" && valueBtn !== "resta" && valueBtn !== "multiplicacion" && valueBtn !== "division" && valueBtn !== "masmenos"){
+    if (valueBtn !== "resultado" && 
+    valueBtn !== "suma" && 
+    valueBtn !== "resta" && 
+    valueBtn !== "multiplicacion" && 
+    valueBtn !== "division" && 
+    valueBtn !== "masmenos" && 
+    valueBtn !== "raizCuadrada" &&
+    valueBtn !== "exponente" &&
+    valueBtn !== "fraccion" &&
+    valueBtn !== "delete" &&
+    valueBtn !== "c" &&
+    valueBtn !== "ce"){
         concatOrNot(valueBtn);
     }
 
@@ -48,15 +62,33 @@ function checkOperation(valueBtn){
         formDisplay.reset();
     } else if (valueBtn === "masmenos"){
         changeOp();
+    } else if (valueBtn === "raizCuadrada"){
+        squareRoot();
+    } else if (valueBtn === "exponente"){
+        pow();
+    } else if (valueBtn === "fraccion"){
+        frac();
+    } else if (valueBtn === "delete"){
+        deleteNum();
+    } else if (valueBtn === "c"){
+        cPress();
+    } else if(valueBtn === "ce"){
+        cePress();
     }
 
 
     for (i = 0; i < posibleNums.length; i++){
-        if (nums[0] == total && valueBtn == posibleNums[i]){
+        if (total !== 0 && valueBtn == posibleNums[i] && operation == false && ceActive == false){
             nums = [];
+            total = 0;
+            windowDisplay.value = valueBtn;
             memoryDisplay.textContent = ``;
+        } 
+
+        if (total && valueBtn !== posibleNums[i] && operation == false && ceActive == false){
+            nums = [];
         }
-    }
+    } 
 
 }
 
@@ -69,7 +101,6 @@ function concatOrNot(num){
     }
 
 }
-
 
 function sum(){
 
@@ -148,6 +179,13 @@ function result(){
                 memoryDisplay.textContent = `${nums[0]} +`
             }
 
+            if (total == 0){
+                windowDisplay.removeAttribute("value");
+            } else {
+                windowDisplay.setAttribute("value", total);
+            }
+
+
         } else if (resta == true){
 
         total = 0;
@@ -165,6 +203,12 @@ function result(){
             nums.push(total);
         } else{
             memoryDisplay.textContent = `${nums[0]} -`
+        }
+
+        if (total == 0){
+            windowDisplay.removeAttribute("value");
+        } else {
+            windowDisplay.setAttribute("value", total);
         }
     } else if (division == true){
         total = 0;
@@ -185,6 +229,12 @@ function result(){
             memoryDisplay.textContent = `${nums[0]} /`
         }
 
+        if (total == 0){
+            windowDisplay.removeAttribute("value");
+        } else {
+            windowDisplay.setAttribute("value", total);
+        }
+
     } else if (multiplicacion == true){
         total = 0;
 
@@ -203,43 +253,131 @@ function result(){
         } else{
             memoryDisplay.textContent = `${nums[0]} *`
         }
+
+        if (total == 0){
+            windowDisplay.removeAttribute("value");
+        } else {
+            windowDisplay.setAttribute("value", total);
+        }
     }
 
     return
 }
 
 function changeOp(){
-    let x = parseFloat(windowDisplay.value);
-    let xDos = (x * 0) + -x;
+    x = parseFloat(windowDisplay.value);
+    xDos = (x * 0) + -x;
 
-
-    if (total){
-        if (Math.sign(total) == 1){
-            windowDisplay.value = `-${total}`;
-            total = windowDisplay.value;
-            nums = [];
-        } else {
-            windowDisplay.value = (total * 0) + -total;
-            total = windowDisplay.value;
-            nums = [];
-        }    
+    if (windowDisplay.value == ""){
+        windowDisplay.value = "";
+        console.log("No hay numeros para realizar esta operacion");
     } else {
-
-        if (nums.length == 0){
-            if (Math.sign(x) == 1){
-                windowDisplay.value = `-${x}`;
+        if (total){
+            if (Math.sign(total) == 1){
+                windowDisplay.value = `-${total}`;
+                total = windowDisplay.value;
+                nums = [];
             } else {
-                windowDisplay.value = xDos;
+                windowDisplay.value = (total * 0) + -total;
+                total = windowDisplay.value;
+                nums = [];
             }    
-        } else if (nums.length == 1){
-            if (Math.sign(x) == 1){
-                windowDisplay.value = `-${x}`;
-            } else {
-                windowDisplay.value = xDos;
+        } else {
+    
+            if (nums.length == 0){
+                if (Math.sign(x) == 1){
+                    windowDisplay.value = `-${x}`;
+                } else {
+                    windowDisplay.value = xDos;
+                }    
+            } else if (nums.length == 1){
+                if (Math.sign(x) == 1){
+                    windowDisplay.value = `-${x}`;
+                } else {
+                    windowDisplay.value = xDos;
+                } 
             } 
-        } 
+        }
     }
 
 
+
     return
+}
+
+function squareRoot(){
+    x = parseFloat(windowDisplay.value);
+
+    if (windowDisplay.value == ""){
+        windowDisplay.value = "";
+        console.log("No hay numeros para realizar esta operacion")
+    } else{
+        if (total){
+            windowDisplay.value = Math.sqrt(total);
+            nums = [];
+        } else {
+            windowDisplay.value = Math.sqrt(x);
+        }
+    }
+
+
+
+}
+
+function pow(){
+
+    x = parseFloat(windowDisplay.value);
+
+    if (windowDisplay.value == ""){
+        windowDisplay.value = "";
+        console.log("No hay numeros para realizar esta operacion");
+    } else {
+        let expNum = Math.pow(x, 2);
+        windowDisplay.value = expNum;
+    }
+
+}
+
+function frac(){
+    x = parseFloat(windowDisplay.value);
+
+    if (windowDisplay.value == ""){
+        windowDisplay.value = "";
+        console.log("No hay numeros para ejecutar esta operacion");
+    } else {
+        let fracNum = 1 / x;
+        windowDisplay.value = fracNum; 
+    }
+}
+
+function deleteNum(){
+
+    if (windowDisplay.value == ""){
+        windowDisplay.value = "";
+        console.log("No hay numeros para ejecutar esta operacion");
+    } else {
+        let newNum = windowDisplay.value.slice(0, -1);
+        windowDisplay.value = newNum;
+    }
+}
+
+function cPress(){
+    nums = [];
+    total = 0;
+    windowDisplay.value = "";
+    memoryDisplay.textContent = ``;
+}
+
+function cePress(){
+    x = parseFloat(windowDisplay.value);
+
+    if (total == 0){
+        windowDisplay.value = "";
+    } else {
+        windowDisplay.value = "";
+        memoryDisplay.textContent = ``;
+        nums.push(x);
+    }
+
+
 }
