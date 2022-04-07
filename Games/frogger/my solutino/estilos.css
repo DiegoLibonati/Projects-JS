@@ -15,10 +15,12 @@ img{
 body{
     width: 100vw;
     height: 100vh;
-    background-color: rgb(191, 255, 200);
 }
 
 .section_container{
+    display: flex;
+    align-items: flex-end;
+    background-image: url("https://as1.ftcdn.net/v2/jpg/03/90/33/70/1000_F_390337069_DTpt656NK0ZCPBMCvBsJzuXquwmEUlBY.jpg");
     position: absolute;
     width: 50%;
     height: 50%;
@@ -30,12 +32,28 @@ body{
         position: absolute;
         width: 2%;
         height: 5%;
+        z-index: 3;
         background-color: blue;
     }
 
-    .enemy{
+
+    .street{
         position: absolute;
-        width: 2%;
-        height: 5%;
-        background-color: rgb(255, 0, 0);
+        background-image: url("https://thumbs.dreamstime.com/b/una-carretera-recta-horizontal-ilustraci%C3%B3n-del-vector-de-carreteras-rectas-asfalto-202648476.jpg");
+        background-size: 46rem;
+        z-index: 1;
+        width: 100%;
+        height: 25%;
+        background-color: #000;
+        margin-bottom: 3rem;
     }
+        .enemy{
+            position: absolute;
+            width: 10%;
+            height: 5%;
+            z-index: 2;
+            background: url("ar.png");
+            background-size: 10rem;
+            background-size: cover;
+            background-position: center;
+        }
