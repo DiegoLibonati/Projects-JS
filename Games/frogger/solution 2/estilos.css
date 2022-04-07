@@ -1,0 +1,47 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.grid{
+    position: absolute;
+    width: 560px;
+    height: 300px;
+    border: .1rem solid #000;
+    margin-top: 20px;
+}
+
+.block{
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: #00f;
+}
+
+.user {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: rgb(255, 0, 0);
+}
+
+.ball{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(242, 255, 0);
+}
