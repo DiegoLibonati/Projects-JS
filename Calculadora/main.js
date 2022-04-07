@@ -12,8 +12,11 @@ let multiplicacion = false;
 let division = false;
 let x;
 let xDos;
+let xOp
 
 let nums = [];
+let ceNums = [];
+let lastOp = [];
 let posibleNums = [0, 1 ,2 ,3, 4, 5, 6, 7, 8, 9];
 let ceActive = false;
 
@@ -41,40 +44,57 @@ function checkOperation(valueBtn){
     valueBtn !== "fraccion" &&
     valueBtn !== "delete" &&
     valueBtn !== "c" &&
-    valueBtn !== "ce"){
+    valueBtn !== "ce" &&
+    valueBtn !== "porcentaje"){
         concatOrNot(valueBtn);
+    } else {
+
+        if (valueBtn === "suma"){
+            xOp = valueBtn;
+            sum();
+            formDisplay.reset();
+        } else if (valueBtn === "resta"){
+            xOp = valueBtn;
+            subtraction();
+            formDisplay.reset();
+        } else if (valueBtn === "multiplicacion"){
+            xOp = valueBtn;
+            mult();
+            formDisplay.reset();
+        } else if (valueBtn === "division"){
+            xOp = valueBtn;
+            div();
+            formDisplay.reset();
+        } else if (valueBtn === "resultado"){
+            result();
+            formDisplay.reset();
+        } else if (valueBtn === "masmenos"){
+            changeOp();
+        } else if (valueBtn === "raizCuadrada"){
+            squareRoot();
+        } else if (valueBtn === "exponente"){
+            pow();
+        } else if (valueBtn === "fraccion"){
+            frac();
+        } else if (valueBtn === "delete"){
+            deleteNum();
+        } else if (valueBtn === "c"){
+            cPress();
+        } else if(valueBtn === "ce"){
+            cePress();
+        } else if (valueBtn === "porcentaje") {
+            percentage();
+        }
+
+        if (lastOp.length > 0) {
+            lastOp = [];
+
+            lastOp.push(xOp);
+        } else {
+            lastOp.push(xOp);
+        }
     }
 
-    if (valueBtn === "suma"){
-        sum();
-        formDisplay.reset();
-    } else if (valueBtn === "resta"){
-        subtraction();
-        formDisplay.reset();
-    } else if (valueBtn === "multiplicacion"){
-        mult();
-        formDisplay.reset();
-    } else if (valueBtn === "division"){
-        div();
-        formDisplay.reset();
-    } else if (valueBtn === "resultado"){
-        result();
-        formDisplay.reset();
-    } else if (valueBtn === "masmenos"){
-        changeOp();
-    } else if (valueBtn === "raizCuadrada"){
-        squareRoot();
-    } else if (valueBtn === "exponente"){
-        pow();
-    } else if (valueBtn === "fraccion"){
-        frac();
-    } else if (valueBtn === "delete"){
-        deleteNum();
-    } else if (valueBtn === "c"){
-        cPress();
-    } else if(valueBtn === "ce"){
-        cePress();
-    }
 
 
     for (i = 0; i < posibleNums.length; i++){
@@ -88,9 +108,61 @@ function checkOperation(valueBtn){
         if (total && valueBtn !== posibleNums[i] && operation == false && ceActive == false){
             nums = [];
         }
+
+
+        }
+
+        if (ceActive == true){
+            nums = [];
+
+            if (ceNums.length == 2){
+                
+                if (valueBtn == "resultado"){
+                    if (lastOp[0] == "suma"){
+                        windowDisplay.value = ceNums[0] + ceNums[1];
+                        total = parseFloat(windowDisplay.value);
+                        nums.push(total);
+                        memoryDisplay.textContent = `${ceNums[1]} + ${ceNums[0]} = ${total}`;
+                        ceActive = false;
+                    } else if(lastOp[0] == "multiplicacion"){
+                        windowDisplay.value = ceNums[0] * ceNums[1];
+                        total = parseFloat(windowDisplay.value);
+                        nums.push(total);
+                        memoryDisplay.textContent = `${ceNums[1]} * ${ceNums[0]} = ${total}`;
+                        ceActive = false;
+                    } else if (lastOp[0] == "resta") {
+                        windowDisplay.value = ceNums[0] - ceNums[1];
+                        total = parseFloat(windowDisplay.value);
+                        nums.push(total);
+                        memoryDisplay.textContent = `${ceNums[1]} - ${ceNums[0]} = ${total}`;
+                        ceActive = false;
+                    } else if (lastOp[0] == "division") {
+                        windowDisplay.value = ceNums[0] / ceNums[1];
+                        total = parseFloat(windowDisplay.value);
+                        nums.push(total);
+                        memoryDisplay.textContent = `${ceNums[1]} / ${ceNums[0]} = ${total}`;
+                        ceActive = false;
+                    }
+
+
+                    ceNums.pop();
+                } else {
+                    ceActive = false;
+                }
+
+            } else {
+                if (isNaN(parseFloat(windowDisplay.value))){
+                    console.log("No push")
+                } else {
+                    ceNums.push(parseFloat(windowDisplay.value));
+                }
+            }
+
+        }
+
     } 
 
-}
+
 
 function concatOrNot(num){
 
@@ -173,6 +245,12 @@ function result(){
                 total += nums[i];
             }
             memoryDisplay.textContent = `${nums[0]} + ${nums[1]} = ${total}`;
+            if (ceNums.length >= 1){
+                console.log("No se puede pushear mas")
+            } else {
+                ceNums.push(nums[1]);
+            }
+
             nums = [];
             nums.push(total);
         } else {
@@ -199,6 +277,11 @@ function result(){
         if (nums.length == 2){
             total = nums[0] - nums[1]; 
             memoryDisplay.textContent = `${nums[0]} - ${nums[1]} = ${total}`;
+            if (ceNums.length >= 1){
+                console.log("No se puede pushear mas")
+            } else {
+                ceNums.push(nums[1]);
+            }
             nums = [];
             nums.push(total);
         } else{
@@ -223,6 +306,11 @@ function result(){
         if (nums.length == 2){
             total = nums[0] / nums[1]; 
             memoryDisplay.textContent = `${nums[0]} / ${nums[1]} = ${total}`;
+            if (ceNums.length >= 1){
+                console.log("No se puede pushear mas")
+            } else {
+                ceNums.push(nums[1]);
+            }
             nums = [];
             nums.push(total);
         } else{
@@ -248,6 +336,11 @@ function result(){
         if (nums.length == 2){
             total = nums[0] * nums[1]; 
             memoryDisplay.textContent = `${nums[0]} * ${nums[1]} = ${total}`;
+            if (ceNums.length >= 1){
+                console.log("No se puede pushear mas")
+            } else {
+                ceNums.push(nums[1]);
+            }
             nums = [];
             nums.push(total);
         } else{
@@ -370,6 +463,7 @@ function cPress(){
 
 function cePress(){
     x = parseFloat(windowDisplay.value);
+    ceActive = true;
 
     if (total == 0){
         windowDisplay.value = "";
@@ -379,5 +473,19 @@ function cePress(){
         nums.push(x);
     }
 
+    if (ceActive == false){
+        ceNums = [];
+    }
 
+}
+
+function percentage(){
+
+    if (nums.length == 1){
+        x = parseFloat(windowDisplay.value);
+
+        windowDisplay.value = x / 100;
+    } else {
+        console.log("No se puede realizar esta operacion porque faltan numeros")
+    }
 }
