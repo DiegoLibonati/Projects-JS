@@ -21,12 +21,35 @@ body{
     display: flex;
     align-items: flex-end;
     background-image: url("https://as1.ftcdn.net/v2/jpg/03/90/33/70/1000_F_390337069_DTpt656NK0ZCPBMCvBsJzuXquwmEUlBY.jpg");
+    background-size: cover;
+    background-position: center;
     position: absolute;
     width: 50%;
     height: 50%;
     border: .3rem solid #000;
     margin: 1rem;
 }
+
+.gameover{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+    .gameoverImage{
+        width: 100%;
+        height: 30%;
+        position: absolute;
+        z-index: 5;
+        background-size: 30rem;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
     .user{
         position: absolute;
@@ -49,8 +72,8 @@ body{
     }
         .enemy{
             position: absolute;
-            width: 10%;
-            height: 5%;
+            width: 6.1rem;
+            height: 2.3rem;
             z-index: 2;
             background: url("ar.png");
             background-size: 10rem;
