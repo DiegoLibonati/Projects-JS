@@ -3,6 +3,8 @@ const boardDisplayWidth = boardDisplay.offsetWidth;
 const boardDisplayHeight = boardDisplay.offsetHeight;
 const enemyWidth = 61;
 const enemyHeight = 23;
+const turret = document.querySelector(".turret");
+const turret2 = document.querySelector(".turret2");
 
 class Cars{
     constructor(x, y){
@@ -37,8 +39,8 @@ const carsCreate = [
     new Cars(spawnsRandomPositive[5], 100),
     new Cars(spawnsRandomPositive[6], 100),
     new Cars(spawnsRandomPositive[7], 100),
-    new Cars(50, 215),
-    new Cars(500, 214),
+    new Cars(`${0 + turret.offsetWidth}`, 215),
+    new Cars(`${boardDisplayWidth - turret2.offsetWidth}`, 214),
 ];
 
 let userStart = [250,0];
@@ -86,6 +88,8 @@ function moveEnemy(){
 }
 
 function drawEnemy(){
+    const turret = document.querySelector(".turret");
+    const turret2 = document.querySelector(".turret2");
     
     for (i = 0; i < carsCreate.length; i++){
         let newCar = document.getElementById(`${i}`);
@@ -106,14 +110,14 @@ function drawEnemy(){
             } else if (carsCreate[i].y === 50){
                 newCar.style.left = `${carsCreate[i].x += 10}px`
             } else if (carsCreate[i].y === 215){
-                if (carsCreate[i].x > 500){
+                if (carsCreate[i].x > boardDisplayWidth - turret2.offsetWidth){
                     carsCreate[i].x = 50;
                 }
                 newCar.style.backgroundImage = "url(https://thepngstock.com/storage/bullet-art-design-2d-and-3d-vector.png-thu_b18ec332-2592-442e-aa4e-326b06be117b.png)"
                 newCar.style.left = `${carsCreate[i].x += 10}px`
             } else if (carsCreate[i].y === 214){
-                if (carsCreate[i].x < 50){
-                    carsCreate[i].x = 500;
+                if (carsCreate[i].x < 0 + turret.offsetWidth){
+                    carsCreate[i].x = boardDisplayWidth - turret2.offsetWidth;
                 }
                 newCar.style.backgroundImage = "url(https://thepngstock.com/storage/bullet-art-design-2d-and-3d-vector.png-thu_b18ec332-2592-442e-aa4e-326b06be117b.png)"
                 newCar.style.left = `${carsCreate[i].x -= 10}px`
@@ -170,10 +174,12 @@ function detectCollision(){
 
     const turretOne = document.querySelector(".turret");
     const turretTwo = document.querySelector(".turret2");
+    const displayWater = document.querySelector(".waterImg");
     const user = document.querySelector(".user");
     userPosition = user.getBoundingClientRect();
     turretOnePosition = turretOne.getBoundingClientRect();
     turretTwoPosition = turretTwo.getBoundingClientRect();
+    displayWaterPosition = displayWater.getBoundingClientRect();
 
     for (i = 0; i < carsCreate.length; i++){
 
@@ -201,7 +207,7 @@ function detectCollision(){
         
     }
 
-    console.log(turretOnePosition)
+    console.log(displayWaterPosition)
 
 }
 
@@ -241,7 +247,7 @@ function spawnPositionCars(){
 }
 
 // Intervals
-let intervalMoveEnemy = setInterval(moveEnemy, 100);
+let intervalMoveEnemy = setInterval(moveEnemy, 1000);
 
 
 
