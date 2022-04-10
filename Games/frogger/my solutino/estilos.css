@@ -20,7 +20,7 @@ body{
 .section_container{
     display: flex;
     align-items: flex-end;
-    background-image: url("https://as1.ftcdn.net/v2/jpg/03/90/33/70/1000_F_390337069_DTpt656NK0ZCPBMCvBsJzuXquwmEUlBY.jpg");
+    background-image: url("https://opengameart.org/sites/default/files/grass_14.png");
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -75,8 +75,31 @@ body{
             width: 6.1rem;
             height: 2.3rem;
             z-index: 2;
-            background: url("ar.png");
-            background-size: 10rem;
             background-size: cover;
             background-position: center;
+        }
+
+    .war{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        background-image: url("https://i.pinimg.com/736x/bb/a2/06/bba206a3681252f0c63eeaae64524153.jpg");
+        background-size: 46rem;
+        z-index: 1;
+        width: 100%;
+        height: 25%;
+        background-color: #000;
+        margin-bottom: 17rem;
+    }
+
+        .turret{
+            height: 50%;
+            width: 10%;
+            transform: rotate(180deg);
+        }
+
+        .turret2{
+            height: 50%;
+            width: 10%;
         }
