@@ -15,7 +15,54 @@ img{
 body{
     width: 100vw;
     height: 100vh;
+    background-color: rgba(32, 21, 136, 0.3);
 }
+
+.header_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 7rem;
+    background-color: rgba(32, 21, 136, 0.3);
+    border: .3rem solid rgb(0, 0, 0);
+}
+    .div_container h2{
+        font-size: 3.5rem;
+        letter-spacing: .2rem;
+    }
+
+.section_container_information{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom: 0;
+    margin: auto;
+    width: 50%;
+    height: 15rem;
+    background-color: rgba(32, 21, 136, 0.2);
+    margin-top: .3rem;
+}
+
+    .section_div{
+        padding: 1rem;
+    }
+
+    .section_div h1{
+        font-size: 3rem;
+        text-align: center;
+        color: #fff;
+    }
+
+    .section_div p{
+        font-size: 2rem;
+        color: #fff;
+        text-align: center;
+    }
 
 .section_container{
     display: flex;
@@ -27,7 +74,11 @@ body{
     width: 50%;
     height: 50%;
     border: .3rem solid #000;
-    margin: 1rem;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left:0;
+    margin: auto;
 }
 
 .gameover{
@@ -51,12 +102,26 @@ body{
         background-repeat: no-repeat;
     }
 
+    .gameover button{
+        position: absolute;
+        bottom: 12rem;
+        font-size: 2rem;
+        padding: 1rem;
+        border: none;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 1rem;
+        color: #fff;
+    }
+
     .user{
         position: absolute;
-        width: 2%;
-        height: 5%;
+        width: 2rem;
+        height: 2.5rem;
         z-index: 3;
-        background-color: blue;
+        background: url("among_us_run.gif");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 
 
@@ -79,6 +144,17 @@ body{
             background-position: center;
         }
 
+        .bullets{
+            position: absolute;
+            background-image: url("bullet.png");
+            background-position: center; 
+            width: 5rem;
+            height: 1.4rem;
+            z-index: 2;
+            background-size: cover;
+            background-position: center;
+        }
+
     .war{
         display: flex;
         align-items: center;
@@ -96,11 +172,13 @@ body{
             height: 50%;
             width: 10%;
             transform: rotate(180deg);
+            border: .1rem solid #000;
         }
 
         .turret2{
             height: 50%;
             width: 10%;
+            border: .1rem solid #000;
         }
 
     .water{
@@ -122,7 +200,7 @@ body{
             display: none;
             position: absolute;
             height: 100%;
-            width: 10%;
+            width: 8%;
             background:url("bridge.png");
             background-size: 5rem;
             background-repeat: no-repeat;
@@ -138,3 +216,44 @@ body{
         height: 8%;
         top: 0;
     }
+
+
+    .final_win{
+        display: none;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        background-image: url("https://opengameart.org/sites/default/files/grass_14.png");
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        border: .3rem solid #000;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left:0;
+        margin: auto;
+    }
+
+        .final_win h2{
+            font-size: 5rem;
+            background-color: rgba(3, 3,3, 0.5);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .win_gif{
+            width: 25rem;
+        }
+
+        .final_win button{
+            font-size: 2rem;
+            padding: 1rem;
+            border: none;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 1rem;
+            color: #fff;
+        }

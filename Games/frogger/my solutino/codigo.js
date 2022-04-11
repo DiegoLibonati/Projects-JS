@@ -1,4 +1,7 @@
 const boardDisplay = document.querySelector(".section_container");
+const winDisplay = document.querySelector(".final_win");
+const buttonResetWin = document.querySelector(".final_win button");
+const buttonResetLose = document.querySelector(".gameover button");
 const turret = document.querySelector(".turret");
 const turret2 = document.querySelector(".turret2");
 const displayBridge = document.querySelector(".puente");
@@ -7,7 +10,16 @@ const boardDisplayHeight = boardDisplay.offsetHeight;
 const enemyWidth = 61;
 const enemyHeight = 23;
 
+console.log(boardDisplayWidth)
+
 class Cars{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+}
+
+class Bullets{
     constructor(x, y){
         this.x = x;
         this.y = y;
@@ -41,8 +53,11 @@ const carsCreate = [
     new Cars(spawnsRandomPositive[5], 100),
     new Cars(spawnsRandomPositive[6], 100),
     new Cars(spawnsRandomPositive[7], 100),
-    new Cars(`${0 + turret.offsetWidth}`, 215),
-    new Cars(`${boardDisplayWidth - turret2.offsetWidth}`, 214),
+];
+
+const bulletsCreate = [
+    new Bullets(`${0 + turret.offsetWidth}`, 215),
+    new Bullets(`${boardDisplayWidth - turret2.offsetWidth}`, 214),
 ];
 
 let userStart = [250,0];
@@ -65,10 +80,18 @@ let wastedAudio = new Audio("wasted.ogg");
 
 // Add events listeners
 document.addEventListener("keydown", moveUser);
+buttonResetWin.addEventListener("click", (e)=>{
+    e.preventDefault();
+    window.location.reload()
+})
+buttonResetLose.addEventListener("click", (e)=>{
+    e.preventDefault();
+    window.location.reload()
+})
 
 // functions 
 
-// F Enemy
+// F Enemy CARS && BULLETS
 function createEnemys(){
     for (i = 0; i < carsCreate.length; i++){
         const enemy = document.createElement("div");
@@ -79,6 +102,15 @@ function createEnemys(){
         enemy.style.bottom = `${carsCreate[i].y}px`;
         spawnPositionCars();
         randomSprite(enemy);
+    }    
+
+    for (i = 0; i < bulletsCreate.length; i++){
+        const enemy = document.createElement("div");
+        enemy.setAttribute("class", "bullets");
+        enemy.setAttribute("id", i + 20);
+        boardDisplay.append(enemy);
+        enemy.style.left = `${bulletsCreate[i].x}px`;
+        enemy.style.bottom = `${bulletsCreate[i].y}px`;
     }    
 }
 
@@ -109,23 +141,32 @@ function drawEnemy(){
                 newCar.style.left = `${carsCreate[i].x -= 10}px`;
             } else if (carsCreate[i].y === 50){
                 newCar.style.left = `${carsCreate[i].x += 10}px`
-            } else if (carsCreate[i].y === 215){
-                if (carsCreate[i].x > boardDisplayWidth - turret2.offsetWidth){
-                    carsCreate[i].x = 50;
-                }
-                newCar.style.backgroundImage = "url(https://thepngstock.com/storage/bullet-art-design-2d-and-3d-vector.png-thu_b18ec332-2592-442e-aa4e-326b06be117b.png)"
-                newCar.style.left = `${carsCreate[i].x += 10}px`
-            } else if (carsCreate[i].y === 214){
-                if (carsCreate[i].x < 0 + turret.offsetWidth){
-                    carsCreate[i].x = boardDisplayWidth - turret2.offsetWidth;
-                }
-                newCar.style.backgroundImage = "url(https://thepngstock.com/storage/bullet-art-design-2d-and-3d-vector.png-thu_b18ec332-2592-442e-aa4e-326b06be117b.png)"
-                newCar.style.left = `${carsCreate[i].x -= 10}px`
-                newCar.style.transform = "rotate(180deg)"
             }
         }
         }
-    }
+
+        
+        for (i = 0; i < bulletsCreate.length; i++){
+            let newBullet = document.getElementById(`${i + 20}`);
+            
+            if (bulletsCreate[i].y === 215){
+                if (bulletsCreate[i].x > boardDisplayWidth - turret2.offsetWidth - turret2.offsetWidth){
+                    bulletsCreate[i].x = 65;
+                } else {
+                    newBullet.style.left = `${bulletsCreate[i].x += 10}px`
+                }
+
+            } else if (bulletsCreate[i].y === 214){
+                if (bulletsCreate[i].x < 0 + turret.offsetWidth){
+                    bulletsCreate[i].x = boardDisplayWidth - turret2.offsetWidth;
+                }
+                newBullet.style.left = `${bulletsCreate[i].x-= 10}px`
+                newBullet.style.transform = "rotate(180deg)"
+            }
+        }
+
+
+}
 
 
 // F User
@@ -144,13 +185,15 @@ function moveUser(e){
     switch(e.key){
 
         case "ArrowLeft":
-        user.style.left = `${currentPositionUser[0] -= 20}px`;
+        user.style.left = `${currentPositionUser[0] -= 10}px`;
+        user.style.transform = "rotateY(180deg)"
         detectCollision();
         userDraw();
         break;
 
         case "ArrowRight":
-        user.style.left = `${currentPositionUser[0] += 20}px`;
+        user.style.left = `${currentPositionUser[0] += 10}px`;
+        user.style.transform = "rotateY(0deg)"
         detectCollision();
         userDraw();
         break;
@@ -178,6 +221,8 @@ function detectCollision(){
     const user = document.querySelector(".user");
     const displayBridge = document.querySelector(".puente"); 
     const displayWin = document.querySelector(".win");
+    const enemys = document.querySelectorAll(".enemy");
+    const bullets = document.querySelectorAll(".bullets");
     userPosition = user.getBoundingClientRect();
     turretOnePosition = turretOne.getBoundingClientRect();
     turretTwoPosition = turretTwo.getBoundingClientRect();
@@ -185,42 +230,99 @@ function detectCollision(){
     displayBridgePosition = displayBridge.getBoundingClientRect();
     displayWinPosition = displayWin.getBoundingClientRect();
 
-    for (i = 0; i < carsCreate.length; i++){
 
-        if ((currentPositionUser[0] > carsCreate[i].x && currentPositionUser[0] < carsCreate[i].x + enemyWidth) && (currentPositionUser[1] > carsCreate[i].y && currentPositionUser[1] < carsCreate[i].y + enemyHeight)){
+// Collisions Cars
+    enemys.forEach(function(enemy){
+        enemyPosition = enemy.getBoundingClientRect();
+
+        if (userPosition.x > enemyPosition.x + enemyPosition.width ||
+            userPosition.x + userPosition.width < enemyPosition.x ||
+            userPosition.y > enemyPosition.y + enemyPosition.height ||
+            userPosition.y + userPosition.height < enemyPosition.y
+            ){
+                console.log("No collision with Cars")
+        } else {
             gameOver = true;
             checkGameOver();
             console.log("Auto")
         }
-    
-        if (currentPositionUser[0] == carsCreate[i].x && currentPositionUser[1] == carsCreate[i].y){
+
+    });
+
+// Colissions Bullets
+
+    bullets.forEach(function(bullet){
+        bulletPosition = bullet.getBoundingClientRect();
+
+        if (userPosition.x > bulletPosition.x + bulletPosition.width ||
+            userPosition.x + userPosition.width < bulletPosition.x ||
+            userPosition.y > bulletPosition.y + bulletPosition.height ||
+            userPosition.y + userPosition.height < bulletPosition.y
+            ){
+                console.log("No collision with Bullet")
+        } else {
             gameOver = true;
             checkGameOver();
-            console.log("Auto 2")
+            console.log("Bullet")
         }
-}
+    });
 
-if ((userPosition.x > turretOnePosition.x - turretOnePosition.width && userPosition.x < turretOnePosition.x + turretOnePosition.width && userPosition.y > turretOnePosition.y - turretOnePosition.height && userPosition.y < turretOnePosition.y + turretOnePosition.height) ||
-(userPosition.x > turretTwoPosition.x - turretTwoPosition.width && userPosition.x < turretTwoPosition.x + turretTwoPosition.width && userPosition.y > turretTwoPosition.y - turretTwoPosition.height && userPosition.y < turretTwoPosition.y + turretTwoPosition.height)){
+
+// Colission Turret One
+    if (userPosition.x > turretOnePosition.x + turretOnePosition.width ||
+        userPosition.x + userPosition.width < turretOnePosition.x ||
+        userPosition.y > turretOnePosition.y + turretOnePosition.height ||
+        userPosition.y + userPosition.height < turretOnePosition.y
+        ){
+            console.log("No collision with Turret One")
+    } else{
+        console.log("Turret")
+        gameOver = true;
+        checkGameOver();
+    }
+
+// Colission Turret Two
+if (userPosition.x > turretTwoPosition.x + turretTwoPosition.width ||
+    userPosition.x + userPosition.width < turretTwoPosition.x ||
+    userPosition.y > turretTwoPosition.y + turretTwoPosition.height ||
+    userPosition.y + userPosition.height < turretTwoPosition.y
+    ){
+        console.log("No collision with Turret Two")
+} else{
+    console.log("Turret")
     gameOver = true;
     checkGameOver();
-    console.log("Turret")
 }
 
-    if ((userPosition.x > displayWaterPosition.x - displayWaterPosition.width && userPosition.x < displayWaterPosition.x + displayWaterPosition.width && userPosition.y > displayWaterPosition.y - displayWaterPosition.height && userPosition.y < displayWaterPosition.y + displayWaterPosition.height) && 
-    !(userPosition.x > displayBridgePosition.x - displayBridgePosition.width && userPosition.x < displayBridgePosition.x + displayBridgePosition.width && userPosition.y > displayBridgePosition.y - displayBridgePosition.height && userPosition.y < displayBridgePosition.y + displayBridgePosition.height)){
+
+    if ((userPosition.x > displayWaterPosition.x + displayWaterPosition.width ||
+        userPosition.x + userPosition.width < displayWaterPosition.x ||
+        userPosition.y > displayWaterPosition.y + displayWaterPosition.height ||
+        userPosition.y + userPosition.height < displayWaterPosition.y) || !(userPosition.x > displayBridgePosition.x + displayBridgePosition.width ||
+            userPosition.x + userPosition.width < displayBridgePosition.x ||
+            userPosition.y > displayBridgePosition.y + displayBridgePosition.height ||
+            userPosition.y + userPosition.height < displayBridgePosition.y)
+        ){
+            gameOver = false;
+    } else {
         gameOver = true;
         checkGameOver();
         console.log("Agua")
-    } else {
-        gameOver = false;
-        checkGameOver();
-}
+    }
 
     if ((userPosition.x > displayWinPosition.x - displayWinPosition.width && userPosition.x < displayWinPosition.x + displayWinPosition.width && userPosition.y > displayWinPosition.y - displayWinPosition.height && userPosition.y < displayWinPosition.y + displayWinPosition.height)){
        gameOver = "win";
        checkGameOver(); 
     }
+
+    if (currentPositionUser[0] < 0){
+        currentPositionUser[0] = boardDisplayWidth - userPosition.width;
+    } else if (currentPositionUser[0] > boardDisplayWidth){
+        currentPositionUser[0] = 0;
+    } else if (currentPositionUser[1] < 0){
+        currentPositionUser[1] = 5;
+    }
+
 
 }
 
@@ -274,6 +376,8 @@ function checkGameOver(){
         clearInterval(intervalMoveEnemy);
         clearInterval(intervalDisplayBridge);
         document.removeEventListener("keydown", moveUser);
+        boardDisplay.remove(boardDisplay);
+        winDisplay.style.display = "flex";
         console.log("GANASTE")
     }
 
@@ -289,10 +393,13 @@ function bridgeDisplay(displayBridge){
         displayBridge.style.display = "block";
         isDisplay.push(1);
         let randomValueBridge = Math.floor(Math.random() * 2000);
-        console.log(randomValueBridge)
         return randomValueBridge
     }
 
+
+}
+
+function playAgain(){
 
 }
 
