@@ -68,7 +68,7 @@ body{
         width: 100%;
         height: 25%;
         background-color: #000;
-        margin-bottom: 3rem;
+        bottom: 3rem;
     }
         .enemy{
             position: absolute;
@@ -89,7 +89,7 @@ body{
         width: 100%;
         height: 25%;
         background-color: #000;
-        margin-bottom: 17rem;
+        bottom: 17rem;
     }
 
         .turret{
@@ -105,12 +105,36 @@ body{
 
     .water{
         position: absolute;
+        display: flex;
+        justify-content: center;
         width: 100%;
         height: 20%;
-        margin-bottom: 32rem;
+        bottom: 32rem;
     }
 
         .waterImg{
+            position: absolute;
             height: 100%;
             width: 100%;
         }
+
+        .puente{
+            display: none;
+            position: absolute;
+            height: 100%;
+            width: 10%;
+            background:url("bridge.png");
+            background-size: 5rem;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+    .win{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(255, 0, 0);
+        width: 100%;
+        height: 8%;
+        top: 0;
+    }

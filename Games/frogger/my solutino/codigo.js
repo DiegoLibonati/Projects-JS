@@ -1,10 +1,11 @@
 const boardDisplay = document.querySelector(".section_container");
+const turret = document.querySelector(".turret");
+const turret2 = document.querySelector(".turret2");
+const displayBridge = document.querySelector(".puente");
 const boardDisplayWidth = boardDisplay.offsetWidth;
 const boardDisplayHeight = boardDisplay.offsetHeight;
 const enemyWidth = 61;
 const enemyHeight = 23;
-const turret = document.querySelector(".turret");
-const turret2 = document.querySelector(".turret2");
 
 class Cars{
     constructor(x, y){
@@ -15,6 +16,7 @@ class Cars{
 
 const spawnsRandomNegative = [];
 const spawnsRandomPositive = [];
+let isDisplay = [];
 
 randomSpawn();
 
@@ -49,6 +51,8 @@ let currentPositionUser = userStart;
 let enemyStart;
 let currentPositionEnemy;
 
+let gameOver = false;
+
 createEnemys();
 createUser();
 userDraw();
@@ -59,10 +63,6 @@ const user = document.querySelector(".user");
 
 let wastedAudio = new Audio("wasted.ogg");
 
-
-
-
-console.log(carsCreate)
 // Add events listeners
 document.addEventListener("keydown", moveUser);
 
@@ -176,40 +176,55 @@ function detectCollision(){
     const turretTwo = document.querySelector(".turret2");
     const displayWater = document.querySelector(".waterImg");
     const user = document.querySelector(".user");
+    const displayBridge = document.querySelector(".puente"); 
+    const displayWin = document.querySelector(".win");
     userPosition = user.getBoundingClientRect();
     turretOnePosition = turretOne.getBoundingClientRect();
     turretTwoPosition = turretTwo.getBoundingClientRect();
     displayWaterPosition = displayWater.getBoundingClientRect();
+    displayBridgePosition = displayBridge.getBoundingClientRect();
+    displayWinPosition = displayWin.getBoundingClientRect();
 
     for (i = 0; i < carsCreate.length; i++){
 
         if ((currentPositionUser[0] > carsCreate[i].x && currentPositionUser[0] < carsCreate[i].x + enemyWidth) && (currentPositionUser[1] > carsCreate[i].y && currentPositionUser[1] < carsCreate[i].y + enemyHeight)){
-            clearInterval(intervalMoveEnemy);
-            document.removeEventListener("keydown", moveUser);
-            setTimeout(displayGameOver, 2150)
-            wastedAudio.play();
+            gameOver = true;
+            checkGameOver();
+            console.log("Auto")
         }
     
         if (currentPositionUser[0] == carsCreate[i].x && currentPositionUser[1] == carsCreate[i].y){
-            clearInterval(intervalMoveEnemy);
-            document.removeEventListener("keydown", moveUser);
-            setTimeout(displayGameOver, 2150)
-            wastedAudio.play();
+            gameOver = true;
+            checkGameOver();
+            console.log("Auto 2")
         }
+}
 
-        if ((userPosition.x > turretOnePosition.x - turretOnePosition.width && userPosition.x < turretOnePosition.x + turretOnePosition.width && userPosition.y > turretOnePosition.y - turretOnePosition.height && userPosition.y < turretOnePosition.y + turretOnePosition.height) ||
-        (userPosition.x > turretTwoPosition.x - turretTwoPosition.width && userPosition.x < turretTwoPosition.x + turretTwoPosition.width && userPosition.y > turretTwoPosition.y - turretTwoPosition.height && userPosition.y < turretTwoPosition.y + turretTwoPosition.height)){
-            clearInterval(intervalMoveEnemy);
-            document.removeEventListener("keydown", moveUser);
-            setTimeout(displayGameOver, 2150)
-            wastedAudio.play();
-        }
-        
+if ((userPosition.x > turretOnePosition.x - turretOnePosition.width && userPosition.x < turretOnePosition.x + turretOnePosition.width && userPosition.y > turretOnePosition.y - turretOnePosition.height && userPosition.y < turretOnePosition.y + turretOnePosition.height) ||
+(userPosition.x > turretTwoPosition.x - turretTwoPosition.width && userPosition.x < turretTwoPosition.x + turretTwoPosition.width && userPosition.y > turretTwoPosition.y - turretTwoPosition.height && userPosition.y < turretTwoPosition.y + turretTwoPosition.height)){
+    gameOver = true;
+    checkGameOver();
+    console.log("Turret")
+}
+
+    if ((userPosition.x > displayWaterPosition.x - displayWaterPosition.width && userPosition.x < displayWaterPosition.x + displayWaterPosition.width && userPosition.y > displayWaterPosition.y - displayWaterPosition.height && userPosition.y < displayWaterPosition.y + displayWaterPosition.height) && 
+    !(userPosition.x > displayBridgePosition.x - displayBridgePosition.width && userPosition.x < displayBridgePosition.x + displayBridgePosition.width && userPosition.y > displayBridgePosition.y - displayBridgePosition.height && userPosition.y < displayBridgePosition.y + displayBridgePosition.height)){
+        gameOver = true;
+        checkGameOver();
+        console.log("Agua")
+    } else {
+        gameOver = false;
+        checkGameOver();
+}
+
+    if ((userPosition.x > displayWinPosition.x - displayWinPosition.width && userPosition.x < displayWinPosition.x + displayWinPosition.width && userPosition.y > displayWinPosition.y - displayWinPosition.height && userPosition.y < displayWinPosition.y + displayWinPosition.height)){
+       gameOver = "win";
+       checkGameOver(); 
     }
 
-    console.log(displayWaterPosition)
-
 }
+
+
 
 function randomSpawn(){
 
@@ -246,8 +261,44 @@ function spawnPositionCars(){
     currentPositionEnemy = enemyStart;
 }
 
+function checkGameOver(){
+    if (gameOver == true){
+        clearInterval(intervalMoveEnemy);
+        clearInterval(intervalDisplayBridge);
+        document.removeEventListener("keydown", moveUser);
+        setTimeout(displayGameOver, 2150)
+        wastedAudio.play();
+    }
+
+    if (gameOver == "win"){
+        clearInterval(intervalMoveEnemy);
+        clearInterval(intervalDisplayBridge);
+        document.removeEventListener("keydown", moveUser);
+        console.log("GANASTE")
+    }
+
+    gameOver = false;
+}
+
+function bridgeDisplay(displayBridge){
+
+    if (isDisplay.includes(1)){
+        isDisplay = [];
+        displayBridge.style.display = "none";
+    } else {
+        displayBridge.style.display = "block";
+        isDisplay.push(1);
+        let randomValueBridge = Math.floor(Math.random() * 2000);
+        console.log(randomValueBridge)
+        return randomValueBridge
+    }
+
+
+}
+
 // Intervals
-let intervalMoveEnemy = setInterval(moveEnemy, 1000);
+let intervalMoveEnemy = setInterval(moveEnemy, 50);
+let intervalDisplayBridge = setInterval(function() {bridgeDisplay(displayBridge);}, bridgeDisplay(displayBridge));
 
 
 
