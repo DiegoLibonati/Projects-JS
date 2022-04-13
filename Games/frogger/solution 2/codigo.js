@@ -1,181 +1,184 @@
-const grid = document.querySelector(".grid");
-const blockWidth = 100;
-const blockHeight = 20;
-const boardWidth = 560;
-const boardHeight = 300;
-const ballDiameter = 20;
+const timeLeftDisplay = document.querySelector("#time-left");
+const resultDisplay = document.querySelector("#result");
+const startPauseButton = document.querySelector("#start-pause-button");
+const squares = document.querySelectorAll(".grid div");
+const logsLeft = document.querySelectorAll(".log-left");
+const logsRight = document.querySelectorAll(".log-right");
+const carsLeft = document.querySelectorAll(".car-left");
+const carsRight = document.querySelectorAll(".car-right");
+
+
+let currentIndex = 0;
+const width = 9;
+let currentTime = 20;
 let timerId;
-let xDirection = 2;
-let yDirection = 2;
-let score = 0;
+let outcomeTimerId
 
-const userStart = [230, 10];
-let currentPosition = userStart;
+function moveFrog(e){
 
-const ballStart = [270, 40];
-let ballCurrentPosition = ballStart;
+    squares[currentIndex].classList.remove("frog");
 
-
-
-// create block
-
-class Block {
-    constructor(xAxis, yAxis){
-        this.bottomLeft = [xAxis, yAxis];
-        this.bottomRight = [xAxis + blockWidth, yAxis];
-        this.topLeft = [xAxis, yAxis + blockHeight];
-        this.topRight = [xAxis + blockWidth, yAxis + blockHeight];
-    }
-}
-
-// All my blocks
-const blocks = [
-    new Block(10, 270),
-    new Block(120, 270),
-    new Block(230, 270),
-    new Block(340, 270),
-    new Block(450, 270),
-    new Block(10, 240),
-    new Block(120, 240),
-    new Block(230, 240),
-    new Block(340, 240),
-    new Block(450, 240),
-    new Block(10, 210),
-    new Block(120, 210),
-    new Block(230, 210),
-    new Block(340, 210),
-    new Block(450, 210),
-]
-
-console.log(blocks[0])
-
-// draw my block
-function addBlocks(){
-
-    for(let i = 0; i < blocks.length; i++){
-    const block = document.createElement("div");
-    block.classList.add("block");
-    block.style.left = blocks[i].bottomLeft[0] + "px";
-    block.style.bottom = blocks[i].bottomLeft[1] + "px";
-    grid.appendChild(block);
-    }
-}
-
-addBlocks();
-
-// draw the ball
-function drawBall(){
-    ball.style.left = ballCurrentPosition[0] + "px";
-    ball.style.bottom = ballCurrentPosition[1] + "px";
-}
-
-
-// add user
-
-const user = document.createElement("div");
-user.classList.add("user");
-drawUser();
-grid.appendChild(user)
-
-function drawUser(){
-    user.style.left = currentPosition[0] + "px";
-    user.style.bottom = currentPosition[1] + "px";
-}
-
-// move user 
-function moveUser(e){
     switch(e.key){
-        case "ArrowLeft":
-            if(currentPosition[0] > 0){
-                currentPosition[0] -= 10;
-                drawUser();
-            }
+    case "ArrowLeft":
+        if (currentIndex % width !== 0) currentIndex -= 1;
+    break
+    case "ArrowRight":
+        if (currentIndex % width < width - 1) currentIndex += 1;
+    break
+    case "ArrowUp":
+        if (currentIndex - width >= 0) currentIndex -= width;
+    break
+    case "ArrowDown":
+        if (currentIndex + width < width * width) currentIndex += width;
+    break
+    }
+
+    squares[currentIndex].classList.add("frog");
+
+}
+
+
+
+function autoMoveElements(){
+
+    currentTime--;
+    timeLeftDisplay.textContent = currentTime;
+
+    logsLeft.forEach(logLeft => moveLogLeft(logLeft));
+    logsRight.forEach(logsRight => moveLogRight(logsRight));
+
+    carsLeft.forEach(carLeft => moveCarLeft(carLeft));
+    carsRight.forEach(carRight => moveCarRight(carRight));
+
+
+}
+
+function checkOutComes(){
+    lose();
+    win();
+}
+
+
+function moveLogLeft(logLeft){
+    switch(true){
+        case logLeft.classList.contains("l1"):
+            logLeft.classList.remove("l1");
+            logLeft.classList.add("l2");
             break;
-        case "ArrowRight":
-            if(currentPosition[0] < boardWidth - blockWidth){
-                currentPosition[0] +=10
-                drawUser();
-            }
-            break;
+            case logLeft.classList.contains("l2"):
+                logLeft.classList.remove("l2");
+                logLeft.classList.add("l3");
+                break;
+                case logLeft.classList.contains("l3"):
+                    logLeft.classList.remove("l3");
+                    logLeft.classList.add("l4");
+                    break;
+                    case logLeft.classList.contains("l4"):
+                        logLeft.classList.remove("l4");
+                        logLeft.classList.add("l5");
+                        break;
+                        case logLeft.classList.contains("l5"):
+                            logLeft.classList.remove("l5");
+                            logLeft.classList.add("l1");
+                            break;
     }
 }
 
-document.addEventListener("keydown", moveUser);
-
-
-// create ball
-
-const ball = document.createElement("div");
-ball.classList.add("ball");
-drawBall();
-grid.appendChild(ball);
-
-// move ball
-function moveBall(){
-    ballCurrentPosition[0] += xDirection;
-    ballCurrentPosition[1] += yDirection;
-    drawBall();
-    checkForCollisions();
+function moveLogRight(logsRight){
+    switch(true){
+        case logsRight.classList.contains("l1"):
+            logsRight.classList.remove("l1");
+            logsRight.classList.add("l5");
+            break;
+            case logsRight.classList.contains("l2"):
+                logsRight.classList.remove("l2");
+                logsRight.classList.add("l1");
+                break;
+                case logsRight.classList.contains("l3"):
+                    logsRight.classList.remove("l3");
+                    logsRight.classList.add("l2");
+                    break;
+                    case logsRight.classList.contains("l4"):
+                        logsRight.classList.remove("l4");
+                        logsRight.classList.add("l3");
+                        break;
+                        case logsRight.classList.contains("l5"):
+                            logsRight.classList.remove("l5");
+                            logsRight.classList.add("l4");
+                            break;
+    }
 }
 
-timerId = setInterval(moveBall, 30);
-
-// check for collisions
-
-function checkForCollisions(){
-    // check for block collision
-    for (let i = 0; i < blocks.length; i++){
-        if ((ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) && (ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1]){
-            const allBlocks = Array.from(document.querySelectorAll(".block")); 
-            allBlocks[i].classList.remove("block");
-            blocks.splice(i, 1);
-            changeDirection();
-            score++
-            document.querySelector("#score").innerHTML = score;
-
-            // check for win 
-            if(blocks.length === 0){
-                document.querySelector("#score").innerHTML = "You win";
-                clearInterval(timerId);
-                document.removeEventListener("keydown", moveUser);
-            }
-        }
+function moveCarLeft(carLeft){
+    switch(true){
+        case carLeft.classList.contains("c1"):
+            carLeft.classList.remove("c1");
+            carLeft.classList.add("c2");
+            break;
+            case carLeft.classList.contains("c2"):
+                carLeft.classList.remove("c2");
+                carLeft.classList.add("c3");
+                break;
+                case carLeft.classList.contains("c3"):
+                    carLeft.classList.remove("c3");
+                    carLeft.classList.add("c1");
+                    break;
     }
+}
 
-    //check for wall collisions
-    if (ballCurrentPosition[0] >= (boardWidth - ballDiameter) || ballCurrentPosition[1] >=(boardHeight - ballDiameter) || ballCurrentPosition[0] <= 0) {
-        changeDirection()
+function moveCarRight(carRight){
+    switch(true){
+        case carRight.classList.contains("c1"):
+            carRight.classList.remove("c1");
+            carRight.classList.add("c3");
+            break;
+            case carRight.classList.contains("c2"):
+                carRight.classList.remove("c2");
+                carRight.classList.add("c1");
+                break;
+                case carRight.classList.contains("c3"):
+                    carRight.classList.remove("c3");
+                    carRight.classList.add("c2");
+                    break;
     }
+}
 
-    // check for user collision
-    if ((ballCurrentPosition[0] > currentPosition[0] && ballCurrentPosition[0] < currentPosition[0] + blockWidth) && (ballCurrentPosition[1] > currentPosition[1] && ballCurrentPosition[1] < currentPosition[1] + blockHeight)){
-        changeDirection();
-    }
 
-    // check for game over
-    if (ballCurrentPosition[1] <= 0){
+function lose(){
+    if (squares[currentIndex].classList.contains("c1") ||
+    squares[currentIndex].classList.contains("l4")||
+    squares[currentIndex].classList.contains("l5") ||
+    currentTime <= 0
+    ){
+        resultDisplay.textContent = "You lose!";
         clearInterval(timerId);
-        document.querySelector("#score").innerHTML = "You lose"
-        document.removeEventListener("keydown", moveUser);
+        clearInterval(outcomeTimerId);
+        squares[currentIndex].classList.remove("frog");
+        document.removeEventListener("keyup", moveFrog);
     }
 }
 
-function changeDirection(){
-    if (xDirection === 2 && yDirection === 2){
-        yDirection = -2;
-        return
+function win(){
+    if (squares[currentIndex].classList.contains("ending-block")){
+        resultDisplay.textContent = "You Win!";
+        clearInterval(timerId);
+        clearInterval(outcomeTimerId);
+        document.removeEventListener("keyup", moveFrog);
     }
-    if (xDirection === 2 && yDirection === -2){
-        xDirection = -2;
-        return
-    }
-    if(xDirection === -2 && yDirection === -2){
-        yDirection = 2;
-        return
-    }
-    if(xDirection === -2 && yDirection === 2){
-        xDirection = 2;
-        return
-    }
-
 }
+
+startPauseButton.addEventListener("click", ()=>{
+    if (timerId){
+        clearInterval(timerId)
+        clearInterval(outcomeTimerId);
+        outcomeTimerId = null;
+        timerId = null;
+        document.removeEventListener("keyup", moveFrog);
+    } else {
+        timerId = setInterval(autoMoveElements, 1000);
+        outcomeTimerId = setInterval(checkOutComes, 50);
+        document.addEventListener("keyup", moveFrog);
+    }
+});
+
+

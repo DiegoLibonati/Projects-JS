@@ -16,32 +16,44 @@ body{
     height: 100vh;
 }
 
-.grid{
-    position: absolute;
-    width: 560px;
-    height: 300px;
-    border: .1rem solid #000;
-    margin-top: 20px;
+.grid {
+    border: 1px solid black;
+    height: 180px;
+    width: 180px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.block{
-    position: absolute;
-    width: 100px;
+.grid div{
     height: 20px;
-    background-color: #00f;
-}
-
-.user {
-    position: absolute;
-    width: 100px;
-    height: 20px;
-    background-color: rgb(255, 0, 0);
-}
-
-.ball{
-    position: absolute;
     width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: rgb(242, 255, 0);
+}
+
+.ending-block {
+    background-color: red;
+}
+
+.starting-block{
+    background-color: blue;
+}
+
+
+.l1, .l2, .l3 {
+    background-color: brown;
+}
+
+.l4, .l5{
+    background-color: lightblue;
+}
+
+.c1{
+    background-color: wheat;
+}
+
+.c2, .c3{
+    background-color: black;
+}
+
+.frog{
+    background-color: green;
 }
