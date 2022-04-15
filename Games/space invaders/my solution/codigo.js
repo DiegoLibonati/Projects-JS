@@ -30,6 +30,7 @@ function createEnemys(){
         board.append(enemy);
         enemy.style.left = `${invadersArray[i].coord[0]}px`;
         enemy.style.bottom = `${invadersArray[i].coord[1]}px`;
+
     }
 }
 
@@ -57,7 +58,6 @@ function moveUser(e){
 function createBullets(){
     const bullet = document.createElement("div");
     bullet.setAttribute("class", "bullet");
-    bullet.setAttribute("id", `f${i}`);
     board.append(bullet);
     bullet.style.left = `${currentUser[0]}px`;
     bullet.style.bottom = `10px`;
@@ -65,21 +65,62 @@ function createBullets(){
 }
 
 function moveBullet(){
+    const bullet = document.querySelector(".bullet");
+    const boardPosition = board.getBoundingClientRect();
 
-        for (i = 0; i < bulletsArray.length; i++){
-            const bullet = document.getElementById(`f${i}`);
-            bullet.style.bottom =  `${bulletsArray[i] += 10}px`
+    if (bulletsArray < 1){
+        document.addEventListener("click", createBullets);
+    } else {
+        const bulletPosition = bullet.getBoundingClientRect();
+        bullet.style.bottom = `${bulletsArray[0] += 10}px`;
+        document.removeEventListener("click", createBullets);
 
-            if (bulletsArray[i] > 600){
-                bullet.style.left = `10px`;
-                bullet.style.bottom = `600px`;
-            }
-
-
+        if (bulletPosition.x > boardPosition.x + boardPosition.width ||
+            bulletPosition.x + bulletPosition.width < boardPosition.x ||
+            bulletPosition.y > boardPosition.y + boardPosition.height ||
+            bulletPosition.y + bulletPosition.height < boardPosition.y
+            ){
+                bullet.classList.remove("bullet");
+                bullet.remove();
+                bulletsArray = [];
         }
+
+    }
+
+
+
+    col();
 
 }
 
+
+function col(){
+    const bullets = document.querySelectorAll(".bullet");   
+    const enemys = document.querySelectorAll(".enemy");
+
+
+    bullets.forEach(function(bullet){
+        bulletPosition = bullet.getBoundingClientRect();
+
+        for (i = 0; i < enemys.length; i++){
+            const enemyPosition = enemys[i].getBoundingClientRect();
+
+            if (bulletPosition.x > enemyPosition.x + enemyPosition.width ||
+                bulletPosition.x + bulletPosition.width < enemyPosition.x ||
+                bulletPosition.y > enemyPosition.y + enemyPosition.height ||
+                bulletPosition.y + bulletPosition.height < enemyPosition.y
+                ){
+                    console.log("No collision with Cars")
+            } else {
+                    bullet.classList.remove("bullet");
+                    enemys[i].classList.remove("enemy");
+                    bullet.remove();
+                    bulletsArray = [];
+            }
+
+        }
+    });
+}
 
 // call f 
 createEnemys();
@@ -87,7 +128,7 @@ createUser();
 
 // Events
 document.addEventListener("keydown", moveUser);
-document.addEventListener("click", createBullets);
+
 
 // intervals
 setInterval(moveBullet, 50);
