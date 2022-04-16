@@ -5,6 +5,12 @@ let currentUser = userStart;
 
 let bulletsArray = [];
 
+let goR = true;
+let goL = false;
+
+let moveBulletInterval;
+let moveEnemyInterval;
+
 class invaders{
     constructor(x, y){
         this.coord = [x,y];
@@ -20,6 +26,14 @@ const invadersArray = [
     new invaders (170, 420),
     new invaders (200, 420),
     new invaders (230, 420),
+    new invaders (20, 390),
+    new invaders (50, 390),
+    new invaders (80, 390),
+    new invaders (110, 390),
+    new invaders (140, 390),
+    new invaders (170, 390),
+    new invaders (200, 390),
+    new invaders (230, 390),
 ];
 
 function createEnemys(){
@@ -32,6 +46,48 @@ function createEnemys(){
         enemy.style.bottom = `${invadersArray[i].coord[1]}px`;
 
     }
+}
+
+function moveEnemys(){
+    const enemys = document.querySelectorAll(".enemy");
+    const boardPosition = board.getBoundingClientRect();
+
+    for (i = 0; i < invadersArray.length; i++){
+
+        enemyPosition = enemys[i].getBoundingClientRect();
+
+        if (enemyPosition.x > boardPosition.x + boardPosition.width - 30){
+
+            goR = false;
+            goL = true;
+
+            for (i = 0; i < invadersArray.length; i++){
+                enemys[i].style.bottom = `${invadersArray[i].coord[1] -= 20}px`;
+            }
+
+
+        } else if (enemyPosition.x + enemyPosition.width < boardPosition.x + 30){
+            for (i = 0; i < invadersArray.length; i++){
+                enemys[i].style.bottom = `${invadersArray[i].coord[1] -= 20}px`;
+            }
+            goR = true;
+            goL = false;
+
+        }
+    }
+
+    for (i = 0; i < invadersArray.length; i++){
+        if (goR == true && goL == false){
+            enemys[i].style.left = `${invadersArray[i].coord[0] += 10}px`;
+        }
+        
+        if (goR == false && goL == true){
+            enemys[i].style.left = `${invadersArray[i].coord[0] -= 10}px`;
+        }
+    }
+
+    checkCollision();
+
 }
 
 function createUser(){
@@ -89,14 +145,16 @@ function moveBullet(){
 
 
 
-    col();
+    checkCollision();
 
 }
 
 
-function col(){
+function checkCollision(){
     const bullets = document.querySelectorAll(".bullet");   
     const enemys = document.querySelectorAll(".enemy");
+    const user = document.querySelector(".user");
+    const userPosition = user.getBoundingClientRect();
 
 
     bullets.forEach(function(bullet){
@@ -114,12 +172,33 @@ function col(){
             } else {
                     bullet.classList.remove("bullet");
                     enemys[i].classList.remove("enemy");
+                    invadersArray.splice(i, 1);
+                    console.log(invadersArray)
+                    enemys[i].remove();
                     bullet.remove();
                     bulletsArray = [];
             }
-
         }
     });
+
+
+    for (i = 0; i < enemys.length; i++){
+        const enemyPosition = enemys[i].getBoundingClientRect();
+
+        if (userPosition.x > enemyPosition.x + enemyPosition.width ||
+            userPosition.x + userPosition.width < enemyPosition.x ||
+            userPosition.y > enemyPosition.y + enemyPosition.height ||
+            userPosition.y + userPosition.height < enemyPosition.y
+            ){
+            } else {
+                clearInterval(moveBulletInterval);
+                clearInterval(moveEnemyInterval);
+            }
+    }
+
+
+
+
 }
 
 // call f 
@@ -131,7 +210,10 @@ document.addEventListener("keydown", moveUser);
 
 
 // intervals
-setInterval(moveBullet, 50);
+moveBulletInterval = setInterval(moveBullet, 50);
+moveEnemyInterval = setInterval(moveEnemys, 1000);
+
+
 
 
 
