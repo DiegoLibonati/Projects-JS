@@ -49,6 +49,10 @@ Projects JS creating games.
 # Rock, paper, scissor
 # Memory Game
 # Whac-a-mole
+# Breakout
+# Connect Four
+# Frogger
+# Space Invaders
 
 
 # Contact
