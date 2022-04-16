@@ -11,6 +11,10 @@ let goL = false;
 let moveBulletInterval;
 let moveEnemyInterval;
 
+let score = 0;
+
+
+
 class invaders{
     constructor(x, y){
         this.coord = [x,y];
@@ -34,6 +38,30 @@ const invadersArray = [
     new invaders (170, 390),
     new invaders (200, 390),
     new invaders (230, 390),
+    new invaders (20, 360),
+    new invaders (50, 360),
+    new invaders (80, 360),
+    new invaders (110, 360),
+    new invaders (140, 360),
+    new invaders (170, 360),
+    new invaders (200, 360),
+    new invaders (230, 360),
+    new invaders (20, 330),
+    new invaders (50, 330),
+    new invaders (80, 330),
+    new invaders (110, 330),
+    new invaders (140, 330),
+    new invaders (170, 330),
+    new invaders (200, 330),
+    new invaders (230, 330),
+    new invaders (20, 300),
+    new invaders (50, 300),
+    new invaders (80, 300),
+    new invaders (110, 300),
+    new invaders (140, 300),
+    new invaders (170, 300),
+    new invaders (200, 300),
+    new invaders (230, 300),
 ];
 
 function createEnemys(){
@@ -69,6 +97,7 @@ function moveEnemys(){
         } else if (enemyPosition.x + enemyPosition.width < boardPosition.x + 30){
             for (i = 0; i < invadersArray.length; i++){
                 enemys[i].style.bottom = `${invadersArray[i].coord[1] -= 20}px`;
+
             }
             goR = true;
             goL = false;
@@ -100,13 +129,19 @@ function createUser(){
 
 function moveUser(e){
     const user = document.querySelector(".user");
+    const userPosition  = user.getBoundingClientRect();
 
     switch(e.key){
         case "ArrowLeft":
-            user.style.left = `${currentUser[0] -= 10}px`;
+            if (currentUser[0] > 0){
+                user.style.left = `${currentUser[0] -= 10}px`;
+            }
+
             break;
         case "ArrowRight":
-            user.style.left = `${currentUser[0] += 10}px`;
+            if (currentUser[0] < (300 - userPosition.width)){
+                user.style.left = `${currentUser[0] += 10}px`;
+            }
             break;
     }
 }
@@ -177,6 +212,20 @@ function checkCollision(){
                     enemys[i].remove();
                     bullet.remove();
                     bulletsArray = [];
+
+                    score++
+
+                    document.querySelector(".score").innerHTML = score;
+
+                    if (invadersArray.length === 0){
+                        document.querySelector(".result").innerHTML = "YOU WIN";
+                        document.removeEventListener("keydown", moveUser);
+                        document.removeEventListener("click", createBullets);
+                        clearInterval(moveBulletInterval);
+                        clearInterval(moveEnemyInterval);
+                        document.querySelector(".descripction button").style.display = "block";
+
+                    }
             }
         }
     });
@@ -193,6 +242,10 @@ function checkCollision(){
             } else {
                 clearInterval(moveBulletInterval);
                 clearInterval(moveEnemyInterval);
+                document.querySelector(".result").innerHTML = "YOU LOSE";
+                document.removeEventListener("keydown", moveUser);
+                document.removeEventListener("click", createBullets);
+                document.querySelector(".descripction button").style.display = "block";
             }
     }
 
@@ -201,17 +254,25 @@ function checkCollision(){
 
 }
 
+function playAgain(){
+    window.location.reload()
+}
+
 // call f 
 createEnemys();
 createUser();
 
 // Events
 document.addEventListener("keydown", moveUser);
+document.addEventListener("click", playAgain)
 
 
 // intervals
 moveBulletInterval = setInterval(moveBullet, 50);
-moveEnemyInterval = setInterval(moveEnemys, 1000);
+moveEnemyInterval = setInterval(moveEnemys, 500);
+
+
+
 
 
 

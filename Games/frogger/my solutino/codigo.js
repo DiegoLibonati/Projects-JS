@@ -399,9 +399,6 @@ function bridgeDisplay(displayBridge){
 
 }
 
-function playAgain(){
-
-}
 
 // Intervals
 let intervalMoveEnemy = setInterval(moveEnemy, 50);
