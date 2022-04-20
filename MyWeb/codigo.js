@@ -2,6 +2,7 @@ const btnsNav = document.querySelectorAll(".div_center_logo i");
 const shownav = document.querySelector(".div_center_nav");
 const btnShowInfo = document.querySelector(".div_info button");
 
+
 const colors = "ABCDEF1234567890";
 const queryMatch = window.matchMedia("(min-width: 768px)");
 let randomNumber;
@@ -13,6 +14,7 @@ let intervalRNC;
 let intervalRNO;
 let intervalHeaderResponsive;
 let arrayResponsive = [];
+const dataText = ["WELCOME TO MY WORLD"];
 
 let sectionFirstShowInfo = false;
 
@@ -155,32 +157,56 @@ function showInfo(){
     
     if (queryMatch.matches){
         if (sectionFirstShowInfo == true){
-            document.querySelector(".div_info p").style.height = "0";
-            document.querySelector(".div_info p").style.width = "0";
-            document.querySelector(".div_info p").style.opacity = "0";
-            document.querySelector(".div_info p").style.padding = "0";
-            document.querySelector(".div_info button i").setAttribute("class", "fa-solid fa-angle-right");
-    
-            sectionFirstShowInfo = false;
+
         } else {
-            document.querySelector(".div_info p").style.height = "auto";
             document.querySelector(".div_info p").style.opacity = "1";
             document.querySelector(".div_info p").style.padding = "10px";
-            document.querySelector(".div_info p").style.width = "auto";
-            document.querySelector(".div_info button i").setAttribute("class", "fa-solid fa-angle-left");
-    
+            document.querySelector(".div_info p").style.height = "75%";
+            document.querySelector(".div_info p").style.width = "90%";
+            document.querySelector(".div_info button").style.display = "none";
+            document.querySelector(".div_info img").style.filter = "blur(2px)";
+            const button = document.createElement("button");
+            button.innerHTML = "x"
+            button.setAttribute("class", "closeButton");
+            document.querySelector(".div_info").append(button);
+            const btnCloseInfo = document.querySelector(".closeButton");
+            btnCloseInfo.style.width = "25px";
+            btnCloseInfo.style.height = "30px";
+
+
+            btnCloseInfo.addEventListener("click", closeInfo);
+
+            function closeInfo(){
+                if (queryMatch.matches){
+                    document.querySelector(".div_info p").style.height = "0";
+                    document.querySelector(".div_info p").style.width = "0";
+                    document.querySelector(".div_info p").style.opacity = "0";
+                    document.querySelector(".div_info p").style.padding = "0";
+                    document.querySelector(".div_info button").style.display = "block";
+                    document.querySelector(".div_info img").style.filter = "blur(0px)";
+            
+                    btnCloseInfo.remove();
+                    sectionFirstShowInfo = false;
+                } 
+            }
+
             sectionFirstShowInfo = true;
         }
     } else {
         if (sectionFirstShowInfo == true){
+            document.querySelector(".div_center").style.height = "450px";
             document.querySelector(".div_info p").style.height = "0";
             document.querySelector(".div_info p").style.width = "0";
             document.querySelector(".div_info p").style.opacity = "0";
             document.querySelector(".div_info p").style.padding = "0";
+            document.querySelector(".div_info img").style.borderBottom = "1.5px solid #fff";
             document.querySelector(".div_info button i").setAttribute("class", "fa-solid fa-angle-down");
     
             sectionFirstShowInfo = false;
         } else {
+            document.querySelector(".div_center").style.height = "800px";
+            document.querySelector(".div_info img").style.border = "none";
+            document.querySelector(".div_info p").style.borderBottom = "1.5px solid #fff";
             document.querySelector(".div_info p").style.height = "auto";
             document.querySelector(".div_info p").style.opacity = "1";
             document.querySelector(".div_info p").style.padding = "10px";
@@ -198,13 +224,14 @@ function showInfo(){
 document.addEventListener("DOMContentLoaded", (event)=>{
 
     if(queryMatch.matches){
-        document.querySelector(".div_info button i").setAttribute("class", "fa-solid fa-angle-right");
+        document.querySelector(".div_info button i").remove();
+        document.querySelector(".div_info button").innerHTML = "MORE INFO"
     } else {
         document.querySelector(".div_info button i").setAttribute("class", "fa-solid fa-angle-down");
     }
 
 
-  const dataText = ["WELCOME TO MY WORLD"];
+
   
   function typeWriter(text, i, fnCallback) {
 
@@ -225,6 +252,7 @@ document.addEventListener("DOMContentLoaded", (event)=>{
   }
 
    function StartTextAnimation(i) {
+
      if (typeof dataText[i] == 'undefined'){
         setTimeout(function() {
           StartTextAnimation(0);
@@ -234,8 +262,6 @@ document.addEventListener("DOMContentLoaded", (event)=>{
     if (i < dataText[i].length) {
 
      typeWriter(dataText[i], 0, function(){
-
-       StartTextAnimation(i + 1);
      });
     }
   }
