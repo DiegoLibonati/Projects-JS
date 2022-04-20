@@ -1,6 +1,17 @@
 const btnsNav = document.querySelectorAll(".div_center_logo i");
 const shownav = document.querySelector(".div_center_nav");
 const btnShowInfo = document.querySelector(".div_info button");
+const btnsPortfolio = document.querySelectorAll(".portfolioButton");
+const containerH2 = document.querySelector(".section_portfolio_content h2");
+const containerPrincipal = document.querySelector(".section_portfolio_content-grid");
+
+const titlePython = document.querySelector(".portfolio_python_title");
+const listPython = document.querySelector(".portfolio_python_list");
+const buttonClosePython = document.querySelector(".portfolio_python_title button");
+const btnsPythonList = document.querySelectorAll(".btnPythonList");
+const questionsPythonList = document.querySelectorAll(".info");
+
+
 
 
 const colors = "ABCDEF1234567890";
@@ -9,6 +20,7 @@ let randomNumber;
 let randomColor;
 let hexColor;
 let valueNav;
+let valueBtn;
 let intervalHeaderFullScreen;
 let intervalRNC;
 let intervalRNO;
@@ -43,7 +55,10 @@ btnsNav.forEach(function(btn){
                 }
 
                 document.querySelector(".div_center_logo").style.border = `none`;
-                document.querySelector(".header_container").style.border = `5px solid ${hexColor}` 
+                document.querySelector(".header_container").style.border = `5px solid ${hexColor}`
+                document.querySelector(".header_container").style.height = "200px";
+                document.querySelector(".div_center_logo").style.height = "80px";
+                document.querySelector(".nav_container").style.height = "120px";
 
             }
             clearInterval(intervalRNC);
@@ -67,7 +82,10 @@ btnsNav.forEach(function(btn){
                 }
 
                 document.querySelector(".div_center_logo").style.border = `5px solid ${hexColor}`;
-                document.querySelector(".header_container").style.border = `none`
+                document.querySelector(".header_container").style.border = `none`;
+                document.querySelector(".header_container").style.height = "80px";
+                document.querySelector(".div_center_logo").style.height = "80px";
+                document.querySelector(".nav_container").style.height = "0px";
             }
             clearInterval(intervalRNO);
             intervalRNC = setInterval(rainbowNavClose, 1000);
@@ -269,3 +287,66 @@ document.addEventListener("DOMContentLoaded", (event)=>{
   StartTextAnimation(0);
 
 });
+
+
+// Portfolio Section
+
+btnsPortfolio.forEach(function(btn){
+    btn.addEventListener("click", showPortofolio);
+})
+
+function showPortofolio(e){
+
+    valueBtn = e.currentTarget.dataset.id;
+
+    if (valueBtn === "python"){
+
+        containerH2.style.display = "none";
+        containerPrincipal.style.display = "none";
+
+        titlePython.style.opacity = "1";
+        listPython.style.opacity = "1";
+
+        document.querySelector(".section_portfolio_content").style.height = "600px";
+        document.querySelector(".section_portfolio").style.height = "800px";
+
+
+        buttonClosePython.addEventListener("click", (e)=>{
+
+            document.querySelector(".section_portfolio_content").style.height = "1000px";
+            document.querySelector(".section_portfolio").style.height = "1200px";
+                
+            titlePython.style.opacity = "0";
+            listPython.style.opacity = "0";
+
+            containerH2.style.display = "block";
+            containerPrincipal.style.display = "flex";
+
+        });
+
+    }
+
+    if (valueBtn === "javascript"){
+
+    }
+}
+
+btnsPythonList.forEach(function(btn){
+    btn.addEventListener("click", ()=>{
+
+        const textRes = btn.parentElement.parentElement.children[1];
+
+        textRes.classList.toggle("show_text");
+
+        questionsPythonList.forEach(function(question){
+
+            if (question !== textRes){
+                question.classList.remove("show_text");
+            }
+
+        });
+
+
+
+    });
+})

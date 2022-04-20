@@ -20,9 +20,10 @@ body{
 .header_container{
     position: fixed;
     width: 100%;
-    height: 20rem;
+    height: 8rem;
     z-index: 1;
     transition: 1s border;
+    overflow: hidden;
 }
 
     .nav_container{
@@ -32,7 +33,7 @@ body{
         justify-content: space-between;
         flex-flow: column wrap;
         width: 100%;
-        height: 60%;
+        height: 0rem;
     }
 
         .div_center_logo{
@@ -40,7 +41,7 @@ body{
             align-items: center;
             justify-content: space-around;
             width: 100%;
-            height: 40%;
+            height: 100%;
             background-color: rgba(0, 0, 0);
             transition: 1s border;
         }
@@ -150,7 +151,7 @@ body{
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-top: 7.5rem;
+    margin-top: 8rem;
     width: 100vw;
     background: url("https://www.wallpapertip.com/wmimgs/91-917056_fondos-de-pantalla-paisajes-4k.jpg");
     background-size: cover;
@@ -367,29 +368,35 @@ body{
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
+    height: 120rem;
 }
 
     .section_portfolio_title{
         width: 100%;
-        height: 10%;
+        height: 15rem;
+        text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
     }
         .section_portfolio_title h2{
-            font-size: 3rem;
+            font-size: 5rem;
         }
 
         .section_portfolio_title span{
-            color: rgb(64, 0, 255);
-            font-size: 3rem;
+            color: #00FFC6;
+            font-size: 5rem;
         }
 
     .section_portfolio_content{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
         width: 80%;
-        height: 89%;
-        background-color: rgb(100, 100, 100);
+        height: 100rem;
+        background-color: #247881;
+        overflow: hidden;
+        box-shadow: .5rem .5rem .5rem .5rem;
     }
 
         .section_portfolio_content-grid{
@@ -398,7 +405,18 @@ body{
             justify-content: space-evenly;
             align-items: center;
             width: 100%;
-            height: 100%;
+            height: 90%;
+        }
+
+        .section_portfolio_content-grid h3{
+            font-size: 3rem;
+            letter-spacing: .5rem;
+        }
+
+        .section_portfolio_content h2{
+            text-align: center;
+            font-size: 5rem;
+            padding: .5rem;
         }
 
         .section_portfolio_content_grid-len{
@@ -413,28 +431,10 @@ body{
             background-position: center;
             background-size:contain;
             border: .5rem solid #000;
+            background-color: #43919B;
         }
 
-            .section_portfolio_content_grid-len h3{
-                font-size: 4rem;
-                font-weight: 1000;
-                color: rgb(255, 255, 255);
-                background-color: rgba(0, 0, 0, 0.422);
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
-
-            .section_portfolio_content_grid-len p{
-                font-size: 3rem;
-                text-align: center;
-                font-weight: 1000;
-                color: rgba(255, 255, 255, 0.916);
-                background-color: rgba(0, 0, 0, 0.422);
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
-
-            .section_portfolio_content_grid-len button{
+            .portfolioButton{
                 font-size: 2rem;
                 color: rgb(255, 255, 255);
                 padding: 1rem;
@@ -456,29 +456,10 @@ body{
             background-position: center;
             background-size:contain;
             border: .5rem solid #000;
+            background-color: #43919B;
         }
 
-                
-            .section_portfolio_content_grid-len2 h3{
-                font-size: 4rem;
-                font-weight: 1000;
-                color: #fff;
-                background-color: rgba(0, 0, 0, 0.422);
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
-
-            .section_portfolio_content_grid-len2 p{
-                font-size: 3rem;
-                text-align: center;
-                font-weight: 1000;
-                background-color: rgba(0, 0, 0, 0.422);
-                color: #fff;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
-
-            .section_portfolio_content_grid-len2 button{
+            .portfolioButton{
                 font-size: 2rem;
                 color: rgb(255, 255, 255);
                 padding: 1rem;
@@ -487,3 +468,66 @@ body{
                 margin-top: 1rem;
                 margin-bottom: 1rem;
             }
+    
+        .portfolio_python_title{
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 10rem;
+            transition: 1s opacity;
+            padding: 1rem;
+        }
+
+            .portfolio_python_title h2{
+                padding: 0;
+                font-size: 2rem;
+            }
+
+            .portfolio_python_title img{
+                width: 5rem;
+                height: 5rem;
+            }
+
+            .portfolio_python_title button{
+                font-size: 2rem;
+                border: none;
+                padding: .3rem;
+            }
+
+
+        .portfolio_python_list{
+            opacity: 0;
+            transition: 1s opacity;
+            width: 80%;
+            height: 50rem;
+        }
+
+        .portfolio_python_list ul li{
+            margin: 1rem;
+            font-size: 5rem;
+            background-color: #30a9dd2a;
+            padding: 1rem;
+        }
+
+        .portfolio_python_list ul li div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .portfolio_python_list ul li div button{
+            font-size: 2rem;
+        }
+
+        .info{
+            display: none;
+            font-size: 2rem;
+            margin: 1rem;
+        }
+
+        .show_text{
+            display: block;
+        }
