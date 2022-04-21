@@ -11,7 +11,14 @@ const buttonClosePython = document.querySelector(".portfolio_python_title button
 const btnsPythonList = document.querySelectorAll(".btnPythonList");
 const questionsPythonList = document.querySelectorAll(".info");
 
+const titleJs = document.querySelector(".portfolio_js_title");
+const listJs = document.querySelector(".portfolio_js_list");
+const buttonCloseJs = document.querySelector(".portfolio_js_title button");
+const btnsJsList = document.querySelectorAll(".btnJsList");
+const questionsJsList = document.querySelectorAll(".info");
 
+const btnsDivPythonH = document.querySelectorAll(".H_list_python_container ul li");
+const pPythonDescriptionH = document.querySelectorAll(".H_python_description p");
 
 
 const colors = "ABCDEF1234567890";
@@ -292,7 +299,13 @@ document.addEventListener("DOMContentLoaded", (event)=>{
 // Portfolio Section
 
 btnsPortfolio.forEach(function(btn){
-    btn.addEventListener("click", showPortofolio);
+
+    if (queryMatch.matches){
+        btn.addEventListener("click", showPortofolioH);
+    } else {
+        btn.addEventListener("click", showPortofolio);
+    }
+
 })
 
 function showPortofolio(e){
@@ -307,14 +320,25 @@ function showPortofolio(e){
         titlePython.style.opacity = "1";
         listPython.style.opacity = "1";
 
-        document.querySelector(".section_portfolio_content").style.height = "600px";
-        document.querySelector(".section_portfolio").style.height = "800px";
+        if (queryMatch.matches){
 
+        } else {
+            document.querySelector(".section_portfolio_content").style.height = "600px";
+            document.querySelector(".section_portfolio").style.height = "800px";
+        }
+
+        titleJs.style.display = "none";
+        listJs.style.display = "none";
 
         buttonClosePython.addEventListener("click", (e)=>{
 
-            document.querySelector(".section_portfolio_content").style.height = "1000px";
-            document.querySelector(".section_portfolio").style.height = "1200px";
+            if (queryMatch.matches){
+
+            } else {
+                document.querySelector(".section_portfolio_content").style.height = "1000px";
+                document.querySelector(".section_portfolio").style.height = "1200px";
+            }
+
                 
             titlePython.style.opacity = "0";
             listPython.style.opacity = "0";
@@ -322,12 +346,72 @@ function showPortofolio(e){
             containerH2.style.display = "block";
             containerPrincipal.style.display = "flex";
 
+            titleJs.style.display = "flex";
+            listJs.style.display = "initial";
+
         });
 
     }
 
     if (valueBtn === "javascript"){
 
+        containerH2.style.display = "none";
+        containerPrincipal.style.display = "none";
+
+        titleJs.style.opacity = "1";
+        listJs.style.opacity = "1";
+
+        if (queryMatch.matches){
+
+        } else {
+            document.querySelector(".section_portfolio_content").style.height = "1600px";
+            document.querySelector(".section_portfolio").style.height = "1800px";
+        }
+
+
+        titlePython.style.display = "none";
+        listPython.style.display = "none";
+
+        buttonCloseJs.addEventListener("click", (e)=>{
+
+
+            if (queryMatch.matches){
+
+            } else {
+                document.querySelector(".section_portfolio_content").style.height = "1000px";
+                document.querySelector(".section_portfolio").style.height = "1200px";
+            }
+
+                
+            titleJs.style.opacity = "0";
+            listJs.style.opacity = "0";
+
+            containerH2.style.display = "block";
+            containerPrincipal.style.display = "flex";
+
+            titlePython.style.display = "flex";
+            listPython.style.display = "initial";
+
+        });
+
+    }
+}
+
+function showPortofolioH(e){
+    valueBtn = e.currentTarget.dataset.id;
+
+    if (valueBtn === "python"){
+        containerH2.style.display = "none";
+        containerPrincipal.style.display = "none";
+
+        document.querySelector(".Hpython").style.opacity = "1";
+    }
+
+    if (valueBtn === "javascript"){
+        containerH2.style.display = "none";
+        containerPrincipal.style.display = "none";
+
+        document.querySelector(".Hpython").style.display = "none";
     }
 }
 
@@ -346,7 +430,62 @@ btnsPythonList.forEach(function(btn){
 
         });
 
+    });
+})
+
+btnsJsList.forEach(function(btn){
+    btn.addEventListener("click", ()=>{
+
+        const textRes = btn.parentElement.parentElement.children[1];
+
+        textRes.classList.toggle("show_text");
+
+        questionsPythonList.forEach(function(question){
+
+            if (question !== textRes){
+                question.classList.remove("show_text");
+            }
+
+        });
+
 
 
     });
 })
+
+
+// Portfolio Section ScreenH
+
+
+btnsDivPythonH.forEach(function(btn){
+    btn.addEventListener("click", (e)=>{
+        textRes = e.currentTarget.outerText;
+
+        for (i = 0; i < pPythonDescriptionH.length; i++){
+            if (textRes == pPythonDescriptionH[i].id){
+    
+                if (pPythonDescriptionH[i].style.display == "block"){
+                    pPythonDescriptionH[i].style.display = "none"
+                } else{
+                    pPythonDescriptionH[i].style.display = "block"
+                }
+                
+            } 
+        }  
+        
+        let textResTwo = btn.parentElement.parentElement.parentElement.children[1].children;
+        
+        console.log(textResTwo)
+
+        for (i = 0; i < textResTwo.length; i++){
+            if (textResTwo[i].id !== textRes){
+                textResTwo[i].style.display = "none";
+            }
+        }
+    });
+
+    
+});
+    
+
+
