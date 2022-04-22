@@ -18,7 +18,13 @@ const btnsJsList = document.querySelectorAll(".btnJsList");
 const questionsJsList = document.querySelectorAll(".info");
 
 const btnsDivPythonH = document.querySelectorAll(".H_list_python_container ul li");
-const pPythonDescriptionH = document.querySelectorAll(".H_python_description p");
+const divPythonDescriptionH = document.querySelectorAll(".H_python_description div");
+const btnClosePythonH = document.querySelector(".H_python_title button");
+
+const btnsDivJsH = document.querySelectorAll(".H_list_js_container ul li");
+const divJsDescriptionH = document.querySelectorAll(".H_js_description div");
+const btnCloseJsH = document.querySelector(".H_js_title button");
+
 
 
 const colors = "ABCDEF1234567890";
@@ -33,6 +39,7 @@ let intervalRNC;
 let intervalRNO;
 let intervalHeaderResponsive;
 let arrayResponsive = [];
+let colorChange = false;
 const dataText = ["WELCOME TO MY WORLD"];
 
 let sectionFirstShowInfo = false;
@@ -293,6 +300,7 @@ document.addEventListener("DOMContentLoaded", (event)=>{
 
   StartTextAnimation(0);
 
+
 });
 
 
@@ -317,8 +325,13 @@ function showPortofolio(e){
         containerH2.style.display = "none";
         containerPrincipal.style.display = "none";
 
-        titlePython.style.opacity = "1";
-        listPython.style.opacity = "1";
+        titlePython.style.display = "flex";
+        listPython.style.display = "block";
+
+        setTimeout(function(){
+            titlePython.style.opacity = "1";
+            listPython.style.opacity = "1";
+        });
 
         if (queryMatch.matches){
 
@@ -346,8 +359,12 @@ function showPortofolio(e){
             containerH2.style.display = "block";
             containerPrincipal.style.display = "flex";
 
-            titleJs.style.display = "flex";
-            listJs.style.display = "initial";
+            titlePython.style.display = "none";
+            listPython.style.display = "none";
+
+            titleJs.style.display = "none";
+            listJs.style.display = "none";
+
 
         });
 
@@ -358,8 +375,14 @@ function showPortofolio(e){
         containerH2.style.display = "none";
         containerPrincipal.style.display = "none";
 
-        titleJs.style.opacity = "1";
-        listJs.style.opacity = "1";
+        titleJs.style.display = "flex";
+        listJs.style.display = "block";
+
+        setTimeout(function(){
+            titleJs.style.opacity = "1";
+            listJs.style.opacity = "1";
+        });
+
 
         if (queryMatch.matches){
 
@@ -389,8 +412,11 @@ function showPortofolio(e){
             containerH2.style.display = "block";
             containerPrincipal.style.display = "flex";
 
-            titlePython.style.display = "flex";
-            listPython.style.display = "initial";
+            titlePython.style.display = "none";
+            listPython.style.display = "none";
+
+            titleJs.style.display = "none";
+            listJs.style.display = "none";
 
         });
 
@@ -404,12 +430,25 @@ function showPortofolioH(e){
         containerH2.style.display = "none";
         containerPrincipal.style.display = "none";
 
-        document.querySelector(".Hpython").style.opacity = "1";
+        document.querySelector(".Hpython").style.display = "flex";
+
+        setTimeout(function(){
+            document.querySelector(".Hpython").style.opacity = "1";
+        });
+
+        document.querySelector(".Hjs").style.display = "none";
+
     }
 
     if (valueBtn === "javascript"){
         containerH2.style.display = "none";
         containerPrincipal.style.display = "none";
+        
+        document.querySelector(".Hjs").style.display = "flex";
+        
+        setTimeout(function(){
+            document.querySelector(".Hjs").style.opacity = "1";
+        });
 
         document.querySelector(".Hpython").style.display = "none";
     }
@@ -461,13 +500,16 @@ btnsDivPythonH.forEach(function(btn){
     btn.addEventListener("click", (e)=>{
         textRes = e.currentTarget.outerText;
 
-        for (i = 0; i < pPythonDescriptionH.length; i++){
-            if (textRes == pPythonDescriptionH[i].id){
+        btn.classList.add("active");
+
+        for (i = 0; i < divPythonDescriptionH.length; i++){
+            if (textRes == divPythonDescriptionH[i].id){
     
-                if (pPythonDescriptionH[i].style.display == "block"){
-                    pPythonDescriptionH[i].style.display = "none"
+                if (divPythonDescriptionH[i].style.display == "flex"){
+                    divPythonDescriptionH[i].style.display = "none"
+                    btn.classList.remove("active");
                 } else{
-                    pPythonDescriptionH[i].style.display = "block"
+                    divPythonDescriptionH[i].style.display = "flex"
                 }
                 
             } 
@@ -475,17 +517,93 @@ btnsDivPythonH.forEach(function(btn){
         
         let textResTwo = btn.parentElement.parentElement.parentElement.children[1].children;
         
-        console.log(textResTwo)
+
 
         for (i = 0; i < textResTwo.length; i++){
             if (textResTwo[i].id !== textRes){
                 textResTwo[i].style.display = "none";
             }
         }
+
+        for (i = 0; i < btnsDivPythonH.length; i++){
+            if (btnsDivPythonH[i] !== btn){
+                btnsDivPythonH[i].classList.remove("active");
+            }
+        }
     });
 
     
 });
+
+btnClosePythonH.addEventListener("click", (e)=>{
+    e.preventDefault();
+
+    containerH2.style.display = "block";
+    containerPrincipal.style.display = "flex";
+
+    document.querySelector(".Hjs").style.display = "none";
+    document.querySelector(".Hjs").style.opacity = "0";
+    document.querySelector(".Hpython").style.display = "none";
+    document.querySelector(".Hpython").style.opacity = "0";
+
+})
     
 
+btnsDivJsH.forEach(function(btn){
+    btn.addEventListener("click", (e)=>{
 
+        textRes = e.currentTarget.outerText;
+
+        btn.classList.add("active");
+
+        for (i = 0; i < divJsDescriptionH.length; i++){
+            if (textRes == divJsDescriptionH[i].id){
+    
+                if (divJsDescriptionH[i].style.display == "flex"){
+                    divJsDescriptionH[i].style.display = "none"
+                    btn.classList.remove("active");
+                } else{
+                    divJsDescriptionH[i].style.display = "flex"
+                }
+                
+            } 
+        }  
+        
+        let textResTwo = btn.parentElement.parentElement.parentElement.children[1].children;
+    
+
+        for (i = 0; i < textResTwo.length; i++){
+            if (textResTwo[i].id !== textRes){
+                textResTwo[i].style.display = "none";
+            }
+        }
+
+        for (i = 0; i < btnsDivJsH.length; i++){
+            if (btnsDivJsH[i] !== btn){
+                btnsDivJsH[i].classList.remove("active");
+            }
+        }
+    });
+
+    
+});
+
+btnCloseJsH.addEventListener("click", (e)=>{
+    e.preventDefault();
+
+    containerH2.style.display = "block";
+    containerPrincipal.style.display = "flex";
+
+    
+    document.querySelector(".Hjs").style.display = "none";
+    document.querySelector(".Hjs").style.opacity = "0";
+    document.querySelector(".Hpython").style.display = "none";
+    document.querySelector(".Hpython").style.opacity = "0";
+
+})
+
+    
+document.addEventListener("ready", ()=>{
+    document.querySelector(".div_info").load()
+
+});
