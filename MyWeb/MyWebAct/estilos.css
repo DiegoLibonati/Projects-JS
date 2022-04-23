@@ -1,0 +1,929 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.nav_container{
+    position: fixed;
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 100%;
+    transition: 1s border;
+}
+    .nav_container_logo{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        transition: border 1s;
+    }
+
+        .nav_container_logo_img{
+            width: 10rem;
+            height: 8rem;
+        }
+
+        #open{
+            display: block;
+            font-size: 3rem;
+            margin: 2rem;
+            color: #fff;
+        }
+
+        #close{
+            display: none;
+            font-size: 3rem;
+            margin: 2rem;
+            color: #fff;
+        }
+
+    .nav_container_nav{
+        width: 100%;
+        height: 0rem;
+        transform: translateY(300%);
+        transition: height 1s;
+    }
+
+        .nav_container_nav_list{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 100%;
+        }
+
+            .nav_container_nav_list_item{
+                padding: 1rem;
+                color: #fff;
+            }
+
+            .nav_container_nav_list_item i{
+                font-size: 2rem;
+            }
+
+    .show-nav{
+        height: 10rem;
+        transform: translateY(0%);
+    }
+
+@media screen and (min-width:1024px){
+
+    .nav_container{
+        flex-flow: row nowrap;
+    }
+        .nav_container_logo{
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+        }
+    
+            .nav_container_logo_img{
+                width: 30rem;
+                height: 10rem;
+            }
+    
+            #open{
+                display: none;
+            }
+    
+            #close{
+                display: none;
+            }
+    
+        .nav_container_nav{
+            width: 70%;
+            height: 100%;
+            transform: translateY(0%);
+        }
+    
+            .nav_container_nav_list{
+                flex-flow: row nowrap;
+                width: 100%;
+                height: 100%;
+            }
+    
+                .nav_container_nav_list_item{
+                    padding: 0rem;
+                }
+    
+                .nav_container_nav_list_item i{
+                    font-size: 2rem;
+                }
+    
+}
+
+
+.section_home_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background: url("https://www.wallpapertip.com/wmimgs/91-917056_fondos-de-pantalla-paisajes-4k.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+    .section_home_container_center{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-around;
+        height: 100vh;
+        width: 80%;
+        margin-top: 8.6rem;
+        transition: height 1s;
+        overflow: hidden;
+    }
+
+        .section_home_container_title_h1{
+            font-size: 5rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        span {
+            border-right: .1rem solid;
+            font-size: 5rem;
+            animation: caret 1s steps(1) infinite;
+          }
+
+        .section_home_container_information{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column nowrap;
+        }
+
+            .section_home_container_information_img{
+                max-width: 80%;
+                height: auto;
+                object-fit: cover;
+                border-bottom: .2rem solid #fff;
+            }
+
+            .section_home_container_information_p{
+                width: 80%;
+                height: 0;
+                text-align: justify;
+                font-size: 2rem;
+                background-color: rgba(0, 0, 0, 0.482);
+                padding: 0rem;
+                color: #fff;
+                transition: height 1s;
+            }
+
+            .section_home_container_information_button{
+                width: 30%;
+                border: none;
+                border-bottom-left-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+                background: #000;
+                border-bottom: .2rem solid #fff;
+            }
+
+                .section_home_container_information_button i{
+                    color: #fff;
+                    font-size: 1.5rem;
+                }
+
+
+            .section_home_container_redes{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 1rem;
+                width: 100%;
+            }
+
+                .section_home_container_redes_list{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    flex-flow: row wrap;
+                    width: 80%;
+                }
+
+                    .section_home_container_redes_list_item a i{
+                        font-size: 4rem;
+                        padding: 1rem;
+                        margin: 1rem;
+                        color: #fff;
+                    }
+
+            .show-section-home-p{
+                height: auto;
+                padding: 1rem;
+            }
+
+            .show-section-home-p-height{
+                height: 155vh;
+            }
+
+            .no-show-newbutton{
+                display: none;
+            }
+
+@media screen and (min-width:768px){
+    .section_home_container_title_h1{
+        font-size: 10rem;
+        text-align: center;
+        color: #fff;
+    }
+
+    span{
+        font-size: 10rem;
+    }
+
+    .section_home_container_redes_list_item a i{
+        font-size: 5rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+
+    .section_home_container_center{
+        position: relative;
+        width: 60%;
+        margin-top: 10.6rem;
+    }
+
+        .section_home_container_title_h1{
+            font-size: 10rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        span{
+            font-size: 10rem;
+        }
+
+        .section_home_container_information{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column nowrap;
+        }
+
+            .section_home_container_information_img{
+                max-width: 75%;
+                height: auto;
+                object-fit: cover;
+                border-bottom: 0;
+            }
+
+            .section_home_container_information_p{
+                opacity: 0;
+                width: 50%;
+                padding: 1rem;
+                position: absolute;
+                height: auto;
+                transition: opacity 1s;
+            }
+
+            .section_home_container_information_button{
+                position: absolute;
+                width: 15rem;
+                height: 5rem;
+                font-size: 2rem;
+                color: #fff;
+                border: none;
+                border-bottom-left-radius: 0rem;
+                border-bottom-right-radius: 0rem;
+                background: rgba(0, 0, 0, 0.800);
+                border-bottom: 0;
+                cursor: pointer;
+            }
+
+            .section_home_container_information_button:hover{
+                background: rgba(0, 0, 0, 0.300);
+                border: .1rem solid #fff;
+            }
+
+                .section_home_container_information_button i{
+                    color: #fff;
+                    font-size: 1.5rem;
+                }
+
+            .section_home_container_redes_list_item a i:hover{
+                color: #00FFC6;
+            }
+
+            .blur-img{
+                filter:blur(2px);
+            }
+
+            .show-section-home-p-H{
+                opacity: 1;
+            }
+
+            .show-section-home-btn{
+                opacity: 0;
+            }
+
+}
+
+@keyframes caret {
+    50% {
+    border-color: transparent;
+}
+}
+
+.section_portfolio_container{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 130vh;
+}
+
+    .section_portfolio_container_title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 15%;
+    }
+
+    .span{
+        color: #3c4894;
+    }
+        .section_portfolio_container_title_h2{
+            text-align: center;
+            font-size: 5rem;
+        }
+
+    .section_portfolio_container_projects{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        width: 80%;
+        height: 80%;
+        padding: 1rem;
+    }
+
+        .section_portfolio_container_projects_python{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-flow: column nowrap;
+            background: url("python.png");
+            background-repeat: no-repeat;
+            background-size: 15rem;
+            background-position: center;
+            height: 45%;
+            width: 100%;
+            background-color: #3c4894;
+        }
+
+            .section_portfolio_container_projects_python_h3{
+                font-size: 3rem;
+                color: #fff;
+                padding: 2rem;
+            }
+
+                .section_portfolio_container_projects_python_div{
+                }
+
+                    .section_portfolio_container_projects_python_div_button{
+                        padding: 2rem;
+                        text-align: center;
+                        font-size: 1.5rem;
+                        background:none;
+                        border: none;
+                        color: #fff;
+                    }
+
+                    .section_portfolio_container_projects_python_div_button i{
+                        font-size: 1.5rem;
+                    }
+
+        .section_portfolio_container_projects_js{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-flow: column nowrap;
+            background: url("javascript.png");
+            background-repeat: no-repeat;
+            background-size: 30rem;
+            background-position: center;
+            height: 45%;
+            width: 100%;
+            background-color: #3c4894;
+        }
+
+            .section_portfolio_container_projects_js_h3{
+                font-size: 3rem;
+                color: #fff;
+                padding: 2rem;
+            }
+
+                .section_portfolio_container_projects_js_div{
+                }
+
+                    .section_portfolio_container_projects_js_div_button{
+                        padding: 2rem;
+                        text-align: center;
+                        font-size: 1.5rem;
+                        border: none;
+                        background: none;
+                        color: #fff;
+                    }
+
+                    .section_portfolio_container_projects_js_div_button i{
+                        font-size: 1.5rem;
+                    }
+
+        .section_portfolio_container_projects_python_open{
+            background: #3c4894;
+            display: none;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 80%;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+            .section_portfolio_container_projects_python_open_title{
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                height: 10%;
+                padding: 1rem;
+            }
+
+                .section_portfolio_container_projects_python_open_title_img{
+                    height: 100%;
+                }
+
+                .section_portfolio_container_projects_python_open_title_h2{
+                    font-size: 3rem;
+                    color: #fff
+                }
+
+                .section_portfolio_container_projects_python_open_title_button{
+                    height: 60%;
+                    width: 10%;
+                    border: none;
+                    color: #fff;
+                    background: none;
+                }
+
+                .section_portfolio_container_projects_python_open_title_button i{
+                    font-size: 2rem;
+                }
+
+            .section_portfolio_container_projects_python_open_div{
+                display: flex;
+                margin: 1rem;
+                justify-content: center;
+                width: 90%;
+                height: 90%;
+            }
+
+            .section_portfolio_container_projects_python_open_div_list{
+                width: 100%;
+            }
+            
+            .section_portfolio_container_projects_python_open_div_list_item_div{
+                border-bottom: .2rem solid #000;
+                margin: .5rem;
+            }
+
+                .section_portfolio_container_projects_python_open_div_list_item_div_h3{
+                    font-size: 3rem;
+                    padding: .5rem;
+                    text-align: center;
+                }
+
+                .section_portfolio_container_projects_python_open_div_list_item_div_p{
+                    font-size: 2rem;
+                    padding: .5rem;
+                }
+
+                .section_portfolio_container_projects_js_open{
+                    background: #3c4894;
+                    display: none;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    width: 80%;
+                    height: 80%;
+                    padding: 1rem;
+                    opacity: 0;
+                    transition: opacity 1s;
+                }
+        
+                    .section_portfolio_container_projects_js_open_title{
+                        display: flex;
+                        flex-flow: row nowrap;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 100%;
+                        height: 10%;
+                        padding: 1rem;
+                    }
+        
+                        .section_portfolio_container_projects_js_open_title_img{
+                            height: 100%;
+                        }
+        
+                        .section_portfolio_container_projects_js_open_title_h2{
+                            font-size: 3rem;
+                            color: #fff;
+                        }
+        
+                        .section_portfolio_container_projects_js_open_title_button{
+                            width: 20%;
+                            height: 100%;
+                            border: none;
+                            background: none;
+                            color: #fff;
+                        }
+        
+                        .section_portfolio_container_projects_js_open_title_button i{
+                            font-size: 2rem;
+                        }
+        
+                    .section_portfolio_container_projects_js_open_div{
+                        display: flex;
+                        margin: 1rem;
+                        justify-content: center;
+                        width: 90%;
+                        height: 90%;
+                    }
+        
+                    .section_portfolio_container_projects_js_open_div_list{
+                        width: 100%;
+                    }
+                    
+                    .section_portfolio_container_projects_js_open_div_list_item_div{
+                        border-bottom: .2rem solid #000;
+                        margin: .5rem;
+                    }
+        
+                        .section_portfolio_container_projects_js_open_div_list_item_div_h3{
+                            font-size: 3rem;
+                            padding: .5rem;
+                            text-align: center;
+                        }
+        
+                        .section_portfolio_container_projects_js_open_div_list_item_div_p{
+                            font-size: 2rem;
+                            padding: .5rem;
+                        }
+
+                        .vanish{
+                            display: none;
+                            flex-flow: row wrap;
+                            justify-content: center;
+                            padding: 1rem;
+                        }
+
+                        .section_portfolio_container_projects_python_open_div_list_item_div_h3{
+                            color: #fff;
+                        }
+
+                        .section_portfolio_container_projects_python_open_div_list_item_div_p{
+                            text-align: center;
+                            color: #fff;
+                        }
+
+                        .section_portfolio_container_projects_js_open_div_list_item_div_h3{
+                            color: #fff;
+                        }
+
+                        .section_portfolio_container_projects_js_open_div_list_item_div_p{
+                            text-align: center;
+                        }
+
+        .section_portfolio_container_projects_Hpython{
+            display: none;
+        }
+
+        .section_portfolio_container_projects_Hjs{
+            display: none;
+        }
+
+        .show-border{
+            border-bottom: .2rem solid #000;
+        }
+
+        .no-show-projects-container{
+            display: none;
+        }
+
+        .show-display-projects{
+            display: flex;
+        }
+
+        .show-display-p{
+            display: flex;
+        }
+
+@media screen and (min-width:768px){
+    .section_portfolio_container_title_h2{
+        font-size: 10rem;
+    }
+
+    .section_portfolio_container_projects_python_h3{
+        font-size: 5rem;
+    }
+
+    .section_portfolio_container_projects_js_h3{
+        font-size: 5rem;
+    }
+
+    .section_portfolio_container_projects_python_div_button{
+        font-size: 3rem;
+    }
+
+    .section_portfolio_container_projects_js_div_button{
+        font-size: 3rem;
+    }
+
+    .section_portfolio_container_projects_python{
+        width: 70%;
+        height: 40%;
+    }
+
+    .section_portfolio_container_projects_js{
+        width: 70%;
+        height: 40%;
+    }
+
+    .section_portfolio_container_projects{
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 1024px){
+
+    .section_portfolio_container{
+        height: 100rem;
+    }
+
+    .section_portfolio_container_projects{
+        height: 75rem;
+        width: 70%;
+        flex-flow: row wrap;
+    }
+
+    .section_portfolio_container_projects_python{
+        width: 30%;
+        height: 50%;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        margin: 1rem;
+    }
+
+
+    .section_portfolio_container_projects_js{
+        width: 30%;
+        height: 50%;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        margin: 1rem;
+    }
+
+
+
+    .section_portfolio_container_projects_python_div_button{
+        cursor:pointer;
+    }
+
+    .section_portfolio_container_projects_python_div_button i{
+        font-size: 2rem;
+    }
+
+    .section_portfolio_container_projects_js_div_button{
+        cursor:pointer;
+    }
+
+    .section_portfolio_container_projects_js_div_button i{
+        font-size: 2rem;
+    }
+
+    .section_portfolio_container_projects_Hpython{
+        display: none;
+        height: 75rem;
+        background-color: #3c4894;
+        width: 70%;
+        flex-flow: column nowrap;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+        .section_portfolio_container_projects_Hpython_title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 10%;
+            padding: 1rem;
+            background: #3c4894;
+        }
+
+        .section_portfolio_container_projects_Hpython_title_h2{
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        .section_portfolio_container_projects_Hpython_title_button{
+            background: none;
+            border: none;
+            color: #fff;
+        }
+
+        .section_portfolio_container_projects_Hpython_title_button i{
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        .section_portfolio_container_projects_Hpython_title_img{
+            height: 100%;
+        }
+        .section_portfolio_container_projects_Hpython_description{
+            display: flex;
+            height: 90%;
+            width: 100%;
+        }
+
+        .section_portfolio_container_projects_Hpython_description_container{
+            width: 30%;
+            background: #3c4894;
+        }
+
+        .section_portfolio_container_projects_Hpython_description_container_two{
+            width: 70%;
+            background: #ffffff;
+            border-bottom: .2rem solid #000;
+            border-right: .2rem solid #000;
+        }
+
+        .section_portfolio_container_projects_Hpython_description_container_list_item{
+            border-bottom: .2rem solid #000;
+            font-size: 3rem;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section_portfolio_container_projects_Hpython_description_container_two_item{
+            display: none;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .section_portfolio_container_projects_Hpython_description_container_two_item_h2{
+            font-size: 4rem;
+            color: rgb(0, 0, 0);
+            margin: 1rem;
+        }
+
+        .section_portfolio_container_projects_Hpython_description_container_two_item_h3{
+            color: rgb(0, 0, 0);
+            font-size: 3rem;
+            margin: 1rem;
+        }
+
+        .section_portfolio_container_projects_Hpython_description_container_two_item_p{
+            font-size: 2rem;
+            margin: 1rem;
+        }
+
+        .section_portfolio_container_projects_Hjs{
+            display: none;
+            height: 75rem;
+            background-color: #3c4894;
+            width: 70%;
+            flex-flow: column nowrap;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    
+            .section_portfolio_container_projects_Hjs_title{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 10%;
+                padding: 1rem;
+                background: #3c4894;
+            }
+    
+            .section_portfolio_container_projects_Hjs_title_h2{
+                font-size: 3rem;
+                color: #fff;
+            }
+    
+            .section_portfolio_container_projects_Hjs_title_button{
+                background: none;
+                border: none;
+                color: #fff;
+            }
+    
+            .section_portfolio_container_projects_Hjs_title_button i{
+                font-size: 3rem;
+                cursor: pointer;
+            }
+    
+            .section_portfolio_container_projects_Hjs_title_img{
+                height: 100%;
+            }
+            .section_portfolio_container_projects_Hjs_description{
+                display: flex;
+                height: 90%;
+                width: 100%;
+            }
+    
+            .section_portfolio_container_projects_Hjs_description_container{
+                width: 30%;
+                background: #3c4894;
+            }
+    
+            .section_portfolio_container_projects_Hjs_description_container_two{
+                width: 70%;
+                background: #ffffff;
+                border-bottom: .2rem solid #000;
+                border-right: .2rem solid #000;
+            }
+    
+            .section_portfolio_container_projects_Hjs_description_container_list_item{
+                border-bottom: .2rem solid #000;
+                font-size: 3rem;
+                color: #fff;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+    
+            .section_portfolio_container_projects_Hjs_description_container_two_item{
+                display: none;
+                flex-flow: column wrap;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+            }
+    
+            .section_portfolio_container_projects_Hjs_description_container_two_item_h2{
+                font-size: 4rem;
+                color: rgb(0, 0, 0);
+                margin: 1rem;
+            }
+    
+            .section_portfolio_container_projects_Hjs_description_container_two_item_h3{
+                color: rgb(0, 0, 0);
+                font-size: 3rem;
+                margin: 1rem;
+            }
+    
+            .section_portfolio_container_projects_Hjs_description_container_two_item_p{
+                font-size: 2rem;
+                margin: 1rem;
+            }
+
+        ::-webkit-scrollbar{
+            width: 2rem;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(transparent, hsl(207, 38%, 17%));
+            border-radius: .6rem;
+        }
+
+        ::-webkit-scrollbar-thumb:hover{
+            background: linear-gradient(transparent, #5261c4);
+            border-radius: .6rem;
+        }
+
+        .active{
+            background: #5261c4;
+        }
+
+        .show{
+            display: flex;
+        }
+
+}
