@@ -6,6 +6,7 @@ const navContainerPosition = navContainer.getBoundingClientRect();
 const navYPosition = navContainerPosition.y;
 const navContainerNav = document.querySelector(".nav_container_nav");
 const navContainerLogo = document.querySelector(".nav_container_logo");
+const navLinks = document.querySelectorAll(".nav_link");
 const colorsNav = "ABCDEF1234567890";
 
 let hexColor;
@@ -47,6 +48,9 @@ const containerNewJsDivsH = document.querySelectorAll(".section_portfolio_contai
 const containerNewJsPsH = document.querySelectorAll(".section_portfolio_container_projects_Hjs_description_container_two_item");
 const containerNewJsCloseBtn = document.querySelector(".section_portfolio_container_projects_Hjs_title_button");
 const containerNewJsFatherH = document.querySelector(".section_portfolio_container_projects_Hjs");
+
+let containerJsProjectsStatus = false; 
+let containerPythonProjectsStatus = false; 
 
 // General Configs
 const queryMatch = window.matchMedia("(min-width:1024px)");
@@ -115,6 +119,35 @@ function rainbowNav(){
 
 setInterval(rainbowNav, 1000);
 
+navLinks.forEach(function(link){    
+    link.addEventListener("click", (e)=>{
+        e.preventDefault();
+
+        const id = e.currentTarget.getAttribute(`href`).slice(1);
+        const element = document.getElementById(id);
+
+
+        if (queryMatches){
+            const navHeight = navContainer.getBoundingClientRect();
+            let position = element.offsetTop - navHeight.height;
+
+            window.scrollTo({top:position})
+        } else {
+            if (navStatus){
+                const navHeight = navContainerLogo.getBoundingClientRect();
+                let position = element.offsetTop - navHeight.height;
+                
+                navContainerNav.classList.remove("show-nav");
+                navStatus = false;
+                btnOpenNav.style.display = "block";
+                btnCloseNav.style.display = "none";
+                window.scrollTo({top:position})
+            }
+        }
+        
+    })
+});
+
 // SECTION HOME - FUNCTIONS
 
 btnSectionHomeMoreInfo.addEventListener("click", sectionHomeFunctionMoreInfo);
@@ -161,6 +194,8 @@ btnPortfolioOpenPython.addEventListener("click", openPythonPortfolio);
 
 function openPythonPortfolio(){
 
+    containerPythonProjectsStatus = true;
+
     if (queryMatches == false){
         containerSectionPortfolioProjects.classList.add("no-show-projects-container");
         containerNewPython.classList.add("show-display-projects");
@@ -173,6 +208,7 @@ function openPythonPortfolio(){
             containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
             containerNewPython.classList.remove("show-display-projects");
             containerNewPython.style.opacity = "0";
+            containerPythonProjectsStatus = false;
         });
     } else {
         containerSectionPortfolioProjects.classList.add("no-show-projects-container");
@@ -208,6 +244,8 @@ btnPortfolioOpenJs.addEventListener("click", openJsPortfolio);
 
 function openJsPortfolio(){
 
+    containerJsProjectsStatus = true;
+
     if (queryMatches == false){
         containerSectionPortfolioProjects.classList.add("no-show-projects-container");
         containerNewJs.classList.add("show-display-projects");
@@ -220,6 +258,7 @@ function openJsPortfolio(){
             containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
             containerNewJs.classList.remove("show-display-projects");
             containerNewJs.style.opacity = "0";
+            containerJsProjectsStatus = false;
         });
     } else {
         containerSectionPortfolioProjects.classList.add("no-show-projects-container");
@@ -254,6 +293,8 @@ containerNewJsDivs.forEach(function(btn){
 containerNewPythonDivsH.forEach(function(btn){
     btn.addEventListener("click", (e)=>{
         
+        containerPythonProjectsStatus = true;
+
         let textRes = e.currentTarget.outerText;
 
         btn.classList.add("active");
@@ -291,7 +332,7 @@ containerNewPythonDivsH.forEach(function(btn){
 
 containerNewPythonCloseBtn.addEventListener("click", (e)=>{
     e.preventDefault();
-
+    containerPythonProjectsStatus = false;
     containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
     containerNewPythonFatherH.classList.remove("show");
     containerNewPythonFatherH.style.opacity = "0";
@@ -300,6 +341,8 @@ containerNewPythonCloseBtn.addEventListener("click", (e)=>{
 
 containerNewJsDivsH.forEach(function(btn){
     btn.addEventListener("click", (e)=>{
+
+        containerJsProjectsStatus = true;
         
         let textRes = e.currentTarget.outerText;
 
@@ -339,6 +382,8 @@ containerNewJsDivsH.forEach(function(btn){
 containerNewJsCloseBtn.addEventListener("click", (e)=>{
     e.preventDefault();
 
+    containerJsProjectsStatus = false;
+
     containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
     containerNewJsFatherH.classList.remove("show");
     containerNewJsFatherH.style.opacity = "0";
@@ -346,6 +391,8 @@ containerNewJsCloseBtn.addEventListener("click", (e)=>{
 })
 
 // General Stuff
+
+
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -411,13 +458,10 @@ window.addEventListener("resize", ()=>{
             btnSectionHomeMoreInfo.classList.remove("show-section-home-btn");
             imgSectionHomeMoreInfo.classList.remove("blur-img");
 
-            containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
-            containerNewPython.classList.remove("show-display-projects");
-            containerNewJs.classList.remove("show-display-projects");
-            containerNewPythonFatherH.classList.remove("show");
-            containerNewJsFatherH.classList.remove("show");
+            checkStatusContainerProjects();
     
         } else  {
+
 
             queryMatches = false;
 
@@ -430,11 +474,67 @@ window.addEventListener("resize", ()=>{
             }
     
             btnSectionHomeMoreInfo.innerHTML =  `<i class="fa-solid fa-angle-down"></i>`;
+
+            checkStatusContainerProjects();
     
         }
 
 
 
+});
+
+window.addEventListener(`scroll`, function(){
+
+    const scrollHeight = window.pageYOffset;
+
+    console.log(scrollHeight)
+
+    if (scrollHeight > 30){
+        navContainerLogo.classList.add("change-bg-nav");
+        navContainerNav.classList.add("change-bg-nav");
+        navContainer.classList.add("change-bg-nav");
+    } else{
+        navContainerLogo.classList.remove("change-bg-nav");
+        navContainerNav.classList.remove("change-bg-nav");
+        navContainer.classList.remove("change-bg-nav");
+    }
 
 
-})
+});
+
+function checkStatusContainerProjects (){
+
+    if (containerPythonProjectsStatus && queryMatches){
+        containerSectionPortfolioProjects.classList.add("no-show-projects-container");
+        containerNewPythonFatherH.classList.add("show");
+        containerNewPythonFatherH.style.opacity = "1";
+        containerNewPython.style.opacity = "0";
+        containerNewPython.classList.remove("show-display-projects");
+    } 
+
+    if (containerPythonProjectsStatus && !queryMatches){
+            containerSectionPortfolioProjects.classList.add("no-show-projects-container");
+            containerNewPythonFatherH.classList.remove("show");
+            containerNewPython.classList.add("show-display-projects");
+            containerNewPython.style.opacity = "1";
+            containerNewPythonFatherH.style.opacity = "0";
+    }
+
+    if (containerJsProjectsStatus && queryMatches){
+        containerSectionPortfolioProjects.classList.add("no-show-projects-container");
+        containerNewJsFatherH.classList.add("show");
+        containerNewJsFatherH.style.opacity = "1";
+        containerNewJs.style.opacity = "0";
+        containerNewJs.classList.remove("show-display-projects");
+    } 
+
+    if (containerJsProjectsStatus && !queryMatches){
+            containerSectionPortfolioProjects.classList.add("no-show-projects-container");
+            containerNewJsFatherH.classList.remove("show");
+            containerNewJs.classList.add("show-display-projects");
+            containerNewJs.style.opacity = "1";
+            containerNewJsFatherH.style.opacity = "0";
+    }
+
+
+}
