@@ -25,6 +25,25 @@ const dataText = ["WELCOME TO MY WORLD"];
 let btnStatusMoreInfo = false;
 let pHomeStatus = false;
 
+// SECTION ABOUTME
+const btnSectionAboutMeLearnMore = document.querySelector(".section_aboutme_container_mobile_present_button");
+const mainContainerSectionAboutMe = document.querySelector(".section_aboutme_container");
+const containerSectionAboutMeMobile = document.querySelector(".section_aboutme_container_mobile");
+const containerSectionAboutMeMobileLearnMore = document.querySelector(".section_aboutme_container_mobile_learnmore");
+const btnsLearnMore = document.querySelectorAll(".btnAboutMe");
+const profileInfo = document.querySelector(".section_aboutme_container_mobile_profile_text_div");
+const educationInfo = document.querySelector(".section_aboutme_container_mobile_education_text_div");
+const skillsInfo = document.querySelector(".section_aboutme_container_mobile_skills_text_div");
+const certificatesInfo = document.querySelector(".section_aboutme_container_mobile_certificates_text_div");
+const imgSectionAboutMeLearnMore = document.querySelector(".section_aboutme_container_mobile_present_img");
+const generalInfo = document.querySelectorAll(".info");
+
+let learnMoreAboutMeStatus = false;
+let profileStatus = false;
+let educationStatus = false;
+let skillsStatus = false;
+let certificatesStatus = false;
+
 // SECTION PORTFOLIO
 const btnPortfolioOpenPython = document.querySelector(".section_portfolio_container_projects_python_div_button");
 const btnPortfolioOpenJs = document.querySelector(".section_portfolio_container_projects_js_div_button");
@@ -51,6 +70,7 @@ const containerNewJsFatherH = document.querySelector(".section_portfolio_contain
 
 let containerJsProjectsStatus = false; 
 let containerPythonProjectsStatus = false; 
+
 
 // General Configs
 const queryMatch = window.matchMedia("(min-width:1024px)");
@@ -187,6 +207,180 @@ function sectionHomeFunctionMoreInfo(){
     }
 
 }
+
+// SECTION ABOUTME - FUNCTIONS
+btnSectionAboutMeLearnMore.addEventListener("click", showSectionAboutMeLearnMore);
+
+function showSectionAboutMeLearnMore(){
+
+    if(learnMoreAboutMeStatus){
+
+        imgSectionAboutMeLearnMore.src = "1.png";
+
+        mainContainerSectionAboutMe.style.height = "750px";
+        containerSectionAboutMeMobile.style.height = "600px";
+        containerSectionAboutMeMobileLearnMore.style.height = "0";
+
+        learnMoreAboutMeStatus = false;
+
+    } else {
+
+        imgSectionAboutMeLearnMore.src = "2.png";
+
+        if (profileStatus){
+            mainContainerSectionAboutMe.style.height = "1212px";
+            containerSectionAboutMeMobile.style.height = "1062px";
+            profileInfo.style.height = "auto";
+            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+    
+            learnMoreAboutMeStatus = true;
+        } else if(educationStatus){
+            mainContainerSectionAboutMe.style.height = "1434px";
+            containerSectionAboutMeMobile.style.height = "1284px";
+            educationInfo.style.height = "auto";
+            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+    
+            learnMoreAboutMeStatus = true;
+        } else if (skillsStatus){
+            mainContainerSectionAboutMe.style.height = "1391px";
+            containerSectionAboutMeMobile.style.height = "1241px";
+            skillsInfo.style.height = "auto";
+            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+    
+            learnMoreAboutMeStatus = true;
+        } else if (certificatesStatus){
+            mainContainerSectionAboutMe.style.height = "1285px";
+            containerSectionAboutMeMobile.style.height = "1135px";
+            certificatesInfo.style.height = "auto";
+            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+    
+            learnMoreAboutMeStatus = true;
+        } else {
+
+            mainContainerSectionAboutMe.style.height = "1000px";
+            containerSectionAboutMeMobile.style.height = "850px";
+            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+    
+            learnMoreAboutMeStatus = true;
+        }
+
+
+    }
+
+}
+
+
+btnsLearnMore.forEach(function(btn){
+    btn.addEventListener("click", (e)=>{
+        e.preventDefault();
+
+        const idBtn = e.currentTarget.id;
+
+        switch(idBtn){
+            case "profile":
+                if(profileStatus){
+
+                    mainContainerSectionAboutMe.style.height = "1000px";
+                    containerSectionAboutMeMobile.style.height = "850px";
+                    profileInfo.style.height = "0";
+
+                    profileStatus = false;
+                    educationStatus = false;
+                    skillsStatus = false;
+                    certificatesStatus = false;
+                } else{
+
+                    mainContainerSectionAboutMe.style.height = "1236px";
+                    containerSectionAboutMeMobile.style.height = "1086px";
+                    profileInfo.style.height = "auto";
+
+                    profileStatus = true;
+                    educationStatus = false;
+                    skillsStatus = false;
+                    certificatesStatus = false;
+                } 
+            break;
+            case "education":
+                if(educationStatus){
+
+                    mainContainerSectionAboutMe.style.height = "1000px";
+                    containerSectionAboutMeMobile.style.height = "850px";
+                    educationInfo.style.height = "0";
+
+                    profileStatus = false;
+                    educationStatus = false;
+                    skillsStatus = false;
+                    certificatesStatus = false;
+                } else{
+
+                    mainContainerSectionAboutMe.style.height = "1434px";
+                    containerSectionAboutMeMobile.style.height = "1284px";
+                    educationInfo.style.height = "auto";
+
+                    profileStatus = false;
+                    educationStatus = true;
+                    skillsStatus = false;
+                    certificatesStatus = false;
+                } 
+            break;
+            case "skills":
+                if(skillsStatus){
+
+                    mainContainerSectionAboutMe.style.height = "1000px";
+                    containerSectionAboutMeMobile.style.height = "850px";
+                    skillsInfo.style.height = "0";
+
+                    profileStatus = false;
+                    educationStatus = false;
+                    skillsStatus = false;
+                    certificatesStatus = false;
+                } else{
+
+                    mainContainerSectionAboutMe.style.height = "1391px";
+                    containerSectionAboutMeMobile.style.height = "1241px";
+                    skillsInfo.style.height = "auto";
+
+                    profileStatus = false;
+                    educationStatus = false;
+                    skillsStatus = true;
+                    certificatesStatus = false;
+                } 
+            break;
+            case "certificates":
+                if(certificatesStatus){
+
+                    mainContainerSectionAboutMe.style.height = "1000px";
+                    containerSectionAboutMeMobile.style.height = "850px";
+                    certificatesInfo.style.height = "0";
+
+                    profileStatus = false;
+                    educationStatus = false;
+                    skillsStatus = false;
+                    certificatesStatus = false;
+                } else{
+
+                    mainContainerSectionAboutMe.style.height = "1285px";
+                    containerSectionAboutMeMobile.style.height = "1135px";
+                    certificatesInfo.style.height = "auto";
+
+                    profileStatus = false;
+                    educationStatus = false;
+                    skillsStatus = false;
+                    certificatesStatus = true;
+                } 
+            break;
+        }
+
+        for (i = 0; i < generalInfo.length; i++){
+            for(i = 0; i < btnsLearnMore.length; i++){
+                if (btnsLearnMore[i] !== btn){
+                    generalInfo[i].style.height = "0";
+                }
+            }
+        }
+
+    });
+});
 
 // SECTION PORTFOLIO - FUNCTIONS
 
