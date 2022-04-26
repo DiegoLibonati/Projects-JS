@@ -38,6 +38,15 @@ const certificatesInfo = document.querySelector(".section_aboutme_container_mobi
 const imgSectionAboutMeLearnMore = document.querySelector(".section_aboutme_container_mobile_present_img");
 const generalInfo = document.querySelectorAll(".info");
 
+const btnLearnMoreBigScreen = document.querySelector(".section_aboutme_container_big_present_button");
+const btnSectionAboutMeContainerBigBtnsClose = document.querySelector(".section_aboutme_container_big_btns_close_button");
+const sectionAboutMeContainerBigPresent = document.querySelector(".section_aboutme_container_big_present");
+const sectionAboutMeContainerBigBtns = document.querySelector(".section_aboutme_container_big_btns");
+const sectionAboutMeContainerBigInformation = document.querySelector(".section_aboutme_container_big_information");
+const btnsDivContainerAboutMeBig = document.querySelectorAll(".btnDivContainerAboutMeBig");
+const generalInfoAboutMeBig = document.querySelectorAll(".aboutMeBigInfo");
+const btnsCloseInfoGeneralBig = document.querySelectorAll(".btnCloseInfoGeneralBig");
+
 let learnMoreAboutMeStatus = false;
 let profileStatus = false;
 let educationStatus = false;
@@ -380,6 +389,62 @@ btnsLearnMore.forEach(function(btn){
         }
 
     });
+});
+
+
+// ABOUT ME - BIG SCREEN FUNCTIONS
+
+btnLearnMoreBigScreen.addEventListener("click", (e)=>{
+    e.preventDefault();
+
+    sectionAboutMeContainerBigPresent.classList.add("no-show-about");
+    sectionAboutMeContainerBigBtns.classList.add("show-about-flex");
+
+
+});
+
+btnSectionAboutMeContainerBigBtnsClose.addEventListener("click", (e)=>{
+    e.preventDefault();
+
+    sectionAboutMeContainerBigPresent.classList.remove("no-show-about");
+    sectionAboutMeContainerBigBtns.classList.remove("show-about-flex");
+
+});
+
+btnsCloseInfoGeneralBig.forEach(function(btn){
+    btn.addEventListener("click", (e)=>{
+        e.preventDefault();
+
+        sectionAboutMeContainerBigBtns.classList.add("show-about-flex");
+        sectionAboutMeContainerBigInformation.classList.remove("show-about-block");
+        
+        for (i = 0; i < generalInfoAboutMeBig.length; i++){
+            generalInfoAboutMeBig[i].classList.remove("show-about-flex");
+        }
+
+    });
+})
+
+btnsDivContainerAboutMeBig.forEach(function(btn){
+
+    btn.addEventListener("click",(e)=>{
+        e.preventDefault();
+
+        let id = e.currentTarget.children[0].outerText;
+        let idMinus = id.toLowerCase();
+
+        for (i = 0; i < generalInfoAboutMeBig.length; i++){
+            if(generalInfoAboutMeBig[i].id === idMinus){
+                console.log(generalInfoAboutMeBig[i])
+                sectionAboutMeContainerBigBtns.classList.remove("show-about-flex");
+                sectionAboutMeContainerBigInformation.classList.add("show-about-block");
+                generalInfoAboutMeBig[i].classList.add("show-about-flex");
+            }
+        }
+
+    })
+
+    
 });
 
 // SECTION PORTFOLIO - FUNCTIONS

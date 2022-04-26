@@ -653,6 +653,18 @@ border-color: transparent;
                 padding: 1rem;
             }
 
+            .section_aboutme_container_big{
+                display: none;
+            }
+
+            .section_aboutme_container_big_btns{
+                display: none;
+            }
+
+            .section_aboutme_container_big_information{
+                display: none;
+            }
+
 @media screen and (min-width:768px) {
     .section_aboutme_container_title_h2{
         font-size: 10rem;
@@ -674,9 +686,412 @@ border-color: transparent;
 
 
 @media screen and (min-width:1024px) {
-    .section_aboutme_container{
+    .section_aboutme_container_mobile{
         display: none;
     }
+
+    .section_aboutme_container_title{
+        background: #fff;
+    }
+
+    .section_aboutme_container{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        height: 100rem;
+        background: #3c4894;
+    }
+
+    .section_aboutme_container_big{
+        display: flex;
+        align-items: center;
+        width: 80%;
+        height: 85rem;
+    }
+
+        .section_aboutme_container_big_divimg{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            height: 55rem;
+            margin: .5rem;
+        }
+
+            .section_aboutme_container_big_divimg_img{
+                height: 55rem;
+            }
+
+        .section_aboutme_container_big_present{
+            display: flex;
+            align-items: flex-start;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            width: 60%;
+            height: 55rem;
+            margin: .5rem;
+        }
+
+            .section_aboutme_container_big_present_h2{
+                align-self: center;
+                font-size: 7rem;
+            }
+
+            .section_aboutme_container_big_present_p{
+                font-size: 3rem;
+                text-align: justify;
+            }
+
+            .section_aboutme_container_big_present_button{
+                font-size: 2rem;
+                background: none;
+                border: none;
+            }
+
+            
+            .section_aboutme_container_big_present_button i{
+                font-size: 1.5rem;
+            }
+
+        .section_aboutme_container_big_btns{
+            display: none;
+            align-items: flex-start;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+            width: 60%;
+            height: 55rem;
+            margin: .5rem;
+        }
+
+            .section_aboutme_container_big_btns_profile{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 40%;
+                background: #fff;
+            }
+
+                .section_aboutme_container_big_btns_profile_h2{
+                    font-size: 3rem;
+                    padding: 1rem;
+                }
+
+                .section_aboutme_container_big_btns_profile_h2 i{
+                    font-size: 2rem;
+                }
+
+            .section_aboutme_container_big_btns_education{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 40%;
+                background: #fff;
+            }
+
+                .section_aboutme_container_big_btns_education_h2{
+                    font-size: 3rem;
+                    padding: 1rem;
+                }
+
+                .section_aboutme_container_big_btns_education_h2 i{
+                    font-size: 2rem;
+                }
+
+            .section_aboutme_container_big_btns_skills{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 40%;
+                background: #fff;
+            }
+
+                .section_aboutme_container_big_btns_skills_h2{
+                    font-size: 3rem;
+                    padding: 1rem;
+                }
+
+                .section_aboutme_container_big_btns_skills_h2 i{
+                    font-size: 2rem;
+                }
+
+            .section_aboutme_container_big_btns_certificates{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 40%;
+                background: #fff;
+            }
+
+                .section_aboutme_container_big_btns_certificates_h2{
+                    font-size: 3rem;
+                    padding: 1rem;
+                }
+
+                .section_aboutme_container_big_btns_certificates_h2 i{
+                    font-size: 2rem;
+                }
+
+            .section_aboutme_container_big_btns_close{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+
+                .section_aboutme_container_big_btns_close_button{
+                    background: none;
+                    border: none;
+                }
+
+                .section_aboutme_container_big_btns_close_button i{
+                    font-size: 5rem;
+                    color: #fff;
+                }
+
+
+        .section_aboutme_container_big_information{
+            display: none;
+            width: 60%;
+            height: 55rem;
+            margin: .5rem;
+        }
+
+            .section_aboutme_container_big_information_profile{
+                display: none;
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 100%;
+                height: 100%;
+                flex-flow: column nowrap;
+                background: #fff;
+            }
+
+            .section_aboutme_container_big_information_profile_title{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .section_aboutme_container_big_information_profile_title_h2{
+                padding: 1rem;
+                font-size: 7rem;
+                border-bottom: .2rem solid #000;
+            }
+
+            .section_aboutme_container_big_information_profile_title_h2 i{
+                font-size: 5rem;
+            }
+
+            .section_aboutme_container_big_information_profile_title_button{
+                border: none;
+                background: none;
+                padding: 1rem;
+            }
+
+            .section_aboutme_container_big_information_profile_title_button i{
+                font-size: 5rem;
+            }
+
+            .section_aboutme_container_big_information_profile_p{
+                padding: 1rem;
+                font-size: 3rem;
+                margin:auto;
+            }
+
+            .section_aboutme_container_big_information_education{
+                display: none;
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 100%;
+                height: 100%;
+                flex-flow: column nowrap;
+                background: #fff;
+            }
+
+            .section_aboutme_container_big_information_education_title{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .section_aboutme_container_big_information_education_title_h2{
+                padding: 1rem;
+                font-size: 7rem;
+                border-bottom: .2rem solid #000;
+            }
+
+            .section_aboutme_container_big_information_education_title_h2 i{
+                font-size: 5rem;
+            }
+
+            .section_aboutme_container_big_information_education_title_button{
+                border: none;
+                background: none;
+                padding: 1rem;
+            }
+
+            .section_aboutme_container_big_information_education_title_button i{
+                font-size: 5rem;
+            }
+
+                .section_aboutme_container_big_information_education_text{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    height: 44rem;
+                    width: 100%;
+                }
+
+                    .section_aboutme_container_big_information_education_text_div_h3{
+                        font-size: 3rem;
+                        padding: 1rem;
+                    }
+                    .section_aboutme_container_big_information_education_text_div_p{
+                        font-size: 2.5rem;
+                        padding: 1rem;
+                    }
+
+            .section_aboutme_container_big_information_skills{
+                display: none;
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 100%;
+                height: 100%;
+                flex-flow: column nowrap;
+                background: #fff;
+            }
+            .section_aboutme_container_big_information_skills_title{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .section_aboutme_container_big_information_skills_title_h2{
+                padding: 1rem;
+                font-size: 7rem;
+                border-bottom: .2rem solid #000;
+            }
+
+            .section_aboutme_container_big_information_skills_title_h2 i{
+                font-size: 5rem;
+            }
+
+            .section_aboutme_container_big_information_skills_title_button{
+                border: none;
+                background: none;
+                padding: 1rem;
+            }
+
+            .section_aboutme_container_big_information_skills_title_button i{
+                font-size: 5rem;
+            }
+
+                .section_aboutme_container_big_information_skills_text{
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-evenly;
+                    flex-flow: row wrap;
+                    height: 44rem;
+                    width: 100%;
+                    padding: 1rem;
+                }
+
+                .section_aboutme_container_big_information_skills_text_div{
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 50%;
+                    margin: 1rem;
+                    border-bottom: .2rem solid #000;
+                }
+
+                .section_aboutme_container_big_information_skills_text_div_h3{
+                    font-size: 4rem;
+                    width: 45%;
+                    text-align: center;
+                }
+
+                .section_aboutme_container_big_information_skills_text_div_p{
+                    font-size: 3rem;
+                    width: 45%;
+                    text-align: center;
+                }
+
+                .section_aboutme_container_big_information_skills_text_div_img{
+                    width: 10rem;
+                    height: 10rem;
+                }
+
+            .section_aboutme_container_big_information_certificates{
+                display: none;
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 100%;
+                height: 100%;
+                flex-flow: column nowrap;
+                background: #fff;
+            }
+            .section_aboutme_container_big_information_certificates_title{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .section_aboutme_container_big_information_certificates_title_h2{
+                padding: 1rem;
+                font-size: 7rem;
+                border-bottom: .2rem solid #000;
+            }
+
+            .section_aboutme_container_big_information_certificates_title_h2 i{
+                font-size: 5rem;
+            }
+
+            .section_aboutme_container_big_information_certificates_title_button{
+                border: none;
+                background: none;
+                padding: 1rem;
+            }
+
+            .section_aboutme_container_big_information_certificates_title_button i{
+                font-size: 5rem;
+            }
+
+                .section_aboutme_container_big_information_certificates_text{
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    padding: 1rem;
+                    height: 44rem;
+                    width: 100%;
+                }
+
+                    .section_aboutme_container_big_information_certificates_text_div_h3{
+                        font-size: 3rem;
+                        padding: 1rem;
+                    }
+                    .section_aboutme_container_big_information_certificates_text_div_p{
+                        font-size: 2.5rem;
+                        padding: 1rem;
+                    }
+
+        .show-about-flex{
+            display: flex;
+        }
+
+        .show-about-block{
+            display: block;
+        }
+
+        .no-show-about{
+            display: none;
+        }
 }
 
 
