@@ -8,6 +8,11 @@ const navContainerNav = document.querySelector(".nav_container_nav");
 const navContainerLogo = document.querySelector(".nav_container_logo");
 const navLinks = document.querySelectorAll(".nav_link");
 const colorsNav = "ABCDEF1234567890";
+const itemINav = document.querySelectorAll(".nav_container_nav_list_item");
+const idNavHomeLi = document.getElementById("homesection");
+const idNavAboutMeLi = document.getElementById("aboutmesection");
+const idNavPortfolioLi = document.getElementById("portfoliosection");
+const idNavContactMeLi = document.getElementById("contactmesection");
 
 let hexColor;
 let randomNumber;
@@ -84,23 +89,8 @@ let containerPythonProjectsStatus = false;
 // SECTION CONTACT ME 
 const formContactForm = document.querySelector(".section_contactme_container_form");
 
-formContactForm.addEventListener("submit", (e)=>{
-e.preventDefault()
-
-const nameValue = document.getElementById("nombre").value;
-const emailValue = document.getElementById("email").value;
-const messageValue = document.getElementById("message").value;
-
-
-axios.post('https://formsubmit.co/ajax/4a247a20c2a1dfc75e06cc04be162bae', {
-    "name": `${nameValue}`,
-    "email":`${emailValue}`,
-    "message":`${messageValue}`,
-})
-    .then(response => alert("Email enviado"))
-    .catch(error => console.log(error));
-})
-
+// FOOTER
+const actualDateRefresh = document.getElementById("agedate");
 
 
 // General Configs
@@ -199,6 +189,7 @@ navLinks.forEach(function(link){
     })
 });
 
+
 // SECTION HOME - FUNCTIONS
 
 btnSectionHomeMoreInfo.addEventListener("click", sectionHomeFunctionMoreInfo);
@@ -248,9 +239,11 @@ function showSectionAboutMeLearnMore(){
 
         imgSectionAboutMeLearnMore.src = "1.png";
 
-        mainContainerSectionAboutMe.style.height = "750px";
-        containerSectionAboutMeMobile.style.height = "600px";
+        mainContainerSectionAboutMe.style.height = "850px";
+        containerSectionAboutMeMobile.style.height = "700px";
         containerSectionAboutMeMobileLearnMore.style.height = "0";
+
+        btnSectionAboutMeLearnMore.innerHTML = `LEARN MORE <i class="fa-solid fa-chevron-right"></i>`
 
         learnMoreAboutMeStatus = false;
 
@@ -259,39 +252,41 @@ function showSectionAboutMeLearnMore(){
         imgSectionAboutMeLearnMore.src = "2.png";
 
         if (profileStatus){
-            mainContainerSectionAboutMe.style.height = "1212px";
-            containerSectionAboutMeMobile.style.height = "1062px";
+            mainContainerSectionAboutMe.style.height = "1451px";
+            containerSectionAboutMeMobile.style.height = "1301px";
             profileInfo.style.height = "auto";
             containerSectionAboutMeMobileLearnMore.style.height = "auto";
     
             learnMoreAboutMeStatus = true;
         } else if(educationStatus){
-            mainContainerSectionAboutMe.style.height = "1434px";
-            containerSectionAboutMeMobile.style.height = "1284px";
+            mainContainerSectionAboutMe.style.height = "1400px";
+            containerSectionAboutMeMobile.style.height = "1255px";
             educationInfo.style.height = "auto";
             containerSectionAboutMeMobileLearnMore.style.height = "auto";
     
             learnMoreAboutMeStatus = true;
         } else if (skillsStatus){
-            mainContainerSectionAboutMe.style.height = "1391px";
-            containerSectionAboutMeMobile.style.height = "1241px";
+            mainContainerSectionAboutMe.style.height = "1326px";
+            containerSectionAboutMeMobile.style.height = "1176px";
             skillsInfo.style.height = "auto";
             containerSectionAboutMeMobileLearnMore.style.height = "auto";
     
             learnMoreAboutMeStatus = true;
         } else if (certificatesStatus){
-            mainContainerSectionAboutMe.style.height = "1285px";
-            containerSectionAboutMeMobile.style.height = "1135px";
+            mainContainerSectionAboutMe.style.height = "1224px";
+            containerSectionAboutMeMobile.style.height = "1074px";
             certificatesInfo.style.height = "auto";
             containerSectionAboutMeMobileLearnMore.style.height = "auto";
     
             learnMoreAboutMeStatus = true;
         } else {
 
-            mainContainerSectionAboutMe.style.height = "1000px";
-            containerSectionAboutMeMobile.style.height = "850px";
+            mainContainerSectionAboutMe.style.height = "1085px";
+            containerSectionAboutMeMobile.style.height = "935px";
             containerSectionAboutMeMobileLearnMore.style.height = "auto";
     
+            btnSectionAboutMeLearnMore.innerHTML = `CLOSE <i class="fa-solid fa-chevron-right"></i>`
+
             learnMoreAboutMeStatus = true;
         }
 
@@ -311,8 +306,9 @@ btnsLearnMore.forEach(function(btn){
             case "profile":
                 if(profileStatus){
 
-                    mainContainerSectionAboutMe.style.height = "1000px";
-                    containerSectionAboutMeMobile.style.height = "850px";
+                    mainContainerSectionAboutMe.style.height = "1085px";
+                    containerSectionAboutMeMobile.style.height = "935px";
+                    profileInfo.style.padding = "0px"
                     profileInfo.style.height = "0";
 
                     profileStatus = false;
@@ -321,8 +317,9 @@ btnsLearnMore.forEach(function(btn){
                     certificatesStatus = false;
                 } else{
 
-                    mainContainerSectionAboutMe.style.height = "1236px";
-                    containerSectionAboutMeMobile.style.height = "1086px";
+                    mainContainerSectionAboutMe.style.height = "1451px";
+                    containerSectionAboutMeMobile.style.height = "1301px";
+                    profileInfo.style.padding = "10px"
                     profileInfo.style.height = "auto";
 
                     profileStatus = true;
@@ -334,8 +331,9 @@ btnsLearnMore.forEach(function(btn){
             case "education":
                 if(educationStatus){
 
-                    mainContainerSectionAboutMe.style.height = "1000px";
-                    containerSectionAboutMeMobile.style.height = "850px";
+                    mainContainerSectionAboutMe.style.height = "1085px";
+                    containerSectionAboutMeMobile.style.height = "935px";
+                    educationInfo.style.padding = "0px";
                     educationInfo.style.height = "0";
 
                     profileStatus = false;
@@ -344,8 +342,9 @@ btnsLearnMore.forEach(function(btn){
                     certificatesStatus = false;
                 } else{
 
-                    mainContainerSectionAboutMe.style.height = "1434px";
-                    containerSectionAboutMeMobile.style.height = "1284px";
+                    mainContainerSectionAboutMe.style.height = "1400px";
+                    containerSectionAboutMeMobile.style.height = "1255px";
+                    educationInfo.style.padding = "10px";
                     educationInfo.style.height = "auto";
 
                     profileStatus = false;
@@ -357,8 +356,9 @@ btnsLearnMore.forEach(function(btn){
             case "skills":
                 if(skillsStatus){
 
-                    mainContainerSectionAboutMe.style.height = "1000px";
-                    containerSectionAboutMeMobile.style.height = "850px";
+                    mainContainerSectionAboutMe.style.height = "1085px";
+                    containerSectionAboutMeMobile.style.height = "935px";
+                    skillsInfo.style.padding = "0px";
                     skillsInfo.style.height = "0";
 
                     profileStatus = false;
@@ -367,8 +367,9 @@ btnsLearnMore.forEach(function(btn){
                     certificatesStatus = false;
                 } else{
 
-                    mainContainerSectionAboutMe.style.height = "1391px";
-                    containerSectionAboutMeMobile.style.height = "1241px";
+                    mainContainerSectionAboutMe.style.height = "1326px";
+                    containerSectionAboutMeMobile.style.height = "1176px";
+                    skillsInfo.style.padding = "10px";
                     skillsInfo.style.height = "auto";
 
                     profileStatus = false;
@@ -380,8 +381,9 @@ btnsLearnMore.forEach(function(btn){
             case "certificates":
                 if(certificatesStatus){
 
-                    mainContainerSectionAboutMe.style.height = "1000px";
-                    containerSectionAboutMeMobile.style.height = "850px";
+                    mainContainerSectionAboutMe.style.height = "1085px";
+                    containerSectionAboutMeMobile.style.height = "935px";
+                    certificatesInfo.style.padding = "0px";
                     certificatesInfo.style.height = "0";
 
                     profileStatus = false;
@@ -390,8 +392,9 @@ btnsLearnMore.forEach(function(btn){
                     certificatesStatus = false;
                 } else{
 
-                    mainContainerSectionAboutMe.style.height = "1285px";
-                    containerSectionAboutMeMobile.style.height = "1135px";
+                    mainContainerSectionAboutMe.style.height = "1224px";
+                    containerSectionAboutMeMobile.style.height = "1074px";
+                    certificatesInfo.style.padding = "10px";
                     certificatesInfo.style.height = "auto";
 
                     profileStatus = false;
@@ -406,6 +409,7 @@ btnsLearnMore.forEach(function(btn){
             for(i = 0; i < btnsLearnMore.length; i++){
                 if (btnsLearnMore[i] !== btn){
                     generalInfo[i].style.height = "0";
+                    generalInfo[i].style.padding = "0px";
                 }
             }
         }
@@ -686,6 +690,33 @@ containerNewJsCloseBtn.addEventListener("click", (e)=>{
 
 })
 
+
+// CONTACT ME SECTION
+formContactForm.addEventListener("submit", (e)=>{
+    e.preventDefault()
+    
+    const nameValue = document.getElementById("nombre").value;
+    const emailValue = document.getElementById("email").value;
+    const messageValue = document.getElementById("message").value;
+    
+    
+    axios.post('https://formsubmit.co/ajax/4a247a20c2a1dfc75e06cc04be162bae', {
+        "name": `${nameValue}`,
+        "email":`${emailValue}`,
+        "message":`${messageValue}`,
+    })
+        .then(response => alert("Email enviado"))
+        .catch(error => console.log(error));
+    })
+
+// FOOTER
+
+let actualDate = new Date();
+let actualDateYear = actualDate.getFullYear();
+
+actualDateRefresh.textContent = `${actualDateYear}`;
+
+
 // General Stuff
 
 
@@ -695,8 +726,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
     if (queryMatch.matches){
         queryMatches = true;
 
+        itemINav.forEach(function(item){
+            item.classList.remove("active-nav");
+        })
+
         btnSectionHomeMoreInfo.innerHTML = "MORE INFO";
     } else  {
+
+        itemINav.forEach(function(item){
+            item.classList.remove("active-nav-two");
+        })
         queryMatches = false;
     }
 
@@ -754,6 +793,12 @@ window.addEventListener("resize", ()=>{
             btnSectionHomeMoreInfo.classList.remove("show-section-home-btn");
             imgSectionHomeMoreInfo.classList.remove("blur-img");
 
+            mainContainerSectionAboutMe.style.height = "1000px";
+
+            itemINav.forEach(function(item){
+                item.classList.remove("active-nav");
+            })
+
             checkStatusContainerProjects();
     
         } else  {
@@ -768,6 +813,19 @@ window.addEventListener("resize", ()=>{
                 btnOpenNav.style.display = "none";
                 btnCloseNav.style.display = "block";
             }
+
+            itemINav.forEach(function(item){
+                item.classList.remove("active-nav-two");
+            })
+
+            imgSectionAboutMeLearnMore.src = "1.png";
+
+            mainContainerSectionAboutMe.style.height = "850px";
+            containerSectionAboutMeMobile.style.height = "700px";
+            containerSectionAboutMeMobileLearnMore.style.height = "0";
+            btnSectionAboutMeLearnMore.innerHTML = `LEARN MORE <i class="fa-solid fa-chevron-right"></i>`
+    
+            learnMoreAboutMeStatus = false;
     
             btnSectionHomeMoreInfo.innerHTML =  `<i class="fa-solid fa-angle-down"></i>`;
 
@@ -783,8 +841,6 @@ window.addEventListener(`scroll`, function(){
 
     const scrollHeight = window.pageYOffset;
 
-    console.log(scrollHeight)
-
     if (scrollHeight > 30){
         navContainerLogo.classList.add("change-bg-nav");
         navContainerNav.classList.add("change-bg-nav");
@@ -793,6 +849,56 @@ window.addEventListener(`scroll`, function(){
         navContainerLogo.classList.remove("change-bg-nav");
         navContainerNav.classList.remove("change-bg-nav");
         navContainer.classList.remove("change-bg-nav");
+    }
+
+    if (queryMatches){
+        if (scrollHeight >= 0 && scrollHeight < 600){
+            idNavHomeLi.classList.add("active-nav-two");
+        } else {
+            idNavHomeLi.classList.remove("active-nav-two");
+        }
+    
+        if (scrollHeight >= 600 && scrollHeight < 1450){
+            idNavAboutMeLi.classList.add("active-nav-two");
+        } else {
+            idNavAboutMeLi.classList.remove("active-nav-two");
+        }
+
+        if (scrollHeight >= 1450 && scrollHeight < 2350){
+            idNavPortfolioLi.classList.add("active-nav-two");
+        } else {
+            idNavPortfolioLi.classList.remove("active-nav-two");
+        }
+
+        if (scrollHeight >= 2350 && scrollHeight < 3400){
+            idNavContactMeLi.classList.add("active-nav-two");
+        } else {
+            idNavContactMeLi.classList.remove("active-nav-two");
+        }
+    } else {
+        if (scrollHeight >= 0 && scrollHeight < 600){
+            idNavHomeLi.classList.add("active-nav");
+        } else {
+            idNavHomeLi.classList.remove("active-nav");
+        }
+    
+        if (scrollHeight >= 600 && scrollHeight < 1450){
+            idNavAboutMeLi.classList.add("active-nav");
+        } else {
+            idNavAboutMeLi.classList.remove("active-nav");
+        }
+
+        if (scrollHeight >= 1450 && scrollHeight < 2350){
+            idNavPortfolioLi.classList.add("active-nav");
+        } else {
+            idNavPortfolioLi.classList.remove("active-nav");
+        }
+
+        if (scrollHeight >= 2350 && scrollHeight < 3400){
+            idNavContactMeLi.classList.add("active-nav");
+        } else {
+            idNavContactMeLi.classList.remove("active-nav");
+        }
     }
 
 
