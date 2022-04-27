@@ -46,6 +46,7 @@ const sectionAboutMeContainerBigInformation = document.querySelector(".section_a
 const btnsDivContainerAboutMeBig = document.querySelectorAll(".btnDivContainerAboutMeBig");
 const generalInfoAboutMeBig = document.querySelectorAll(".aboutMeBigInfo");
 const btnsCloseInfoGeneralBig = document.querySelectorAll(".btnCloseInfoGeneralBig");
+const sectionAboutMeContainerBigImg = document.querySelector(".section_aboutme_container_big_divimg_img");
 
 let learnMoreAboutMeStatus = false;
 let profileStatus = false;
@@ -79,6 +80,27 @@ const containerNewJsFatherH = document.querySelector(".section_portfolio_contain
 
 let containerJsProjectsStatus = false; 
 let containerPythonProjectsStatus = false; 
+
+// SECTION CONTACT ME 
+const formContactForm = document.querySelector(".section_contactme_container_form");
+
+formContactForm.addEventListener("submit", (e)=>{
+e.preventDefault()
+
+const nameValue = document.getElementById("nombre").value;
+const emailValue = document.getElementById("email").value;
+const messageValue = document.getElementById("message").value;
+
+
+axios.post('https://formsubmit.co/ajax/4a247a20c2a1dfc75e06cc04be162bae', {
+    "name": `${nameValue}`,
+    "email":`${emailValue}`,
+    "message":`${messageValue}`,
+})
+    .then(response => alert("Email enviado"))
+    .catch(error => console.log(error));
+})
+
 
 
 // General Configs
@@ -400,6 +422,11 @@ btnLearnMoreBigScreen.addEventListener("click", (e)=>{
     sectionAboutMeContainerBigPresent.classList.add("no-show-about");
     sectionAboutMeContainerBigBtns.classList.add("show-about-flex");
 
+    setTimeout(function(){
+        sectionAboutMeContainerBigBtns.style.opacity = "1";
+    })
+
+
 
 });
 
@@ -408,6 +435,7 @@ btnSectionAboutMeContainerBigBtnsClose.addEventListener("click", (e)=>{
 
     sectionAboutMeContainerBigPresent.classList.remove("no-show-about");
     sectionAboutMeContainerBigBtns.classList.remove("show-about-flex");
+    sectionAboutMeContainerBigBtns.style.opacity = "0";
 
 });
 
@@ -420,6 +448,8 @@ btnsCloseInfoGeneralBig.forEach(function(btn){
         
         for (i = 0; i < generalInfoAboutMeBig.length; i++){
             generalInfoAboutMeBig[i].classList.remove("show-about-flex");
+            generalInfoAboutMeBig[i].style.opacity = "0";
+            sectionAboutMeContainerBigImg.src = "1.png";
         }
 
     });
@@ -435,10 +465,17 @@ btnsDivContainerAboutMeBig.forEach(function(btn){
 
         for (i = 0; i < generalInfoAboutMeBig.length; i++){
             if(generalInfoAboutMeBig[i].id === idMinus){
-                console.log(generalInfoAboutMeBig[i])
                 sectionAboutMeContainerBigBtns.classList.remove("show-about-flex");
                 sectionAboutMeContainerBigInformation.classList.add("show-about-block");
                 generalInfoAboutMeBig[i].classList.add("show-about-flex");
+                sectionAboutMeContainerBigImg.src = "2.png";
+
+                let saveValue;
+                saveValue = i;
+
+                setTimeout(function(){
+                    generalInfoAboutMeBig[saveValue].style.opacity = "1";
+                });
             }
         }
 

@@ -29,6 +29,7 @@
                     <li class="nav_container_nav_list_item"><a href="#home" class="nav_link"><i class="fa-solid fa-house">Home</i></a></li>
                     <li class="nav_container_nav_list_item"><a href="#aboutme" class="nav_link"><i class="fa-solid fa-address-card">About Me</i></a></li>
                     <li class="nav_container_nav_list_item"><a href="#portfolio" class="nav_link"><i class="fa-solid fa-book-bookmark">Portfolio</i></a></li>
+                    <li class="nav_container_nav_list_item"><a href="#contactme" class="nav_link"><i class="fa-solid fa-book-bookmark">Contact Me</i></a></li>
                 </ul>
             </div>
         </nav>
@@ -205,7 +206,7 @@
                     <div class="section_aboutme_container_big_information_profile aboutMeBigInfo" id="profile">
 
                         <div class="section_aboutme_container_big_information_profile_title">
-                            <h2 class="section_aboutme_container_big_information_profile_title_h2">PROFILE<i class="fa-solid fa-user"></i></h2>
+                            <h2 class="section_aboutme_container_big_information_profile_title_h2">PROFILE <i class="fa-solid fa-user"></i></h2>
                             <button class="section_aboutme_container_big_information_profile_title_button btnCloseInfoGeneralBig" type="button"><i class="fa-solid fa-x"></i></button>
                         </div>
 
@@ -215,7 +216,7 @@
 
                     <div class="section_aboutme_container_big_information_education aboutMeBigInfo" id="education">
                         <div class="section_aboutme_container_big_information_education_title">
-                            <h2 class="section_aboutme_container_big_information_education_title_h2">EDUCATION<i class="fa-solid fa-user"></i></h2>
+                            <h2 class="section_aboutme_container_big_information_education_title_h2">EDUCATION <i class="fa-solid fa-graduation-cap"></i></h2>
                             <button class="section_aboutme_container_big_information_education_title_button btnCloseInfoGeneralBig" type="button"><i class="fa-solid fa-x"></i></button>
                         </div>
 
@@ -236,7 +237,7 @@
 
                     <div class="section_aboutme_container_big_information_skills  aboutMeBigInfo" id="skills">
                         <div class="section_aboutme_container_big_information_skills_title">
-                            <h2 class="section_aboutme_container_big_information_skills_title_h2">SKILLS<i class="fa-solid fa-user"></i></h2>
+                            <h2 class="section_aboutme_container_big_information_skills_title_h2">SKILLS <i class="fa-solid fa-bolt"></i></h2>
                             <button class="section_aboutme_container_big_information_skills_title_button btnCloseInfoGeneralBig" type="button"><i class="fa-solid fa-x"></i></button>
                         </div>
 
@@ -269,7 +270,7 @@
 
                     <div class="section_aboutme_container_big_information_certificates  aboutMeBigInfo" id="certificates">
                         <div class="section_aboutme_container_big_information_certificates_title">
-                            <h2 class="section_aboutme_container_big_information_certificates_title_h2">CERTIFICATES<i class="fa-solid fa-user"></i></h2>
+                            <h2 class="section_aboutme_container_big_information_certificates_title_h2">CERTIFICATES <i class="fa-solid fa-certificate"></i></h2>
                             <button class="section_aboutme_container_big_information_certificates_title_button btnCloseInfoGeneralBig" type="button"><i class="fa-solid fa-x"></i></button>
                         </div>
 
@@ -692,7 +693,31 @@
             </div>
 
         </section>
-    
+
+        <section id="contactme" class="section_contactme_container">
+
+            <div class="section_contactme_container_title">
+
+                <h2 class="section_contactme_container_title_h2">CONTACT <span class="span">ME</span></h2>
+
+            </div>
+
+            <div class="section_contactme_container_div">
+                <img class="section_contactme_container_div_img" src="catmail.png" alt="cat email">
+            </div>
+
+            <form class="section_contactme_container_form" method="POST">
+                <input type="hidden" name="_subject" value="New submission!">
+                <input type="hidden" name="_captcha" value="false">
+                <input class="section_contactme_container_form_input" id="nombre" type="text" name="name" placeholder="Your Name">
+                <input class="section_contactme_container_form_input" id="email" type="email" name="email" placeholder="Your Email Address">
+                <textarea class="section_contactme_container_form_textarea" id="message" rows="10" type="text" placeholder="Your Message" name="message" ></textarea>
+                <button class="section_contactme_container_form_button" type="submit">SEND</button>
+           </form>
+           
+        </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="codigo.js"></script>
 </body>
 </html>
