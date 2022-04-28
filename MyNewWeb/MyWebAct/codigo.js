@@ -26,9 +26,13 @@ const containerSectionHome = document.querySelector(".section_home_container_cen
 const containerSectionHomeInformation = document.querySelector(".section_home_container_information");
 const imgSectionHomeMoreInfo = document.querySelector(".section_home_container_information_img");
 const dataText = ["WELCOME TO MY WORLD"];
+const arrayImg = ["DiegoLibonati.png", "mia2.png", "mia3.png", "mia4.png"];
 
 let btnStatusMoreInfo = false;
 let pHomeStatus = false;
+
+imgSectionHomeMoreInfo.src = arrayImg[0];
+let y = 0;
 
 // SECTION ABOUTME
 const btnSectionAboutMeLearnMore = document.querySelector(".section_aboutme_container_mobile_present_button");
@@ -203,10 +207,14 @@ function sectionHomeFunctionMoreInfo(){
             pSectionHomeMoreInfo.classList.remove("show-section-home-p");
             containerSectionHome.classList.remove("show-section-home-p-height");
             btnSectionHomeMoreInfo.innerHTML =  `<i class="fa-solid fa-angle-down"></i>`;
+            imgSectionHomeMoreInfo.style.borderBottom = "2px solid #fff";
+            pSectionHomeMoreInfo.style.borderBottom = "0px"
             pHomeStatus = false;
         } else {
             pSectionHomeMoreInfo.classList.add("show-section-home-p");
             containerSectionHome.classList.add("show-section-home-p-height");
+            imgSectionHomeMoreInfo.style.borderBottom = "0px";
+            pSectionHomeMoreInfo.style.borderBottom = "2px solid #fff"
             btnSectionHomeMoreInfo.innerHTML =  `<i class="fa-solid fa-angle-up"></i>`;
             pHomeStatus = true;
         }
@@ -230,6 +238,19 @@ function sectionHomeFunctionMoreInfo(){
 
 }
 
+function changeImgHome(){
+    y++
+    
+    imgSectionHomeMoreInfo.src = `${arrayImg[y]}`;
+
+    if (y > 3){
+        y = 0;
+        imgSectionHomeMoreInfo.src = arrayImg[y];
+    }
+}
+
+setInterval(changeImgHome, 5000)
+
 // SECTION ABOUTME - FUNCTIONS
 btnSectionAboutMeLearnMore.addEventListener("click", showSectionAboutMeLearnMore);
 
@@ -239,9 +260,9 @@ function showSectionAboutMeLearnMore(){
 
         imgSectionAboutMeLearnMore.src = "1.png";
 
-        mainContainerSectionAboutMe.style.height = "850px";
-        containerSectionAboutMeMobile.style.height = "700px";
-        containerSectionAboutMeMobileLearnMore.style.height = "0";
+        mainContainerSectionAboutMe.classList.remove("show-height-auto")
+        containerSectionAboutMeMobile.classList.remove("show-height-auto")
+        containerSectionAboutMeMobileLearnMore.classList.remove("show-about-mobile")
 
         btnSectionAboutMeLearnMore.innerHTML = `LEARN MORE <i class="fa-solid fa-chevron-right"></i>`
 
@@ -252,38 +273,38 @@ function showSectionAboutMeLearnMore(){
         imgSectionAboutMeLearnMore.src = "2.png";
 
         if (profileStatus){
-            mainContainerSectionAboutMe.style.height = "1451px";
-            containerSectionAboutMeMobile.style.height = "1301px";
-            profileInfo.style.height = "auto";
-            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+            mainContainerSectionAboutMe.classList.add("show-height-auto")
+            containerSectionAboutMeMobile.classList.add("show-height-auto")
+            profileInfo.classList.add("show-about-mobile-x");
+            containerSectionAboutMeMobileLearnMore.classList.add("show-about-mobile")
     
             learnMoreAboutMeStatus = true;
         } else if(educationStatus){
-            mainContainerSectionAboutMe.style.height = "1400px";
-            containerSectionAboutMeMobile.style.height = "1255px";
-            educationInfo.style.height = "auto";
-            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+            mainContainerSectionAboutMe.classList.add("show-height-auto")
+            containerSectionAboutMeMobile.classList.add("show-height-auto")
+            educationInfo.classList.add("show-about-mobile-x");
+            containerSectionAboutMeMobileLearnMore.classList.add("show-about-mobile")
     
             learnMoreAboutMeStatus = true;
         } else if (skillsStatus){
-            mainContainerSectionAboutMe.style.height = "1326px";
-            containerSectionAboutMeMobile.style.height = "1176px";
-            skillsInfo.style.height = "auto";
-            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+            mainContainerSectionAboutMe.classList.add("show-height-auto")
+            containerSectionAboutMeMobile.classList.add("show-height-auto")
+            skillsInfo.classList.add("show-about-mobile-x");
+            containerSectionAboutMeMobileLearnMore.classList.add("show-about-mobile")
     
             learnMoreAboutMeStatus = true;
         } else if (certificatesStatus){
-            mainContainerSectionAboutMe.style.height = "1224px";
-            containerSectionAboutMeMobile.style.height = "1074px";
-            certificatesInfo.style.height = "auto";
-            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+            mainContainerSectionAboutMe.classList.add("show-height-auto")
+            containerSectionAboutMeMobile.classList.add("show-height-auto")
+            certificatesInfo.classList.add("show-about-mobile-x");
+            containerSectionAboutMeMobileLearnMore.classList.add("show-about-mobile")
     
             learnMoreAboutMeStatus = true;
         } else {
 
-            mainContainerSectionAboutMe.style.height = "1085px";
-            containerSectionAboutMeMobile.style.height = "935px";
-            containerSectionAboutMeMobileLearnMore.style.height = "auto";
+            mainContainerSectionAboutMe.classList.add("show-height-auto")
+            containerSectionAboutMeMobile.classList.add("show-height-auto")
+            containerSectionAboutMeMobileLearnMore.classList.add("show-about-mobile")
     
             btnSectionAboutMeLearnMore.innerHTML = `CLOSE <i class="fa-solid fa-chevron-right"></i>`
 
@@ -306,10 +327,10 @@ btnsLearnMore.forEach(function(btn){
             case "profile":
                 if(profileStatus){
 
-                    mainContainerSectionAboutMe.style.height = "1085px";
-                    containerSectionAboutMeMobile.style.height = "935px";
+                    mainContainerSectionAboutMe.classList.add("show-height-auto")
+                    containerSectionAboutMeMobile.classList.add("show-height-auto")
                     profileInfo.style.padding = "0px"
-                    profileInfo.style.height = "0";
+                    profileInfo.classList.remove("show-about-mobile-x");
 
                     profileStatus = false;
                     educationStatus = false;
@@ -317,10 +338,10 @@ btnsLearnMore.forEach(function(btn){
                     certificatesStatus = false;
                 } else{
 
-                    mainContainerSectionAboutMe.style.height = "1451px";
-                    containerSectionAboutMeMobile.style.height = "1301px";
+                    mainContainerSectionAboutMe.classList.add("show-height-auto")
+                    containerSectionAboutMeMobile.classList.add("show-height-auto")
                     profileInfo.style.padding = "10px"
-                    profileInfo.style.height = "auto";
+                    profileInfo.classList.add("show-about-mobile-x");
 
                     profileStatus = true;
                     educationStatus = false;
@@ -331,10 +352,10 @@ btnsLearnMore.forEach(function(btn){
             case "education":
                 if(educationStatus){
 
-                    mainContainerSectionAboutMe.style.height = "1085px";
-                    containerSectionAboutMeMobile.style.height = "935px";
-                    educationInfo.style.padding = "0px";
-                    educationInfo.style.height = "0";
+                    mainContainerSectionAboutMe.classList.add("show-height-auto")
+                    containerSectionAboutMeMobile.classList.add("show-height-auto")
+                    educationInfo.style.padding = "0px"
+                    educationInfo.classList.remove("show-about-mobile-x");
 
                     profileStatus = false;
                     educationStatus = false;
@@ -342,10 +363,10 @@ btnsLearnMore.forEach(function(btn){
                     certificatesStatus = false;
                 } else{
 
-                    mainContainerSectionAboutMe.style.height = "1400px";
-                    containerSectionAboutMeMobile.style.height = "1255px";
-                    educationInfo.style.padding = "10px";
-                    educationInfo.style.height = "auto";
+                    mainContainerSectionAboutMe.classList.add("show-height-auto")
+                    containerSectionAboutMeMobile.classList.add("show-height-auto")
+                    educationInfo.style.padding = "10px"
+                    educationInfo.classList.add("show-about-mobile-x");
 
                     profileStatus = false;
                     educationStatus = true;
@@ -356,10 +377,10 @@ btnsLearnMore.forEach(function(btn){
             case "skills":
                 if(skillsStatus){
 
-                    mainContainerSectionAboutMe.style.height = "1085px";
-                    containerSectionAboutMeMobile.style.height = "935px";
-                    skillsInfo.style.padding = "0px";
-                    skillsInfo.style.height = "0";
+                    mainContainerSectionAboutMe.classList.add("show-height-auto")
+                    containerSectionAboutMeMobile.classList.add("show-height-auto")
+                    skillsInfo.style.padding = "0px"
+                    skillsInfo.classList.remove("show-about-mobile-x");
 
                     profileStatus = false;
                     educationStatus = false;
@@ -367,10 +388,10 @@ btnsLearnMore.forEach(function(btn){
                     certificatesStatus = false;
                 } else{
 
-                    mainContainerSectionAboutMe.style.height = "1326px";
-                    containerSectionAboutMeMobile.style.height = "1176px";
-                    skillsInfo.style.padding = "10px";
-                    skillsInfo.style.height = "auto";
+                    mainContainerSectionAboutMe.classList.add("show-height-auto")
+                    containerSectionAboutMeMobile.classList.add("show-height-auto")
+                    skillsInfo.style.padding = "10px"
+                    skillsInfo.classList.add("show-about-mobile-x");
 
                     profileStatus = false;
                     educationStatus = false;
@@ -381,10 +402,10 @@ btnsLearnMore.forEach(function(btn){
             case "certificates":
                 if(certificatesStatus){
 
-                    mainContainerSectionAboutMe.style.height = "1085px";
-                    containerSectionAboutMeMobile.style.height = "935px";
-                    certificatesInfo.style.padding = "0px";
-                    certificatesInfo.style.height = "0";
+                    mainContainerSectionAboutMe.classList.add("show-height-auto")
+                    containerSectionAboutMeMobile.classList.add("show-height-auto")
+                    certificatesInfo.style.padding = "0px"
+                    certificatesInfo.classList.remove("show-about-mobile-x");
 
                     profileStatus = false;
                     educationStatus = false;
@@ -392,10 +413,10 @@ btnsLearnMore.forEach(function(btn){
                     certificatesStatus = false;
                 } else{
 
-                    mainContainerSectionAboutMe.style.height = "1224px";
-                    containerSectionAboutMeMobile.style.height = "1074px";
-                    certificatesInfo.style.padding = "10px";
-                    certificatesInfo.style.height = "auto";
+                    mainContainerSectionAboutMe.classList.add("show-height-auto")
+                    containerSectionAboutMeMobile.classList.add("show-height-auto")
+                    certificatesInfo.style.padding = "10px"
+                    certificatesInfo.classList.add("show-about-mobile-x");
 
                     profileStatus = false;
                     educationStatus = false;
@@ -408,7 +429,7 @@ btnsLearnMore.forEach(function(btn){
         for (i = 0; i < generalInfo.length; i++){
             for(i = 0; i < btnsLearnMore.length; i++){
                 if (btnsLearnMore[i] !== btn){
-                    generalInfo[i].style.height = "0";
+                    generalInfo[i].classList.remove("show-about-mobile-x");
                     generalInfo[i].style.padding = "0px";
                 }
             }
@@ -793,7 +814,10 @@ window.addEventListener("resize", ()=>{
             btnSectionHomeMoreInfo.classList.remove("show-section-home-btn");
             imgSectionHomeMoreInfo.classList.remove("blur-img");
 
-            mainContainerSectionAboutMe.style.height = "1000px";
+            imgSectionHomeMoreInfo.style.borderBottom = "0px";
+            pSectionHomeMoreInfo.style.borderBottom = "0px"
+
+            mainContainerSectionAboutMe.classList.add("show-height-big");
 
             itemINav.forEach(function(item){
                 item.classList.remove("active-nav");
@@ -818,15 +842,27 @@ window.addEventListener("resize", ()=>{
                 item.classList.remove("active-nav-two");
             })
 
+            imgSectionHomeMoreInfo.style.borderBottom = "2px solid #fff";
+            pSectionHomeMoreInfo.style.borderBottom = "0px"
+
+            mainContainerSectionAboutMe.classList.remove("show-height-big");
+
             imgSectionAboutMeLearnMore.src = "1.png";
 
-            mainContainerSectionAboutMe.style.height = "850px";
-            containerSectionAboutMeMobile.style.height = "700px";
-            containerSectionAboutMeMobileLearnMore.style.height = "0";
-            btnSectionAboutMeLearnMore.innerHTML = `LEARN MORE <i class="fa-solid fa-chevron-right"></i>`
-    
-            learnMoreAboutMeStatus = false;
-    
+            if (learnMoreAboutMeStatus){
+                mainContainerSectionAboutMe.classList.add("show-height-auto");
+                containerSectionAboutMeMobile.classList.add("show-height-auto");
+                containerSectionAboutMeMobileLearnMore.classList.add("show-about-mobile");
+        
+                btnSectionAboutMeLearnMore.innerHTML = `CLOSE <i class="fa-solid fa-chevron-right"></i>`
+            } else {
+                mainContainerSectionAboutMe.classList.remove("show-height-auto");
+                containerSectionAboutMeMobile.classList.remove("show-height-auto");
+                containerSectionAboutMeMobileLearnMore.classList.remove("show-about-mobile");
+        
+                btnSectionAboutMeLearnMore.innerHTML = `LEARN MORE <i class="fa-solid fa-chevron-right"></i>`
+            }
+
             btnSectionHomeMoreInfo.innerHTML =  `<i class="fa-solid fa-angle-down"></i>`;
 
             checkStatusContainerProjects();
@@ -841,6 +877,8 @@ window.addEventListener(`scroll`, function(){
 
     const scrollHeight = window.pageYOffset;
 
+    console.log(scrollHeight)
+
     if (scrollHeight > 30){
         navContainerLogo.classList.add("change-bg-nav");
         navContainerNav.classList.add("change-bg-nav");
@@ -852,25 +890,25 @@ window.addEventListener(`scroll`, function(){
     }
 
     if (queryMatches){
-        if (scrollHeight >= 0 && scrollHeight < 600){
+        if (scrollHeight >= 0 && scrollHeight < 1003){
             idNavHomeLi.classList.add("active-nav-two");
         } else {
             idNavHomeLi.classList.remove("active-nav-two");
         }
     
-        if (scrollHeight >= 600 && scrollHeight < 1450){
+        if (scrollHeight >= 1003 && scrollHeight < 2003){
             idNavAboutMeLi.classList.add("active-nav-two");
         } else {
             idNavAboutMeLi.classList.remove("active-nav-two");
         }
 
-        if (scrollHeight >= 1450 && scrollHeight < 2350){
+        if (scrollHeight >= 2003 && scrollHeight < 3003){
             idNavPortfolioLi.classList.add("active-nav-two");
         } else {
             idNavPortfolioLi.classList.remove("active-nav-two");
         }
 
-        if (scrollHeight >= 2350 && scrollHeight < 3400){
+        if (scrollHeight >= 3003 && scrollHeight < 3500){
             idNavContactMeLi.classList.add("active-nav-two");
         } else {
             idNavContactMeLi.classList.remove("active-nav-two");

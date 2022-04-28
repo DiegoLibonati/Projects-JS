@@ -157,7 +157,7 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-    background: url("https://www.wallpapertip.com/wmimgs/91-917056_fondos-de-pantalla-paisajes-4k.jpg");
+    background: url("fondo.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -428,7 +428,6 @@ border-color: transparent;
         width: 100%;
         height: 70rem;
         background-color: #3c4894;
-        transition: height 1s;
     }
 
         .section_aboutme_container_mobile_present{
@@ -476,13 +475,14 @@ border-color: transparent;
         align-items: center;
         flex-flow: column nowrap;
         width: 100%;
+        transform: translateY(400%);
         height: 0;
         background-color: #3c4894;
+        transition: transform .5s ease-out;
     }
 
         .section_aboutme_container_mobile_profile{
             width: 80%;
-            transition: height 1s;
             overflow: hidden;
         }
 
@@ -513,7 +513,9 @@ border-color: transparent;
 
                 .section_aboutme_container_mobile_profile_text_div{
                     height: 0;
+                    transform: translateX(-400%);
                     background-color: #ffffff;
+                    transition: transform 1s;
                 }
 
                 .section_aboutme_container_mobile_profile_text_div_p{
@@ -525,7 +527,6 @@ border-color: transparent;
         .section_aboutme_container_mobile_education{
             width: 80%;
             margin-top: 1rem;
-            transition: height 1s;
             overflow: hidden;
         }
 
@@ -557,6 +558,8 @@ border-color: transparent;
                 .section_aboutme_container_mobile_education_text_div{
                     background-color: #ffffff;
                     height: 0;
+                    transform: translateX(-400%);
+                    transition: transform 1s;
                 }
 
                 .section_aboutme_container_mobile_education_text_div_h3{
@@ -570,7 +573,6 @@ border-color: transparent;
         .section_aboutme_container_mobile_skills{
             width: 80%;
             margin-top: 1rem;
-            transition: height 1s;
             overflow: hidden;
         }
 
@@ -603,6 +605,8 @@ border-color: transparent;
                     background-color: #ffffff;
                     height: 0;
                     padding: 0rem;
+                    transform: translateX(-400%);
+                    transition: transform 1s;
                 }
 
                 .section_aboutme_container_mobile_skills_text_div_h3{
@@ -616,7 +620,6 @@ border-color: transparent;
         .section_aboutme_container_mobile_certificates{
             width: 80%;
             margin: 1rem;
-            transition: height 1s;
             overflow: hidden;
         }
 
@@ -648,6 +651,8 @@ border-color: transparent;
             .section_aboutme_container_mobile_certificates_text_div{
                 height: 0;
                 background-color: #ffffff;
+                transform: translateX(-400%);
+                transition: transform 1s;
             }
 
             .section_aboutme_container_mobile_certificates_text_div_h3{
@@ -668,6 +673,29 @@ border-color: transparent;
 
             .section_aboutme_container_big_information{
                 display: none;
+            }
+
+            .show-height-auto{
+                height: auto;
+            }
+
+            .show-about-mobile{
+                height: auto;
+                transform: translateY(0%);
+            }
+
+            .show-height-big{
+                height: 100rem;
+            }
+            
+            .show-about-mobile-x{
+                height: auto;
+                transform: translateX(0%);
+            }
+
+            .no-show-about-mobile{
+                transform: translateY(-200%);
+                height: 0;
             }
 
 @media screen and (min-width:768px) {
@@ -758,7 +786,7 @@ border-color: transparent;
             }
 
             .section_aboutme_container_big_present_button:hover{
-                border-bottom: .2rem solid #fff;
+                border-bottom: .1rem solid #fff;
             }
             
             .section_aboutme_container_big_present_button i{
@@ -1231,7 +1259,7 @@ border-color: transparent;
             flex-flow: column nowrap;
             background: url("javascript.png");
             background-repeat: no-repeat;
-            background-size: 30rem;
+            background-size: 15rem;
             background-position: center;
             height: 35rem;
             width: 100%;
@@ -1941,7 +1969,7 @@ border-color: transparent;
     align-items: center;
     width: 100%;
     height: 35rem;
-    margin-top: 1rem;
+    background: rgb(50, 50, 50);
 }
 
     .footer_container_location{
@@ -1951,7 +1979,6 @@ border-color: transparent;
         justify-content: center;
         width: 80%;
         height: 12rem;
-        background: #3c4894;
         padding: 1rem;
     }
 
@@ -1973,7 +2000,6 @@ border-color: transparent;
         flex-flow: column nowrap;
         width: 80%;
         height: 12rem;
-        background: #3c4894;
         padding: 1rem;
         margin-top: 1rem;
     }
@@ -2004,7 +2030,6 @@ border-color: transparent;
         align-items: center;
         justify-content: center;
         margin-top: 1rem;
-        background: #5261c4;
         width: 100%;
         height: 5rem;
     }
