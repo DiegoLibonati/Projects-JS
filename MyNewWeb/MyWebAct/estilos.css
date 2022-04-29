@@ -1249,7 +1249,7 @@ border-color: transparent;
                     }
 
                     .section_portfolio_container_projects_python_div_button i{
-                        font-size: 1.5rem;
+                        font-size: 1rem;
                     }
 
         .section_portfolio_container_projects_js{
@@ -1285,7 +1285,7 @@ border-color: transparent;
                     }
 
                     .section_portfolio_container_projects_js_div_button i{
-                        font-size: 1.5rem;
+                        font-size: 1rem;
                     }
 
         .section_portfolio_container_projects_python_open{
@@ -1351,13 +1351,18 @@ border-color: transparent;
 
                 .section_portfolio_container_projects_python_open_div_list_item_div_h3{
                     font-size: 3rem;
-                    padding: .5rem;
                     text-align: center;
+                }
+
+                .section_portfolio_container_projects_python_open_div_list_item_div_p_cen{
+                    font-size: 2rem;
+                    align-self: center;
+                    color: #fff;
                 }
 
                 .section_portfolio_container_projects_python_open_div_list_item_div_p{
                     font-size: 2rem;
-                    padding: .5rem;
+                    align-self: flex-start;
                 }
 
                 .section_portfolio_container_projects_js_open{
@@ -1437,25 +1442,74 @@ border-color: transparent;
                             display: none;
                             flex-flow: column nowrap;
                             justify-content: center;
-                            align-items: center;
+                            align-items: flex-start;
                             padding: 1rem;
                         }
 
                         .section_portfolio_container_projects_python_open_div_list_item_div_h3{
+                            align-self: center;
                             color: #fff;
                         }
 
                         .section_portfolio_container_projects_python_open_div_list_item_div_p{
-                            text-align: center;
                             color: #fff;
                         }
 
                         .section_portfolio_container_projects_js_open_div_list_item_div_h3{
+                            align-self: center;
                             color: #fff;
                         }
 
                         .section_portfolio_container_projects_js_open_div_list_item_div_p{
-                            text-align: center;
+                            color: #fff;
+                        }
+
+                        .section_portfolio_container_projects_python_open_div_list_item_div_img{
+                            align-self: center;
+                        }
+
+                        .section_portfolio_container_projects_python_open_div_list_item_div_button{
+                            margin-top: 1rem;
+                            align-self: center;
+                            width: 100%;
+                            border: none;
+                            height: 3rem;
+                            background: #5261c4;
+                        }
+
+                        .section_portfolio_container_projects_python_open_div_list_item_div_button a{
+                            color: #fff;
+                            font-size: 2rem;
+                            letter-spacing: .3rem;
+                            text-decoration: none;
+                        }
+
+                        .section_portfolio_container_projects_python_open_div_list_item_div_p_cen{
+                            align-self: center;
+                            text-align: justify;
+                        }
+
+                        .section_portfolio_container_projects_js_open_div_list_item_div_p_cen{
+                            color: #fff;
+                            font-size: 2rem;
+                            text-align: justify;
+                            align-self: center;
+                        }
+
+                        .section_portfolio_container_projects_js_open_div_list_item_div_button{
+                            margin-top: 1rem;
+                            align-self: center;
+                            width: 100%;
+                            border: none;
+                            height: 3rem;
+                            background: #5261c4;
+                        }
+
+                        .section_portfolio_container_projects_js_open_div_list_item_div_button a{
+                            color: #fff;
+                            font-size: 2rem;
+                            letter-spacing: .3rem;
+                            text-decoration: none;
                         }
 
         .section_portfolio_container_projects_Hpython{
@@ -1659,7 +1713,8 @@ border-color: transparent;
         }
 
         .section_portfolio_container_projects_Hpython_description_container_two_item_p_cen{
-            text-align: center;
+            align-self: center;
+            text-align: justify;
             font-size: 2rem;
             margin: 1rem;
         }
@@ -1735,7 +1790,6 @@ border-color: transparent;
                 flex-flow: column wrap;
                 align-items: center;
                 justify-content: center;
-                padding: 1rem;
             }
     
             .section_portfolio_container_projects_Hjs_description_container_two_item_h2{
@@ -1751,16 +1805,43 @@ border-color: transparent;
             }
     
             .section_portfolio_container_projects_Hjs_description_container_two_item_p{
+                align-self: flex-start;
+                text-align: justify;
+                font-size: 2rem;
+                margin: 2rem;
+            }
+
+            .section_portfolio_container_projects_Hjs_description_container_two_item_button{
+                background: #3c4894;
+                margin: 1rem;
+                border: none;
+                cursor: pointer;
+                height: 6.2rem;
+                width: 80%;
+            }
+
+                .section_portfolio_container_projects_Hjs_description_container_two_item_button a{
+                    font-size: 3rem;
+                    padding: 1rem;
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+            .section_portfolio_container_projects_Hjs_description_container_two_item_p_cen{
+                align-self: center;
+                text-align: justify;
                 font-size: 2rem;
                 margin: 1rem;
             }
 
             .section_portfolio_container_projects_Hpython_description_container_two_item_button{
+                align-self: center;
                 background: #3c4894;
-                margin-top: 3rem;
+                margin: 1rem;
                 border: none;
                 cursor: pointer;
                 height: 6.2rem;
+                width: 80%;
             }
 
                 .section_portfolio_container_projects_Hpython_description_container_two_item_button a{
@@ -1768,10 +1849,6 @@ border-color: transparent;
                     padding: 1rem;
                     text-decoration: none;
                     color: #fff;
-                }
-
-                .section_portfolio_container_projects_Hpython_description_container_two_item_button a:hover{
-                    border-bottom: .2rem solid rgb(0, 0, 0);
                 }
 
         ::-webkit-scrollbar{
