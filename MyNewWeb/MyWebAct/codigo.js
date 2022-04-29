@@ -26,7 +26,7 @@ const containerSectionHome = document.querySelector(".section_home_container_cen
 const containerSectionHomeInformation = document.querySelector(".section_home_container_information");
 const imgSectionHomeMoreInfo = document.querySelector(".section_home_container_information_img");
 const dataText = ["WELCOME TO MY WORLD"];
-const arrayImg = ["DiegoLibonati.png", "mia2.png", "mia3.png", "mia4.png"];
+const arrayImg = ["templates/DiegoLibonati.png", "templates/mia2.png", "templates/mia3.png", "templates/mia4.png"];
 
 let btnStatusMoreInfo = false;
 let pHomeStatus = false;
@@ -258,7 +258,7 @@ function showSectionAboutMeLearnMore(){
 
     if(learnMoreAboutMeStatus){
 
-        imgSectionAboutMeLearnMore.src = "1.png";
+        imgSectionAboutMeLearnMore.src = "templates/1.png";
 
         mainContainerSectionAboutMe.classList.remove("show-height-auto")
         containerSectionAboutMeMobile.classList.remove("show-height-auto")
@@ -270,7 +270,7 @@ function showSectionAboutMeLearnMore(){
 
     } else {
 
-        imgSectionAboutMeLearnMore.src = "2.png";
+        imgSectionAboutMeLearnMore.src = "templates/2.png";
 
         if (profileStatus){
             mainContainerSectionAboutMe.classList.add("show-height-auto")
@@ -474,7 +474,7 @@ btnsCloseInfoGeneralBig.forEach(function(btn){
         for (i = 0; i < generalInfoAboutMeBig.length; i++){
             generalInfoAboutMeBig[i].classList.remove("show-about-flex");
             generalInfoAboutMeBig[i].style.opacity = "0";
-            sectionAboutMeContainerBigImg.src = "1.png";
+            sectionAboutMeContainerBigImg.src = "templates/1.png";
         }
 
     });
@@ -493,7 +493,7 @@ btnsDivContainerAboutMeBig.forEach(function(btn){
                 sectionAboutMeContainerBigBtns.classList.remove("show-about-flex");
                 sectionAboutMeContainerBigInformation.classList.add("show-about-block");
                 generalInfoAboutMeBig[i].classList.add("show-about-flex");
-                sectionAboutMeContainerBigImg.src = "2.png";
+                sectionAboutMeContainerBigImg.src = "templates/2.png";
 
                 let saveValue;
                 saveValue = i;
@@ -847,7 +847,7 @@ window.addEventListener("resize", ()=>{
 
             mainContainerSectionAboutMe.classList.remove("show-height-big");
 
-            imgSectionAboutMeLearnMore.src = "1.png";
+            imgSectionAboutMeLearnMore.src = "templates/1.png";
 
             if (learnMoreAboutMeStatus){
                 mainContainerSectionAboutMe.classList.add("show-height-auto");
