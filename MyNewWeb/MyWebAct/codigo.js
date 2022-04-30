@@ -92,6 +92,7 @@ let containerPythonProjectsStatus = false;
 
 // SECTION CONTACT ME 
 const formContactForm = document.querySelector(".section_contactme_container_form");
+const btnContactMe = document.querySelector(".section_contactme_container_form_button");
 
 // FOOTER
 const actualDateRefresh = document.getElementById("agedate");
@@ -720,15 +721,83 @@ formContactForm.addEventListener("submit", (e)=>{
     const emailValue = document.getElementById("email").value;
     const messageValue = document.getElementById("message").value;
     
+
+    if (nameValue == "" || emailValue == "" || messageValue == ""){
+       
+        btnContactMe.textContent = "SENDING.";
+
+        setTimeout(function(){
+            btnContactMe.textContent = "SENDING..";
+        },500);
+
+        setTimeout(function(){
+            btnContactMe.textContent = "SENDING...";
+        },1000);
+
+
+        setTimeout(function(){
+            btnContactMe.style.background = "red";
+            btnContactMe.textContent = "ERROR | Check the inputs ❌";
+        },2000);
+       
+
+        setTimeout(function(){
+            btnContactMe.textContent = "SEND";
+            btnContactMe.style.background = "#5261c4";
+            formContactForm.reset();
+            grecaptcha.reset();
+            btnContactMe.setAttribute("disabled", "");
+            btnContactMe.style.cursor = "not-allowed";
+        },6000);
+
+    } else {
+        axios.post('https://formsubmit.co/ajax/4a247a20c2a1dfc75e06cc04be162bae', {
+            "name": `${nameValue}`,
+            "email":`${emailValue}`,
+            "message":`${messageValue}`,
+        })
+            .then(response => {
+
+                btnContactMe.textContent = "SENDING.";
+
+                setTimeout(function(){
+                    btnContactMe.textContent = "SENDING..";
+                },500);
+        
+                setTimeout(function(){
+                    btnContactMe.textContent = "SENDING...";
+                },1000);
+
+
+
+                setTimeout(function(){
+                                    
+                    btnContactMe.style.background = "green";
+                    btnContactMe.textContent = "SENT SUCCESSFULLY ✔️";
+                },2000);
+                
+
+
+                    setTimeout(function(){
+                        btnContactMe.textContent = "SEND";
+                        btnContactMe.style.background = "#5261c4";
+                        formContactForm.reset();
+                        grecaptcha.reset();
+                        btnContactMe.setAttribute("disabled", "");
+                        btnContactMe.style.cursor = "not-allowed";
+                    },6000);
     
-    axios.post('https://formsubmit.co/ajax/4a247a20c2a1dfc75e06cc04be162bae', {
-        "name": `${nameValue}`,
-        "email":`${emailValue}`,
-        "message":`${messageValue}`,
-    })
-        .then(response => alert("Email enviado"))
-        .catch(error => console.log(error));
-    })
+            })
+            .catch(error => console.log(error));
+        }
+    });
+
+
+function recaptcha_callback(){
+    btnContactMe.removeAttribute("disabled");
+    btnContactMe.style.cursor = "pointer";
+}
+
 
 // FOOTER
 
@@ -829,6 +898,20 @@ window.addEventListener("resize", ()=>{
 
 
             queryMatches = false;
+
+            containerNewPythonBtn.addEventListener("click",()=>{
+                containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
+                containerNewPython.classList.remove("show-display-projects");
+                containerNewPython.style.opacity = "0";
+                containerPythonProjectsStatus = false;
+            });
+
+            containerNewJsBtn.addEventListener("click",()=>{
+                containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
+                containerNewJs.classList.remove("show-display-projects");
+                containerNewJs.style.opacity = "0";
+                containerJsProjectsStatus = false;
+            });
 
             if (navStatus === false){
                 btnOpenNav.style.display = "block";

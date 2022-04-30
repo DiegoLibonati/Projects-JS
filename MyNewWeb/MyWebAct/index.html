@@ -14,6 +14,9 @@
 
     <script src="https://kit.fontawesome.com/41faca984e.js" crossorigin="anonymous"></script>
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
 </head>
 <body>
 
@@ -1148,7 +1151,7 @@
                             </p>
 
                             <img class="section_portfolio_container_projects_Hpython_description_container_two_item_img" src="templates/bot.png" alt="discord bot">
-                            <button type="Button" class="section_portfolio_container_projects_Hpython_description_container_two_item_button"><a href="https://github.com/DiegoLibonati/Die-BOT" target="BLANK">Download</a></button>
+                            <a class="section_portfolio_container_projects_Hpython_description_container_two_item_button" href="https://github.com/DiegoLibonati/Die-BOT" target="BLANK"><button type="Button">Download</button></a>
 
                         </div>
 
@@ -1178,7 +1181,7 @@
                             </p>
 
                             <img class="section_portfolio_container_projects_Hpython_description_container_two_item_img" src="templates/pythonCal.png" alt="python calculator">
-                            <button type="Button" class="section_portfolio_container_projects_Hpython_description_container_two_item_button"><a href="https://github.com/DiegoLibonati/Calculadora" target="BLANK">Download</a></button>
+                            <a class="section_portfolio_container_projects_Hpython_description_container_two_item_button" href="https://github.com/DiegoLibonati/Calculadora" target="BLANK"><button type="Button">Download</button></a>
                         </div>
 
                         <div class="section_portfolio_container_projects_Hpython_description_container_two_item" id="CRUD">
@@ -1204,7 +1207,7 @@
                             <p class="section_portfolio_container_projects_Hpython_description_container_two_item_p"> .[NEW VERSION 0.3] Fixed the login + program problem</p>
 
                             <img class="section_portfolio_container_projects_Hpython_description_container_two_item_img" src="templates/crud.png" alt="crud program">
-                            <button type="Button" class="section_portfolio_container_projects_Hpython_description_container_two_item_button"><a href="https://github.com/DiegoLibonati/CRUD" target="BLANK">Download</a></button>
+                            <a class="section_portfolio_container_projects_Hpython_description_container_two_item_button" href="https://github.com/DiegoLibonati/CRUD" target="BLANK"><button type="Button">Download</button></a>
 
                         </div>
 
@@ -1654,7 +1657,8 @@
                     <input class="section_contactme_container_form_input" id="nombre" type="text" name="name" placeholder="Your Name">
                     <input class="section_contactme_container_form_input" id="email" type="email" name="email" placeholder="Your Email Address">
                     <textarea class="section_contactme_container_form_textarea" id="message" rows="10" type="text" placeholder="Your Message" name="message" ></textarea>
-                    <button class="section_contactme_container_form_button" type="submit">SEND</button>
+                    <div class="g-recaptcha" data-sitekey="6LcGI7EfAAAAACedMy2sd9VcQuqhaWv5drJ88NWC" data-callback="recaptcha_callback"></div>
+                    <button class="section_contactme_container_form_button" type="submit" disabled>SEND</button>
                </form>
 
             </div>
