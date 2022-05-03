@@ -4,6 +4,7 @@ const btnRandomMeal = document.querySelector(".randommeal_container_general_img 
 const btnFav = document.querySelector(".randommeal_container_general_fav button");
 const btnFavIcon = document.querySelector(".randommeal_container_general_fav button i");
 const historyContainer = document.querySelector(".history_container");
+const informationHistoryContainer = document.querySelector(".informationhistory_container"); 
 
 let mealStatus = false;
 
@@ -18,7 +19,7 @@ const getMeals = async ()=>{
 }
 
 getMeals();
-resetFavMeal()
+resetFavMeal();
 
 function addMeal (randomMeal){
 
@@ -52,8 +53,6 @@ function addToLocalStorage(id, title, instructions, img){
     const mealItem = {id: id, title:title, instructions: instructions, img: img};
 
     let itemsMeal = getLocalStorage(); 
-    console.log(itemsMeal)
-
 
     if (itemsMeal.length == 0){
         itemsMeal.push(mealItem);
@@ -103,6 +102,7 @@ function getLocalStorage(){
 
 
 function resetFavMeal(){
+
     let itemsMeal = getLocalStorage(); 
 
     for (let i = 0; i < itemsMeal.length; i++){
@@ -114,6 +114,40 @@ function resetFavMeal(){
         `
     }
 
+    const historydivsImgs = document.querySelectorAll(".divhistory img");
+
+    historydivsImgs.forEach(function(img){
+        img.addEventListener("click", ()=>{
+            for(let i = 0; i < itemsMeal.length; i++){
+                if (img.alt === itemsMeal[i].title){
+
+                    informationHistoryContainer.classList.add("open-info");
+
+                    informationHistoryContainer.innerHTML = `
+                    
+                    <h2>${itemsMeal[i].title}</h2>
+
+                    <img src="${itemsMeal[i].img}" alt="${itemsMeal[i].title}">
+        
+                    <p>${itemsMeal[i].instructions}</p>
+        
+                    <button type="button" id="close">CLOSE</button>
+        
+                    <button type="button" id="desfav">UNFAV</button>
+        
+                    
+                    `;
+
+                    const btnClose = document.getElementById("close");
+
+                    btnClose.addEventListener("click", ()=>{
+                        informationHistoryContainer.innerHTML = "";
+                        informationHistoryContainer.classList.remove("open-info");
+                    });
+                }
+            }
+        });
+    });
 
 
 }
@@ -127,4 +161,70 @@ function addFavMeal(mealItem){
     </div>
     `
 
+    const historydivs = document.querySelectorAll(".divhistory");
+    const historydivsImgs = document.querySelectorAll(".divhistory img");
+
+    historydivsImgs.forEach(function(img){
+        
+        img.addEventListener("click", ()=>{
+
+            img.style.border = "2px solid rgba(255, 77, 0, 0.204)"
+            
+            informationHistoryContainer.classList.add("open-info");
+
+            informationHistoryContainer.innerHTML = `
+            
+            <h2>${mealItem.title}</h2>
+
+            <img src="${mealItem.img}" alt="${mealItem.title}">
+
+            <p>${mealItem.instructions}</p>
+
+            <button type="button" id="close">CLOSE</button>
+
+            <button type="button" id="desfav">UNFAV</button>
+            
+            `;
+
+            const btnClose = document.getElementById("close");
+            const btnDesFav = document.getElementById("desfav");
+
+            btnClose.addEventListener("click", ()=>{
+                informationHistoryContainer.innerHTML = "";
+                informationHistoryContainer.classList.remove("open-info");
+            });
+
+            btnDesFav.addEventListener("click", ()=>{
+
+                let itemsMeal = getLocalStorage();
+
+                itemsMeal = itemsMeal.filter(function(item){
+                    if(item.id !== mealItem.id){
+                        return item;
+                    }
+                })
+    
+                historydivs.forEach(function(history){
+                    if (history.id === mealItem.title){
+                        history.remove();
+                    }
+                });
+    
+                localStorage.setItem("list", JSON.stringify(itemsMeal));
+    
+                mealStatus = false;
+
+                btnFavIcon.classList.remove("newfav");
+
+
+            });
+
+        });
+
+    });
+
+
+
 }
+
+
