@@ -3,8 +3,10 @@ const mealRandomTitleContainer = document.querySelector(".randommeal_container_g
 const btnRandomMeal = document.querySelector(".randommeal_container_general_img button");
 const btnFav = document.querySelector(".randommeal_container_general_fav button");
 const btnFavIcon = document.querySelector(".randommeal_container_general_fav button i");
+const historyContainer = document.querySelector(".history_container");
 
 let mealStatus = false;
+
 
 const getMeals = async ()=>{
 
@@ -16,6 +18,7 @@ const getMeals = async ()=>{
 }
 
 getMeals();
+resetFavMeal()
 
 function addMeal (randomMeal){
 
@@ -36,21 +39,27 @@ btnFav.addEventListener("click", ()=>{
     btnFavIcon.classList.toggle("newfav");
 
     
-    addToLocalStorage(randomMealData.idMeal, randomMealData.strMeal);
+    addToLocalStorage(randomMealData.idMeal, randomMealData.strMeal, randomMealData.strInstructions, randomMealData.strMealThumb);
 
 
 });
 
-function addToLocalStorage(id, title){
+function addToLocalStorage(id, title, instructions, img){
     console.log("added to local storage");
 
-    const mealItem = {id: id, title:title};
+    const historydivs = document.querySelectorAll(".divhistory");
+   
+    const mealItem = {id: id, title:title, instructions: instructions, img: img};
 
     let itemsMeal = getLocalStorage(); 
+    console.log(itemsMeal)
+
 
     if (itemsMeal.length == 0){
         itemsMeal.push(mealItem);
         localStorage.setItem("list", JSON.stringify(itemsMeal));
+        addFavMeal(mealItem);
+
     } else {
             
         for(i = 0; i < itemsMeal.length; i++){
@@ -63,6 +72,25 @@ function addToLocalStorage(id, title){
         if (mealStatus == false) {
             itemsMeal.push(mealItem);
             localStorage.setItem("list", JSON.stringify(itemsMeal));
+            addFavMeal(mealItem);
+
+        } else {
+            
+            itemsMeal = itemsMeal.filter(function(item){
+                if(item.id !== id){
+                    return item;
+                }
+            })
+
+            historydivs.forEach(function(history){
+                if (history.id === mealItem.title){
+                    history.remove();
+                }
+            });
+
+            localStorage.setItem("list", JSON.stringify(itemsMeal));
+
+            mealStatus = false;
         }
 
     }
@@ -71,4 +99,32 @@ function addToLocalStorage(id, title){
 
 function getLocalStorage(){
     return localStorage.getItem("list")?JSON.parse(localStorage.getItem("list")):[];
+}
+
+
+function resetFavMeal(){
+    let itemsMeal = getLocalStorage(); 
+
+    for (let i = 0; i < itemsMeal.length; i++){
+        historyContainer.innerHTML += `
+        <div class="divhistory" id="${itemsMeal[i].title}">
+            <img src="${itemsMeal[i].img}" alt="${itemsMeal[i].title}">
+            <h3>${itemsMeal[i].title}</h3>
+        </div>
+        `
+    }
+
+
+
+}
+
+function addFavMeal(mealItem){
+
+    historyContainer.innerHTML += `
+    <div class="divhistory" id="${mealItem.title}">
+        <img src="${mealItem.img}" alt="${mealItem.title}">
+        <h3>${mealItem.title}</h3>
+    </div>
+    `
+
 }

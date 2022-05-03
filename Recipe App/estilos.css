@@ -28,6 +28,7 @@ body{
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    justify-content: center;
     width: 50%;
     height: 70rem;
     box-shadow: .1rem .1rem .1rem .1rem #000;
@@ -68,9 +69,49 @@ body{
 
 
     .history_container{
-        width: 80%;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
         height: 10rem;
+        width: 80%;
     }
+
+            .divhistory{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-flow: column nowrap;
+                flex:  0 0 auto;
+                width: 10rem;
+                height: 10rem;
+                margin-left: .5rem;
+                margin-right: .5rem;
+                padding: 1rem;
+            }
+
+                .divhistory img{
+                    width: 5rem;
+                    height: 5rem;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    border: .2rem solid rgb(255, 77, 0);
+                }
+
+                .divhistory h3{
+                    display: block;
+                    overflow: hidden;  
+                    text-align: center;
+                    margin-top: .5rem;
+                    height: 4.5rem;
+                    font-size: 1rem;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    width: 7rem;
+                }
+
+
+
 
     .randommeal_container{
         position: relative;
