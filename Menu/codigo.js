@@ -34,22 +34,22 @@ class Comida{
     }
 }
 
-const breakfastUno = new Comida("bf", "$15", "asdasdasdasdasdasdasdasdasdasd", "https://media.istockphoto.com/photos/breakfast-with-bacon-eggs-pancakes-and-toast-picture-id533645537?k=20&m=533645537&s=612x612&w=0&h=KJXCpAo9XQvMI_djcnRMSsz_Y7OGS6z3-8VThxWyR0Q=");
-const breakfastDos = new Comida("bf2", "$30", "asdasdasdasdasdasdasdasdasdasd", "https://media.istockphoto.com/photos/breakfast-with-bacon-eggs-pancakes-and-toast-picture-id533645537?k=20&m=533645537&s=612x612&w=0&h=KJXCpAo9XQvMI_djcnRMSsz_Y7OGS6z3-8VThxWyR0Q=");
-const breakfastTres = new Comida("bf3", "$30", "asdasdasdasdasdasdasdasdasdasd", "https://media.istockphoto.com/photos/breakfast-with-bacon-eggs-pancakes-and-toast-picture-id533645537?k=20&m=533645537&s=612x612&w=0&h=KJXCpAo9XQvMI_djcnRMSsz_Y7OGS6z3-8VThxWyR0Q=");
-const breakfastCuatro = new Comida("bf4", "$30", "asdasdasdasdasdasdasdasdasdasd", "https://media.istockphoto.com/photos/breakfast-with-bacon-eggs-pancakes-and-toast-picture-id533645537?k=20&m=533645537&s=612x612&w=0&h=KJXCpAo9XQvMI_djcnRMSsz_Y7OGS6z3-8VThxWyR0Q=");
+const breakfastUno = new Comida("American pancakes", "$15", "Easy, American-style, fluffy pancakes are great for feeding a crowd at breakfast or brunch. Top with something sweet like fruit, jam or syrup, or rashers of crispy bacon.", "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/american-style-pancakes-87119e3.jpg?quality=90&webp=true&resize=300,272");
+const breakfastDos = new Comida("Aire fryer bacon", "$30", "Cook bacon in an air fryer to achieve a crispy texture with less fat. The perfect bacon sandwich starts here", "https://images.immediate.co.uk/production/volatile/sites/30/2022/04/Air-Fryer-Bacon-cc2a084.jpg?quality=90&webp=true&resize=300,272");
+const breakfastTres = new Comida("Prawn & egg on toast", "$30", "Meet your new favourite brunch recipe: quick and easy prawn and egg mayonnaise on toast. Sprinkle with chives to finish", "https://images.immediate.co.uk/production/volatile/sites/30/2022/03/Prawn-and-egg-on-toast-7dda648.jpg?quality=90&webp=true&resize=300,272");
+const breakfastCuatro = new Comida("Smoky beans & baked eggs", "$30", "Pack in the nutrients with smoky beans and baked eggs. Great for a veggie family lunch or supper, serve with flatbreads or toast for extra sustenance", "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/smoky-beans-baked-eggs-4a53fb1.jpg?quality=90&webp=true&resize=300,272");
 
-breakfastDesayunos = [breakfastUno, breakfastDos,breakfastTres,breakfastCuatro];
+let breakfastDesayunos = [breakfastUno, breakfastDos,breakfastTres,breakfastCuatro];
 
-const lunchUno = new Comida("lunch", "$15", "asdasdasdasdasdasdasdasdasdasd", "https://media.istockphoto.com/photos/breakfast-with-bacon-eggs-pancakes-and-toast-picture-id533645537?k=20&m=533645537&s=612x612&w=0&h=KJXCpAo9XQvMI_djcnRMSsz_Y7OGS6z3-8VThxWyR0Q=");
-const lunchDos = new Comida("lunch2", "$15", "asdasdasdasdasdasdasdasdasdasd", "https://media.istockphoto.com/photos/breakfast-with-bacon-eggs-pancakes-and-toast-picture-id533645537?k=20&m=533645537&s=612x612&w=0&h=KJXCpAo9XQvMI_djcnRMSsz_Y7OGS6z3-8VThxWyR0Q=");
+const lunchUno = new Comida("Big-batch bolognese", "$15", "Whip up a huge batch of bolognese that's fit to feed a hungry crowd, or freeze half for a speedy midweek meal", "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1074456_10-1a5351d.jpg?quality=90&webp=true&resize=300,272");
+const lunchDos = new Comida("Meal prep: pasta", "$15", "Make three lunchbox pasta meals in one go to save you time midweek. They're nutritious and healthy with variations using salmon, chicken and aubergine", "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/mealprep-pasta-merged_web3_copy-8687106.jpg?quality=90&webp=true&resize=300,272");
 
-lunchDesayunos = [lunchUno, lunchDos];
+let lunchDesayunos = [lunchUno, lunchDos];
 
-const shakesUno = new Comida("Bakctipsew32", "$15", "asdasdasdasdasdasdasdasdasdasd", "https://media.istockphoto.com/photos/breakfast-with-bacon-eggs-pancakes-and-toast-picture-id533645537?k=20&m=533645537&s=612x612&w=0&h=KJXCpAo9XQvMI_djcnRMSsz_Y7OGS6z3-8VThxWyR0Q=");
-const shakesDos = new Comida("shakes2", "$15", "asdasdasdasdasdasdasdasdasdasd", "https://media.istockphoto.com/photos/breakfast-with-bacon-eggs-pancakes-and-toast-picture-id533645537?k=20&m=533645537&s=612x612&w=0&h=KJXCpAo9XQvMI_djcnRMSsz_Y7OGS6z3-8VThxWyR0Q=");
+const shakesUno = new Comida("Breakfast super-shake", "$15", "This smoothie is high in natural fats and sugar - ideal if you need some fuel for intense exercise", "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/breakfast-super-shake-e63774c.jpg?quality=90&webp=true&resize=300,272");
+const shakesDos = new Comida("Green spirulina smoothie", "$15", "Start your day with a healthy smoothie. As well as being packed with nutrients, the deep green of spirulina adds rich vibrancy while avocado gives a silky texture", "https://images.immediate.co.uk/production/volatile/sites/30/2022/04/Spirulina-smoothie-40fc97e.jpg?quality=90&webp=true&resize=300,272");
 
-shakesDesayunos = [shakesUno, shakesDos];
+let shakesDesayunos = [shakesUno, shakesDos];
 
 let desayunos = [breakfastUno,breakfastDos,breakfastTres,breakfastCuatro, lunchUno,lunchDos, shakesUno, shakesDos];
 

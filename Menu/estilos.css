@@ -73,7 +73,7 @@ width: 100vw;
 
         .section_container_article-item{
             display: flex;
-            flex-flow: row wrap;
+            flex-flow: row nowrap;
             justify-content: center;
             width: 40%;
             padding: .3rem;
@@ -86,12 +86,13 @@ width: 100vw;
         }
 
             .item-imagen{
-                width: 50%;
+                width: 100%;
                 padding: .3rem;
                 margin: .3rem;
             }
                 .item-imagen img{
                     width: 100%;
+                    height: 20rem;
                     object-fit: cover;
                     border: .5rem solid rgb(155, 139, 0);
                     border-radius: 1rem;
@@ -113,7 +114,7 @@ width: 100vw;
             }
 
                 .item-informacion h3{
-                    font-size: 1.5rem;
+                    font-size: 2rem;
                     padding: .3rem;
                     margin: .3rem;
                 }
@@ -121,4 +122,8 @@ width: 100vw;
             .item-descripcion{
                 padding: .3rem;
                 margin: .3rem;
+            }
+
+            .item-descripcion p{
+                font-size: 2rem;
             }
