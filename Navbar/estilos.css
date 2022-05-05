@@ -12,120 +12,160 @@ body{
     height: 100vh;
 }
 
+.header_container{
+    width: 100%;
+    height: 10rem;
+}
 
-
-
-.contenedor{
+    .header_logo_container{
         display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
         align-items: center;
-        background-color: aquamarine;
-    }
-
-        .title{
-            margin: 1rem;
-
-        }
-            .title h1{
-                font-size: 2.5rem;
-                letter-spacing: .3rem;
-            }
-
-        .list{
-            margin: 1rem;
-        }
-            .list ul{
-                display: flex;
-                flex-flow: row wrap;
-            }
-
-                .list ul li{
-                    padding-left: 1rem;
-                    padding-right: 1rem;
-                    letter-spacing: .3rem;
-                    font-size: 1.5rem;
-                }
-
-        .redes{
-            display: initial;
-            margin: 1rem;
-        }
-
-            .redes a{
-                font-size: 1.5rem;
-                padding-left: 1rem;
-                padding-right: 1rem;
-                color: black;
-            }
-
-
-    .boton{
-        display:none;
-    }
-
-@media screen and (max-width: 768px){
-
-    .contenedor{
-        display: flex;
-        flex-flow: row nowrap;
-        background-color: rgb(0, 111, 207);
         justify-content: space-between;
         width: 100%;
-        margin: 0;
+        height: 10rem;
+        background-color: #a52a2a;
     }
-    
-        .title{
-            display: flex;
-            flex-direction: row;
-            margin: 1rem;
+
+        .header_logo_container img{
+            height: 10rem;
+            padding: 1rem;
         }
-            .title h1{
-                font-size: 2rem;
-                letter-spacing: .3rem;
-            }
-    
-        .list{
-            background-color: aquamarine;
+
+        .header_logo_container button i{
+            font-size: 3rem;
+            padding: 1rem;
+        }
+
+        #openNav{
+            background: none;
+            border: none;
+            color: #fff;
+        }
+
+        #closeNav{
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+        }
+
+
+    .header_nav_container{
+        display: flex;
+        flex-flow: column wrap;
+        width: 100%;
+        height: 23rem;
+        background: #a52a2a;
+        transform: translateY(-200%);
+        transition: transform 1s;
+    }
+
+        .nav_sections{
             width: 100%;
-            position: absolute;
-            transform: translateX(-200%);
-            transition: 1s;
+            height: 18rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-            .list ul{
+
+            .nav_sections_list{
                 display: flex;
-                flex-flow: column wrap;
-                align-items: flex-start; 
-                
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                width: 100%;
             }
-    
-                .list ul li{
-                    padding: 2rem;
-                    letter-spacing: .3rem;
-                    font-size: 1.5rem;
+
+                .nav_sections_list li{
+                    width: 100%;
+                    margin: 1rem;
+                    font-size: 2rem;
+                    color: #fff;
                 }
-    
-    
-        .show_menu{
-            transform: translateY(59%);
-            margin: 0px;
+
+        .nav_redes{
+            width: 100%;
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-    
-        .redes{
-            display:none;
-        }
-    
-        .boton{
-            display: inline;
-            margin:1rem;
-            align-self: center;
-        }
-            .boton button{
-                font-size: 1.5rem;
+
+            .nav_redes_list{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                width: 100%;
             }
+
+                .nav_redes_list li{
+                    margin: 1rem;
+                }
+
+                    .nav_redes_list li i{
+                        font-size: 2rem;
+                        color: #fff;
+                    }
     
-            .rotate_button{
-                transform:rotate(90deg)
-            }
+    .show-nav{
+        transform: translateY(0%);
+    }
+
+    .noshow-btn{
+        display: none;
+    }
+
+@media screen and (min-width: 1024px) {
+    
+
+    .header_container{
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .header_logo_container{
+        justify-content: center;
+        width: 30%;
+    }
+
+    .header_nav_container{
+        width: 70%;
+        height: 10rem;
+        flex-flow: row nowrap;
+        transform: translateY(0%);
+    }
+
+    .nav_sections{
+        width: 70%;
+        height: 10rem;
+    }
+
+    .nav_sections_list{
+        flex-flow: row nowrap;
+    }
+
+    .nav_redes{
+        width: 30%;
+        height: 10rem;
+    }
+
+    .nav_sections_list li{
+        font-size: 2.5rem;
+        text-align: center;
+        margin: .2rem;
+    }
+
+    .nav_redes_list li i{
+        font-size: 2.5rem;
+    }
+
+
+    #openNav{
+        display: none;
+    }
+
+    #closeNav{
+        display: none;
+    }
+
 
 }

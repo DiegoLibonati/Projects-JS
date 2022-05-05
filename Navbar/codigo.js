@@ -1,17 +1,21 @@
-const btn = document.getElementById("buttonNav");
-const nav = document.querySelector(".list");
-const btnRotate = document.querySelector(".boton")
+const navContainer = document.querySelector(".header_nav_container");
 
-btn.addEventListener("click", ()=>{
+const btnOpenNav = document.getElementById("openNav");
+const btnCloseNav = document.getElementById("closeNav");
 
-    let hasClass = nav.classList.contains("show_menu");
-    let hasClassTwo = btnRotate.classList.contains("rotate_button");
 
-    if (hasClass == true && hasClassTwo == true){
-        nav.classList.remove("show_menu")
-        btnRotate.classList.remove("rotate_button")
-    } else{
-        nav.classList.add("show_menu");
-        btnRotate.classList.add("rotate_button")
-    }    
+btnOpenNav.addEventListener("click", ()=>{
+
+    navContainer.classList.add("show-nav");
+    btnOpenNav.classList.add("noshow-btn");
+    btnCloseNav.style.display = "block";
+
+});
+
+btnCloseNav.addEventListener("click", ()=>{
+
+    navContainer.classList.remove("show-nav");
+    btnOpenNav.classList.remove("noshow-btn");
+    btnCloseNav.style.display = "none";
+
 });

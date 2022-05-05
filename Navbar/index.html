@@ -4,37 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Counter</title>
+    <title>Nav</title>
 
     <link rel="stylesheet" type="text/css" href="estilos.css">
+    <script src="https://kit.fontawesome.com/41faca984e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
-    <nav class="contenedor">
-        <div class="title">
-        <h1>Coding Addict</h1>
+    <header class="header_container">
+
+        <div class="header_logo_container">
+            <img src="templates/logo.png" alt="logo code">
+
+            <button type="button" id="openNav"><i class="fa-solid fa-bars"></i></button>
+            <button type="button" id="closeNav"><i class="fa-solid fa-x"></i></button>
         </div>
 
+        <nav class="header_nav_container">
 
-        <div class="list">
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Projects</li>
-                <li>Contact</li>
-            </ul>
-        </div>
+            <div class="nav_sections">
+                <ul class="nav_sections_list">
+                    <li>Home</li>
+                    <li>About me</li>
+                    <li>Projects</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
 
-        <div class="redes">
-            <a href="#">F</a>
-            <a href="#">I</a>
-            <a href="#">G</a>
-        </div>
+            <div class="nav_redes">
+                <ul class="nav_redes_list">
+                    <li><i class="fa-brands fa-facebook"></i></li>
+                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-youtube"></i></li>
+                </ul>
+            </div>
 
-        <div class="boton">
-            <button id="buttonNav">NAV</button>
-        </div>
-    </nav>
+        </nav>
+
+    </header>
 
     <script src="codigo.js"></script>
 </body>
