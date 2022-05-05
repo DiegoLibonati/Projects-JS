@@ -13,13 +13,12 @@ img{
 body{
 height: 100vh;
 width: 100vw;
-background-color: rgb(65, 85, 84);
 }
 
 section{
 max-width: 75rem;
 max-height: 50rem;
-background-color: aqua;
+background-color: #363062;
 position: absolute;
 top: 0;
 left: 0;
@@ -39,17 +38,18 @@ align-items: center;
 }
 
     .title h2{
-        font-size: 3rem;
+        font-size: 5rem;
         padding: 1rem;
-        letter-spacing: .5rem;
+        letter-spacing: .2rem;
         text-align: center;
+        color: #fff;
     }
 
     .question{
         display: flex;
         flex-flow: column wrap;
         justify-content: center;
-        background-color: bisque;
+        background: #4D4C7D;
         margin: 1rem;
         width: 90%;
     }
@@ -60,17 +60,21 @@ align-items: center;
             align-items: center;
             justify-content: space-between;
             padding: 1rem;
-            background-color: rgb(195, 0, 255);
             margin: 1rem;
         }
 
 
             .question-title p{
                 font-size: 3rem;
+                color: #fff;
             }
 
             .question-btn{
-                font-size: 1.5rem;
+                font-size: 5rem;
+                background: none;
+                border: none;
+                color: #fff;
+                cursor: pointer;
             }
 
         .question-text{
@@ -84,6 +88,8 @@ align-items: center;
                 margin-left: 3rem;
                 margin-right: 3rem;
                 text-align: justify;
+                font-size: 2rem;
+                color: #fff;
             }
 
         .show-text .question-text{
