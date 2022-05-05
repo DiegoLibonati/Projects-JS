@@ -11,7 +11,7 @@
 # Projects JS
 The idea of this projects is can practice JS. CSS and HTML are secundary in this repository
 
-MORE INFO IN: <h2>https://diegolibonati.github.io/DiegoLibonatiWeb/</h2>
+# MORE INFO IN: <h2>https://diegolibonati.github.io/DiegoLibonatiWeb/</h2>
 
 # Contact
 
