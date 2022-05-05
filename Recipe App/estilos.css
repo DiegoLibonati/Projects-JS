@@ -47,6 +47,7 @@ body{
         .header_container_menu button{
             background: none;
             border: none;
+            cursor: pointer;
         }
 
             .header_container_menu button i{
@@ -61,12 +62,56 @@ body{
         .header_container_search button{
             background: none;
             border: none;
+            cursor: pointer;
         }
 
             .header_container_search button i{
                 font-size: 2rem;
             }   
 
+
+        .header_container_searchmeal{
+            position: absolute;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-flow: row wrap;
+            width: 0;
+            height: 0;
+            background: #fff;
+        }
+
+            .header_container_searchmeal input{
+                width: 70%;
+                font-size: 2rem;
+                padding: 1rem;
+                margin: 1rem;
+            }
+
+            .header_container_searchmeal button{
+                text-align: center;
+                width: 10%;
+                padding: 1rem;
+                margin: 1rem;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .header_container_searchmeal button i {
+                font-size: 3rem;
+            }
+
+            .header_container_searchmeal h2 {
+                text-align: center;
+                font-size: 3rem;
+            }
+
+
+        .show-search{
+            width: 100%;
+            height: 100%;
+        }
 
     .history_container{
         display: flex;
@@ -232,3 +277,68 @@ body{
         border: none;
         cursor: pointer;
     }
+
+
+.sidebarcontainer{
+    height: 0rem;
+    position: absolute;
+    width: 0%;
+    background-color: #fff;
+    align-self: flex-start;
+    transform: translateX(-200%);
+    transition: transform 1s;
+}
+
+    .sidebarcontainer_header{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 10rem;
+    }
+
+        .sidebarcontainer_header img{
+            width: 50%;
+            height: 5rem;
+        }
+
+        .sidebarcontainer_header button{
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+            .sidebarcontainer_header button i {
+                font-size: 3rem;
+            }
+
+    .sidebarcontainer_menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 60rem;
+    }
+
+        .sidebarcontainer_menu_list{
+            width: 80%;
+            height: 60rem;
+        }
+
+            .sidebarcontainer_menu_list li{
+                padding: 1rem;
+            }
+
+            .sidebarcontainer_menu_list li button{
+                background: none;
+                border: none;
+                font-size: 2rem;
+                cursor: pointer;
+            }
+
+
+            .open-sidebar{
+                height: 70rem;
+                width: 50%;
+                transform: translateX(0%);
+            }

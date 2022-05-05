@@ -5,8 +5,19 @@ const btnFav = document.querySelector(".randommeal_container_general_fav button"
 const btnFavIcon = document.querySelector(".randommeal_container_general_fav button i");
 const historyContainer = document.querySelector(".history_container");
 const informationHistoryContainer = document.querySelector(".informationhistory_container"); 
+const btnOpenSideBar = document.querySelector(".header_container_menu button");
+const sideBarContainer = document.querySelector(".sidebarcontainer");
+const btnCloseSideBar = document.querySelector(".sidebarcontainer_header button");
+const btnSideBarListLi = document.querySelector(".sidebarcontainer_menu_list li");
+const headerSearchFind = document.querySelector(".header_container_searchmeal");
+const btnSearch = document.querySelector(".header_container_search button"); 
+const btnCloseSearch = document.getElementById("closeSearch");
+const btnFindSearch = document.getElementById("findSearch");
+const textSearch = document.querySelector(".header_container_searchmeal h2");
 
+ 
 let mealStatus = false;
+let searchStatus = false;
 
 
 const getMeals = async ()=>{
@@ -27,23 +38,6 @@ function addMeal (randomMeal){
     mealRandomTitleContainer.textContent = `${randomMeal.strMeal}`;
 
 }
-
-btnRandomMeal.addEventListener("click", ()=>{
-
-    btnFavIcon.classList.remove("newfav");
-    mealStatus = false;
-    getMeals();
-});
-
-btnFav.addEventListener("click", ()=>{
-
-    btnFavIcon.classList.toggle("newfav");
-
-    
-    addToLocalStorage(randomMealData.idMeal, randomMealData.strMeal, randomMealData.strInstructions, randomMealData.strMealThumb);
-
-
-});
 
 function addToLocalStorage(id, title, instructions, img){
     console.log("added to local storage");
@@ -114,10 +108,16 @@ function resetFavMeal(){
         `
     }
 
+    const historydivs = document.querySelectorAll(".divhistory");
     const historydivsImgs = document.querySelectorAll(".divhistory img");
 
     historydivsImgs.forEach(function(img){
         img.addEventListener("click", ()=>{
+
+            let itemsMeal = getLocalStorage();
+
+
+
             for(let i = 0; i < itemsMeal.length; i++){
                 if (img.alt === itemsMeal[i].title){
 
@@ -138,11 +138,39 @@ function resetFavMeal(){
                     
                     `;
 
+
                     const btnClose = document.getElementById("close");
+                    const btnDesFav = document.getElementById("desfav");
 
                     btnClose.addEventListener("click", ()=>{
                         informationHistoryContainer.innerHTML = "";
                         informationHistoryContainer.classList.remove("open-info");
+                    });
+
+                    btnDesFav.addEventListener("click", ()=>{
+
+                        historydivs.forEach(function(history){
+                            console.log(itemsMeal)
+                            if (history.id === itemsMeal[i].title){
+                                history.remove();
+                            }
+                        });
+
+        
+                        itemsMeal = itemsMeal.filter(function(item){
+                            if(item.id !== itemsMeal[i].id){
+                                return item;
+                            }
+                        })
+            
+
+            
+                        localStorage.setItem("list", JSON.stringify(itemsMeal));
+            
+                        mealStatus = false;
+        
+                        btnFavIcon.classList.remove("newfav");
+
                     });
                 }
             }
@@ -168,56 +196,65 @@ function addFavMeal(mealItem){
         
         img.addEventListener("click", ()=>{
 
-            img.style.border = "2px solid rgba(255, 77, 0, 0.204)"
+            let itemsMeal = getLocalStorage(); 
+
+            for(let i = 0; i < itemsMeal.length; i++){
+                if (img.alt === itemsMeal[i].title){
+
+                    informationHistoryContainer.classList.add("open-info");
+
+                    informationHistoryContainer.innerHTML = `
+                    
+                    <h2>${itemsMeal[i].title}</h2>
+
+                    <img src="${itemsMeal[i].img}" alt="${itemsMeal[i].title}">
+        
+                    <p>${itemsMeal[i].instructions}</p>
+        
+                    <button type="button" id="close">CLOSE</button>
+        
+                    <button type="button" id="desfav">UNFAV</button>
+        
+                    
+                    `;
+
+                    const btnClose = document.getElementById("close");
+                    const btnDesFav = document.getElementById("desfav");
+
+                    btnClose.addEventListener("click", ()=>{
+                        informationHistoryContainer.innerHTML = "";
+                        informationHistoryContainer.classList.remove("open-info");
+                    });
+
+                    btnDesFav.addEventListener("click", ()=>{
+        
+                        historydivs.forEach(function(history){
+                            if (history.id === itemsMeal[i].title){
+                                history.remove();
+                            }
+                        });
+
+                        itemsMeal = itemsMeal.filter(function(item){
+                            if(item.id !== itemsMeal[i].id){
+                                return item;
+                            }
+                        })
             
-            informationHistoryContainer.classList.add("open-info");
-
-            informationHistoryContainer.innerHTML = `
             
-            <h2>${mealItem.title}</h2>
-
-            <img src="${mealItem.img}" alt="${mealItem.title}">
-
-            <p>${mealItem.instructions}</p>
-
-            <button type="button" id="close">CLOSE</button>
-
-            <button type="button" id="desfav">UNFAV</button>
+                        localStorage.setItem("list", JSON.stringify(itemsMeal));
             
-            `;
-
-            const btnClose = document.getElementById("close");
-            const btnDesFav = document.getElementById("desfav");
-
-            btnClose.addEventListener("click", ()=>{
-                informationHistoryContainer.innerHTML = "";
-                informationHistoryContainer.classList.remove("open-info");
-            });
-
-            btnDesFav.addEventListener("click", ()=>{
-
-                let itemsMeal = getLocalStorage();
-
-                itemsMeal = itemsMeal.filter(function(item){
-                    if(item.id !== mealItem.id){
-                        return item;
-                    }
-                })
-    
-                historydivs.forEach(function(history){
-                    if (history.id === mealItem.title){
-                        history.remove();
-                    }
-                });
-    
-                localStorage.setItem("list", JSON.stringify(itemsMeal));
-    
-                mealStatus = false;
-
-                btnFavIcon.classList.remove("newfav");
+                        mealStatus = false;
+        
+                        btnFavIcon.classList.remove("newfav");
+        
+        
+                    });
+        
+                }
+            }
 
 
-            });
+
 
         });
 
@@ -226,5 +263,101 @@ function addFavMeal(mealItem){
 
 
 }
+
+const getSearchMeal = async (inputValueSearch)=>{
+    let httpRequest = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValueSearch}`);
+    let resultHttpRequest = await httpRequest.json()
+    .then(res =>{
+        if (res) {
+            Promise.resolve(res)
+            searchStatus = true;
+            finalResultMeal = res.meals[0];
+            textSearch.innerHTML = `I find ${inputValueSearch} in my DB ✅. <br>
+            I update your information in the main repository, close this window.`
+            addMeal(finalResultMeal);
+        }
+        else{
+            Promise.reject(res)
+        } 
+    }).catch(e => {
+        console.log("Error", e);
+        textSearch.innerHTML = `I couldnt find ${inputValueSearch} in my DB 😔.`
+    });
+
+}
+
+
+btnRandomMeal.addEventListener("click", ()=>{
+
+    btnFavIcon.classList.remove("newfav");
+    mealStatus = false;
+    searchStatus = false;
+    randomMealData = "";
+    finalResultMeal = "";
+    getMeals();
+});
+
+btnFav.addEventListener("click", ()=>{
+    
+    btnFavIcon.classList.toggle("newfav");
+
+    if (searchStatus == false){
+        addToLocalStorage(randomMealData.idMeal, randomMealData.strMeal, randomMealData.strInstructions, randomMealData.strMealThumb);
+        searchStatus == false;
+    } else {
+        addToLocalStorage(finalResultMeal.idMeal, finalResultMeal.strMeal, finalResultMeal.strInstructions, finalResultMeal.strMealThumb);
+        searchStatus == false;
+    }
+
+
+});
+
+btnOpenSideBar.addEventListener("click", ()=>{
+
+    sideBarContainer.classList.add("open-sidebar");
+
+});
+
+btnCloseSideBar.addEventListener("click", ()=>{
+
+    sideBarContainer.classList.remove("open-sidebar");
+
+});
+
+
+btnSideBarListLi.addEventListener("click", ()=>{
+    
+    let itemsMeal = getLocalStorage(); 
+
+    if (itemsMeal.length > 0){
+        itemsMeal = [];
+        localStorage.setItem("list", JSON.stringify(itemsMeal));
+        historyContainer.innerHTML = "";
+        btnFavIcon.classList.remove("newfav");
+        mealStatus = false;
+    }
+
+});
+
+btnSearch.addEventListener("click", ()=>{
+
+    headerSearchFind.classList.add("show-search");
+
+});
+
+btnCloseSearch.addEventListener("click", ()=>{
+    headerSearchFind.classList.remove("show-search");
+
+});
+
+btnFindSearch.addEventListener("click", ()=>{
+
+    const inputValueSearch = document.querySelector(".header_container_searchmeal input").value;
+
+    btnFavIcon.classList.remove("newfav");
+    mealStatus = false;
+
+    getSearchMeal(inputValueSearch);
+});
 
 
