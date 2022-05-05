@@ -8,12 +8,13 @@
 <img align="center" alt="cat coding" src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/cat.gif" width="200" />
  </h3>
 
-# Projects JS
+# PROJECTS JS
 The idea of this projects is can practice JS. CSS and HTML are secundary in this repository
 
-# MORE INFO IN: <h2>https://diegolibonati.github.io/DiegoLibonatiWeb/</h2>
+# MY PERSONAL WEB || PORTFOLIO 
+<h1>https://diegolibonati.github.io/DiegoLibonatiWeb/</h1>
 
-# Contact
+# CONTACT
 
 <p align="center">
  <a href="https://www.instagram.com/die_libonati/?hl=es-la"><img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/ig2.png" width="30px" alt="instagram"></a> &nbsp; &nbsp;
