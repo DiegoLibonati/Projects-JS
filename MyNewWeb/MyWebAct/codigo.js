@@ -960,8 +960,6 @@ window.addEventListener(`scroll`, function(){
 
     const scrollHeight = window.pageYOffset;
 
-    console.log(scrollHeight)
-
     if (scrollHeight > 30){
         navContainerLogo.classList.add("change-bg-nav");
         navContainerNav.classList.add("change-bg-nav");
