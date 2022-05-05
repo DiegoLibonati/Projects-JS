@@ -113,6 +113,7 @@ function resetFavMeal(){
 
     historydivsImgs.forEach(function(img){
         img.addEventListener("click", ()=>{
+            img.style.border = ".2rem solid rgba(255, 77, 0, 0.204)";
 
             let itemsMeal = getLocalStorage();
 
@@ -196,6 +197,8 @@ function addFavMeal(mealItem){
         
         img.addEventListener("click", ()=>{
 
+            img.style.border = ".2rem solid rgba(255, 77, 0, 0.204)";
+
             let itemsMeal = getLocalStorage(); 
 
             for(let i = 0; i < itemsMeal.length; i++){
@@ -272,8 +275,9 @@ const getSearchMeal = async (inputValueSearch)=>{
             Promise.resolve(res)
             searchStatus = true;
             finalResultMeal = res.meals[0];
-            textSearch.innerHTML = `I find ${inputValueSearch} in my DB ✅. <br>
+            textSearch.innerHTML = `I find <span>${inputValueSearch}</span> in my DB ✅. <br>
             I update your information in the main repository, close this window.`
+            document.querySelector(".header_container_searchmeal h2 span").style.color = "green";
             addMeal(finalResultMeal);
         }
         else{
@@ -281,7 +285,8 @@ const getSearchMeal = async (inputValueSearch)=>{
         } 
     }).catch(e => {
         console.log("Error", e);
-        textSearch.innerHTML = `I couldnt find ${inputValueSearch} in my DB 😔.`
+        textSearch.innerHTML = `I couldnt find <span>${inputValueSearch}</span> in my DB 😔.`
+        document.querySelector(".header_container_searchmeal h2 span").style.color = "red";
     });
 
 }
@@ -346,6 +351,10 @@ btnSearch.addEventListener("click", ()=>{
 });
 
 btnCloseSearch.addEventListener("click", ()=>{
+    document.querySelector(".header_container_searchmeal input").value = "";
+
+    textSearch.innerHTML = ``;
+
     headerSearchFind.classList.remove("show-search");
 
 });

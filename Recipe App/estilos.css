@@ -107,6 +107,10 @@ body{
                 font-size: 3rem;
             }
 
+            .header_container_searchmeal h2 span{
+                font-size: 3rem;
+            }
+
 
         .show-search{
             width: 100%;
@@ -215,10 +219,6 @@ body{
 
         .newfav{
             color: rgb(255, 0, 0);
-        }
-
-        .seefav{
-            border: .2rem solid rgba(255, 77, 0, 0.204);
         }
 
 
