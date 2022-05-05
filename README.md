@@ -11,49 +11,7 @@
 # Projects JS
 The idea of this projects is can practice JS. CSS and HTML are secundary in this repository
 
-# Color Flipper
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/colorflip.gif"> <br>
-# Counter
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/counter.gif"> <br>
-#  Modal
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/modal.gif"> <br>
-#  Navbar: Responsive
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/nav.gif"> <br>
-#  Questions
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/questions.gif"> <br>
-#  Reviews
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/reviews.gif"> <br>
-#  Sidebar: Responsive
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/sidebar.gif"> <br>
-# Menu
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/menu.gif"> <br>
-#  Video
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/video.gif"> <br>
-# Scroll Page
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/scroll.gif"> <br>
-# Tabs
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/tabs.gif"> <br>
-# Countdown
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/countdown.gif"> <br>
-# Lorem Ipsum
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/lorem.gif"> <br>
-# Grocery
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/grocery.gif"> <br>
-# Slider
-<img src="https://github.com/DiegoLibonati/DiegoLibonati/blob/main/template/slider.gif"> <br>
-# Contact Send Mail
-
-
-# GAMES
-Projects JS creating games.
-# Rock, paper, scissor
-# Memory Game
-# Whac-a-mole
-# Breakout
-# Connect Four
-# Frogger
-# Space Invaders
-
+MORE INFO IN: <h2>https://diegolibonati.github.io/DiegoLibonatiWeb/</h2>
 
 # Contact
 
