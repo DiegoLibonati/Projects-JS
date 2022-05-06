@@ -1693,6 +1693,7 @@ border-color: transparent;
             margin-bottom: 1rem;
             margin-left: 1rem;
             margin-right: 1rem;
+            cursor: pointer;
         }
 
         .section_portfolio_container_projects_Hpython_description_container_two_item{
@@ -1805,6 +1806,7 @@ border-color: transparent;
                 margin-left: 1rem;
                 margin-right: 1rem;
                 padding: 1rem;
+                cursor: pointer;
             }
     
             .section_portfolio_container_projects_Hjs_description_container_two_item{
