@@ -1,54 +1,42 @@
-const nav = document.querySelector(".nav_container");
-const btnNav = document.getElementById("btn")
+const hyperLinks = document.querySelectorAll(".hyperlink");
+const navContainer = document.querySelector(".nav_container");
+const sectionsContainers = document.querySelectorAll(".section");
+const btnExploreTours = document.querySelector(".section_home button");
 
-btnNav.addEventListener("click", ()=>{
+hyperLinks.forEach(function(link){
 
-    nav.classList.add("show-nav");
-    window.scrollTo(0,0);
+    link.addEventListener("click", (e)=>{
 
-});
+        e.preventDefault();
 
-function scrollView(view){
+        const id = link.getAttribute("href").slice(1);
+        const navPosition = navContainer.getBoundingClientRect();
 
-    nav.classList.remove("show-nav");
+        sectionsContainers.forEach(function(section){
+            if (section.id === id){
+                
+                const sectionPosition = section.offsetTop;
 
-    const headerHeight = 65.3;
-
-        view.scrollIntoView(true);
         
-        let scrolledY = window.scrollY
-    
-        if(scrolledY){
-            window.scroll(0, scrolledY - headerHeight);
-        }
-        
-    
+                const pos = sectionPosition - navPosition.height;
 
-}
+                console.log(pos)
 
-const btnsList = document.querySelectorAll(".btnList, .subir");
-const aboutView = document.querySelector(".about_container");
-const homeView = document.querySelector(".home_container");
-const servicesView = document.querySelector(".services_container");
-const toursView = document.querySelector(".tours_container");
-
-btnsList.forEach(function(btn){
-    btn.addEventListener("click", (e)=>{
-        const scrollBtn = e.currentTarget.dataset.id;
-
-        console.log(scrollBtn)
-
-            if (scrollBtn == "about"){
-                scrollView(aboutView);
-            } else if (scrollBtn == "services") {
-                scrollView(servicesView);
-            } else if (scrollBtn == "tours"){
-                scrollView(toursView);
-            } else {
-                scrollView(homeView);
+                window.scrollTo({
+                    left: 0, top:pos,
+                })
+                
             }
+        })
 
     });
+
 });
 
+btnExploreTours.addEventListener("click", ()=>{
 
+    window.scrollTo({
+        left: 0, top:2687,
+    })
+
+});

@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-size: 10px;
     list-style: none;
+    scroll-behavior: smooth;
 }
 
 img{
@@ -15,163 +16,124 @@ img{
 body{
 height: 100vh;
 width: 100vw;
+overflow-x: hidden;
+
 }
 
-.header-container{
+
+.nav_container{
+    position: fixed;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-flow: row wrap;
     width: 100%;
-    height: 6.53rem;
-
+    height: 10rem;
+    background: #313552;
 }
 
-    .separador{
-        height: 0rem;
-    }
-
-    .header{
+    .nav_container_logo{
         display: flex;
-        position: fixed;
-        width: 100%;
-        height: 6.53rem;
-        justify-content: space-between;
         align-items: center;
-        padding: 1rem;
-        background-color: #fff;
+        justify-content: center;
+        width: 30%;
+        height: 10rem;
     }
 
-        .header button{
-            border: none;
-            background-color: #fff;
+        .nav_container_logo img{
+            width: 7rem;
+            height: 7rem;
         }
 
-        .header button i{
-            font-size: 3rem;
-        }
-
-        .header img{
-            object-fit: cover;
-            max-width: 5rem;
-            max-height: 5rem;
-        }
-
-    .nav_container{
-        display: none;
-        background-color: #fff;
+    .nav_container_sections{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        height: 10rem;
     }
 
-        .list{
+        .nav_container_sections_list{
             display: flex;
-            flex-flow: column wrap;
-            justify-content: flex-start;
-        }
-        
-        .list li{
-            padding: 1rem;
-            margin: .5rem;
-            font-size: 1.5rem;
-        }
-
-        .show-nav{
-            display: block;
-            position: relative;
-        }
-
-
-.main_container{
-    height: 100%;
-    width: 100%;
-    scroll-behavior: smooth;
-    overflow: auto;
-}  
-
-    .home_container{
-        height: 100%;
-        background-image: url("https://wallpaperaccess.com/full/208107.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-        .content{
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
             align-items: center;
-            background-color: rgba(49, 90, 47, 0.5);
+            justify-content: space-evenly;
             width: 100%;
             height: 100%;
         }
 
-            .content_dos{
-                display: flex;
-                flex-flow: column wrap;
-                align-items: center;
-                width: 90%;
-                text-align: center;
+            .nav_container_sections_list li a{
+                font-size: 2rem;
+                text-decoration: none;
+                color: #fff;
             }
-                .content_dos h2{
-                    font-size: 5rem;
-                    color: #fff;
-                    margin: 1rem;
-                }
 
-                .content_dos p{
-                    color: #fff;
-                    font-size: 1.5rem;
-                    text-align: center;
-                }
 
-                .content_dos button{
-                    border: .3rem solid #fff;
-                    font-size: 2rem;
-                    background-color: rgba(0,0,0,0);
-                    color: white;
-                    padding: .5rem;
-                    margin: 2rem;
-                }
-
-    .about_container{
-        height: 100%;
-        font-size: 3rem;
-        text-align: center;
-        
-    }
-
-        .style{
-            font-size: 3rem;
-            color: rgb(0, 247, 255);
-        }
-
-    .services_container{
-        height: 100%;
-        font-size: 3rem;
-        text-align: center;
-        
-    }
-
-    .tours_container{
-        height: 100%;
-        font-size: 3rem;
-        text-align: center;
-    }
-
-footer{
-    height: 20%;
-    background-color: rgb(83, 83, 83);
+.section_home{
+    width: 100%;
+    height: 100vh;
+    background: url("https://images.alphacoders.com/119/thumb-1920-1190297.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
 }
 
-    footer h3{
+    .section_home h1{
         text-align: center;
+        color: #ffF;
+        font-size: 7rem;
+        margin-bottom: 1rem;
+    }
+
+    .section_home p{
+        text-align: justify;
+        color: #ffF;
         font-size: 2rem;
+        margin-bottom: 1rem;
     }
 
-.subir{
-    position: fixed;
-    font-size: 3rem;
-    bottom:0;
-    right: 0;
-    margin: 2rem;
-    
+    .section_home button{
+        padding: 1rem;
+        border: .2rem solid #313552;
+        background: none;
+        color: #fff;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+.section_aboutus{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
 }
 
+    .section_aboutus h2{
+        font-size: 5rem;
+    }
+
+.section_contactus{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    border-top:.1rem solid #313552;
+}
+
+    .section_contactus h2{
+        font-size: 5rem;
+    }
+
+.section_tours{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    border-top:.1rem solid #313552;
+}
+
+    .section_tours h2{
+        font-size: 5rem;
+    }

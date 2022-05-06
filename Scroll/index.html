@@ -11,65 +11,40 @@
 </head>
 <body>
 
-    
-    <div class="separador">
-    <header class="header-container">
+    <nav class="nav_container">
 
-        <div class="header">
-        <img src="logo.png" alt="logo">
-        <button id="btn"><i class="fa-solid fa-bars"></i></button>
-
-        
+        <div class="nav_container_logo">
+            <img src="templates/logo.png" alt="logo">
         </div>
 
+        <div class="nav_container_sections">
+            <ul class="nav_container_sections_list">
+                <li><a href="#home" class="hyperlink">Home</a></li>
+                <li><a href="#aboutus" class="hyperlink">About US</a></li>
+                <li><a href="#contactus" class="hyperlink">Contact US</a></li>
+                <li><a href="#tours" class="hyperlink">Tours</a></li>
+            </ul>
+        </div>
 
-
-    </header>
-
-    <nav class="nav_container">
-        <ul class="list">
-            <li><button data-id="home" class="btnList">Home</button></li>
-            <li><button data-id="about" class="btnList">About</button></li>
-            <li><button data-id="services" class="btnList">Services</button></li>
-            <li><button data-id="tours" class="btnList">Tours</button></li>
-        </ul>
     </nav>
 
-    </div>
+    <section class="section_home section" id="home">
+        <h1>TOURS ENTERPRISE</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia explicabo itaque nihil at corporis cupiditate soluta minus? Delectus, omnis. Sed.</p>
+        <button type="button">EXPLORE TOURS</button>
+    </section>
 
-    <main class="main_container">
+    <section class="section_aboutus section" id="aboutus">
+        <h2>About US</h2>
+    </section>
 
-        <div class="home_container">
-            <div class="content">
-                <div class="content_dos">
-                <h2>SCROLL PROJECT</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores exercitationem iure doloremque commodi beatae maiores odio. Asperiores, aperiam! Eaque quam minus suscipit odio. Maxime a laborum tempore tenetur consequuntur at.</p>
-                <button>EXPLORE TOURS</button>
-                </div>
-            </div>
-        </div>
+    <section class="section_contactus section" id="contactus">
+        <h2>Contact US</h2>
+    </section>
 
-
-        <div class="about_container">
-            ABOUT <span class="style">US</span>
-        </div>
-
-        <div class="services_container ">
-           OUR <span class="style">SERVICES</span>
-        </div>
-
-        <div class="tours_container">
-            FEATURED <span class="style">US</span>
-        </div>
-
-        <button data-id="up" class="btnsList subir">UP</button>
-
-        <footer>
-            <h3>Derechos reservados 2022. Tours.</h3>
-        </footer>
-
-    </main>
-
+    <section class="section_tours section" id="tours">
+        <h2>Tours</h2>
+    </section>
 
     <script src="codigo.js"></script>
 </body>
