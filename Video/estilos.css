@@ -13,7 +13,7 @@ img{
 body{
 height: 100vh;
 width: 100vw;
-
+background: #040303;
 }
 
 .preloader{
@@ -48,17 +48,24 @@ width: 100vw;
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%;
-    height: 100%;
-    
+    left: 0;
+    top: 0;
+    margin: auto;
+    width: 100rem;
+    height: 70rem;
 }
 
 .content{
-    position: relative;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    margin: auto;
     background-color: rgba(0,0,0, 0.5);
-    color:#f1f1f1;
-    width: 100%;
-    height: 100%;
+    box-shadow: .2rem .2rem .2rem .2rem #fff;
+    width: 75rem;
+    height: 70rem;
 }
     
     .title{
@@ -76,7 +83,14 @@ width: 100vw;
     }
 
         .title h1{
-            font-size: 10rem;
+            font-size: 5rem;
+            color: #fff;
+            border: .4rem solid #B3541E;
+            border-radius: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: .2rem;
+            padding-bottom: .2rem;
         }
 
     .buttons{
@@ -87,6 +101,15 @@ width: 100vw;
     }
 
         .buttons button{
+            border: .4rem solid #B3541E;
+            border-radius: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: .2rem;
+            padding-bottom: .2rem;
+            background: none;
+            color: #fff;
             font-size: 2rem;
             margin: 1rem;
+            cursor: pointer;
         }
