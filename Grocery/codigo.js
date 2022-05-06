@@ -1,169 +1,154 @@
-const btnSubmit = document.querySelector(".div_input_dos button");
-const input = document.querySelector(".div_input_dos input");
-const newText = document.querySelector(".div_text");
-const textSubmit = document.querySelector(".div_input_dos");
-const textEdit = document.querySelector(".div_input_editar");
-const btnEdit = document.querySelector(".div_input_editar button");
-const inputEdit = document.querySelector(".div_input_editar input");
-const clearAllBtn = document.getElementById("clearAllBtn");
-const advertInfoAdd = document.getElementById("add");
-const advertInfoEdit = document.getElementById("edit");
-const advertInfoRemove = document.getElementById("remove");
+const inputDataEntry = document.querySelector(".section_container_dataentry input");
+const btnAddData = document.querySelector(".section_container_dataentry button");
 
+const containerShowItems = document.querySelector(".section_container_items_list");
 
+const btnClearAllItems = document.querySelector(".section_container_clearitems button");
 
-let lista = [];
+let dataLocalStorage = [];
+let dataEdit = false;
 
-btnSubmit.addEventListener("click", (e)=>{
-    e.preventDefault();
+readLocalStorage();
 
-    lista.push(input.value);
+btnAddData.addEventListener("click", ()=>{
 
-    newText.innerHTML += mostrarLista();
+    let inputDataEntryValue = inputDataEntry.value;
 
-    advertInfoAdd.style.display = "block";
-    advertInfoRemove.style.display = "none";
-    advertInfoEdit.style.display ="none";
-});
-
-
-
-btnSubmit.addEventListener("click", ()=>{
-
-const borrarBtns = document.querySelectorAll(".borrar");
-const editarBtns = document.querySelectorAll(".editar");
-
-    borrarBtns.forEach(function(btn){
-        
-        btn.addEventListener("click",(e)=>{
-            
-            e.preventDefault();
-            let currentIDElement = e.target.dataset.id;
-
-
-
-            borrarElemento(currentIDElement);
-
-            advertInfoAdd.style.display = "none";
-            advertInfoRemove.style.display = "block";
-            advertInfoEdit.style.display ="none";
-
-
-            
-        });
-    });
-
-    editarBtns.forEach(function(btnE){
-        btnE.addEventListener("click", (e)=>{
-            e.preventDefault();
-
-            inputEdit.value = e.target.dataset.id; 
-
-            textSubmit.classList.add("noshow");
-            textEdit.classList.add("show")
-
-            encontrarElemento(inputEdit.value);
-
-            advertInfoAdd.style.display = "none";
-            advertInfoRemove.style.display = "none";
-            advertInfoEdit.style.display ="block";
-        
-        });
-    });
+    addToLocalStorage(inputDataEntryValue);
 
 });
 
-btnEdit.addEventListener("click", (e)=>{
+btnClearAllItems.addEventListener("click", ()=>{
+
+    containerShowItems.innerHTML = "";
+
+    localStorage.clear();
+
+});
+
+function addToLocalStorage(value){
+
+    let itemsLocalStorage = getLocalStorage();
     
-e.preventDefault();
-textSubmit.classList.remove("noshow");
+    if (itemsLocalStorage != null && dataEdit == false){
 
-textEdit.classList.remove("show");
+        itemsLocalStorage.push({item:value})
 
-});
+        localStorage.setItem("list", JSON.stringify(itemsLocalStorage));
+
+        addItemToContainer(value);
+
+    }
+    
+    if (itemsLocalStorage == null && dataEdit == false){
+
+        dataLocalStorage.push({item:value});
+
+        localStorage.setItem("list", JSON.stringify(dataLocalStorage));
+    
+        addItemToContainer(value);
+    }
 
 
-function mostrarLista(){
-
-        return `<div>
-        <p class="s${input.value}"> ${input.value} </p>
-        <button data-id="${input.value}" class="boton borrar">Borrar</button>
-        <button data-id="${input.value}" class="boton editar">Editar</button>
-        </div>`
 
 }
 
-function mostrarNuevaListaBorrar(){
-    return ``
+function addItemToContainer(value){
+
+    containerShowItems.innerHTML += `
+    
+    <li>
+        <div class="section_container_items_list_li_title">
+            <h2>${value}</h2>
+        </div>
+
+        <div class="section_container_items_list_li_btns">
+            <button type="button" class="btnDelete"><i class="fa-solid fa-trash"></i></button>
+            <button type="button" class="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
+        </div>
+    </li>
+    `;
+
+    itemDelete();
+    itemEdit();
 }
 
-function borrarElemento(a){
-
-    for (item of lista){
-        if (item == a){
-            let nuevaLista = lista.filter((item) => item !== a); 
-            lista = nuevaLista;
-            console.log(lista)
-
-            const newTextElement =  document.querySelector(`.s${item}`).parentNode;
-
-            newTextElement.innerHTML = mostrarNuevaListaBorrar();
+function readLocalStorage(){
+    let itemsLocalStorage = getLocalStorage();
+    
+    if (itemsLocalStorage != null){
+        for (let i = 0; i < itemsLocalStorage.length; i++){
+            addItemToContainer(itemsLocalStorage[i].item);
         }
     }
 
 }
 
-function mostrarNuevaListaEdit(newValue){
-
-    return `<p class="s${newValue}"> ${newValue} </p>
-    <button data-id="${newValue}" class="boton borrar">Borrar</button>
-    <button data-id="${newValue}" class="boton editar">Editar</button>`;
-
+function getLocalStorage(){
+   return JSON.parse(localStorage.getItem("list"));
 }
 
-function encontrarElemento(a){
-    const indice = lista.indexOf(a);
+function itemDelete(value){
+    const btnsDelete = document.querySelectorAll(".btnDelete");
 
-    btnEdit.addEventListener("click", (e)=>{
+    btnsDelete.forEach(function(btn){
 
-        for (item of lista){
-            if (item == a){
-                e.preventDefault();
+        btn.addEventListener("click", ()=>{
 
-                lista[indice] = `${inputEdit.value}`;
-        
-                let newValue = inputEdit.value;
-        
-              
-        
-                console.log(lista);
+            let itemsLocalStorage = getLocalStorage();
 
-                const newTextP =  document.querySelector(`.s${item}`).parentNode;
+            let liOfBtn = btn.parentElement.parentElement;
+            let liId = btn.parentElement.parentElement.children[0].children[0].outerText;
+            
+            
+            for(let i = 0; i < itemsLocalStorage.length; i++){
+                if (liId == itemsLocalStorage[i].item){
+                    const index = itemsLocalStorage.indexOf(itemsLocalStorage[i]);
 
-                newTextP.innerHTML = mostrarNuevaListaEdit(newValue);
-
+                    itemsLocalStorage.splice(index, 1);
+                    localStorage.setItem("list", JSON.stringify(itemsLocalStorage));
+                }
             }
-        }
-    
+
+            liOfBtn.remove();
+        });
+
+    });
+}
+
+function itemEdit(){
+
+    const btnsEdit = document.querySelectorAll(".btnEdit");
+
+    btnsEdit.forEach(function(btn){
+        btn.addEventListener("click", ()=>{
+
+            let liH2 = btn.parentElement.parentElement.children[0].children[0];
+            let liId = btn.parentElement.parentElement.children[0].children[0].outerText;
+            let itemsLocalStorage = getLocalStorage();
+            dataEdit = true;
+            btnAddData.textContent = "✓";
+            inputDataEntry.value = liId;
+
+
+            btnAddData.addEventListener("click", ()=>{
+
+                for (let i = 0; i < itemsLocalStorage.length; i++){
+                    if (liId == itemsLocalStorage[i].item){
+                        itemsLocalStorage[i].item = inputDataEntry.value;
+                        liH2.innerHTML = itemsLocalStorage[i].item;
+                        localStorage.setItem("list", JSON.stringify(itemsLocalStorage));
+                    }
+                }
+
+                btnAddData.textContent = "+";
+                dataEdit = false;
+
+            });
+        });
     });
 
 }
 
-clearAllBtn.addEventListener("click", (e)=>{
-    e.preventDefault();
 
-    deleteProcess();
-});
 
-function allDataDelete(){
-    return ``
-}
-
-function deleteProcess(){
-    const clearText = document.querySelector(".div_text");
-
-    clearText.innerHTML = allDataDelete();
-
-    lista=[];
-    console.log(lista)
-}
