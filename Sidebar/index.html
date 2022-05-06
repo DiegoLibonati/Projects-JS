@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews</title>
+    <title>Sidebar</title>
 
     <script src="https://kit.fontawesome.com/41faca984e.js" crossorigin="anonymous"></script>
 
@@ -12,49 +12,33 @@
 </head>
 <body>
 
+    <header class="header_container">
 
-    <div class="header-container">
-        <button id="btnMenu">
-        <i class="fa-solid fa-bars"></i>
-        </button>         
-    </div>
+        <div class="header_container_logo">
+            <img src="templates/logo.png" alt="logo code">
+            <button type="button"><i class="fa-solid fa-bars"></i></button>
+        </div>
 
-        <nav>
+    </header>
 
+    <nav class="sidebar_container">
 
-            <div class="nav-container">
+        <div class="sidebar_container_logo">
+                <img src="templates/logo.png" alt="logo code">
+                <button type="button"><i class="fa-solid fa-x"></i></button>
+        </div>
 
-                <h1 class="nav-title">Coding Addict</h1>
+        <div class="sidebar_container_sections">
+            <ul class="sidebar_container_sections_list">
+                <li>Home</li>
+                <li>About me</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
+            </ul>
+        </div>
 
-                <button class="btnCl" id="btnClose">
-                <i class="fa-solid fa-x"></i>
-                </button>
+    </nav>
 
-
-                <ul class="nav-menu">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Projects</li>
-                    <li>Contact</li>
-                </ul>
-
-                <ul class="nav-redes">
-                    <li>
-                        <a>F</a>
-                    </li>
-
-                    <li>
-                        <a>I</a>
-                    </li>
-
-                    <li>
-                        <a>G</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <div class="hola">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus totam aliquam, qui quidem tenetur voluptatum perspiciatis modi atque consequuntur cupiditate sunt error nulla doloremque placeat explicabo quis, molestiae veniam!</div>
     <script src="codigo.js"></script>
 </body>
 </html>

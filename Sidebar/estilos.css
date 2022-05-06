@@ -15,107 +15,137 @@ body{
     height: 100vh;
 }
 
-
-nav{
-    width: 100%;
-    height: 100%;
+.header_container{
     position: absolute;
+    width: 100%;
+    height: 10rem;
+    z-index: 50;
 }
 
-.nav-container{
-    display:flex;
-    flex-direction: column;
+    .header_container_logo{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 10rem;
+        background: #3A3845;
+    }
+
+        .header_container_logo img{
+            height: 7rem;
+            width: 7rem;
+            margin: 1rem;
+        }
+
+        .header_container_logo button{
+            border: none;
+            background: none;
+            margin: 1rem;
+        }
+
+        .header_container_logo button i{
+            font-size: 3rem;
+            color: #fff;
+        }
+
+.sidebar_container{
+    position: absolute;
+    z-index: 100;
+    background: #F7CCAC;
     width: 100%;
     height: 100%;
-    justify-content: space-between;
-    background-color:aqua;
-    transform: translateX(-100%);
-    transition: 1s;
-    position: fixed;
-    top:-.05rem;
-    z-index: 1;
+    transform: translateX(-200%);
+    transition: transform 1s;
 }
 
-@media screen and (min-width:768px){
-    .nav-container{
-        width: 50%;
-    }
-}
-
-.nav-show{
-    transform: translateX(0%);
-}
-
-.header-container{
-    position: relative;
-    width: 100%;
-    height: 7rem;
-    background-color: rgb(255, 255, 255);
-}
-
-    .header-container button{
-        background-color: white;
-        border: none;
-        cursor: pointer;
-        position: absolute;
-        right: 0;
-    }
-
-    .header-container i{
-        margin: 1rem;
-        font-size: 5rem;
-    }
-
-    .btnCl{
-        position: absolute;
-        left: 85%;
-        margin: 2rem;
-        background-color: aqua;
-        border: none;
-        cursor: pointer;
-    }
-
-    .nav-close{
-        transition: 0s;
-    }
-
-    .btnCl i{
-        font-size: 2.5rem;
-        color: red;
-
-    }
-
-    .nav-title{
-     font-size: 4rem;   
-     margin: 1rem;
-    }
-
-
-    .nav-menu{
-        position: absolute;
-        top:10%;
-    }
-
-        .nav-menu li{
-            font-size: 2rem;
-            margin: 1rem;
-            margin-top: 3rem;
-        }
-
-    .nav-redes{
+    .sidebar_container_logo{
         display: flex;
-        justify-content: center;
-        
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 10rem;
     }
 
-        .nav-redes li a{
-            font-size: 3rem;
+        .sidebar_container_logo img{
+            height: 7rem;
+            width: 7rem;
             margin: 1rem;
         }
 
-.hola{
-    position: relative;
-    width: 100%;
-    min-height: 10rem;
-    background-color: red;
+        .sidebar_container_logo button{
+            border: none;
+            background: none;
+            margin: 1rem;
+        }
+
+        .sidebar_container_logo button i{
+            font-size: 3rem;
+            color: #000;
+        }
+
+    .sidebar_container_sections{
+        width: 100%;
+        height: 30rem;
+    }
+
+        .sidebar_container_sections_list{
+            display: flex;
+            height: 100%;
+            width: 100%;
+            flex-flow: column wrap;
+            justify-content: space-between;
+        }
+
+            .sidebar_container_sections_list li{
+                padding: 1rem;
+                font-size: 2rem;
+                color: #000;
+            }
+
+    .show-sidebar{
+        transform: translateX(0%);
+    }
+
+
+@media screen and (min-width:1024px) {
+
+    .header_container{
+        display: none;
+    }
+
+    .sidebar_container{
+        position: fixed;
+        display: flex;
+        flex-flow: column wrap;
+        background: #3A3845;
+        width: 20%;
+        height: 100%;
+        transform: translateX(0%);
+        transition: transform 0s;
+    }
+
+    .sidebar_container_logo{
+        justify-content: center;
+    }
+
+        .sidebar_container_logo img{
+            width: 7rem;
+        }
+
+        .sidebar_container_logo button{
+            display: none;
+        }
+
+    .sidebar_container_sections{
+        width: 100%;
+        height: 30rem;
+    }
+
+            .sidebar_container_sections_list li{
+                padding: 2rem;
+                font-size: 2.5rem;
+                color: #fff;
+            }
+
+
 }

@@ -1,30 +1,17 @@
-const btnMenu = document.getElementById("btnMenu");
-const btnClose = document.getElementById("btnClose");
-const Menu = document.querySelector(".nav-container");
+const openSideBar = document.querySelector(".header_container_logo button");
+const closeSideBar = document.querySelector(".sidebar_container_logo button");
 
+const sidebarContainer = document.querySelector(".sidebar_container");
 
-btnMenu.addEventListener("click", ()=>{
+openSideBar.addEventListener("click", ()=>{
 
-    hasClass = Menu.classList.contains("nav-show");
-
-    if (hasClass){
-        Menu.classList.remove("nav-close");
-        Menu.classList.remove("nav-show");
-    } else{
-        Menu.classList.remove("nav-close");
-        Menu.classList.add("nav-show");
-    }
+    sidebarContainer.classList.add("show-sidebar");
 
 });
 
 
-btnClose.addEventListener("click", () =>{
+closeSideBar.addEventListener("click", ()=>{
 
-    hasClass = Menu.classList.contains("nav-show");
-
-    if (hasClass){
-        Menu.classList.add("nav-close")
-        Menu.classList.remove("nav-show");
-    } 
+    sidebarContainer.classList.remove("show-sidebar");
 
 });
