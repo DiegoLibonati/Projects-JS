@@ -31,10 +31,14 @@ btnAddNote.addEventListener("click", ()=>{
 function editCard(){
 
     const btnsEdit = document.querySelectorAll(".btnEdit");
+    let cardsStorage = getLocalStorage();
 
     btnsEdit.forEach(function(btnEdit){
 
         btnEdit.addEventListener("click", ()=>{
+
+            let cardId = btnEdit.parentElement.parentElement.id;
+            const cardFinalId = cardId.slice(5);
 
             let cardTextArea = btnEdit.parentElement.parentElement.children[1].children[0];
             cardTextArea.disabled = false;
@@ -45,6 +49,15 @@ function editCard(){
             const btnFinishEdit = document.querySelector(".btnFinishEdit");
 
             btnFinishEdit.addEventListener("click", ()=>{
+
+                for (let i = 0; i < cardsStorage.length; i++){
+                    console.log(cardFinalId, cardsStorage[i].id)
+                    if (cardFinalId == cardsStorage[i].id){
+                        cardsStorage[i].text = cardTextArea.value;
+                        localStorage.setItem("list", JSON.stringify(cardsStorage));
+                    }
+
+                }
 
                 cardContainerBtns.children[2].remove();
                 cardTextArea.innerHTML = cardTextArea.value;
@@ -80,7 +93,7 @@ function setIdCards(){
     let cardsStorage = getLocalStorage();
 
         if (cardsStorage == null){
-            let contador = 0;
+            let contador = 1;
             contador++
             addCardToLocalStorage(contador, "Ingrese texto");
             return contador;
@@ -99,8 +112,8 @@ function loadCardsInLocalStorage(){
 
     for (let i = 0; i < cardsStorage.length; i++){
         cardsContainer.innerHTML += `
-    
-        <div class="card" id="card-${i}">
+
+        <div class="card" id="card-${i+1}">
             <div class="card_header">
                 <button type="button" class="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
                 <button type="button" class="btnDelete"><i class="fa-solid fa-trash"></i></button>
