@@ -722,7 +722,7 @@ formContactForm.addEventListener("submit", (e)=>{
     const messageValue = document.getElementById("message").value;
     
 
-    if (nameValue == "" || emailValue == "" || messageValue == ""){
+    if (nameValue.split(" ").join("") == "" || emailValue.split(" ").join("") == "" || messageValue.split(" ").join("") == ""){
        
         btnContactMe.textContent = "SENDING.";
 
