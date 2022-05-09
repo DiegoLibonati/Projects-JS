@@ -12,8 +12,8 @@ tasksBtnsAccept.forEach(function(tasksBtnAccept){
     tasksBtnAccept.addEventListener("click", ()=>{
 
         let tasksInputValue = tasksBtnAccept.parentElement.children[0].value;
-        let tasksId = idGenerator(); 
         let tasksCategory = tasksBtnAccept.parentElement.parentElement.id;
+        let tasksId = idGenerator(); 
         let tasksComplete = false;
         
         addLocalStorageItem(tasksId, tasksCategory, tasksInputValue, tasksComplete);
@@ -57,8 +57,10 @@ const idGenerator = ()=>{
         contador++
         return contador;
     }
+    
 
 };
+
 
 const deleteTaskMobile = ()=>{
 
@@ -100,7 +102,6 @@ const removeAndLineThroughInDesktop = ()=>{
     lisContainers.forEach(function(liContainer){
 
         liContainer.addEventListener("mousedown", (e)=>{
-
             switch (e.which){
                 case 1:
                     let arrayLocalStorage = getLocalStorage();
@@ -179,6 +180,7 @@ const insertTaskInContainer = (id, category,text)=>{
     deleteTaskMobile();
     removeAndLineThroughInDesktop();
     functionsMenuSection();
+    dragsFunctions();
 
 }
 
@@ -192,7 +194,7 @@ const loadTasksInLocalStorage = ()=>{
         const idContainer = tasksContainer.parentElement.parentElement.id;
 
         for (let i = 0; i < arrayLocalStorage.length; i++){
-
+            
             if (arrayLocalStorage[i].category === idContainer){
 
                 tasksContainer.innerHTML += `
@@ -207,9 +209,13 @@ const loadTasksInLocalStorage = ()=>{
                 `;
 
                 if (arrayLocalStorage[i].complete === true){
-                    tasksContainer.children[i].classList.add("line");
+                    for (let i = 0; i < tasksContainer.children.length; i++){
+                        tasksContainer.children[tasksContainer.children.length - 1].classList.add("line");
+                    }
                 }
+
             }
+            
 
         }
 
@@ -279,12 +285,45 @@ const dragsFunctions = () => {
     liContainers.forEach(function(liContainer){
         liContainer.draggable = true;
         liContainer.addEventListener("dragstart", (e)=>{
+            
             e.dataTransfer.setData("text", e.target.id);
         });
-        
+
+        liContainer.addEventListener("dragend", (e)=>{
+            let arrayLocalStorage = getLocalStorage();
+            const finalCategoryLiContainer = e.currentTarget.parentElement.parentElement.parentElement.id.replace(/-\d+/g, '');
+            const idLiContainer = e.currentTarget.id.replace( /^\D+/g, '');
+
+            liContainer.setAttribute("id", `${finalCategoryLiContainer}-${idLiContainer}`);
+
+            for (let i = 0; i < arrayLocalStorage.length; i++){
+                if (idLiContainer == arrayLocalStorage[i].id){
+                    arrayLocalStorage[i].category = finalCategoryLiContainer;
+
+                    localStorage.setItem("list", JSON.stringify(arrayLocalStorage));
+                }
+            }
+        });
+
     });
 
+    tasksContainers.forEach(function(taskContainer){
+        taskContainer.addEventListener("dragover", (e)=>{
+            e.preventDefault()
+        })
+
+        taskContainer.addEventListener("drop", (e)=>{
+            e.preventDefault();
+                const data = e.dataTransfer.getData("text");
+                e.target.appendChild(document.getElementById(data));
+        });
+
+    });
 }
+
+    
+
+
 
 loadTasksInLocalStorage();
 
