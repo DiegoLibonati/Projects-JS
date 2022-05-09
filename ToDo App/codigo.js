@@ -1,6 +1,10 @@
 // Obtengo datos
 const tasksContainers = document.querySelectorAll(".list");
 const tasksBtnsAccept = document.querySelectorAll(".btnAccept");
+const tasksMenus = document.querySelectorAll(".menu");
+const tasksBtnsHeader = document.querySelectorAll(".openMenu");
+const tasksBtnsCloseHeader = document.querySelectorAll(".closeMenu");
+const tasksBtnsClearAllTasks = document.querySelectorAll(".clearAllTasks");
 
 // Al hacer click, obtengo los valores necesarios para agregarlos al LocalStorage
 tasksBtnsAccept.forEach(function(tasksBtnAccept){
@@ -49,7 +53,7 @@ const idGenerator = ()=>{
         contador++
         return contador;
     } else {
-        let contador = arrayLocalStorage.length;
+        let contador = arrayLocalStorage[arrayLocalStorage.length - 1].id;
         contador++
         return contador;
     }
@@ -59,17 +63,14 @@ const idGenerator = ()=>{
 const deleteTaskMobile = ()=>{
 
     const btnsDeleteTask = document.querySelectorAll(".deleteTask");
-    
-    let arrayLocalStorage = getLocalStorage();
-
 
     btnsDeleteTask.forEach(function(btnDeleteTask){
 
         btnDeleteTask.addEventListener("click", (e)=>{
 
+            let arrayLocalStorage = getLocalStorage();
             const liContainer = e.currentTarget.parentElement.parentElement;
             const idContainer = e.currentTarget.parentElement.parentElement.id.replace( /^\D+/g, '');
-
             liContainer.remove();
 
             for (let i = 0; i < arrayLocalStorage.length; i++){
@@ -79,7 +80,7 @@ const deleteTaskMobile = ()=>{
                     arrayLocalStorage.splice(index, 1);
 
                     localStorage.setItem("list", JSON.stringify(arrayLocalStorage));
-
+                    
                 }
 
             }
@@ -94,7 +95,7 @@ const deleteTaskMobile = ()=>{
 const removeAndLineThroughInDesktop = ()=>{
 
     const lisContainers = document.querySelectorAll(".li");
-    let arrayLocalStorage = getLocalStorage();
+
 
     lisContainers.forEach(function(liContainer){
 
@@ -102,10 +103,10 @@ const removeAndLineThroughInDesktop = ()=>{
 
             switch (e.which){
                 case 1:
+                    let arrayLocalStorage = getLocalStorage();
                     const idContainer = e.currentTarget.id.replace( /^\D+/g, '');
 
                     for (let i = 0; i < arrayLocalStorage.length; i++){
-
                         if (idContainer == arrayLocalStorage[i].id){
                             
                             if (!liContainer.classList.contains("line")) {
@@ -125,7 +126,25 @@ const removeAndLineThroughInDesktop = ()=>{
                 break;
 
                 case 3:
+                    let arrayLocalStorage2 = getLocalStorage();
+                    const liContainer2 = e.currentTarget;
+                    const idContainer2 = e.currentTarget.id.replace( /^\D+/g, '');
+        
+                    liContainer2.remove();
+        
+                    for (let i = 0; i < arrayLocalStorage2.length; i++){
+                        if (idContainer2 == arrayLocalStorage2[i].id){
 
+                            const index = arrayLocalStorage2.indexOf(arrayLocalStorage2[i]);
+        
+                            arrayLocalStorage2.splice(index, 1);
+        
+                            localStorage.setItem("list", JSON.stringify(arrayLocalStorage2));
+        
+                        }
+        
+                    }
+        
                 break;
             }
 
@@ -156,6 +175,10 @@ const insertTaskInContainer = (id, category,text)=>{
         }
 
     });
+
+    deleteTaskMobile();
+    removeAndLineThroughInDesktop();
+    functionsMenuSection();
 
 }
 
@@ -194,9 +217,74 @@ const loadTasksInLocalStorage = ()=>{
 
     deleteTaskMobile();
     removeAndLineThroughInDesktop();
+    functionsMenuSection();
+    dragsFunctions();
 
 }
 
+const functionsMenuSection = () =>{ 
+
+
+
+    tasksBtnsHeader.forEach(function(taskBtnHeader){
+
+        taskBtnHeader.addEventListener("click", (e)=>{
+
+            const menuContainer = e.currentTarget.parentElement.parentElement.children[2];
+
+            menuContainer.classList.add("menu");
+
+        });
+
+    });
+
+    tasksBtnsCloseHeader.forEach(function(taskBtnCloseHeader){
+
+        taskBtnCloseHeader.addEventListener("click", (e)=>{
+
+            const menuContainer = e.currentTarget.parentElement.parentElement;
+
+            menuContainer.classList.remove("menu");
+
+        });
+
+    });
+
+    tasksBtnsClearAllTasks.forEach(function(taskBtnClearAllTasks){
+
+        taskBtnClearAllTasks.addEventListener("click", (e)=>{
+            let arrayLocalStorage = getLocalStorage();
+            const idContainer = e.currentTarget.parentElement.parentElement.parentElement.id;
+            const liContainer = e.currentTarget.parentElement.parentElement.parentElement.children[3].children[0];
+            
+            liContainer.innerHTML = "";
+
+            let filtered = arrayLocalStorage.filter(function(value){
+
+               return value.category != idContainer;
+
+            })
+
+            localStorage.setItem("list", JSON.stringify(filtered));
+        });
+
+    });
+
+}
+
+const dragsFunctions = () => {
+
+    const liContainers = document.querySelectorAll(".li");
+
+    liContainers.forEach(function(liContainer){
+        liContainer.draggable = true;
+        liContainer.addEventListener("dragstart", (e)=>{
+            e.dataTransfer.setData("text", e.target.id);
+        });
+        
+    });
+
+}
 
 loadTasksInLocalStorage();
 

@@ -44,6 +44,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
+    position: relative;
     width: 100%;
     height: 123rem;
 }
@@ -118,16 +119,53 @@ body{
             }
 
         .section_container_tasks_menu{
-            display: none;
-            background: #DEB6AB;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-flow: column nowrap;
+            background: #F24A72;
             position: absolute;
             height: 40rem;
             width: 80%;
+            transform: translateY(-200%);
+            transition: transform 1s;
         }
 
-            .section_container_tasks_menu button{
-                cursor: pointer;
+            .section_container_tasks_menu_header{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 10rem;
             }
+
+                .section_container_tasks_menu_header button{
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                    .section_container_tasks_menu button i{
+                        font-size: 5rem;
+                        color: #fff;
+                    }
+            
+
+            .section_container_tasks_menu_btns{
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                width: 100%;
+                height: 30rem;
+            }
+
+                .section_container_tasks_menu_btns button{
+                    background: none;
+                    border: none;
+                    font-size: 3rem;
+                    color: #fff;
+                    cursor: pointer;
+                }
 
         .section_container_tasks_note{
             width: 100%;
@@ -241,17 +279,54 @@ body{
                 color: #fff;
             }
 
-        .section_container_progress_menu{
-            display: none;
-            background: #DEB6AB;
-            position: absolute;
-            height: 40rem;
-            width: 80%;
-        }
-
-            .section_container_progress_menu button{
-                cursor: pointer;
+            .section_container_progress_menu{
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-flow: column nowrap;
+                background: #F24A72;
+                position: absolute;
+                height: 40rem;
+                width: 80%;
+                transform: translateY(-200%);
+                transition: transform 1s;
             }
+    
+                .section_container_progress_menu_header{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 10rem;
+                }
+    
+                    .section_container_progress_menu_header button{
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                    }
+    
+                        .section_container_progress_menu button i{
+                            font-size: 5rem;
+                            color: #fff;
+                        }
+                
+    
+                .section_container_progress_menu_btns{
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                    width: 100%;
+                    height: 30rem;
+                }
+    
+                    .section_container_progress_menu_btns button{
+                        background: none;
+                        border: none;
+                        font-size: 3rem;
+                        color: #fff;
+                        cursor: pointer;
+                    }
 
             .section_container_progress_note{
                 width: 100%;
@@ -363,17 +438,54 @@ body{
                 color: #fff;
             }
 
-        .section_container_finish_menu{
-            display: none;
-            background: #DEB6AB;
-            position: absolute;
-            height: 40rem;
-            width: 80%;
-        }
-
-            .section_container_finish_menu button{
-                cursor: pointer;
+            .section_container_finish_menu{
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-flow: column nowrap;
+                background: #F24A72;
+                position: absolute;
+                height: 40rem;
+                width: 80%;
+                transform: translateY(-400%);
+                transition: transform 1s;
             }
+    
+                .section_container_finish_menu_header{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 10rem;
+                }
+    
+                    .section_container_finish_menu_header button{
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                    }
+    
+                        .section_container_finish_menu button i{
+                            font-size: 5rem;
+                            color: #fff;
+                        }
+                
+    
+                .section_container_finish_menu_btns{
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                    width: 100%;
+                    height: 30rem;
+                }
+    
+                    .section_container_finish_menu_btns button{
+                        background: none;
+                        border: none;
+                        font-size: 3rem;
+                        color: #fff;
+                        cursor: pointer;
+                    }
 
             .section_container_finish_note{
                 width: 100%;
@@ -420,6 +532,10 @@ body{
     .line{
         text-decoration:line-through;
         color: #333C83;
+    }
+
+    .menu{
+        transform: translateY(0%);
     }
 
 @media screen and (min-width: 1024px) {
@@ -496,5 +612,22 @@ body{
     .section_container_finish_note_list li div{
         justify-content: center;
     }
+
+    .section_container_tasks_menu{
+        height: 60rem;
+        width: 20%;
+    }
+
+    .section_container_progress_menu{
+        height: 60rem;
+        width: 20%;
+    }
+
+
+    .section_container_finish_menu{
+        height: 60rem;
+        width: 20%;
+    }
+
 
 }
