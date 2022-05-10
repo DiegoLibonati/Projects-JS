@@ -538,13 +538,43 @@ body{
         transform: translateY(0%);
     }
 
+    .footer_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column nowrap;
+        height: 20rem;
+        width: 100%;
+    }
+
+        .footer_container div{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            height: 100%;
+            width: 80%;
+        }
+
+            .footer_container div h2{
+                align-self: center;
+                color: #fff;
+                font-size: 3rem;
+            }
+
+            .footer_container div p{
+                padding: .5rem;
+                text-align: justify;
+                color: #fff;
+                font-size: 1.5rem;
+            }
+
 @media screen and (min-width: 1024px) {
     
     .section_container{
         align-items: flex-start;
         justify-content: space-evenly;
         flex-flow: row wrap;
-        height: 70rem;
+        height: 60rem;
     }
     
     .section_container_tasks{
@@ -629,5 +659,14 @@ body{
         width: 20%;
     }
 
+
+    .footer_container{
+        height: 12rem;
+    }
+
+            .footer_container div p{
+                align-self: center;
+                padding: 0rem;
+            }
 
 }

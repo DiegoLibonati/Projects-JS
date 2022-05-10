@@ -6,6 +6,7 @@ const tasksBtnsHeader = document.querySelectorAll(".openMenu");
 const tasksBtnsCloseHeader = document.querySelectorAll(".closeMenu");
 const tasksBtnsClearAllTasks = document.querySelectorAll(".clearAllTasks");
 
+
 // Al hacer click, obtengo los valores necesarios para agregarlos al LocalStorage
 tasksBtnsAccept.forEach(function(tasksBtnAccept){
 
@@ -103,7 +104,7 @@ const removeAndAddLineThroughInDesktop = ()=>{
 
         liContainer.addEventListener("mousedown", (e)=>{
             switch (e.which){
-                case 1:
+                case 2:
                     let arrayLocalStorage = getLocalStorage();
                     const idContainer = e.currentTarget.id.replace( /^\D+/g, '');
 
@@ -280,7 +281,6 @@ const dragsFunctions = () => {
     liContainers.forEach(function(liContainer){
         liContainer.draggable = true;
         liContainer.addEventListener("dragstart", (e)=>{
-            
             e.dataTransfer.setData("text", e.target.id);
         });
 
@@ -298,6 +298,7 @@ const dragsFunctions = () => {
                     localStorage.setItem("list", JSON.stringify(arrayLocalStorage));
                 }
             }
+
         });
 
     });
