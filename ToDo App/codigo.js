@@ -94,7 +94,7 @@ const deleteTaskMobile = ()=>{
 
 }
 
-const removeAndLineThroughInDesktop = ()=>{
+const removeAndAddLineThroughInDesktop = ()=>{
 
     const lisContainers = document.querySelectorAll(".li");
 
@@ -110,20 +110,15 @@ const removeAndLineThroughInDesktop = ()=>{
                     for (let i = 0; i < arrayLocalStorage.length; i++){
                         if (idContainer == arrayLocalStorage[i].id){
                             
-                            if (!liContainer.classList.contains("line")) {
+                            if (arrayLocalStorage[i].complete == false) {
                                 liContainer.classList.add("line");
                                 arrayLocalStorage[i].complete = true;
-                                localStorage.setItem("list", JSON.stringify(arrayLocalStorage));
-                            } else {
-                                liContainer.classList.remove("line")
-                                arrayLocalStorage[i].complete = false;
                                 localStorage.setItem("list", JSON.stringify(arrayLocalStorage));
                             }
 
                         }
 
                     }
-
                 break;
 
                 case 3:
@@ -178,7 +173,7 @@ const insertTaskInContainer = (id, category,text)=>{
     });
 
     deleteTaskMobile();
-    removeAndLineThroughInDesktop();
+    removeAndAddLineThroughInDesktop();
     functionsMenuSection();
     dragsFunctions();
 
@@ -222,7 +217,7 @@ const loadTasksInLocalStorage = ()=>{
     });
 
     deleteTaskMobile();
-    removeAndLineThroughInDesktop();
+    removeAndAddLineThroughInDesktop();
     functionsMenuSection();
     dragsFunctions();
 
@@ -314,8 +309,12 @@ const dragsFunctions = () => {
 
         taskContainer.addEventListener("drop", (e)=>{
             e.preventDefault();
+
+            try{
                 const data = e.dataTransfer.getData("text");
                 e.target.appendChild(document.getElementById(data));
+            }catch(e){}
+
         });
 
     });
