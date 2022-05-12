@@ -1,6 +1,7 @@
 const sectionMoviesContainer = document.querySelector(".section_container-moviescontainer");
 const btnPrevPage = document.querySelector(".btnPrevPage");
 const btnNextPage = document.querySelector(".btnNextPage");
+const inputSearch = document.querySelector(".header_container-search input");
 
 let pageCount = 1;
 
@@ -191,6 +192,22 @@ const createANewDivToShowInformation = (e, overview, title, img)=>{
 
 }
 
+const webWorkerToSearchMovie = () =>{
+    worker = new Worker("worker.js");
+
+    worker.postMessage(inputSearch.value);
+
+    console.clear()
+}
+
+inputSearch.addEventListener("keyup", (e)=>{
+
+    webWorkerToSearchMovie();
+
+});
+
+
+
 const getMoviesApi = async (pageNum)=>{
 
     let peticion = await fetch(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=${pageNum}`);
@@ -200,7 +217,6 @@ const getMoviesApi = async (pageNum)=>{
     return moviesArray
 
 }
-
 
 htmlToContainer();
 
