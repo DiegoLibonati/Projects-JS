@@ -1,41 +1,39 @@
 importScripts('https://cdn.jsdelivr.net/npm/fuse.js@6.6.2');
 
-let contador = 0;
-
 const searchMovie = () =>{
 
+    addEventListener("message", async (e) =>{
 
-        addEventListener("message", (e) =>{
-            
-            for (let i = 1; i < 20; i++){
+        if (!e.data.split(" ").join("") == ""){
 
-                let moviesArray = getMoviesApi(i);
-                
-                    moviesArray.then(arrayMovies =>{
-                        
-                        const options = {
-                            includeScore: true,
-                            keys:[`title`],
-                        }
-                    
-                        const fuse = new Fuse(arrayMovies, options);
-                
-                        const result = fuse.search(e.data);
+            for (let i = 1; i < 101; i++){
 
-                        for (let i = 0; i < result.length; i++){
-                            if (result[i].item.title.match(e.data)){
-                                console.log(result[i].item.title)
-                            }
-                        }
+                let moviesArray = await getMoviesApi(i);
 
-                        });
-                        contador++;
-                    };
-        });
+                const options = {
+                    includeScore: true,
+                    keys:[`title`],
+                }
+
+
+                const fuse = await new Fuse(moviesArray, options);
+
+                let result = await fuse.search(`${e.data}`);
 
 
 
-    }
+                for (let i = 0; i < result.length; i++){
+                    if (result[i].item.title.match(e.data)){
+                        postMessage({title: result[i].item.title, img: result[i].item.poster_path, rate: result[i].item.vote_average});
+                    }
+                }
+
+            }
+
+        }
+    });
+
+}
 
 
 const getMoviesApi = async (pageNum)=>{
@@ -49,3 +47,4 @@ const getMoviesApi = async (pageNum)=>{
 }
 
 searchMovie();
+

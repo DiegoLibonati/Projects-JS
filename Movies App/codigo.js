@@ -2,6 +2,7 @@ const sectionMoviesContainer = document.querySelector(".section_container-movies
 const btnPrevPage = document.querySelector(".btnPrevPage");
 const btnNextPage = document.querySelector(".btnNextPage");
 const inputSearch = document.querySelector(".header_container-search input");
+const containerSearchMenu = document.querySelector(".section_container-search--showmovies");
 
 let pageCount = 1;
 
@@ -72,8 +73,10 @@ const htmlToContainer = () =>{
             getFourMoviesToCompleteGridFromTheNextPage();
         }
 
-
+        checkRate();
     })
+
+
 
 }
 
@@ -96,8 +99,8 @@ const getFourMoviesToCompleteGridFromTheNextPage = () =>{
     
             }
         }
-
-
+        getAllMoviesToShowInformationAboutTheMovieWithClick();
+        checkRate();
     })
 
 }
@@ -107,15 +110,14 @@ const getInformationFromMoviesToHtml = (arr, i)=>{
     let imgPath = `https://image.tmdb.org/t/p/w1280/${arr[i].poster_path}`;
 
     sectionMoviesContainer.innerHTML += createHTML(imgPath, arr[i].title, arr[i].vote_average);
-    
-    getAllMoviesToShowInformationAboutTheMovieWithClick();
+
 
 }
 
 const getAllMoviesToShowInformationAboutTheMovieWithClick = () =>{
 
     let allMoviesDiv = document.querySelectorAll(".section_container-movie");
-    
+
     allMoviesDiv.forEach(function(movie){
 
         movie.addEventListener("click",(e)=>{
@@ -192,21 +194,93 @@ const createANewDivToShowInformation = (e, overview, title, img)=>{
 
 }
 
+function delay(callback, ms) {
+    let timer = 0;
+    return function() {
+      let context = this, args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        callback.apply(context, args);
+      }, ms || 0);
+    };
+  }
+
 const webWorkerToSearchMovie = () =>{
-    worker = new Worker("worker.js");
+        
+        worker = new Worker("worker.js");
 
-    worker.postMessage(inputSearch.value);
+        worker.postMessage(inputSearch.value);
 
-    console.clear()
+        containerSearchMenu.innerHTML = "";
+
+        worker.addEventListener("message", async (e)=>{
+
+            if (containerSearchMenu.children.length <= 10){
+                let imgPath = `https://image.tmdb.org/t/p/w1280/${e.data.img}`;
+                containerSearchMenu.innerHTML += createSearchHTML(e.data.title, imgPath, e.data.rate);
+            }
+
+        });
+
 }
 
-inputSearch.addEventListener("keyup", (e)=>{
+inputSearch.addEventListener("keyup", delay(function (e){
 
-    webWorkerToSearchMovie();
+    webWorkerToSearchMovie()
 
-});
+    if (containerSearchMenu.classList.contains("show-searchmenu")){
+        if (inputSearch.value.split(" ").join("") == ""){
+            containerSearchMenu.classList.remove("show-searchmenu");
+        }
+    } else {
+        containerSearchMenu.classList.add("show-searchmenu");
+    }
+
+},500));
 
 
+const createSearchHTML = (title, img, rate) =>{
+
+    return `
+
+        <div class="moviefound">
+
+            <div class="moviefound_img">
+                <img src="${img}" alt="${title}">
+            </div>
+
+            <div class="moviefound_information">
+                <h3>${title}</h3>
+                <p>${rate}</p>
+            </div>
+
+        </div>
+    
+    `;
+
+}
+
+const checkRate = () =>{
+
+    const allRatesMovies = document.querySelectorAll(".section_container-movie--description---rate");
+
+    allRatesMovies.forEach(function(rate){
+
+        if (rate.outerText > "0" && rate.outerText <= "6"){
+            rate.style.background = "red";
+        }
+
+        if (rate.outerText > "6" && rate.outerText < "7"){
+            rate.style.background = "yellow";
+        }
+
+        if (rate.outerText >= "7"){
+            rate.style.background = "green";
+        }
+
+    });
+
+}
 
 const getMoviesApi = async (pageNum)=>{
 
@@ -219,5 +293,4 @@ const getMoviesApi = async (pageNum)=>{
 }
 
 htmlToContainer();
-
 
