@@ -140,6 +140,19 @@ const getAllMoviesToShowInformationAboutTheMovieWithClick = () =>{
                     }
 
                 })
+
+                let moviesArrayExtra = getMoviesApi(pageCount+1);
+                
+                moviesArrayExtra.then(arrayMovies =>{
+                    
+                    for (let i = 0; i < arrayMovies.length; i++){
+                        if (arrayMovies[i].title == nameMovie){
+                            let imgPath = `https://image.tmdb.org/t/p/w1280/${arrayMovies[i].poster_path}`;
+                            createANewDivToShowInformation(e, arrayMovies[i].overview, arrayMovies[i].title, imgPath);
+                        }
+                    }
+
+                })
             }
 
         })
@@ -266,11 +279,11 @@ const checkRate = () =>{
 
     allRatesMovies.forEach(function(rate){
 
-        if (rate.outerText > "0" && rate.outerText <= "6"){
+        if (rate.outerText > "0" && rate.outerText < "6"){
             rate.style.background = "red";
         }
 
-        if (rate.outerText > "6" && rate.outerText < "7"){
+        if (rate.outerText >= "6" && rate.outerText < "7"){
             rate.style.background = "yellow";
         }
 
