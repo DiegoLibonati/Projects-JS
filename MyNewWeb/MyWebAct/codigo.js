@@ -66,6 +66,7 @@ let certificatesStatus = false;
 // SECTION PORTFOLIO
 const btnPortfolioOpenPython = document.querySelector(".section_portfolio_container_projects_python_div_button");
 const btnPortfolioOpenJs = document.querySelector(".section_portfolio_container_projects_js_div_button");
+const btnPortfolioOpenCss = document.querySelector(".section_portfolio_container_projects_css_div_button");
 const containerSectionPortfolioProjects = document.querySelector(".section_portfolio_container_projects");
 const containerNewPython = document.querySelector(".section_portfolio_container_projects_python_open");
 const containerNewPythonBtn = document.querySelector(".section_portfolio_container_projects_python_open_title_button");
@@ -77,6 +78,11 @@ const containerNewJsBtn = document.querySelector(".section_portfolio_container_p
 const containerNewJsDivs = document.querySelectorAll(".section_portfolio_container_projects_js_open_div_list_item_div");
 const containerNewJsPs = document.querySelectorAll(".vanish");
 
+const containerNewCss = document.querySelector(".section_portfolio_container_projects_css_open");
+const containerNewCssBtn = document.querySelector(".section_portfolio_container_projects_css_open_title_button");
+const containerNewCssDivs = document.querySelectorAll(".section_portfolio_container_projects_css_open_div_list_item_div");
+const containerNewCssPs = document.querySelectorAll(".vanish");
+
 const containerNewPythonDivsH = document.querySelectorAll(".section_portfolio_container_projects_Hpython_description_container_list_item");
 const containerNewPythonPsH = document.querySelectorAll(".section_portfolio_container_projects_Hpython_description_container_two_item");
 const containerNewPythonCloseBtn = document.querySelector(".section_portfolio_container_projects_Hpython_title_button");
@@ -87,8 +93,14 @@ const containerNewJsPsH = document.querySelectorAll(".section_portfolio_containe
 const containerNewJsCloseBtn = document.querySelector(".section_portfolio_container_projects_Hjs_title_button");
 const containerNewJsFatherH = document.querySelector(".section_portfolio_container_projects_Hjs");
 
+const containerNewCssDivsH = document.querySelectorAll(".section_portfolio_container_projects_Hcss_description_container_list_item");
+const containerNewCssPsH = document.querySelectorAll(".section_portfolio_container_projects_Hcss_description_container_two_item");
+const containerNewCssCloseBtn = document.querySelector(".section_portfolio_container_projects_Hcss_title_button");
+const containerNewCssFatherH = document.querySelector(".section_portfolio_container_projects_Hcss");
+
 let containerJsProjectsStatus = false; 
 let containerPythonProjectsStatus = false; 
+let containerCssProjectsStatus = false; 
 
 // SECTION CONTACT ME 
 const formContactForm = document.querySelector(".section_contactme_container_form");
@@ -611,6 +623,55 @@ containerNewJsDivs.forEach(function(btn){
     });
 })
 
+btnPortfolioOpenCss.addEventListener("click", openCssPortfolio);
+
+function openCssPortfolio(){
+
+    containerCssProjectsStatus = true;
+
+    if (queryMatches == false){
+        containerSectionPortfolioProjects.classList.add("no-show-projects-container");
+        containerNewCss.classList.add("show-display-projects");
+
+        setTimeout(function(){
+            containerNewCss.style.opacity = "1";
+        })
+
+        containerNewCssBtn.addEventListener("click",()=>{
+            containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
+            containerNewCss.classList.remove("show-display-projects");
+            containerNewCss.style.opacity = "0";
+            containerCssProjectsStatus = false;
+        });
+    } else {
+        containerSectionPortfolioProjects.classList.add("no-show-projects-container");
+        containerNewCssFatherH.classList.add("show");
+
+        setTimeout(function(){
+            containerNewCssFatherH.style.opacity = "1";
+        })
+    }
+
+}
+
+containerNewCssDivs.forEach(function(btn){
+    btn.addEventListener("click", (e)=>{
+
+        const divBtn =  e.currentTarget.children[1]
+
+        divBtn.classList.toggle("show-display-p");
+        btn.classList.toggle("show-border");
+
+        containerNewCssPs.forEach(function(p){
+            if (p !== divBtn){
+                p.classList.remove("show-display-p");
+            }
+        });
+
+
+    });
+})
+
 // SECTION PORTFOLIO BIG SCREEN - FUNCTIONS
 containerNewPythonDivsH.forEach(function(btn){
     btn.addEventListener("click", (e)=>{
@@ -709,6 +770,57 @@ containerNewJsCloseBtn.addEventListener("click", (e)=>{
     containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
     containerNewJsFatherH.classList.remove("show");
     containerNewJsFatherH.style.opacity = "0";
+
+})
+
+containerNewCssDivsH.forEach(function(btn){
+    btn.addEventListener("click", (e)=>{
+
+        containerCssProjectsStatus = true;
+        
+        let textRes = e.currentTarget.outerText;
+
+        btn.classList.add("active");
+
+        for (i = 0; i < containerNewCssPsH.length; i++){
+            if (textRes == containerNewCssPsH[i].id){
+    
+                if (containerNewCssPsH[i].classList.contains("show")){
+                    containerNewCssPsH[i].classList.remove("show");
+                    btn.classList.remove("active");
+                } else{
+                    containerNewCssPsH[i].classList.add("show");
+                }
+                
+            } 
+        }  
+        
+        let textResTwo = btn.parentElement.parentElement.parentElement.children[1].children;
+        
+
+
+        for (i = 0; i < textResTwo.length; i++){
+            if (textResTwo[i].id !== textRes){
+                textResTwo[i].classList.remove("show");
+            }
+        }
+
+        for (i = 0; i < containerNewCssDivsH.length; i++){
+            if (containerNewCssDivsH[i] !== btn){
+                containerNewCssDivsH[i].classList.remove("active");
+            }
+        }
+    });
+});
+
+containerNewCssCloseBtn.addEventListener("click", (e)=>{
+    e.preventDefault();
+
+    containerCssProjectsStatus = false;
+
+    containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
+    containerNewCssFatherH.classList.remove("show");
+    containerNewCssFatherH.style.opacity = "0";
 
 })
 
@@ -913,6 +1025,13 @@ window.addEventListener("resize", ()=>{
                 containerJsProjectsStatus = false;
             });
 
+            containerNewCssBtn.addEventListener("click",()=>{
+                containerSectionPortfolioProjects.classList.remove("no-show-projects-container");
+                containerNewCss.classList.remove("show-display-projects");
+                containerNewCss.style.opacity = "0";
+                containerCssProjectsStatus = false;
+            });
+
             if (navStatus === false){
                 btnOpenNav.style.display = "block";
                 btnCloseNav.style.display = "none";
@@ -1055,6 +1174,22 @@ function checkStatusContainerProjects (){
             containerNewJs.classList.add("show-display-projects");
             containerNewJs.style.opacity = "1";
             containerNewJsFatherH.style.opacity = "0";
+    }
+
+    if (containerCssProjectsStatus && queryMatches){
+        containerSectionPortfolioProjects.classList.add("no-show-projects-container");
+        containerNewCssFatherH.classList.add("show");
+        containerNewCssFatherH.style.opacity = "1";
+        containerNewCss.style.opacity = "0";
+        containerNewCss.classList.remove("show-display-projects");
+    } 
+
+    if (containerCssProjectsStatus && !queryMatches){
+            containerSectionPortfolioProjects.classList.add("no-show-projects-container");
+            containerNewCssFatherH.classList.remove("show");
+            containerNewCss.classList.add("show-display-projects");
+            containerNewCss.style.opacity = "1";
+            containerNewCssFatherH.style.opacity = "0";
     }
 
 
