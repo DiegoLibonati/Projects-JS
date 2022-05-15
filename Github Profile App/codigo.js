@@ -32,11 +32,30 @@ const getGithubProfile = async (profile) =>{
 
     if (apiPetition.ok === false){
         console.log ("The profile dosen´t exist");
+        document.querySelector(".header_section_h2").innerHTML = `The profile dosen´t exist 😔`;
+        document.querySelector(".header_section_h2").classList.add("show-info");
+
+        setTimeout(()=>{
+
+            document.querySelector(".header_section_h2").classList.remove("show-info");
+
+        },2000);
+
 
     } else {
 
         let apiResult = await apiPetition.json();
+        document.querySelector(".header_section_h2").innerHTML = `The profile exist ✅`;
+        document.querySelector(".header_section_h2").classList.add("show-info");
+
+        setTimeout(()=>{
+
+            document.querySelector(".header_section_h2").classList.remove("show-info");
+
+        },2000);
+
         return apiResult;
+        
 
     }
 

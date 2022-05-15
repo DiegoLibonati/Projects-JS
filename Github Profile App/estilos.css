@@ -16,10 +16,32 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-flow: column nowrap;
     width: 100vw;
     height: 95rem;
     background: #EB5353;
 }
+
+.header_section{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    height: 4rem;
+    width: 100%;
+}
+
+    .header_section_h2{
+        opacity: 0;
+        transition: opacity 1s;
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+    }
+
+    .show-info{
+        opacity: 1;
+        transition: opacity 1s;
+    }
 
 
 .section_container{
