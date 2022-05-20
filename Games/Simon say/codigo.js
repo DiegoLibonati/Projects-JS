@@ -15,18 +15,79 @@ let arrayUser = [];
 let checkIfUserIsEqualToIa = false;
 
 let score = 0;
+let IsTheGameLose = false;
+let IsPlaying = false;
+
+let timeColorDelay = 1000;
+let timeColorChange = 500;
 
 // Function: Inicio de juego
 const startGame = () =>{
 
-    iaCanPlay = true;
+    if (IsTheGameLose == false){
 
-    whoPlays();
+        if(IsPlaying == false){
+            IsPlaying = true;
+            iaCanPlay = true;
+            whoPlays();
+        } else {
+            console.log("No se puede iniciar o resetear el juego porque estas jugando, perde antes.")
+        }
+
+    } else {
+        
+        resetGame(timeColorDelay, timeColorChange);
+    }
+
 
 }
 
 // Btn Start Game
 btnStart.addEventListener("click", startGame);
+
+const selectDifficulty = (e) => {
+
+    if (e.currentTarget.id == "easy"){
+        resetGame(1000, 500);
+    }
+
+    if (e.currentTarget.id == "medium"){
+        resetGame(500, 250);
+    }
+
+    if (e.currentTarget.id == "hard"){
+        resetGame(250, 125);
+    }
+
+}
+
+// Btns Difficulty
+btnsDifficulty.forEach(function(btnDif){
+
+    btnDif.addEventListener("click", selectDifficulty);
+
+});
+
+// Se resea el juego. Se pasa los parametros de cambio de color y cada cuanto dice que color es
+const resetGame = (tcd, tcc) => {
+
+    if(IsPlaying == false){
+        whoPlaysHtml.innerHTML = `JUEGA IA`;
+        IsTheGameLose = false;
+        iaCanPlay = true;
+        userCanPlay = false;
+        checkIfUserIsEqualToIa = false;
+        iaCount = 0;
+        arrayUser = [];
+        arrayIA = [];
+        timeColorDelay = tcd;
+        timeColorChange = tcc;
+        startGame();
+    } else {
+        console.log("No se puede iniciar o resetear el juego porque estas jugando, perde antes.")
+    }
+
+}
 
 // Si userCanPlay es True, al clickear vas a cambiar el color de la boxColor y vas a pushear el elemento al arrayUser. Si el array del usuario es igual al array previo de la IA. Pasa a chequear ambos arrays.
 const userSystemPlay = (e) => {
@@ -79,7 +140,7 @@ const iaSelectColorToPlay = () => {
 // Funcion que permite hacer jugar a la maquina. Si el array de la maquina es menor a iaCount va a seguir jugando. Va elegir un color random y lo va pushear al arrayIA existente. 
 // Luego, a traves de la funcion loopIa va a recorrer el arrayIA y va a mostrar que colores se estan tocando en pantalla si el id de la caja y el valor del array son iguales.
 // Esto tendra un delay de 1000 segundos y volvera a llamar a la funcion.
-const iaPlay = () => {
+const iaPlay = (timeColorDelay, timeColorChange) => {
 
     if (!(arrayIA.length === iaCount)){
 
@@ -99,12 +160,12 @@ const iaPlay = () => {
                 colorsBox.forEach(function(colorBox){
 
                     if (colorBox.id == arrayIA[i]){
-                        changeColorViewOfTabletop(arrayIA[i], colorBox, 500);
+                        changeColorViewOfTabletop(arrayIA[i], colorBox, timeColorChange);
                     }
 
                 })
 
-                await delay(1000);
+                await delay(timeColorDelay);
             }
             }
             loopIa();
@@ -119,7 +180,7 @@ const whoPlays = () => {
         whoPlaysHtml.innerHTML = `IA PLAYS`;
         iaCount++
 
-        iaPlay()
+        iaPlay(timeColorDelay, timeColorChange)
 
         iaCanPlay = false;
 
@@ -127,7 +188,7 @@ const whoPlays = () => {
             userCanPlay = true
             console.log(userCanPlay)
             whoPlays();
-        }, 1000 * iaCount)
+        }, timeColorDelay * iaCount)
     }
 
     // Juega el usuario
@@ -149,7 +210,9 @@ const whoPlays = () => {
                 whoPlays();
             }, 500);
        } else {
-           console.log("PERDISTE");
+            whoPlaysHtml.innerHTML = `PERDISTE`;
+            IsPlaying = false;
+            IsTheGameLose = true;
        }
     }
 
