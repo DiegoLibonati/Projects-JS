@@ -40,7 +40,7 @@ body{
     height: 10rem;
     width: 100%;
     position: relative;
-    background: #24305E;
+    background: #fff;
 }
 
     .nav_container_logo{
@@ -88,7 +88,7 @@ body{
         width: 100%;
         height: 0;
         position: absolute;
-        background: #24305E;
+        background: #fff;
         transition: height 1s;
     }
 
@@ -170,7 +170,7 @@ body{
     justify-content: center;
     flex-flow: column wrap;
     width: 100%;
-    height: 70rem
+    height: 80rem
 }
 
     .home_container_center{
@@ -204,7 +204,7 @@ body{
             justify-content: center;
             flex-flow: column wrap;
             width: 80%;
-            height: 30rem;
+            height: 25rem;
         }
 
             .home_container_information h2{
@@ -224,12 +224,12 @@ body{
             align-items: center;
             justify-content: center;
             flex-flow: row wrap;
-            height: 8rem;
+            height: 15rem;
             width: 80%;
         }
 
             .home_container_networks i{
-                font-size: 3rem;
+                font-size: 4.5rem;
                 color: #f76c6c;
                 margin-left: 1rem;
                 margin-right: 1rem;
@@ -338,6 +338,17 @@ body{
 
 }
 
+.writeStyle{
+    border-right: .05em solid;
+    animation: caret 1s steps(1) infinite;
+  }
+  
+@keyframes caret {
+50% {
+    border-color: transparent;
+}
+}
+
 @media only screen and (min-width: 1280px){
     
     .home_container_img img{
@@ -380,4 +391,339 @@ body{
 
 }
 
+.skills_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    position: relative;
+    width: 100%;
+    height: 40rem;
+}
 
+    .skills_container_title{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 90%;
+        height: 10rem;
+    }   
+
+        .skills_container_title h2{
+            font-size: 5rem;
+            color: #fff;
+        }
+
+        .skills_container_title h2 span{
+            font-size: 5rem;
+            color:#f76c6c;
+        }
+
+    .skills_container_information{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        height: 30rem;
+    }
+
+        .skills_container_information_list{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-flow: row wrap;
+            width: 100%;
+            height: 30rem;
+        }
+
+            .skills_container_information_list li{
+                position: relative;
+            }
+
+                .skills_container_information_list img{
+                    width: 10rem;
+                    height: 10rem;
+                }
+
+                .img-effect{
+                    position: absolute;
+                    opacity: 1;
+                    transition: opacity 1s;
+                }
+
+                .img-effect:hover{
+                    opacity: 0;
+                    transition: opacity 1s;
+                }
+
+                .img-effect:active{
+                    opacity: 0;
+                    transition: opacity 1s;
+                }
+
+@media only screen and (min-width: 1024px){
+
+    .skills_container{
+        height: 45rem;
+    }
+    
+        .skills_container_title{
+            height: 15rem;
+        }   
+    
+            .skills_container_title h2{
+                font-size: 7rem;
+            }
+    
+            .skills_container_title h2 span{
+                font-size: 7rem;
+            }
+    
+        .skills_container_information{
+            height: 30rem;
+        }
+    
+            .skills_container_information_list{
+                height: 30rem;
+            }
+    
+                    .skills_container_information_list img{
+                        width: 15rem;
+                        height: 15rem;
+                    }
+
+}
+
+
+.about_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 135rem;
+}
+
+    .about_container_title{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 90%;
+        height: 10rem;
+    }
+
+        .about_container_title h2{
+            color: #fff;
+            font-size: 5rem;
+        }
+
+        .about_container_title h2 span{
+            color: #f76c6c;
+            font-size: 5rem;
+        }
+
+    .about_container_description{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 90%;
+        height: 20rem;
+    }
+
+        .about_container_description p{
+            font-size: 1.9rem;
+            text-align: justify;
+            color: #fff;
+        }
+
+    .about_container_information{
+        width: 90%;
+        height: 95rem;
+    }
+
+        .about_container_information_img{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 40rem;
+        }
+
+        .about_container_information_img img{
+            width: 35rem;
+            height: 35rem;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+
+    .about_container_information_text{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        width: 100%;
+        height: 60rem;
+    }
+
+        .about_container_information_text_header{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-flow: column wrap;
+            width: 100%;
+            height: 20rem;
+        }
+
+            .about_container_information_text_header h2{
+                font-size: 3rem;
+                color: #f76c6c;
+            }
+
+            .about_container_information_text_header p{
+                font-size: 1.9rem;
+                text-align: justify;
+                color: #fff;
+            }
+
+        .about_container_information_text_list{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-flow: row wrap;
+            width: 100%;
+            height: 40rem;
+        }
+
+            .about_container_information_text_list li{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 45%;
+                color: #fff;
+                font-size: 1.5rem;
+                margin-right: 1rem;
+            }
+
+                .about_container_information_text_list li i{
+                    color:#f76c6c;
+                    font-size: 1.5rem;
+                    padding-right: .5rem;
+                }
+
+                .about_container_information_text_list li b{
+                    color: #f76c6c;
+                    font-size: 1.5rem;
+                    padding-right: .5rem;
+                }
+
+@media only screen and (min-width:768px) {
+    
+    .about_container_description p{
+        font-size: 2.5rem;
+    }
+
+    .about_container_information_text_header h2{
+        font-size: 4rem;
+    }
+
+    .about_container_information_text_header p{
+        font-size: 2.5rem;
+    }
+
+    .about_container_information_text_list li{
+        font-size: 2.5rem;
+    }
+
+        .about_container_information_text_list li i{
+            font-size: 2.5rem;
+        }
+
+        .about_container_information_text_list li b{
+            font-size: 2.5rem;
+        }
+}
+
+@media only screen and (min-width:1024px) {
+    
+    
+.about_container{
+    height: 100rem;
+}
+
+    .about_container_title{
+    }
+
+        .about_container_title h2{
+            font-size: 7rem;
+        }
+
+        .about_container_title h2 span{
+            font-size: 7rem;
+        }
+
+    .about_container_description{
+    }
+
+        .about_container_description p{
+            font-size: 3rem;
+        }
+
+    .about_container_information{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        width: 90%;
+        height: 60rem;
+    }
+
+        .about_container_information_img{
+            width: 30%;
+            height: 60rem;
+        }
+
+        .about_container_information_img img{
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+        }
+
+
+    .about_container_information_text{
+        width: 70%;
+        height: 60rem;
+    }
+
+        .about_container_information_text_header{
+            flex-flow: column wrap;
+            height: 20rem;
+        }
+
+            .about_container_information_text_header h2{
+                font-size: 5rem;
+            }
+
+            .about_container_information_text_header p{
+                padding-left: .5rem;
+                font-size: 3rem;
+            }
+
+        .about_container_information_text_list{
+            justify-content: flex-end;
+        }
+
+            .about_container_information_text_list li{
+                font-size: 3rem;
+            }
+
+                .about_container_information_text_list li i{
+                    font-size: 3rem;
+                }
+
+                .about_container_information_text_list li b{
+                    font-size: 3rem;
+                }
+
+
+}
