@@ -4,6 +4,8 @@ const containerNavLi = document.querySelectorAll(".nav_container_list-li");
 const btnOpenNav = document.getElementById("openNav");
 const btnCloseNav = document.getElementById("closeNav");
 
+let mediaQuery1024Px = window.matchMedia("(min-width:1024px)");
+
 // Functions
 
 const openNav = () => {
@@ -54,3 +56,12 @@ const closeNav = () => {
 
 btnOpenNav.addEventListener("click", openNav)
 btnCloseNav.addEventListener("click", closeNav)
+
+window.addEventListener("resize", () => {
+
+  if (mediaQuery1024Px.matches){
+    btnCloseNav.setAttribute("style", "");
+    btnOpenNav.setAttribute("style", "");
+  }
+
+});

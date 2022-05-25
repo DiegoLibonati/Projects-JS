@@ -29,19 +29,20 @@
             </div>
 
             <ul class="nav_container_list">
-                <li><a class="nav_container_list-li" href="">HOME</a></li>
-                <li><a class="nav_container_list-li" href="">SKILLS</a></li>
-                <li><a class="nav_container_list-li" href="">ABOUT ME</a></li>
+                <li><a class="nav_container_list-li" href="#home">HOME</a></li>
+                <li><a class="nav_container_list-li" href="#skills">SKILLS</a></li>
+                <li><a class="nav_container_list-li" href="#about">ABOUT ME</a></li>
+                <li><a class="nav_container_list-li" href="#portfolio">PORTFOLIO</a></li>
             </ul>
 
         </nav>
 
-
-        <section class="home_container">
+        <section class="home_container section" id="home">
 
             <div class="home_container_center">
 
                 <div class="home_container_img">
+                    <img class="imgAnimated" src="templates/1.gif" alt="Diego Libonati">
                     <img src="templates/1.png" alt="Diego Libonati">
                 </div>
     
@@ -62,7 +63,7 @@
 
         </section>
 
-        <section class="skills_container">
+        <section class="skills_container section" id="skills">
 
             <div class="skills_container_title">
                 <h2>My <span>skills</span></h2>
@@ -100,7 +101,7 @@
 
         </section>
 
-        <section class="about_container">
+        <section class="about_container section" id="about">
 
             <div class="about_container_title">
                 <h2>About <span>me</span></h2>
@@ -113,6 +114,7 @@
             <div class="about_container_information">
 
                 <div class="about_container_information_img">
+                    <img class="imgAnimatedTwo" src="templates/2.gif" alt="Diego Libonati">
                     <img src="templates/DiegoLibonati.png" alt="Diego Libonati">
                 </div>
 
@@ -152,11 +154,66 @@
 
         </section>
 
+        <section class="portfolio_container section" id="portfolio">
+
+            <div class="portfolio_container_title">
+                <h2>My port<span>folio</span></h2>
+            </div>
+
+            <div class="portfolio_container_slider">
+
+                <i class="fa-solid fa-chevron-left left-button"></i>
+
+                <div class="portfolio_container_slider_options">
+
+                    <div class="portfolio_option current-option">
+
+                        <div>
+                            <img class="img-effectTwo" src="templates/1200px-Python-logo-notext.svg.png" alt="python logo">
+                            <img src="templates/1200px-Python-logo-notext.svg2.png" alt="python logo">
+                        </div>
+
+                        <button type="button">SEE PROJECTS</button>
+                    </div>
+
+                    <div class="portfolio_option">
+                        <div>
+                            <img class="img-effectTwo" src="templates/Unofficial_JavaScript_logo_2.svg.png" alt="javascript logo">
+                            <img src="templates/Unofficial_JavaScript_logo_2.svg2.png" alt="javascript logo">
+                        </div>
+                        <button type="button">SEE PROJECTS</button>
+                    </div>
+
+                    <div class="portfolio_option">
+                        <div>
+                            <img class="img-effectTwo" src="templates/CSS-Logo.png" alt="css logo">
+                            <img src="templates/CSS-Logo2.png" alt="css logo">
+                        </div>
+                        <button type="button">SEE PROJECTS</button>
+                    </div>
+                    
+                    <div class="portfolio_option">
+                        <div>
+                            <img class="img-effectTwo" src="templates/Bootstrap_logo.svg.png" alt="bootstrap logo">
+                            <img src="templates/Bootstrap_logo.svg2.png" alt="bootstrap logo">
+                        </div>
+                        <button type="button">SEE PROJECTS</button>
+                    </div>
+
+                </div>
+
+                <i class="fa-solid fa-chevron-right right-button"></i>
+
+            </div>
+        </section>
+
     <script src="assets/particles.js/particles.js"></script>
     <script src="assets/particles.js/demo/js/app.js"></script>
     <script src="assets/loadParticles.js"></script>
     <script src="assets/navConfig.js"></script>
     <script src="assets/writeConfig.js"></script>
+    <script src="assets/scrollConfig.js"></script>
+    <script src="assets/portfolioConfig.js"></script>
 </body>
 </html>
 
