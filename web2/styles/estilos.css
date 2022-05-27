@@ -446,7 +446,11 @@ body{
     position: relative;
     width: 100%;
     height: 50rem;
+    transform: translateX(-200%);
+    transition: transform 1s;
 }
+
+
 
     .skills_container_title{
         display: flex;
@@ -565,6 +569,8 @@ body{
     flex-flow: column wrap;
     width: 100%;
     height: 135rem;
+    transform: translateX(-200%);
+    transition: transform 1s;
 }
 
     .about_container_title{
@@ -677,7 +683,7 @@ body{
             .about_container_information_text_list li{
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
                 width: 45%;
                 color: #fff;
                 font-size: 1.5rem;
@@ -766,6 +772,7 @@ body{
         .about_container_information_img img{
             width: 100%;
             height: 100%;
+            object-fit: fill;
         }
 
         .imgAnimatedTwo{
@@ -830,6 +837,8 @@ body{
     flex-flow: column wrap;
     width: 100%;
     height: 40rem;
+    transform: translateX(-200%);
+    transition: transform 1s;
 }
 
     .portfolio_container_title{
@@ -1003,7 +1012,7 @@ body{
     top: 0;
     left: 0;
     background:#f76c6c;
-    overflow-y: scroll;
+    overflow-y: auto;
     transform: translateX(-200%);
     transition: transform 1s;
 }
@@ -1059,7 +1068,7 @@ body{
                 flex-flow: row wrap;
                 width: 100%;
                 height: auto;
-                overflow-y: scroll;
+                overflow-y: auto;
                 overflow-x: hidden;
             }
 
@@ -1079,6 +1088,8 @@ body{
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
+                        position: relative;
+                        z-index: 100000;
                         width: 100%;
                         height: 5rem;
                         padding-top: 1rem;
@@ -1086,8 +1097,13 @@ body{
                     }
 
                         .portfolio-item-title h2{
+                            display: block;
+                            overflow: hidden;  
                             font-size: 3rem;
                             color: #fff;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            width: 40rem;
                         }
 
                         .portfolio-item-title i{
@@ -1103,19 +1119,66 @@ body{
                         width: 100%;
                         max-height: 0;
                         opacity: 0;
-                        transition: max-height 1s, opacity 1s;
+                        transition: max-height 1s, opacity .5s;
+                        padding: 0rem;
                     }
 
+                    .portfolio-item-information-p-cen{
+                        color: #fff;
+                        font-size: 2rem;
+                        margin-bottom: 1rem;
+                    }
+
+                    .portfolio-item-information-h3{
+                        font-size: 3rem;
+                        color: #fff;
+                        margin-bottom: 1rem;
+                        width: 100%;
+                        text-align: center;
+                    }
+
+                    .portfolio-item-information-p{
+                        color: #fff;
+                        font-size: 2rem;
+                        margin-bottom: 1rem;
+                        width: 100%;
+                    }
+                    
+                    iframe{
+                        max-width: 80%;
+                        height: auto;
+                        object-fit: cover;
+                        border: none;
+                        margin-bottom: 1rem;
+                    }
+
+                    .portfolio-item-information-button{
+                        background-color: #fff;
+                        border: none;
+                        width: 100%;
+                    }
+                        .portfolio-item-information-button a{
+                            color: #f76c6c;
+                            font-size: 4rem;
+                            text-decoration: none;
+                        }
+
                     .open-information-li{
-                        max-height: 100rem;
+                        position: relative;
+                        max-height: 200rem;
                         opacity: 1;
-                        transition: max-height 1s, opacity 1s;
+                        padding: 1rem;
+                        transition: max-height 1s, opacity 3s;
                     }
 
                     .portfolio_desktop{
                         display: none;
                     }
 @media only screen and (min-width:768px){
+
+    .portfolio-item-information{
+        flex-flow: column nowrap;
+    }
 
     .portfolio-header img{
         width: 8rem;
@@ -1188,6 +1251,7 @@ body{
                 .portfolio_desktop_center_header i{
                     font-size: 7rem;
                     color: #fff;
+                    cursor: pointer;
                 }
             
             .portoflio_desktop_center_menu{
@@ -1200,16 +1264,12 @@ body{
             }
 
                 .portoflio_desktop_center_menu_list{
-                    display: flex;
-                    align-items: flex-start;
-                    justify-content: center;
-                    flex-flow: row wrap;
                     width: 30%;
                     height: 100%;
                     border-bottom: .2rem solid #000;
                     border-top: .2rem solid #000;
                     border-left: .2rem solid #000;
-                    overflow-y: scroll;
+                    overflow-y: auto;
                 }
 
                     .portoflio_desktop_center_menu_list li{
@@ -1242,12 +1302,39 @@ body{
                     flex-flow: row wrap;
                     height: 100%;
                     width: 100%;
-                    overflow-y: scroll;
+                    overflow-y: auto;
                 }
 
                 .show-board-desktop{
                     display: flex;
                 }
 
+                ::-webkit-scrollbar{
+                    width: 2rem;
+                }
+                
+                ::-webkit-scrollbar-thumb{
+                    background: linear-gradient(transparent, #f76c6c);
+                    border-radius: .6rem;
+                    transition: background 1s;
+                
+                }
+                
+                ::-webkit-scrollbar-thumb:hover{
+                    background: linear-gradient(transparent, #f76c6c7f);
+                    border-radius: .6rem;
+                    transition: background 1s;
+                }
+                
+                ::-webkit-scrollbar-track-piece{
+                    background-color: #000;
+                }
+
 }
 
+
+
+.show-section{
+    transform: translateX(0%);
+    transition: transform 1s;
+}
