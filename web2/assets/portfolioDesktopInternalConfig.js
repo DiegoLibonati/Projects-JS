@@ -3,6 +3,8 @@ const btnsOpenPortfolioDesktop = document.querySelectorAll(".portfolio_option bu
 const btnsListPortfolioDesktop = document.querySelectorAll(".portoflio_desktop_center_menu_list li");
 const informationAboutLiClicked = document.querySelectorAll(".portfolio-information-desktop");
 const containerOfTechProjects = document.querySelectorAll(".portfolio_desktop_center");
+const containerListPortfolioDesktop = document.querySelectorAll(".portoflio_desktop_center_menu_list");
+const boardInformation = document.querySelectorAll(".board_information");
 
 
 const openPortfolioDesktop = (e) => {
@@ -20,6 +22,17 @@ const openPortfolioDesktop = (e) => {
 }
 
 const closePortfolioDesktop = (e) => {
+
+    for (let i = 0; i < informationAboutLiClicked.length; i++){
+
+        let list = informationAboutLiClicked[i].parentElement.parentElement.children[0];
+        let board = informationAboutLiClicked[i].parentElement;
+
+        informationAboutLiClicked[i].classList.remove("show-board-desktop");
+        list.classList.remove("reduce-width-list");
+        board.classList.remove("show-board-information");
+
+    }
 
     setTimeout(() => {
         containerPortfolio.style.transform = "translateX(-200%)"
@@ -47,12 +60,22 @@ const openBoardInformation = (e) => {
     for (let i = 0; i < informationAboutLiClicked.length; i++){
 
         if (idFromLi === informationAboutLiClicked[i].id){
+           let list = informationAboutLiClicked[i].parentElement.parentElement.children[0];
+           let board = informationAboutLiClicked[i].parentElement;
 
             if (informationAboutLiClicked[i].classList.contains("show-board-desktop")){
 
                 informationAboutLiClicked[i].classList.remove("show-board-desktop");
 
+                list.classList.remove("reduce-width-list");
+                board.classList.remove("show-board-information");
+
+
             } else{
+
+                list.classList.add("reduce-width-list");
+                board.classList.add("show-board-information");
+
                 informationAboutLiClicked[i].classList.add("show-board-desktop");
             }
             
