@@ -30,6 +30,24 @@ const openInformationOfLi = (e) => {
         e.currentTarget.children[1].setAttribute("class", "fa-solid fa-chevron-up")
     }
 
+    for (let i = 0; i < btnsLi.length; i++){
+        let item = btnsLi[i].parentElement.children[1];
+        let itemChevron = btnsLi[i].children[1];
+        if (btnsLi[i].parentElement.children[1] != containerPortfolio){
+
+            setTimeout(() => {
+                item.classList.remove("open-information-li")
+            }, 100)
+    
+            setTimeout(() => {
+                item.style.display = "none";
+            }, 1000)
+
+            itemChevron.setAttribute("class", "fa-solid fa-chevron-down")
+        }
+
+    }
+
 
 }
 

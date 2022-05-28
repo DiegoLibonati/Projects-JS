@@ -23,6 +23,12 @@ const openPortfolioDesktop = (e) => {
 
 const closePortfolioDesktop = (e) => {
 
+    for (let i = 0; i < btnsListPortfolioDesktop.length; i++){
+        let item = btnsListPortfolioDesktop[i];
+        item.classList.remove("li-background");
+        item.children[0].setAttribute("class", "fa-solid fa-chevron-right");
+    }
+
     for (let i = 0; i < informationAboutLiClicked.length; i++){
 
         let list = informationAboutLiClicked[i].parentElement.parentElement.children[0];
@@ -55,10 +61,16 @@ const closePortfolioDesktop = (e) => {
 
 const openBoardInformation = (e) => {
 
+    for (let i = 0; i < btnsListPortfolioDesktop.length; i++){
+        let item = btnsListPortfolioDesktop[i];
+        item.classList.remove("li-background");
+        item.children[0].setAttribute("class", "fa-solid fa-chevron-right");
+    }
+
     let idFromLi = e.currentTarget.outerText
+    let itemChevron = e.currentTarget.children[0];
 
     for (let i = 0; i < informationAboutLiClicked.length; i++){
-
         if (idFromLi === informationAboutLiClicked[i].id){
            let list = informationAboutLiClicked[i].parentElement.parentElement.children[0];
            let board = informationAboutLiClicked[i].parentElement;
@@ -66,7 +78,7 @@ const openBoardInformation = (e) => {
             if (informationAboutLiClicked[i].classList.contains("show-board-desktop")){
 
                 informationAboutLiClicked[i].classList.remove("show-board-desktop");
-
+                itemChevron.setAttribute("class", "fa-solid fa-chevron-right");
                 list.classList.remove("reduce-width-list");
                 board.classList.remove("show-board-information");
 
@@ -75,8 +87,9 @@ const openBoardInformation = (e) => {
 
                 list.classList.add("reduce-width-list");
                 board.classList.add("show-board-information");
-
+                e.currentTarget.classList.add("li-background")
                 informationAboutLiClicked[i].classList.add("show-board-desktop");
+                itemChevron.setAttribute("class", "fa-solid fa-chevron-left")
             }
             
 

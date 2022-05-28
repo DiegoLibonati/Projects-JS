@@ -1293,6 +1293,17 @@ body{
                         border-bottom: .2rem solid #fff;
                         cursor: pointer;
                         margin: 1rem;
+                        transition: background-color 1s;
+                        padding: 1rem;
+                    }
+
+                    .portoflio_desktop_center_menu_list li:hover{
+                        background-color: #f76c6c72;
+                    }
+
+                    .li-background{
+                        background-color: #f76c6c72;
+                        transition: background-color 1s;
                     }
                     
                     .portoflio_desktop_center_menu_list i{
