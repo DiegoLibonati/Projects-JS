@@ -14,6 +14,7 @@
     <link rel="icon" type="image/x-icon" href="templates/DLico.ico">
 
     <script src="https://kit.fontawesome.com/41faca984e.js" crossorigin="anonymous"></script> 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                 <li><a class="nav_container_list-li" href="#skills">SKILLS</a></li>
                 <li><a class="nav_container_list-li" href="#about">ABOUT ME</a></li>
                 <li><a class="nav_container_list-li" href="#portfolio">PORTFOLIO</a></li>
+                <li><a class="nav_container_list-li" href="#contact">CONTACT ME</a></li>
             </ul>
 
         </nav>
@@ -1944,6 +1946,42 @@
             </div>
 
         </section>
+
+        <section class="contact_container section" id="contact">
+
+            <div class="contact_container_title">
+                <h2>Contact <span>me</span></h2>
+            </div>
+
+            <div class="contact_container_main">
+
+                <div class="contact_container_main_img">
+
+                    <img src="templates/2.png" alt="Diego Libonati">
+    
+                </div>
+    
+                <form class="contact_container_main_form" method="POST">
+                    <input type="hidden" name="_subject" value="Nuevo mensaje">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input class="contact_container_main_form_input" id="nombre" type="text" name="name" placeholder="Your Name">
+                    <input class="contact_container_main_form_input" id="email" type="email" name="email" placeholder="Your Email Address">
+                    <textarea class="contact_container_main_form_textarea" id="message" rows="10" type="text" placeholder="Your Message" name="message" ></textarea>
+                    <div class="g-recaptcha" data-sitekey="6LcGI7EfAAAAACedMy2sd9VcQuqhaWv5drJ88NWC" data-expired-callback="handleCaptchaExpired" data-callback="recaptcha_callback"></div>
+                    <button class="contact_container_main_form_button" type="submit" disabled>YOU NEED VALIDATE CAPTCHA</button>
+               </form>
+
+            </div>
+
+        </section>
+
+        <footer class="footer_container">
+
+            <img src="templates/DL.png" alt="Diego Libonati Logo">
+
+            <h2>Copyright @ <span>2022</span> Diego Martin Libonati</h2>
+
+        </footer>
         
     <script src="assets/particles.js/particles.js"></script>
     <script src="assets/particles.js/demo/js/app.js"></script>
@@ -1956,6 +1994,8 @@
     <script src="assets/portfolioMobileInternalConfig.js"></script>
     <script src="assets/portfolioDesktopInternalConfig.js"></script>
     <script src="assets/intersectionObserverConfig.js"></script>
+    <script src="assets/formConfig.js"></script>
+    <script src="assets/footerConfig.js"></script>
 </body>
 </html>
 

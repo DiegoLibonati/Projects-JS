@@ -1,6 +1,7 @@
 const sectionSkills = document.getElementById("skills");
 const sectionAbout = document.getElementById("about");
 const sectionPortfolio = document.getElementById("portfolio");
+const sectionContact = document.getElementById("contact");
 
 const loadSections = (entrys, observador) =>{
 
@@ -31,3 +32,4 @@ const observer = new IntersectionObserver(loadSections, {
 observer.observe(sectionSkills);
 observer.observe(sectionAbout);
 observer.observe(sectionPortfolio);
+observer.observe(sectionContact);

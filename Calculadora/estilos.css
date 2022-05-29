@@ -55,8 +55,8 @@ body{
 
         .pantalla_container p{
             width: 80%;
-            height: 50%;
-            font-size: .2rem;
+            height: 50%rem;
+            font-size: 1.5rem;
             padding: 1rem;
             color: #fff;
             text-align: end;
