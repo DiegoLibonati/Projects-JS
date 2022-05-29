@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-size: 10px;
     list-style: none;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 img{
@@ -11,74 +12,90 @@ img{
 }
 
 body{
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(218, 218, 197);
+    height: 100%;
+    width: 100%;
+    background: #246A73;
 }
 
 
 .section-container{
     display: flex;
-    flex-flow: row wrap;
+    align-items: center;
     justify-content: center;
-    margin-top: 5rem;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 80rem;
 }
 
-.article-container{
-    width: 50rem;
-    height: 30rem;
-    padding: 1rem;
-}
-
-    .img-center{
-        width: 100%;
-        height: 100%;
+    .article-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        width: 30%;
+        height: 40rem;
     }
 
-        .img-center img{
-            height: 100%;
+        .img-center{
+            align-self: center;
             width: 100%;
-            object-fit: cover;
-            border: 0.3rem solid rgb(63, 63, 160);
+            height: 40rem;
         }
 
+            .img-center img{
+                width: 90%;
+                height: 100%;
+                object-fit: cover;
+                border: .1rem solid #000;
+            }
+
     .info-center{
+        display: flex;
+        align-items: flex-start;
+        flex-flow: column wrap;
+        justify-content: space-around;
+        height: 20rem;
         width: 100%;
-        height: 50%;
-        text-align: justify;
     }
 
         .info-center h2{
-            font-size: 3rem;
-            padding: 0.5rem;
+            width: 100%;
+            font-size: 4rem;
+            color: #fff;
         }
 
         .info-center h4{
-            font-size: 2rem;
-            padding: 0.5rem;
+            width: 100%;
+            font-size: 2.5rem;
+            color: #fff;
         }
 
         .info-center p{
-            font-size: 1.5rem;
-            padding: 0.5rem;
+            width: 100%;
+            font-size: 2rem;
+            color: #fff;
         }
 
     .countdown-container{
-        width: 100%;
-        height: 50%;
         display: flex;
-        flex-flow: row wrap;
+        align-items: center;
         justify-content: space-evenly;
+        width: 100%;
+        height: 10rem;
+    }
+
+    .cd-center{
+        display: flex;
+        flex-flow: column wrap;
         align-items: center;
     }
-        .cd-center{
-            text-align: center;
+
+        .cd-center h4{
+            font-size: 2rem;
+            color: #fff;
         }
 
-            .cd-center h4{
-                font-size: 3rem;
-            }
-
-            .cd-center span{
-                font-size: 1.5rem;
-            }
+        .cd-center span{
+            font-size: 3rem;
+            color: #fff;
+        }
