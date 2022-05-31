@@ -14,6 +14,7 @@ img{
 body{
     height: 100%;
     width: 100%;
+    background: #5FAD56;
 }
 
     .section_container{
@@ -29,15 +30,16 @@ body{
                 flex-flow: column wrap;
                 align-items: center;
                 width: 50rem;
-                background-color: rgb(255, 255, 255);
+                background-color: #F2C14E;
                 padding: 1rem;
                 margin: 1rem;
-                box-shadow: .3rem .3rem .3rem .3rem rgb(0, 0, 0);
+                box-shadow: .1rem .1rem .1rem .1rem rgb(0, 0, 0);
             }
 
                 .section_container h2{
                     font-size: 5rem;
                     padding: 1rem;
+                    color: #fff;
                 }
 
                 #nombre{
@@ -45,6 +47,7 @@ body{
                     padding: 1rem;
                     margin: 1rem;
                     font-size: 2rem;
+                    outline: none;
                 }
 
                 #correo{
@@ -52,6 +55,7 @@ body{
                     padding: 1rem;
                     margin: 1rem;
                     font-size: 2rem;
+                    outline: none;
                 }
 
                 #mensaje{
@@ -60,6 +64,7 @@ body{
                     margin: 1rem;
                     resize: none;
                     font-size: 2rem;
+                    outline: none;
                 }
 
                 #btnEnviar{
@@ -70,4 +75,6 @@ body{
                     border: none;
                     background-color: rgba(0,0,0, 0.2);
                     border-radius: 2rem;
+                    color: #fff;
+                    cursor: pointer;
                 }

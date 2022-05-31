@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-size: 10px;
     list-style: none;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 img{
@@ -13,6 +14,7 @@ img{
 body{
 height: 100vh;
 width: 100vw;
+background: #502274;
 }
 
 .header_container{
@@ -20,6 +22,7 @@ background-color: rgb(255, 255, 255);
 border: .5rem solid rgb(255, 0, 0);
 transition: border 2s;
 box-shadow: .2rem .2rem #000; 
+background: #2F242C;
 }
 
     .div_center{
@@ -33,6 +36,13 @@ box-shadow: .2rem .2rem #000;
         .div_center h2{
             padding: 1rem;
             font-size: 2.3rem;
+            color: #fff;
+        }
+
+        .div_center img{
+            height: 11rem;
+            width: 11rem;
+            object-fit: cover;
         }
 
 @media screen and (min-width: 768px){
@@ -114,7 +124,7 @@ box-shadow: .2rem .2rem #000;
                     }
 
                 .select_user button{
-                    padding: 1rem;
+                    padding: .4rem;
                     margin-top: 1rem;
                     font-size: 2rem;
                     border: none;

@@ -16,7 +16,7 @@ img{
 body{
     width: 100vw;
     height: 100vh;
-    background-color: rgb(255, 255, 255);
+    background-color: #534B62;
 }
 
 .header_container{
@@ -25,15 +25,20 @@ body{
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    height: 10%;
+    height: 10rem;
     border-bottom: .1rem #000 solid;
-    background-color: #fff;
+    background-color: #1B1725;
 }
 
     .div_container h2{
         font-size: 5rem;
-        padding: 1rem;
-        letter-spacing: .2rem;
+        color: #fff;
+    }
+
+    .div_container img{
+        height: 10rem;
+        width: 10rem;
+        object-fit: cover;
     }
 
 .section_container {
@@ -47,6 +52,7 @@ body{
 
     .whoPlayDiv p{
         font-size: 4rem;
+        color: #fff;
     }
 
         .whoPlay{
@@ -82,7 +88,7 @@ body{
         height: 10rem;
         border: none;
         padding: 1rem;
-        background: rgba(32, 21, 136, 0.3);
+        background: #A499B3;
         border-radius: 1rem;
         cursor: pointer;
         color: #fff;
@@ -103,7 +109,8 @@ body{
             font-size: 3rem;
             cursor: pointer;
             border: none;
-            background: rgba(32, 21, 136, 0.3);
+            background: #A499B3;
+            color: #fff;
         }
 
         .column{
@@ -111,7 +118,7 @@ body{
             flex-flow: column wrap;
             align-items: center;
             justify-content: center;
-            background-color: rgba(32, 21, 136, 0.2);
+            background-color: #A499B3;
             width: 100%;
             height: 100%;
             border: .3rem solid rgb(0, 0, 0);
@@ -123,7 +130,7 @@ body{
             margin: 1rem;
             width: 50%;
             height: 10%;
-            border: .3rem solid rgb(172, 157, 157);
+            border: .1rem solid rgb(0, 0, 0);
             border-radius: 50%;
         }
 

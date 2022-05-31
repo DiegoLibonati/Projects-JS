@@ -264,7 +264,7 @@ createUser();
 
 // Events
 document.addEventListener("keydown", moveUser);
-document.addEventListener("click", playAgain)
+document.querySelector(".descripction button").addEventListener("click", playAgain);
 
 
 // intervals
