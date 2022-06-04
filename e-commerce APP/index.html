@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" type="text/css" href="styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="styles/home.css">
+    <link rel="stylesheet" type="text/css" href="styles/productsoftheweek.css">
+    <link rel="stylesheet" type="text/css" href="styles/upcomingcollection.css">
+    <link rel="stylesheet" type="text/css" href="styles/categoryssection.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +21,11 @@
 
 </head>
 <body>
+
+    <div class="loadPage">
+        <img src="templates/DL.png" alt="logo Diego">
+        <div class="spinner"></div>
+    </div>
 
     <header class="nav_container">
 
@@ -80,6 +88,7 @@
     </header>
 
     <main>
+
         <section class="home_container">
 
             <article class="home_imgs_container">
@@ -133,11 +142,88 @@
             </article>
     
         </section>
+
+        <section class="productsoftheweek_container">
+
+            <div class="productsoftheweek_container_header">
+                <h3>Products of the week</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi eum labore aliquam consectetur iste nam?</p>
+            </div>
+
+            <article class="productsoftheweek_container_article">
+
+
+
+            </article>
+
+        </section>
+
+        <section class="upcoming_container">
+            <article class="upcoming_container_article">
+                <h2>Upcoming collection</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ea recusandae repellat sed labore ex molestiae delectus obcaecati hic accusantium!</p>
+                <button type="button">View more <i class="fa-solid fa-chevron-right"></i></button>
+            </article>
+        </section>
+
+        <section class="categorys_container">
+            <article class="categorys_container_article">
+                <div class="category_container_article_title">
+                    <h2>Electronic</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ea recusandae repellat sed labore ex molestiae delectus obcaecati hic accusantium!</p>
+                    <button type="button">View more <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+
+                <div class="category_container_article_img">
+                    <img src="https://www.gizlogic.com/wp-content/uploads/2019/04/Sennheiser-HD-400S-1.jpg" alt="" class="intersectionOne">
+                </div>
+            </article>
+
+            <article class="categorys_container_article">
+                <div class="category_container_article_title orderCategoryTitle">
+                    <h2>Jewellery</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ea recusandae repellat sed labore ex molestiae delectus obcaecati hic accusantium!</p>
+                    <button type="button">View more <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+
+                <div class="category_container_article_img orderCategoryImg">
+                    <img src="https://www.dhresource.com/0x0/f2/albu/g13/M00/B4/45/rBVakl8_f5CABLvNAATccxw9YQM010.jpg" alt="" class="intersectionTwo">
+                </div>
+            </article>
+
+            <article class="categorys_container_article">
+                <div class="category_container_article_title">
+                    <h2>Men Clothes</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ea recusandae repellat sed labore ex molestiae delectus obcaecati hic accusantium!</p>
+                    <button type="button">View more <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+
+                <div class="category_container_article_img">
+                    <img src="https://www.pngitem.com/pimgs/m/4-41035_transparent-men-fashion-png-casual-style-men-png.png" alt="" class="intersectionThree">
+                </div>
+            </article>
+
+            <article class="categorys_container_article">
+                <div class="category_container_article_title orderCategoryTitle">
+                    <h2>Woman Clothes</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ea recusandae repellat sed labore ex molestiae delectus obcaecati hic accusantium!</p>
+                    <button type="button">View more <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+
+                <div class="category_container_article_img orderCategoryImg">
+                    <img src="https://cdn-img.prettylittlething.com/6/f/4/0/6f4064189d41fe877f147ffe8b83d94ea78e7812_cms7185_1.jpg?imwidth=400" alt="" class="intersectionFour">
+                </div>
+            </article>
+        </section>
+
     </main>
 
-    <script src="assets/navConfig.js"></script>
-    <script src="assets/mediaQueryResize.js"></script>
-    <script src="assets/homeConfig.js"></script>
+    <script  src="assets/navConfig.js"></script>
+    <script  src="assets/mediaQueryResize.js"></script>
+    <script  src="assets/homeConfig.js"></script>
+    <script type="module" src="assets/productsOfTheWeek.js"></script>
+    <script  src="assets/getInformationOfApi.js"></script>
+    <script  src="assets/intersectionObserver.js"></script>
 
 </body>
 </html>

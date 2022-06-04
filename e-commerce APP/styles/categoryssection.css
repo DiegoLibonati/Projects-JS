@@ -1,0 +1,183 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.categorys_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 260rem;
+}
+
+    .categorys_container_article{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        height: 60rem;
+        width: 90%;
+    }
+
+        .category_container_article_title{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-flow: row wrap;
+            height: 25rem;
+            width: 100%;
+        }
+
+            .category_container_article_title h2{
+                font-size: 3rem;
+                text-align: center;
+            }
+
+            .category_container_article_title p{
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .category_container_article_title button{
+                padding: .7rem;
+                font-size: 1.5rem;
+                border: .1rem solid #000;
+                text-align: center;
+                background: none;
+            }
+
+                .category_container_article_title button i{
+                    font-size: 1rem;
+                }
+
+        .category_container_article_img{
+            height: 35rem;
+            width: 100%;
+            box-shadow: 0rem .4rem .8rem -.8rem rgb(0, 0, 0);
+        }
+
+            .category_container_article_img img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .intersectionOne, .intersectionTwo, .intersectionThree, .intersectionFour{
+                opacity: 0;
+                transition: opacity 1s;
+            }
+
+            .intersectionOpacity{
+                opacity: 1;
+                transition: opacity 1s;
+            }
+
+@media only screen and (min-width: 768px) {
+      
+    .categorys_container{
+        height: 300rem;
+    }
+    
+        .categorys_container_article{
+            height: 70rem;
+        }
+    
+            .category_container_article_title{
+                height: 35rem;
+            }
+
+        .categorys_container_article{
+            width: 60rem;
+        }
+    
+                .category_container_article_title h2{
+                    font-size: 4rem;
+                }
+    
+                .category_container_article_title p{
+                    font-size: 2.5rem;
+                }
+    
+                .category_container_article_title button{
+                    padding: 1rem;
+                    font-size: 2.5rem;
+                }
+    
+                    .category_container_article_title button i{
+                        font-size: 2rem;
+                    }
+
+}
+
+@media only screen and (min-width: 1024px) {
+      
+    .categorys_container{
+        height: 220rem;
+    }
+    
+        .categorys_container_article{
+            height: 50rem;
+            width: 80%;
+        }
+    
+            .category_container_article_title{
+                height: 100%;
+                width: 50%;
+                box-shadow: 0rem .4rem .8rem -.8rem rgb(0, 0, 0);
+            }
+    
+                .category_container_article_title h2{
+                    font-size: 5rem;
+                }
+    
+                .category_container_article_title p{
+                    font-size: 3rem;
+                }
+    
+                .category_container_article_title button{
+                    padding: 1rem;
+                    font-size: 3rem;
+                    cursor: pointer;
+                    transition: background 1s;
+                }
+
+                .category_container_article_title button:hover{
+                    background: #000;
+                    color: #fff;
+                    transition: background 1s, color 1s;
+                }
+    
+                    .category_container_article_title button i{
+                        font-size: 2rem;
+                    }
+    
+            .category_container_article_img{
+                height: 100%;
+                width: 50%;
+            }
+
+            .orderCategoryTitle{
+                order: 2;
+            }
+
+            .orderCategoryImg{
+                order: 1;
+            }
+
+}
