@@ -45,15 +45,24 @@ body{
             width: 15%;
         }
 
-        .nav_container_header h2{
+        .nav_container_header-h2{
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 90%;
-            font-size: 3rem;            
+            width: 90%;           
         }
 
-    .nav_container_list{
+            .nav_container_header-h2-a{         
+                font-size: 3rem; 
+                text-decoration: none;
+                color: #000; 
+            }
+
+    .nav_container_principal{
+        width: 100%;
+    }
+
+    .nav_container_principal_list{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -88,8 +97,9 @@ body{
                 cursor: pointer;
             }
             
-                .nav_container_list_item_div h3{
+                .item-title{
                     font-size: 2rem;
+                    position: relative;
                 }
 
                 .downArrow{
@@ -164,6 +174,9 @@ body{
     .nav_container{
         flex-flow: row wrap;
         border-bottom: 0rem solid #000;
+        background: transparent;
+        box-shadow: 0rem 0rem 0rem 0rem rgb(0, 0, 0);
+        transition: background 1s;
     }
     
         .nav_container_header{
@@ -175,29 +188,41 @@ body{
     
             .nav_container_header i{
                 display: none;
+                color: #fff;
             }
 
             .show{
                 display: block;
+                color: #fff;
             }
     
-            .nav_container_header h2{
-                width: 100%;
-                font-size: 4rem;            
+            .nav_container_header-h2{
+                width: 100%;     
             }
+
+                .nav_container_header-h2-a{
+                    font-size: 4rem;  
+                    color: #fff;
+                    transition: color 1s;       
+                }
     
-        .nav_container_list{
-            justify-content: flex-end;
+        .nav_container_principal{
             width: calc(80% - 5rem);
+        }
+
+        .nav_container_principal_list{
+            justify-content: flex-end;
+            width: 100%;
             margin: 0;
             padding: 0;
             height: 7rem;
             max-height: 7rem;
             overflow: visible;
             transition: max-height 0s;
-            border-bottom: 0rem solid #000;
             margin-right: 5rem;
+            border-bottom: 0rem solid #000;
             box-shadow: 0rem 0rem 0rem 0rem rgb(0, 0, 0);
+            background: transparent;
         }
     
             .nav_container_list_item{
@@ -215,8 +240,26 @@ body{
                     width: 100%;
                 }
                 
-                    .nav_container_list_item_div h3{
+                    .item-title{
                         font-size: 2rem;
+                        color: #fff;
+                        transition: color 1s;
+                    }
+
+                    .item-title::after{
+                        content: "";
+                        position: absolute;
+                        height: 0.175rem;
+                        width: 100%;
+                        bottom: 0;
+                        left: 0;
+                        border-bottom: .3rem solid rgb(255, 255, 255);
+                        transform: scale(0, 1);
+                        transition: transform .3s ease;
+                    }
+    
+                    .item-title:hover::after{
+                        transform: scale(1, 1);
                     }
     
                     .downArrow{
@@ -235,8 +278,11 @@ body{
                     text-align: center;
                     padding: 0;
                     width: 100vw;
+                    max-height: 0;
                     border-bottom: 0rem solid #000;
                     box-shadow: 0rem .4rem .8rem -.8rem rgb(0, 0, 0);
+                    background: #fff;
+                    transition: max-height 1s;
                 }
     
                 .openSubMenu{
@@ -257,6 +303,23 @@ body{
             font-size: 2rem;
             width: 5rem;
             cursor: pointer;
+            color: #fff;
+            transition: color 1s;
         }
+
+        .changeColors{
+            color:#000;
+            transition: color 1s;
+        }
+
+        .changeBackground{
+            background: #fff;
+            transition: background 1s;
+        }
+
+        .changeUnderline::after{
+            border-bottom: .3rem solid rgb(0, 0, 0);
+        }
+
 
 }

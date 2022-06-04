@@ -8,6 +8,7 @@ const resizeChanges = () => {
 
         styleAddOrRemove(iconsChanges, "flex");
         styleAddOrRemove(iconsArrows, "none");
+        navContainer.style.boxShadow = "0px 0px 0px 0px"
 
     } else {
 
