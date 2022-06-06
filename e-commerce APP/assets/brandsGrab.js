@@ -63,12 +63,14 @@ const checkSizeDesktop = () => {
 
     let sliderContainerOut = sliderContainer.getBoundingClientRect();
     let sliderIn = slider.getBoundingClientRect();
+    let sliderItemPosition = sliderItem.getBoundingClientRect();
 
-    if (parseInt(slider.style.left) > 0){
-        slider.style.left = `0px`;
-    } else if (sliderIn.right - sliderContainerOut.right){
-        slider.style.left = `-${sliderIn.width - sliderContainerOut.width}px`
+    if (parseInt(slider.style.left) > - 0){
+        slider.style.left = `-${sliderIn.width - sliderContainerOut.width - 250}px`;
+    } else if ((parseInt(slider.style.left) * -1) > sliderIn.width - sliderItemPosition.width - 700){
+        slider.style.left = `-250px`;
     }
+
 
 }
 
@@ -78,10 +80,28 @@ const checkSizeMobile = () => {
     let sliderIn = slider.getBoundingClientRect();
     let sliderItemPosition = sliderItem.getBoundingClientRect();
 
-    if (parseInt(slider.style.left) > 0){
-        slider.style.left = `0px`;
-    } else if ((parseInt(slider.style.left) * -1) > sliderIn.width - sliderItemPosition.width){
-        slider.style.left = `-${sliderIn.width - sliderContainerOut.width}px`;
+    if (parseInt(slider.style.left) > - 0){
+        slider.style.left = `-${sliderIn.width - sliderContainerOut.width - 250}px`;
+    } else if ((parseInt(slider.style.left) * -1) > sliderIn.width - sliderItemPosition.width - 250){
+        slider.style.left = `-250px`;
     }
 
 }
+
+
+
+const moveBrands = () => {
+
+    let sliderTwo = document.querySelector(".brands_container_article_list");
+    let sliderIn = sliderTwo.getBoundingClientRect();
+
+    sliderTwo.style.left = `${sliderIn.left += 100}px`;
+
+    if (mediaQuery1024Px.matches){
+        checkSizeDesktop();
+    } else {
+        checkSizeMobile();
+    }
+}
+
+setInterval(moveBrands, 5000)
