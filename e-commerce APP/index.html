@@ -49,10 +49,13 @@
                     </div>
     
                     <div class="nav_container_list_item_sections">
-                        <a href="#">Seccion 1</a>
-                        <a href="#">Seccion 2</a>
-                        <a href="#">Seccion 3</a>
-                        <a href="#">Seccion 4</a>
+                        <a class="scrollLink" href="#up">UP!</a>
+                        <a class="scrollLink" href="#productsoftheweek">Products of the week</a>
+                        <a class="scrollLink" href="#upcomingcollection">Upcoming collection</a>
+                        <a class="scrollLink" href="#explore">Explore</a>
+                        <a class="scrollLink" href="#ordernow">Order now</a>
+                        <a class="scrollLink" href="#conditions">Conditions</a>
+                        <a class="scrollLink" href="#brands">Brands</a>
                     </div>
                 </li>
     
@@ -93,7 +96,7 @@
 
     <main>
 
-        <section class="home_container">
+        <section class="home_container section" id="up">
 
             <article class="home_imgs_container">
     
@@ -147,7 +150,7 @@
     
         </section>
 
-        <section class="productsoftheweek_container">
+        <section class="productsoftheweek_container section" id="productsoftheweek">
 
             <div class="productsoftheweek_container_header">
                 <h3>Products of the week</h3>
@@ -162,7 +165,7 @@
 
         </section>
 
-        <section class="upcoming_container">
+        <section class="upcoming_container section" id="upcomingcollection">
             <article class="upcoming_container_article">
                 <h2>Upcoming collection</h2>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ea recusandae repellat sed labore ex molestiae delectus obcaecati hic accusantium!</p>
@@ -170,7 +173,7 @@
             </article>
         </section>
 
-        <section class="categorys_container">
+        <section class="categorys_container section" id="explore">
             <article class="categorys_container_article">
                 <div class="category_container_article_title">
                     <h2>Electronic</h2>
@@ -220,14 +223,14 @@
             </article>
         </section>
 
-        <section class="ordernow_container">
+        <section class="ordernow_container section" id="ordernow">
             <article class="ordernow_container_article">
                 <h2>Order now for an express delivery in 24h!</h2>
                 <button type="button">Order now <i class="fa-solid fa-chevron-right"></i></button>
             </article>
         </section>
 
-        <section class="information_container">
+        <section class="information_container section" id="conditions">
             <article class="information_container_article">
                 <div class="information_container_article_box">
                     <div class="information_container_article_box_header">
@@ -267,9 +270,13 @@
             </article>
         </section>
 
-        <section class="brands_container">
+        <section class="brands_container section" id="brands">
             <article class="brands_container_article">
                 <ul class="brands_container_article_list">
+                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png" alt="logo"></li>
+                    <li><img src="https://i.pinimg.com/originals/a1/5c/34/a15c34b095a9dc0427869f9a37341e4a.jpg" alt="logo"></li>
+                    <li><img src="https://img.freepik.com/free-vector/jewelry-logo-design-template-ring-icon_18099-968.jpg" alt="logo"></li>
+                    <li><img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/c6e5293e-cae6-4376-b190-5e9359103804.__CR0,0,1200,360_PT0_SX600_V1___.jpg" alt="logo"></li>
                     <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Acer_Logo.svg/2560px-Acer_Logo.svg.png" alt="logo"></li>
                     <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png" alt="logo"></li>
                     <li><img src="https://i.pinimg.com/originals/a1/5c/34/a15c34b095a9dc0427869f9a37341e4a.jpg" alt="logo"></li>
@@ -277,6 +284,10 @@
                     <li><img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/c6e5293e-cae6-4376-b190-5e9359103804.__CR0,0,1200,360_PT0_SX600_V1___.jpg" alt="logo"></li>
                     <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Acer_Logo.svg/2560px-Acer_Logo.svg.png" alt="logo"></li>
                     <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png" alt="logo"></li>
+                    <li><img src="https://i.pinimg.com/originals/a1/5c/34/a15c34b095a9dc0427869f9a37341e4a.jpg" alt="logo"></li>
+                    <li><img src="https://img.freepik.com/free-vector/jewelry-logo-design-template-ring-icon_18099-968.jpg" alt="logo"></li>
+                    <li><img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/c6e5293e-cae6-4376-b190-5e9359103804.__CR0,0,1200,360_PT0_SX600_V1___.jpg" alt="logo"></li>
+                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Acer_Logo.svg/2560px-Acer_Logo.svg.png" alt="logo"></li>
                 </ul>
             </article>
         </section>
@@ -336,6 +347,7 @@
     <script  src="assets/getInformationOfApi.js"></script>
     <script  src="assets/intersectionObserver.js"></script>
     <script  src="assets/brandsGrab.js"></script>
+    <script  src="assets/scrollPage.js"></script>
 
 </body>
 </html>

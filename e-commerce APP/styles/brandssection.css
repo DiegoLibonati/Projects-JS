@@ -42,10 +42,10 @@ body{
             width: auto;
             height: 100%;
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
+            grid-template-columns: repeat(15, 1fr);
             column-gap: 2rem;
             pointer-events: none;
-            transition: left 1s;
+            transition: left .05s;
         }
 
         .brands_container_article_list li{
@@ -53,13 +53,14 @@ body{
             align-items: center;
             justify-content: center;
             background: transparent;
-            width: 30rem;
-            height: 80%;
+            width: 20rem;
+            height: 100%;
             font-size: 5rem;
+            padding: 1rem;
         }
 
             .brands_container_article_list li img{
-                max-width: 50%;
+                max-width: 75%;
                 height: 100%;
                 object-fit: contain;
             }
@@ -68,10 +69,11 @@ body{
     .brands_container_article{
         width: 70%;
     }
+
 }
 
 @media only screen and (min-width:1024px){
     .brands_container_article{
-        width: 60%;
+        width: 40%;
     }
 }

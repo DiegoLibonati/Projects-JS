@@ -273,12 +273,11 @@ body{
     
                 .nav_container_list_item_sections{
                     flex-flow: column nowrap;
-                    align-items: center;
+                    align-items: flex-start;
                     position: absolute;
                     left: 0;
                     text-align: center;
                     padding: 0;
-                    width: 100vw;
                     max-height: 0;
                     border-bottom: 0rem solid #000;
                     box-shadow: 0rem .4rem .8rem -.8rem rgb(0, 0, 0);
@@ -293,8 +292,19 @@ body{
                 }
     
                     .nav_container_list_item_sections a{
-                        width: 15rem;
+                        width: 30rem;
                         font-size: 2rem;
+                        text-align: start;
+                        padding-left: .5rem;
+                        margin-left: 10rem;
+                        transition: background .5s, color .5s, padding-bottom .5s;
+                    }
+
+                    .nav_container_list_item_sections a:hover{
+                        background: #888;
+                        color: #fff;
+                        padding-bottom: .5rem;
+                        transition: background .5s, color .5s, padding-bottom .5s;
                     }
 
         .externalI{
