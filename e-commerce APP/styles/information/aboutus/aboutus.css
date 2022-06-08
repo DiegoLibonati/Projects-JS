@@ -1,0 +1,237 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.aboutus_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    margin-top: 7rem;
+    width: 100%;
+    height: 190rem;
+}
+
+    .aboutus_container_article_title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url("https://images.pexels.com/photos/207896/pexels-photo-207896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        width: 100%;
+        height: 30rem;
+    }
+
+        .aboutus_container_article_title h2{
+            font-size: 4rem;
+            color: #fff;
+        }
+
+    .information_container_article{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-flow: column wrap;
+        width: 100%;
+        height: 90rem;
+    }
+
+        .information_container_article_box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column wrap;
+            height: 20rem;
+            width: 90%;
+        }
+
+            .information_container_article_box_header{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 5rem;
+            }
+
+                .information_container_article_box_header i{
+                    font-size: 3rem;
+                    margin-right: 2rem;
+                }
+
+                .information_container_article_box_header h3{
+                    font-size: 2rem;
+                }
+
+            .information_container_article_box p{
+                width: 100%;
+                height: 15rem;
+                font-size: 2rem;
+                color: #555;
+            }
+
+    .aboutus_container_article_subtitle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url("https://images.pexels.com/photos/207896/pexels-photo-207896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        width: 100%;
+        height: 30rem;
+    }
+
+        .aboutus_container_article_subtitle h2{
+            font-size: 4rem;
+            color: #fff;
+        }
+
+    .aboutus_container_article_history{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-flow: column wrap;
+        width: 90%;
+        height: 40rem;
+    }
+
+        .aboutus_container_article_history h3{
+            font-size: 3rem;
+        }
+
+        .aboutus_container_article_history p{
+            font-size: 1.5rem;
+        }
+            
+@media only screen and (min-width:768px){
+    
+    .aboutus_container{
+        height: 200rem;
+    }
+    
+        .aboutus_container_article_title{
+            height: 40rem;
+        }
+    
+            .aboutus_container_article_title h2{
+                font-size: 6rem;
+            }
+
+    .information_container_article{
+        height: 60rem;
+        flex-flow: row wrap;
+    }
+
+        .information_container_article_box{
+            height: 20rem;
+            width: 45%;
+        }
+
+            .information_container_article_box_header{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 5rem;
+            }
+
+                .information_container_article_box_header i{
+                    font-size: 4rem;
+                    margin-right: 2rem;
+                }
+
+                .information_container_article_box_header h3{
+                    font-size: 3rem;
+                }
+
+            .information_container_article_box p{
+                width: 100%;
+                height: 15rem;
+                font-size: 2.5rem;
+                color: #555;
+            }
+
+    .aboutus_container_article_subtitle{
+        height: 40rem;
+    }
+
+        .aboutus_container_article_subtitle h2{
+            font-size: 6rem;
+        }
+
+    .aboutus_container_article_history{
+        height: 60rem;
+    }
+
+        .aboutus_container_article_history h3{
+            font-size: 5rem;
+        }
+
+        .aboutus_container_article_history p{
+            font-size: 2.5rem;
+        }
+
+}
+
+@media only screen and (min-width:1024px){
+    
+    .aboutus_container{
+        height: 180rem;
+    }
+
+        .information_container_article{
+            flex-flow: row wrap;
+            width: 95%;
+            height: 50rem;
+        }
+    
+            .information_container_article_box{
+                height: 20rem;
+                width: 30rem;
+            }
+    
+                .information_container_article_box_header{
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 5rem;
+                }
+    
+                    .information_container_article_box_header i{
+                        font-size: 4rem;
+                        margin-right: 2rem;
+                    }
+    
+                    .information_container_article_box_header h3{
+                        font-size: 3rem;
+                    }
+    
+                .information_container_article_box p{
+                    width: 100%;
+                    height: 15rem;
+                    font-size: 2.5rem;
+                    color: #555;
+                }
+
+                .aboutus_container_article_history{
+                    height: 50rem;
+                }
+}

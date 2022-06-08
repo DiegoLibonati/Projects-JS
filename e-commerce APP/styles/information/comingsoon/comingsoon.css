@@ -1,0 +1,231 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.comingsoon_container{
+    margin-top: 7rem;
+    height: 60rem;
+    width: 100%;
+    background: url("https://images.squarespace-cdn.com/content/v1/5440456fe4b0178deca16096/1589803017487-TW3UH5GUY2VAFQ2Y7W4Q/1-Drink-1920x1080.gif?format=2500w");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+    .comingsoon_container_article{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        height: 100%;
+        width: 100%;
+    }
+
+        .comingsoon_container_article h2{
+            font-size: 5rem;
+            color: #fff;
+            text-align: center;
+        }
+
+    .comingsoon_container_article_count{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        width: 100%;
+        height: 10rem;
+    }
+
+        .timer-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column wrap;
+        }
+
+            .time{
+                color: #fff;
+                font-size: 3rem;
+            }
+
+            .text{
+                color: #fff;
+                font-size: 1.5rem;
+            }
+
+    .comingsoon_container_article_form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        height: 5rem;
+        width: 100%;
+    }
+
+        .comingsoon_container_article_form input{
+            height: 3rem;
+            width: 50%;
+            padding: .5rem;
+            font-size: 1.5rem;
+            outline: none;
+            border-left: .1rem solid #000;
+            border-top: .1rem solid #000;
+            border-bottom: .1rem solid #000;
+            border-right: none;
+        }
+
+        .comingsoon_container_article_form button{
+            height: 3rem;
+            width: 30%;
+            font-size: 1.5rem;
+            background: #000;
+            border: none;
+            color: #fff;
+        }
+
+            .comingsoon_container_article_form button i{
+                display: inline-flex;
+                align-items: center;
+                height: 100%;
+                font-size: 1rem;
+                margin-left: .5rem;
+            }
+
+    .comingsoon_container_article_contact{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-flow: column wrap;
+        width: 90%;
+        height: 15rem;
+    }
+
+        .comingsoon_container_article_contact p{
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .comingsoon_container_article_contact_list{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+        }
+
+            .comingsoon_container_article_contact_list li{
+                color: #fff;
+            }
+
+                .comingsoon_container_article_contact_list li i{
+                    font-size: 3rem;
+                }
+
+@media only screen and (min-width: 768px){
+    .comingsoon_container{
+        height: 100rem;
+    }
+    
+            .comingsoon_container_article h2{
+                font-size: 10rem;
+            }
+    
+        .comingsoon_container_article_count{
+            height: 20rem;
+        }
+    
+                .time{
+                    font-size: 7rem;
+                }
+    
+                .text{
+                    font-size: 3rem;
+                }
+    
+        .comingsoon_container_article_form{
+            height: 7rem;
+        }
+    
+            .comingsoon_container_article_form input{
+                height: 5rem;
+                width: 30rem;
+                padding: .5rem;
+                font-size: 3rem;
+            }
+    
+            .comingsoon_container_article_form button{
+                height: 5rem;
+                width: 20rem;
+                font-size: 3rem;
+            }
+    
+                .comingsoon_container_article_form button i{
+                    font-size: 2rem;
+                    margin-left: .5rem;
+                }
+    
+        .comingsoon_container_article_contact{
+            height: 30rem;
+        }
+    
+            .comingsoon_container_article_contact p{
+                font-size: 3rem;
+            }
+    
+                    .comingsoon_container_article_contact_list li i{
+                        font-size: 6rem;
+                    }
+}
+
+@media only screen and (min-width: 1024px){
+    .comingsoon_container{
+        height: 90rem;
+    }
+    
+            .comingsoon_container_article_form button{
+                cursor: pointer;
+                transition: background 1s, color 1s, border 1s;;
+            }
+
+            .comingsoon_container_article_form button:hover{
+                background: #fff;
+                color: #000;
+                border: .1rem solid #000;
+                transition: background 1s, color 1s, border 1s;
+            }
+
+            .comingsoon_container_article_contact_list li i{
+                cursor: pointer;
+                transition: color 1s;
+            }
+
+            .comingsoon_container_article_contact_list li i:hover{
+                color: #000;
+                transition: color 1s;
+            }
+
+            .comingsoon_container_article_contact p{
+                transition: color 1s;
+            }
+
+            .comingsoon_container_article_contact p:hover{
+                color: #000;
+                transition: color 1s;
+            }
+}

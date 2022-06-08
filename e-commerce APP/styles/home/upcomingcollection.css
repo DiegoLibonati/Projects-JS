@@ -1,0 +1,117 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.upcoming_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://s1.1zoom.me/b5050/521/Men_Gray_background_Two_Brown_haired_Costume_551988_3840x2400.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 50rem;
+}
+
+    .upcoming_container_article{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        width: 90%;
+        height: 50%;
+    }
+
+        .upcoming_container_article h2{
+            font-size: 3rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .upcoming_container_article p{
+            font-size: 1.5rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .upcoming_container_article button{
+            color: #fff;
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 1rem;
+            background: none;
+            border: .1rem solid #fff;
+        }
+
+            .upcoming_container_article button i{
+                color: #fff;
+                font-size: 1rem;
+            }
+
+@media only screen and (min-width:768px){
+
+    .upcoming_container{
+        height: 60rem;
+    }
+
+    .upcoming_container_article{
+        height: 60%;
+    }
+
+        .upcoming_container_article h2{
+            font-size: 4rem;
+        }
+
+        .upcoming_container_article p{
+            font-size: 2.5rem;
+        }
+
+        .upcoming_container_article button{
+            font-size: 2.5rem;
+        }
+
+            .upcoming_container_article button i{
+                color: #fff;
+                font-size: 2rem;
+            }
+}
+
+@media only screen and (min-width:1024px){
+
+    .upcoming_container{
+        height: 70rem;
+    }
+
+    .upcoming_container_article{
+        height: 60%;
+        width: 40%;
+    }
+
+    .upcoming_container_article button{
+        cursor: pointer;
+        transition: background 1s;
+    }
+
+    .upcoming_container_article button:hover{
+        background: #000;
+        border: .1rem solid #000;
+        transition: background 1s;
+    }
+}

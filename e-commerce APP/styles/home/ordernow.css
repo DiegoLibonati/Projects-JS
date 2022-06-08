@@ -1,0 +1,103 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.ordernow_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30rem;
+    background: #F8EFE0;
+}
+
+    .ordernow_container_article{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-flow: column wrap;
+        width: 90%;
+        height: 50%;
+    }
+
+        .ordernow_container_article h2{
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .ordernow_container_article button{
+            font-size: 1.5rem;
+            padding: 1rem;
+            background: none;
+            border: .1rem solid #000;
+        }
+
+            .ordernow_container_article button i{
+                font-size: 1rem;
+            }
+
+@media only screen and (min-width: 768px){
+
+    .ordernow_container_article{
+        height: 70%;
+    }
+
+    .ordernow_container_article h2{
+        font-size: 4rem;
+    }
+
+    .ordernow_container_article button{
+        font-size: 2.5rem;
+    }
+
+        .ordernow_container_article button i{
+            font-size: 2rem;
+        }
+
+}
+
+@media only screen and (min-width: 1024px){
+
+    .ordernow_container_article{
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        width: 95%;
+        height: 100%;
+    }
+
+    .ordernow_container_article h2{
+        font-size: 4rem;
+    }
+
+    .ordernow_container_article button{
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+
+        .ordernow_container_article button i{
+            font-size: 2rem;
+        }
+
+        .ordernow_container_article button:hover{
+            background: #000;
+            color:#fff;
+            transition: background 1s, color 1s;
+        }
+    
+
+}
