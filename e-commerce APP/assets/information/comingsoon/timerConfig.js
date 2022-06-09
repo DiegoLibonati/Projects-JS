@@ -58,7 +58,7 @@ const addZero = (a) => {
     }
 
 }
-
+timerConfig();
 setInterval(timerConfig, 1000);
 
 

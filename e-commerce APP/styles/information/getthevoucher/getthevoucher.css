@@ -1,0 +1,169 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.voucher_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    height: 130rem;
+    width: 100%;
+    margin-top: 7rem;
+}
+
+    .voucher_container_header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url("https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&rect=0%2C112%2C2000%2C1112&poi=%5B1040%2C413%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F12%2F17%2Ftk-things-that-happen-to-your-body-when-you-stare-at-a-computer-all-day.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        width: 100%;
+        height: 40rem;
+    }
+
+        .voucher_container_header h2{
+            font-size: 5rem;
+            color: #fff;
+        }
+
+    .voucher_container_main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        height: 45rem;
+        width: 90%;
+    }
+
+        .voucher_container_main img{
+            width: 100%;
+            height: 20rem;
+            object-fit: cover;
+        }
+
+        .voucher-information{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-flow: column wrap;
+            width: 100%;
+            height: 20rem;
+        }
+
+            .voucher-information h3{
+                font-size: 3rem;
+            }
+
+            .voucher-information p{
+                font-size: 1.5rem;
+            }
+
+            .voucher-information button{
+                font-size: 1.5rem;
+                padding: .5rem;
+                background: #000;
+                color: #fff;
+                border: .1rem solid #000;
+            }
+
+@media only screen and (min-width:768px){
+    .voucher-information{
+        width: 75%;
+    }
+   
+    .voucher-information h3{
+        font-size: 3.5rem;
+    }
+
+    .voucher-information p{
+        font-size: 2.2rem;
+    }
+
+    .voucher-information button{
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (min-width:1024px){
+
+    
+.voucher_container{
+    height: 130rem;
+}
+
+    .voucher_container_header{
+        height: 40rem;
+    }
+
+        .voucher_container_header h2{
+            font-size: 6rem;
+        }
+
+    .voucher_container_main{
+        height: 45rem;
+        width: 80%;
+    }
+
+        .voucher_container_main img{
+            width: 50%;
+            height: 40rem;
+            object-fit: cover;
+            padding: 1rem;
+        }
+
+        .voucher-information{
+            width: 50%;
+            height: 20rem;
+            padding: 1rem;
+        }
+
+            .voucher-information h3{
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .voucher-information p{
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .voucher-information button{
+                font-size: 2rem;
+                cursor: pointer;
+                transition: background 1s, border 1s, color 1s;
+            }
+
+            .voucher-information button:hover{
+                font-size: 2rem;
+                background: #fff;
+                border: .1rem solid #000;
+                color: #000;
+                transition: background 1s, border 1s, color 1s;
+            }
+
+            #imgvoucher70{
+                order: 2;
+            }
+
+
+}

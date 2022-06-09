@@ -1,0 +1,190 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.contactus_container{
+    width: 100%;
+    height: 120rem;
+    margin-top: 7rem;
+}
+
+    .contactus_container_map{
+        height: 40rem;
+        width: 100%;
+    }
+
+    .contactus_container_contact{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-flow: column wrap;
+        width: 100%;
+        height: 80rem;
+    }
+
+        .contactus_container_contact_information{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-evenly;
+            flex-flow: row wrap;
+            height: 20rem;
+            width: 90%;
+        }
+
+            .contactus_container_contact_information h2{
+                font-size: 4rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .contactus_container_contact_information p{
+                font-size: 2rem;
+            }
+
+        .contactus_container_contact_form{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-flow: row wrap;
+            height: 55rem;
+            width: 90%;
+        }
+
+            .contactus_container_contact_form input{
+                width: 100%;
+                height: 4rem;
+                font-size: 3rem;
+                outline: none;
+                padding: .5rem;
+                border: .1rem solid #888;
+            }
+
+            .contactus_container_contact_form textarea{
+                width: 100%;
+                resize: none;
+                outline: none;
+                padding: .5rem;
+                font-size: 3rem;
+                border: .1rem solid #888;
+            }
+
+            .contactus_container_contact_form input::placeholder{
+                color: #888;
+            }
+
+            .contactus_container_contact_form textarea::placeholder{
+                color: #888;
+            }
+
+            .contactus_container_contact_form button{
+                height: 5rem;
+                width: 100%;
+                background: #000;
+                border: none;
+                color: #fff;
+                font-size: 3rem;
+            }
+
+@media only screen and (min-width:768px){
+
+    .contactus_container_contact_information h2{
+        font-size: 5rem;
+    }
+
+    .contactus_container_contact_information p{
+        font-size: 2.5rem;
+    }
+
+}
+
+
+@media only screen and (min-width:1024px){
+
+    .contactus_container{
+        height: 100rem;
+    }
+
+    .contactus_container_contact{
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        height: 60rem;
+    }
+
+        .contactus_container_contact_information{
+            flex-flow: column wrap;
+            justify-content: center;
+            height: 40rem;
+            width: 30%;
+        }
+
+            .contactus_container_contact_information h2{
+                text-align: start;
+                font-size: 5rem;
+            }
+
+            .contactus_container_contact_information p{
+                font-size: 1.5rem;
+                width: 100%;
+            }
+
+        .contactus_container_contact_form{
+            justify-content: space-between;
+            height: 40rem;
+            width: 50%;
+        }
+
+        #name{
+            width: 48%;
+        }
+
+        #phone{
+            width: 48%;
+        }
+
+            .contactus_container_contact_form input{
+                height: 5rem;
+                font-size: 2rem;
+            }
+
+            .contactus_container_contact_form textarea{
+                font-size: 2rem;
+            }
+
+            .contactus_container_contact_form input::placeholder{
+                font-size: 2rem;
+            }
+
+            .contactus_container_contact_form textarea::placeholder{
+                font-size: 2rem;
+            }
+
+            .contactus_container_contact_form button{
+                transition: background 1s, color 1s, border 1s;
+                cursor: pointer;
+            }
+
+            .contactus_container_contact_form button:hover{
+                background: #fff;
+                color: #000;
+                border: .1rem solid #888;
+                transition: background 1s, color 1s, border 1s;
+            }
+
+}

@@ -1,0 +1,226 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.team_container{
+    width: 100%;
+    height: 340rem;
+    margin-top: 7rem;
+}
+
+    .team_container_header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        width: 100%;
+        height: 20rem;
+    }
+
+        .team_container_header h2{
+            width: 90%;
+            text-align: center;
+            font-size: 4rem;
+        }
+
+        .team_container_header p{
+            width: 90%;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+    .team_container_galery{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        height: 320rem;
+        width: 100%;
+    }
+
+        .team_container_staff{
+            position: relative;
+            width: 90%;
+            height: 40rem;
+        }
+
+            .team_container_staff_img{
+                position: relative;
+                height: 30rem;
+                width: 100%;
+            }
+
+                .team_container_staff_img img{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .team_container_staff_img i{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    font-size: 3rem;
+                    opacity: 0;
+                    transition: opacity 1s, background 1s, color 1s;
+                }
+
+                .team_container_staff_img i:hover{
+                    opacity: 1;
+                    background: rgba(0, 0, 0, 0.288);
+                    color: #fff;
+                    transition: opacity 1s, background 1s, color 1s;
+                }
+
+                .team_container_staff_img i:active{
+                    opacity: 1;
+                    background: rgba(0, 0, 0, 0.288);
+                    color: #fff;
+                    transition: opacity 1s, background 1s, color 1s;
+                }
+
+            .team_container_staff h3{
+                font-size: 2rem;
+                margin-top: 2rem;
+            }
+
+            .team_container_staff p{
+                font-size: 1.5rem;
+                box-shadow: 0rem .4rem .8rem -.8rem rgb(0, 0, 0);
+            }
+            
+@media only screen and (min-width: 768px){
+
+    
+.team_container{
+    height: 180rem;
+}
+        .team_container_header h2{
+            font-size: 6rem;
+        }
+
+        .team_container_header p{
+            font-size: 2rem;
+        }
+
+    .team_container_galery{
+        flex-flow: row wrap;
+        height: 160rem;
+        width: 100%;
+    }
+
+        .team_container_staff{
+            width: 30rem;
+            padding: 1rem;
+        }
+
+            .team_container_staff h3{
+                font-size: 2.5rem;
+                margin-top: 1.5rem;
+            }
+
+            .team_container_staff p{
+                font-size: 2rem;
+            }  
+
+}
+
+@media only screen and (min-width: 1024px){
+
+
+.team_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    height: 105rem;
+}
+        .team_container_header h2{
+            font-size: 6rem;
+        }
+
+        .team_container_header p{
+            font-size: 2rem;
+            width: 50%;
+        }
+
+    .team_container_galery{
+        height: 85rem;
+        width: 102.4rem;
+    }
+
+        .team_container_staff{
+            width: 25rem;
+            padding: 1rem;
+        }
+
+            .team_container_staff h3{
+                font-size: 2.5rem;
+                margin-top: 1.5rem;
+            }
+
+            .team_container_staff p{
+                font-size: 2rem;
+            }  
+
+}
+
+@media only screen and (min-width: 1600px){
+
+
+    .team_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        height: 105rem;
+    }
+            .team_container_header h2{
+                font-size: 6rem;
+            }
+    
+            .team_container_header p{
+                font-size: 2rem;
+                width: 50%;
+            }
+    
+        .team_container_galery{
+            height: 85rem;
+            width: 140rem;
+        }
+    
+            .team_container_staff{
+                width: 35rem;
+                padding: 1rem;
+            }
+    
+                .team_container_staff h3{
+                    font-size: 2.5rem;
+                    margin-top: 1.5rem;
+                }
+    
+                .team_container_staff p{
+                    font-size: 2rem;
+                }  
+    
+    }

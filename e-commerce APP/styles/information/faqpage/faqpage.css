@@ -1,0 +1,204 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.faq_container{
+    width: 100%;
+    height: 130rem;
+    margin-top: 7rem;
+}
+
+    .faq_container_header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url("https://kinsta.com/es/wp-content/uploads/sites/8/2019/09/plugins-de-wordpress-faq.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 40rem;
+        width: 100%;
+    }
+
+        .faq_container_header h2{
+            font-size: 5rem;
+            color: #fff;
+        }
+
+    .faq_container_main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        height: 90rem;
+        width: 100%;
+    }
+
+        .faq_container_main_information{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-flow: column wrap;
+            width: 95%;
+            height: 30rem;
+        }
+
+            .faq_container_main_information h3{
+                font-size: 3rem;
+                margin-bottom: 2rem;
+            }
+
+            .faq_container_main_information p{
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .faq_container_main_information a{
+                font-size: 1.5rem;
+                color: #000;
+                text-decoration: none;
+            }
+
+    .faq_container_main_faqs{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-flow: column wrap;
+        height: 60rem;
+        width: 95%;
+    }
+
+        .faq_container_main_faqs div{
+            height: 10rem;
+            width: 100%;
+        }
+
+            .faq_container_main_faqs div h3{
+                font-size: 2rem;
+            }
+
+            .faq_container_main_faqs div p{
+                font-size: 1.5rem;
+            }
+
+@media only screen and (min-width:768px) {
+    
+    .faq_container{
+        height: 160rem;
+    }
+    
+            .faq_container_header h2{
+                font-size: 6rem;
+            }
+    
+        .faq_container_main{
+            height: 120rem;
+        }
+    
+            .faq_container_main_information{
+                width: 80%;
+                height: 40rem;
+            }
+    
+                .faq_container_main_information h3{
+                    font-size: 4rem;
+                }
+    
+                .faq_container_main_information p{
+                    font-size: 3rem;
+                }
+    
+                .faq_container_main_information a{
+                    font-size: 2rem;
+                }
+    
+        .faq_container_main_faqs{
+            height: 80rem;
+            width: 80%;
+        }
+    
+            .faq_container_main_faqs div{
+                height: 16rem;
+            }
+    
+                .faq_container_main_faqs div h3{
+                    font-size: 3rem;
+                }
+    
+                .faq_container_main_faqs div p{
+                    font-size: 2rem;
+                }
+
+}
+
+@media only screen and (min-width:1024px) {
+    
+    .faq_container{
+        height: 120rem;
+    }
+    
+            .faq_container_header h2{
+                font-size: 6rem;
+            }
+    
+        .faq_container_main{
+            flex-flow: row wrap;
+            height: 80rem;
+        }
+    
+            .faq_container_main_information{
+                justify-content: flex-start;
+                width: 30%;
+                height: 80rem;
+                padding: 3rem;
+            }
+    
+                .faq_container_main_information h3{
+                    font-size: 3rem;
+                }
+    
+                .faq_container_main_information p{
+                    font-size: 2rem;
+                }
+    
+                .faq_container_main_information a{
+                    font-size: 1.5rem;
+                }
+    
+        .faq_container_main_faqs{
+            justify-content: flex-start;
+            height: 80rem;
+            width: 50%;
+            padding: 3rem;
+        }
+    
+            .faq_container_main_faqs div{
+                height: 14rem;
+            }
+    
+                .faq_container_main_faqs div h3{
+                    font-size: 2rem;
+                }
+    
+                .faq_container_main_faqs div p{
+                    font-size: 1.5rem;
+                }
+
+}

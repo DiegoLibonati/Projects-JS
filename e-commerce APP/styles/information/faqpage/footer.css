@@ -1,0 +1,157 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.footer_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 115rem;
+    background: #333;
+}
+
+    .footer_container_firstBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        width: 90%;
+        height: 90rem;
+        border-bottom: .1rem solid #888;
+    }
+
+        .footer_container_boxes{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-evenly;
+            flex-flow: column wrap;
+            width: 100%;
+            height: 20rem;
+        }
+
+            .footer_container_boxes h4{
+                font-size: 2.5rem;
+                color: #fff;
+            }
+
+            .footer_container_boxes p{
+                font-size: 2rem;
+                color: #888;
+            }
+
+            .footer_container_boxes a{
+                font-size: 2rem;
+                text-decoration: none;
+                color: #888;
+            }
+
+    .footer_container_secondBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        width: 90%;
+        height: 15rem;
+    }
+
+        .footer_container_secondBox_list{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-flow: row wrap;
+            width: 100%;
+            height: 10rem;
+        }
+
+            .footer_container_secondBox_list a{
+                text-decoration: none;
+                color: #888;
+                font-size: 2rem;
+            }
+
+        .footer_container_secondBox p{
+            color: #888;
+            font-size: 2rem;
+            width: 100%;
+            text-align:  center;
+        }
+
+@media only screen and (min-width: 768px){
+
+    .footer_container{
+        height: 75rem;
+    }
+    
+        .footer_container_firstBox{
+            flex-flow: row wrap;
+            width: 90%;
+            height: 50rem;
+        }
+
+            .footer_container_boxes{
+                flex-flow: row wrap;
+                width: 45%;
+                padding: .5rem;
+            }
+
+                .footer_container_boxes h4{
+                    width: 100%;
+                }
+
+                .footer_container_boxes p{
+                    width: 100%;
+                }
+    
+                .footer_container_boxes a{
+                    width: 100%;
+                }
+
+}
+
+@media only screen and (min-width: 1024px){
+
+    .footer_container{
+        height: 50rem;
+    }
+    
+        .footer_container_firstBox{
+            height: 35rem;
+            width: 100rem;
+        }
+
+            .footer_container_boxes{
+                flex-flow: row wrap;
+                width: 25%;
+            }
+
+            .footer_container_boxes h4{
+                font-size: 2rem;
+            }
+
+            .footer_container_boxes p{
+                font-size: 1.5rem;
+            }
+
+            .footer_container_boxes a{
+                font-size: 1.5rem;
+            }
+
+
+}
