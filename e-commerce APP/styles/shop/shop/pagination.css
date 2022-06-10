@@ -56,6 +56,7 @@ main{
         justify-content: center;
         width: 100%;
         height: 10rem;
+        order: 2;
     }
 
         .pagination_container_showall button{
@@ -80,6 +81,29 @@ main{
 
     .pagination_container{
         order: 5;
+    }
+
+    .pagination_container_pages button{
+        transition: background 1s, color 1s;
+        cursor: pointer;
+    }
+
+    .pagination_container_pages button:hover{
+        background: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        transition: background 1s, color 1s;
+    }
+
+    .pagination_container_showall button{
+        cursor: pointer;
+        transition: background 1s, color 1s;
+    }
+
+    .pagination_container_showall button:hover{
+
+        background: #000;
+        color: #fff;
+        transition: background 1s, color 1s;
     }
 
 }

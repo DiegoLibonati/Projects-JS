@@ -208,4 +208,8 @@ main{
             font-size: 1.5rem;
         }
 
+        .filter_container_article_list_categories a:hover{
+            color: #888;
+        }
+
 }
