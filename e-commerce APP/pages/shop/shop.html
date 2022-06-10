@@ -7,10 +7,14 @@
 
     <title>DieSHOP</title>
 
-    <link rel="stylesheet" type="text/css" href="../../styles/information/getthevoucher/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/information/getthevoucher/getthevoucher.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/information/aboutus/spinnerload.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/information/getthevoucher/footer.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/navbar.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/adress.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/filter.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/gridheader.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/gridcontainer.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/pagination.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/spinnerload.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/footer.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +24,7 @@
 
 </head>
 <body>
-    
+
     <div class="loadPage">
         <img src="../../templates/DL.png" alt="logo Diego">
         <div class="spinner"></div>
@@ -76,30 +80,66 @@
     </header>
 
     <main>
-        <section class="voucher_container">
-            <article class="voucher_container_header">
-                <h2>Get the Voucher</h2>
+        <section class="adress_container">
+            <article class="adress_container_article">
+                <h3>Home / Shop</h3>
             </article>
+        </section>
 
-            <article class="voucher_container_main">
-                <img src="https://arredo.qodeinteractive.com/wp-content/uploads/2018/05/voucher-1.png" alt="voucher">
+        <section class="filter_container">
+            <article class="filter_container_article">
+                <h3>Filter <i class="fa-solid fa-chevron-down"></i></h3>
 
-                <div class="voucher-information">
-                    <h3>50% OFF this season</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, assumenda.</p>
-                    <button type="button">See the offer</button>
+                <ul class="filter_container_article_list">
+                    <li class="filter_container_article_list_search">
+                        <input type=text placeholder="Search...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </li>
+
+                    <li class="filter_container_article_list_categories">
+                        <h4>Categories</h4>
+                        <a href="#">Electronics()</a>
+                        <a href="#">Jewellery()</a>
+                        <a href="#">Men´s clothes()</a>
+                        <a href="#">Women´s clothes()</a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="grid_header_container">
+
+            <article class="grid_header_container_header">
+                <p>Showing X–X of X results</p>
+
+                <div class="grid_header_container_header_list">
+                    <h3>Sort by Popularity <i class="fa-solid fa-chevron-down"></i></h3>
+
+                    <ul class="grid_header_container_header_sortMenu">
+                        <li>Sort by</li>
+                        <li>Sort by</li>
+                        <li>Sort by</li>
+                        <li>Sort by</li>
+                        <li>Sort by</li>
+                    </ul>
                 </div>
             </article>
 
-            <article class="voucher_container_main">
+        </section>
 
-                <img id="imgvoucher70" src="https://arredo.qodeinteractive.com/wp-content/uploads/2018/05/voucher-2.png" alt="voucher">
+        <section class="grid_container">
+            <article class="grid_container_article">
 
-                <div class="voucher-information">
-                    <h3>70% OFF this season</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, assumenda.</p>
-                    <button type="button">See the offer</button>
-                </div>
+            </article>
+        </section>
+
+        <section class="pagination_container">
+            <article class="pagination_container_pages">
+
+            </article>
+
+            <article class="pagination_container_showall">
+                <button type="button">View all</button>
             </article>
         </section>
     </main>
@@ -151,9 +191,11 @@
         </div>
     </footer>
 
-    <script  src="../../assets/information/getthevoucher/navConfig.js"></script>
-    <script  src="../../assets/information/getthevoucher/mediaQueryResize.js"></script>
-    <script  src="../../assets/information/aboutus/spinnerLoad.js"></script>
+    <script  src="../../assets/shop/shop/navConfig.js"></script>
+    <script  src="../../assets/shop/shop/mediaQueryResize.js"></script>
+    <script  src="../../assets/shop/shop/spinnerLoad.js"></script>
+    <script  src="../../assets/shop/shop/filterConfig.js"></script>
+    <script  src="../../assets/shop/shop/products.js"></script>
 
 </body>
 </html>

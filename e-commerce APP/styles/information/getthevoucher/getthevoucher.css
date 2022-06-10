@@ -42,7 +42,7 @@ body{
     }
 
         .voucher_container_header h2{
-            font-size: 5rem;
+            font-size: 4rem;
             color: #fff;
         }
 
@@ -87,6 +87,11 @@ body{
             }
 
 @media only screen and (min-width:768px){
+
+    .voucher_container_header h2{
+        font-size: 7rem;
+    }
+
     .voucher-information{
         width: 75%;
     }
@@ -116,7 +121,7 @@ body{
     }
 
         .voucher_container_header h2{
-            font-size: 6rem;
+            font-size: 7rem;
         }
 
     .voucher_container_main{

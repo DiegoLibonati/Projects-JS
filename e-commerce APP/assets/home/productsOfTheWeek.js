@@ -62,6 +62,7 @@ const createHtml = async() => {
 }
 
 window.onload = async () => {
+
     let createHtmlInPage = await createHtml();
 
     loadPage.style.opacity = "0";
@@ -70,6 +71,6 @@ window.onload = async () => {
         loadPage.style.display = "none";
     }, 1000);
 
-    document.body.style.overflow = "initial";
+    document.body.style.overflow = "auto";
 
 };

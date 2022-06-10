@@ -6,8 +6,6 @@ const navContainerItemsToChangeBlack = document.querySelectorAll(".nav_container
 const navContainerItemsTitles = document.querySelectorAll(".item-title");
 const navContainerListItemsSections = document.querySelectorAll(".nav_container_list_item_sections");
 
-let isScroll = false;
-
 const openNavbar = () => {
 
     navContainerList.classList.toggle("openNav");
@@ -40,22 +38,6 @@ const openSubMenu = (e) => {
 
         if (mediaQuery1024Px.matches){
             navSubMenu.classList.remove("openSubMenu");
-
-            if (isScroll === false){
-                setTimeout(()=>{
-
-                    for (let i = 0; i < navContainerItemsToChangeBlack.length; i++){
-                        navContainerItemsToChangeBlack[i].classList.remove("changeColors");
-                    }
-        
-                    navContainer.classList.remove("changeBackground");
-    
-                }, 1000)
-    
-                for (let i = 0; i < navContainerItemsTitles.length; i++){
-                    navContainerItemsTitles[i].classList.remove("changeUnderline");
-                }
-            }
             
         } else {
             navSubMenu.classList.remove("openSubMenu");
@@ -66,16 +48,6 @@ const openSubMenu = (e) => {
 
         if (mediaQuery1024Px.matches){
             navSubMenu.classList.add("openSubMenu");
-            
-            for (let i = 0; i < navContainerItemsToChangeBlack.length; i++){
-                navContainerItemsToChangeBlack[i].classList.add("changeColors");
-            }
-
-            navContainer.classList.add("changeBackground");
-
-            for (let i = 0; i < navContainerItemsTitles.length; i++){
-                navContainerItemsTitles[i].classList.add("changeUnderline");
-            }
 
         } else {
             navSubMenu.classList.add("openSubMenu");
@@ -90,32 +62,4 @@ navContainerListItemsDiv.forEach(function(listItem){
 
     listItem.addEventListener("click", openSubMenu);
 
-});
-
-window.addEventListener("scroll", (e)=>{
-
-    if (mediaQuery1024Px.matches && window.pageYOffset > 100){
-        isScroll = true;
-        navContainer.classList.add("changeBackground");
-        for (let i = 0; i < navContainerItemsToChangeBlack.length; i++){
-            navContainerItemsToChangeBlack[i].classList.add("changeColors");
-        }
-
-        for (let i = 0; i < navContainerItemsTitles.length; i++){
-            navContainerItemsTitles[i].classList.add("changeUnderline");
-        }
-    }
-
-    if (mediaQuery1024Px.matches && window.pageYOffset < 100){
-        isScroll = false;
-        navContainer.classList.remove("changeBackground");
-
-        for (let i = 0; i < navContainerItemsToChangeBlack.length; i++){
-            navContainerItemsToChangeBlack[i].classList.remove("changeColors");
-        }
-
-        for (let i = 0; i < navContainerItemsTitles.length; i++){
-            navContainerItemsTitles[i].classList.remove("changeUnderline");
-        }
-    }
 });

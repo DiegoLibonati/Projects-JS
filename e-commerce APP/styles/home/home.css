@@ -238,18 +238,20 @@ body{
             .electronics{
                 height: 60rem;
                 width: 60%;
+                margin-left: 2.5rem;
             }
 
             .jewellery{
                 height: 60rem;
                 width: 60%;
+                margin-left: 2.5rem;
             }
 
             .menc{
                 height: 60rem;
                 width: 60%;
                 justify-content: flex-end;
-                margin-left: 10rem;
+                margin-left: 2.5rem;
             }
 
             .womanc{
@@ -257,6 +259,7 @@ body{
                 width: 60%;
                 justify-content: flex-end;
                 margin-top: 6rem;
+                margin-left: 2.5rem;
             }
 
 }
@@ -288,25 +291,27 @@ body{
             .electronics{
                 height: 70rem;
                 width: 40%;
+                margin-left: 11rem;
             }
 
             .jewellery{
                 height: 70rem;
                 width: 40%;
+                margin-left: 11rem;
             }
 
             .menc{
                 height: 70rem;
                 width: 40%;
                 justify-content: flex-end;
-                margin-left: 10rem;
+                margin-left: 11rem;
             }
 
             .womanc{
                 height: 70rem;
                 width: 40%;
                 justify-content: center;
-                margin-top: 6rem;
+                margin-left: 11rem;
             }
 
             .home_img_container_text button{

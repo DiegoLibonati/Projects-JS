@@ -39,7 +39,7 @@ body{
     }
 
         .comingsoon_container_article h2{
-            font-size: 5rem;
+            font-size: 4rem;
             color: #fff;
             text-align: center;
         }
@@ -143,7 +143,7 @@ body{
     }
     
             .comingsoon_container_article h2{
-                font-size: 10rem;
+                font-size: 7rem;
             }
     
         .comingsoon_container_article_count{
@@ -196,6 +196,10 @@ body{
 @media only screen and (min-width: 1024px){
     .comingsoon_container{
         height: 90rem;
+    }
+
+    .comingsoon_container_article h2{
+        font-size: 10rem;
     }
     
             .comingsoon_container_article_form button{
