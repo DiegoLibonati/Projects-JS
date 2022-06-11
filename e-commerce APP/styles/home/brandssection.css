@@ -45,7 +45,7 @@ body{
             grid-template-columns: repeat(15, 1fr);
             column-gap: 2rem;
             pointer-events: none;
-            transition: left .05s;
+            transition: left 1s;
         }
 
         .brands_container_article_list li{

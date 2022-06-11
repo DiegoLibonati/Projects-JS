@@ -7,22 +7,20 @@
 
     <title>DieSHOP</title>
 
-    <link rel="stylesheet" type="text/css" href="../../styles/information/contactus/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/information/contactus/contactus.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/information/aboutus/spinnerload.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/information/contactus/footer.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/navbar.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/spinnerload.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/cart.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/shop/shop/footer.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
     <script src="https://kit.fontawesome.com/41faca984e.js" crossorigin="anonymous"></script> 
 
 </head>
 <body>
-    
+
     <div class="loadPage">
         <img src="../../templates/DL.png" alt="logo Diego">
         <div class="spinner"></div>
@@ -33,7 +31,7 @@
         <div class="nav_container_header">
             <i class="fa-solid fa-bars"></i>
             <h2 class="nav_container_header-h2"><a class="nav_container_header-h2-a" href="../../index.html">DieSHOP</a></h2>
-            <a href="../shop/cart.html" class="cartClass"><i class="fa-solid fa-cart-shopping cartMobile"></i></a>
+            <a href="./cart.html" class="cartClass"><i class="fa-solid fa-cart-shopping cartMobile"></i></a>
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
 
@@ -47,12 +45,12 @@
                     </div>
     
                     <div class="nav_container_list_item_sections">
-                        <a href="./aboutus.html">About us</a>
-                        <a href="./comingsoon.html">Coming soon</a>
-                        <a href="./contactus.html">Contact us</a>
-                        <a href="./faqpage.html">Faq page</a>
-                        <a href="./meettheteam.html">Meet the team</a>
-                        <a href="./getthevoucher.html">Get the voucher</a>
+                        <a href="../information/aboutus.html">About us</a>
+                        <a href="../information/comingsoon.html">Coming soon</a>
+                        <a href="../information/contactus.html">Contact us</a>
+                        <a href="../information/faqpage.html">Faq page</a>
+                        <a href="../information/meettheteam.html">Meet the team</a>
+                        <a href="../information/getthevoucher.html">Get the voucher</a>
                     </div>
                 </li>
     
@@ -63,42 +61,49 @@
                     </div>
     
                     <div class="nav_container_list_item_sections">
-                        <a href="../shop/shop.html">Principal shop</a>
+                        <a href="./shop.html">Principal shop</a>
+                    </div>
+                </li>
+    
+                <li class="nav_container_list_item" id="externalI">
+                    <div class="nav_container_list_item_div">
+                        <i class="fa-solid fa-cart-shopping externalI" id="carIcon"></i>
+                        <i class="fa-solid fa-chevron-down downArrow"></i>
+                    </div>
+
+                    <div class="nav_container_list_item_sections" id="carShop">
+
+                        <div class="product-in-car-total">
+                            <h3>Total: $0</h3>
+                            <a href="../../index.html"><button type="button">Go to cart</button></a>
+                            <a href="../../index.html"><button type="button">Buy</button></a>
+                        </div>
                     </div>
                 </li>
 
+                <i class="fa-solid fa-magnifying-glass externalI"></i>
             </ul>
         </nav>
 
     </header>
 
-    <main>
-        <section class="contactus_container">
-            <article class="contactus_container_map"></article>
+    <main class="main_container">
 
-            <article class="contactus_container_contact">
+        <section class="cart_container">
 
-                <div class="contactus_container_contact_information">
-
-                    <h2>Contact Us</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, suscipit.</p>
-                    <p>Langenhorner Chaussee 600</p>
-                    <p>22419 Hamburg, Spain</p>
-                    <p>diego.libonati1998@gmail.com</p>
-                    <p>+49 (381) 666 33 – 339</p>
-
-                </div>
-
-                <form class="contactus_container_contact_form">
-                    <input id="name" type="text" placeholder="Name">
-                    <input id="phone" type="text" placeholder="Phone">
-                    <input type="text" placeholder="Email">
-                    <textarea placeholder="Message" cols="10" rows="5"></textarea>
-                    <button type="submit">Send</button>
-                </form>
+            <article class="cart_container_product">
 
             </article>
+
+            <article class="cart_container_base">
+
+                <h3>Total: $0</h3>
+                <a href="../../index.html"><button type="button">Buy</button></a>
+
+            </article>
+
         </section>
+
     </main>
 
     <footer class="footer_container">
@@ -140,19 +145,17 @@
 
             <div class="footer_container_secondBox_list">
                 <a href="../../index.html">Home</a>
-                <a href="./aboutus.html">Information</a>
-                <a href="../shop/shop.html">Shop</a>
+                <a href="../information/aboutus.html">Information</a>
+                <a href="./shop.html">Shop</a>
             </div>
 
             <p>Diego Libonati E-commerce APP</p>
         </div>
     </footer>
 
-    <script  src="../../assets/information/contactus/navConfig.js"></script>
-    <script  src="../../assets/information/contactus/mediaQueryResize.js"></script>
-    <script  src="../../assets/information/contactus/mapConfig.js"></script>
-    <script  src="../../assets/information/aboutus/spinnerLoad.js"></script>
-
+    <script  src="../../assets/shop/shop/navConfig.js"></script>
+    <script  src="../../assets/shop/shop/mediaQueryResize.js"></script>
+    <script  src="../../assets/shop/shop/productConfigCart.js"></script>
 
 </body>
 </html>

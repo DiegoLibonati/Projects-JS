@@ -1,0 +1,111 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Titillium Web', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.main_container{
+    margin-top: 7rem;
+}
+
+#externalI{
+    display: none;
+}
+
+#carShop{
+    display: none;
+}
+
+.cart_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 70rem;
+}
+
+    .cart_container_product{
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        flex-flow: row wrap;
+        overflow: auto;
+        width: 90%;
+        height: 50rem;
+    }
+
+    .product-container{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-flow: row wrap;
+        width: 100%;
+        height: 10rem;
+        margin-bottom: 1rem;
+    }
+
+        .cart_container_product img{
+            width: 25%;
+            height: 10rem;
+            object-fit: cover;
+        }
+
+        .cart_container_product_information{
+            padding: 1rem;
+        }
+
+            .cart_container_product_information h3{
+                display: block;
+                overflow: hidden;  
+                text-align: center;
+                font-size: 1.5rem;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 20rem;
+            }
+
+            .cart_container_product_information p{
+               font-size: 1.2rem;
+            }
+
+        .cart_container_base{
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            flex-flow: column wrap;
+            width: 90%;
+            height: 10rem;
+            border-top: .1rem solid #000;
+            margin-top: 1rem;
+        }
+
+            .cart_container_base h3{
+                font-size: 1.5rem;
+            }
+
+            .cart_container_base a{
+                text-decoration: none;
+            }
+
+                .cart_container_base a button{
+                    padding: 1rem;
+                    font-size: 1.2rem;
+                    background: #fff;
+                    border: .1rem solid #000;
+                    color: #000;
+                }

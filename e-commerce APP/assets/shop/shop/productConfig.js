@@ -5,6 +5,8 @@ const loadPage = document.querySelector(".loadPage");
 const carShopContainer = document.getElementById("carShop");
 const carIcon = document.getElementById("carIcon");
 
+let totalMoney = 0;
+
 const getAllProducts = async () => {
 
     let petition = await fetch("https://fakestoreapi.com/products");
@@ -100,7 +102,7 @@ const addToCarShop = async (e) => {
                                     <a href="../../index.html"><button type="button">Buy</button></a>
                                 </div>`;
 
-    const btnBuy = document.querySelector(".product-in-car-total button");
+    const btnBuy = document.getElementById("buy");
 
     btnBuy.addEventListener("click", ()=> {
 
@@ -109,6 +111,8 @@ const addToCarShop = async (e) => {
         localStorage.clear();
 
     });
+
+    totalMoney = 0;
 
     setElementsInCarShop();
 
@@ -146,7 +150,7 @@ const setElementsInCarShop = async () => {
     for (let i = 0; i < localStorageProducts.length; i++){
 
         fragmentHtml.append(htmlProductsInCarShop(localStorageProducts[i].image, localStorageProducts[i].title, localStorageProducts[i].price))
-
+        totalMoney += parseInt(localStorageProducts[i].price);
     }
 
     carShopContainer.insertBefore(fragmentHtml, document.querySelector(".product-in-car-total"));
@@ -155,8 +159,10 @@ const setElementsInCarShop = async () => {
         
         carIcon.style.color = `#FF0000`;
         carIcon.textContent = `${localStorageProducts.length}`;
+        document.querySelector(".product-in-car-total h3").textContent = `Total: $${totalMoney}`;
+
     } else {
-        
+        document.querySelector(".product-in-car-total h3").textContent = `Total: $0`;
         carIcon.style.color = `#000`;
         carIcon.textContent = ``;
     }
@@ -165,7 +171,7 @@ const setElementsInCarShop = async () => {
 
 setElementsInCarShop();
 
-const btnBuy = document.querySelector(".product-in-car-total button");
+const btnBuy = document.getElementById("buy");
 
 btnBuy.addEventListener("click", ()=> {
 

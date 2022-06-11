@@ -35,7 +35,7 @@
         <div class="nav_container_header">
             <i class="fa-solid fa-bars"></i>
             <h2 class="nav_container_header-h2"><a class="nav_container_header-h2-a" href="../../index.html">DieSHOP</a></h2>
-            <i class="fa-solid fa-cart-shopping"></i>
+            <a href="./cart.html" class="cartClass"><i class="fa-solid fa-cart-shopping cartMobile"></i></a>
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
 
@@ -69,7 +69,22 @@
                     </div>
                 </li>
     
-                <i class="fa-solid fa-cart-shopping externalI"></i>
+                <li class="nav_container_list_item">
+                    <div class="nav_container_list_item_div">
+                        <i class="fa-solid fa-cart-shopping externalI" id="carIcon"></i>
+                        <i class="fa-solid fa-chevron-down downArrow"></i>
+                    </div>
+
+                    <div class="nav_container_list_item_sections" id="carShop">
+
+                        <div class="product-in-car-total">
+                            <h3>Total: $0</h3>
+                            <a href="../../index.html"><button type="button">Go to cart</button></a>
+                            <a href="../../index.html"><button type="button" id ="buy">Buy</button></a>
+                        </div>
+                    </div>
+                </li>
+
                 <i class="fa-solid fa-magnifying-glass externalI"></i>
             </ul>
         </nav>
@@ -183,6 +198,7 @@
     <script  src="../../assets/shop/shop/mediaQueryResize.js"></script>
     <script  src="../../assets/shop/shop/filterConfig.js"></script>
     <script  src="../../assets/shop/shop/products.js" type="module"></script>
+    <script  src="../../assets/shop/shop/productConfig.js"></script>
 
 </body>
 </html>

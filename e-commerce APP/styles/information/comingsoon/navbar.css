@@ -38,6 +38,11 @@ body{
         height: 7rem;
     }
 
+    .cartClass{
+        text-decoration: none;
+        color: #000;
+    }
+    
         .nav_container_header i{
             display: flex;
             align-items: center;

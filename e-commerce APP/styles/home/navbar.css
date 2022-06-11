@@ -38,6 +38,11 @@ body{
         height: 7rem;
     }
 
+    .cartClass{
+        text-decoration: none;
+        color: #000;
+    }
+
         .nav_container_header i{
             display: flex;
             align-items: center;
@@ -179,7 +184,7 @@ body{
         box-shadow: 0rem 0rem 0rem 0rem rgb(0, 0, 0);
         transition: background 1s;
     }
-    
+
         .nav_container_header{
             display: flex;
             align-items: center;
