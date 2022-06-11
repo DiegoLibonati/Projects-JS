@@ -99,7 +99,7 @@ const addToCarShop = async (e) => {
 
     carShopContainer.innerHTML = `<div class="product-in-car-total">
                                     <h3>Total: $0</h3>
-                                    <a href="../../index.html"><button type="button">Buy</button></a>
+                                    <a href="../../index.html"><button type="button" id="buy">Buy</button></a>
                                 </div>`;
 
     const btnBuy = document.getElementById("buy");
