@@ -21,17 +21,19 @@ const getAllProducts = async () => {
 
 }
 
-const createProducts = async () => {
+export const createProducts = async () => {
 
     const allProducts = await getAllProducts();
 
     for (let i = 0; i < 9; i++){
 
-        fragmento.append(htmlTemplate(allProducts[i].image, allProducts[i].title, allProducts[i].rating.rate, allProducts[i].price));
+        fragmento.append(htmlTemplate(allProducts[i].image, allProducts[i].title, allProducts[i].rating.rate, allProducts[i].price, allProducts[i].id));
 
     }
 
     productsContainer.appendChild(fragmento);
+
+    localStorageFunction(document.querySelectorAll(".grid_container_article_product_description a h2"), allProducts);
 
 };
 
@@ -67,7 +69,7 @@ const createBtns = async () => {
 
             for (let i = (currentPage * 9) - 9; i < allProducts.length; i++){
 
-                fragmento.append(htmlTemplate(allProducts[i].image, allProducts[i].title, allProducts[i].rating.rate, allProducts[i].price));
+                fragmento.append(htmlTemplate(allProducts[i].image, allProducts[i].title, allProducts[i].rating.rate, allProducts[i].price, allProducts[i].id));
 
             }
 
@@ -77,7 +79,7 @@ const createBtns = async () => {
 
             for (let i = (currentPage * 9) - 9; i < currentPage * 9; i++){
 
-                fragmento.append(htmlTemplate(allProducts[i].image, allProducts[i].title, allProducts[i].rating.rate, allProducts[i].price));
+                fragmento.append(htmlTemplate(allProducts[i].image, allProducts[i].title, allProducts[i].rating.rate, allProducts[i].price, allProducts[i].id));
 
             }
 
@@ -87,11 +89,12 @@ const createBtns = async () => {
 
         productsContainer.appendChild(fragmento);
 
+        localStorageFunction(document.querySelectorAll(".grid_container_article_product_description a h2"), allProducts);
     }
 
 }
 
-const htmlTemplate = (image, title, rate, price) => {
+const htmlTemplate = (image, title, rate, price,id) => {
 
     const div = document.createElement("div");
 
@@ -100,8 +103,8 @@ const htmlTemplate = (image, title, rate, price) => {
                     </div>
 
                     <div class="grid_container_article_product_description">
-                        <h2>${title}</h2>
-                        <p>Rating: ${rate}</p>
+                        <a href="./product.html"><h2 id=${id}>${title}</h2></a>
+                        <p>Rating: ${rate}/5</p>
                         <p>$${price}</p>
                     </div>`;
 
@@ -179,13 +182,15 @@ const htmlFilterCategories = (allProducts) => {
             
             if (allProducts[i].category === categoryId){
 
-                fragmento.append(htmlTemplate(allProducts[i].image, allProducts[i].title, allProducts[i].rating.rate, allProducts[i].price));
+                fragmento.append(htmlTemplate(allProducts[i].image, allProducts[i].title, allProducts[i].rating.rate, allProducts[i].price, allProducts[i].id));
 
                 textResults.textContent = `Showing ${allProducts[i].category} products`;
 
             } 
 
         productsContainer.appendChild(fragmento);
+
+        localStorageFunction(document.querySelectorAll(".grid_container_article_product_description a h2"), allProducts);
 
        }
     }
@@ -194,8 +199,8 @@ const htmlFilterCategories = (allProducts) => {
 
 window.onload = async () => {
 
-    await createBtns();
     await createProducts();
+    await createBtns();
 
     loadPage.style.opacity = "0";
 
@@ -206,4 +211,35 @@ window.onload = async () => {
     document.body.style.overflow = "initial";
 
 };
+
+// Local storage
+
+const localStorageFunction = (btnsSelectProducts, allProducts) => {
+
+    const getTitleProductToLocalStorage = (e) => {
+
+        for (let i = 0; i < allProducts.length; i++){
+
+            if (allProducts[i].id === parseInt(e.currentTarget.id)){
+                createLocalStorage(allProducts[i]);
+            }
+
+        }
+    
+    }
+
+    btnsSelectProducts.forEach(function (btnSelectProduct){
+
+        btnSelectProduct.addEventListener("click", getTitleProductToLocalStorage);
+    
+    });
+
+}
+
+const createLocalStorage = (productSelect) => {
+    
+    localStorage.setItem("itemClicked", JSON.stringify(productSelect));
+
+}
+
 

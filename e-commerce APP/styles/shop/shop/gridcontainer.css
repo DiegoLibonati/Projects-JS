@@ -67,7 +67,12 @@ main{
                     border-bottom: .1rem solid #000;
                 }
 
-                    .grid_container_article_product_description h2{
+                    .grid_container_article_product_description a{
+                        text-decoration: none;
+                        color: #000;
+                    }
+
+                    .grid_container_article_product_description a h2{
                         display: block;
                         overflow: hidden;  
                         text-align: center;

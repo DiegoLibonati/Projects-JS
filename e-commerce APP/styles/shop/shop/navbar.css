@@ -315,6 +315,7 @@ body{
             width: 5rem;
             cursor: pointer;
             color:#000;
+            height: 7rem;
             transition: color 1s;
         }
 
