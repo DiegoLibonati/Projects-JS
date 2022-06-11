@@ -119,7 +119,6 @@ body{
                 flex-flow: row wrap;
                 width: 100%;
                 max-height: 0;
-                overflow: hidden;
                 transition: max-height .5s;
             }
 
@@ -283,6 +282,7 @@ body{
                     box-shadow: 0rem .4rem .8rem -.8rem rgb(0, 0, 0);
                     background: #fff;
                     transition: max-height 1s;
+                    overflow-y: auto;
                 }
     
                 .openSubMenu{
@@ -333,5 +333,92 @@ body{
             border-bottom: .3rem solid rgb(0, 0, 0);
         }
 
+        .product-in-car{
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-flow: row wrap;
+            width: 100%;
+            max-height: 100rem;
+        }
+
+            .product-in-car-img{
+                height: 10rem;
+                width: 10rem;
+                padding: 1rem;
+            }
+
+                .product-in-car-img img{
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 1rem;
+                }
+
+            .product-in-car-information{
+                max-width: 100rem;
+                height: 10rem;
+                padding: 1.5rem
+            }
+
+                .product-in-car-information h3{
+                    font-size: 2rem;
+                }
+
+                .product-in-car-information p{
+                    font-size: 1.5rem;
+                }
+
+            .product-in-car-total{
+                display: flex;
+                align-items: flex-end;
+                justify-content:center;
+                flex-flow: column wrap;
+                border-top: .1rem solid #000;
+                width: 100%;
+                height: 15rem;
+                padding: 1rem;
+            }
+
+                .product-in-car-total h3{
+                    font-size: 2.5rem;
+                }
+
+                .product-in-car-total a{
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: flex-end;
+                    text-decoration: none;
+                    border: none;
+                    cursor: default;
+                }
+
+                .product-in-car-total a:hover{
+                    background: none;
+                    border: none;
+                    color: none;
+                    padding: 0;
+                }
+
+                .product-in-car-total a button{
+                    margin-top: 2rem;
+                    padding: 1rem;
+                    font-size: 2rem;
+                    background: #fff;
+                    border: .1rem solid #000;
+                    color: #000;
+                    cursor: pointer;
+                    transition: background 1s, color 1s;
+                }
+
+                .product-in-car-total a button:hover{
+                    background: #000;
+                    color: #fff;
+                    transition: background 1s, color 1s;
+                }
+
+                #carShop{
+                    height: 35rem;
+                }
 
 }

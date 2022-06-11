@@ -124,6 +124,7 @@ body{
         .product_container_article_information{
             align-items: flex-start;
             width: 50%;
+            padding-left: 15rem;
         }
     
             .product_container_article_information_header{

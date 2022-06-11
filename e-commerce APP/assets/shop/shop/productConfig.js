@@ -2,6 +2,8 @@ const fragmentHtml = document.createDocumentFragment();
 const mainContainer = document.querySelector(".main_container");
 const adressContainer = document.querySelector(".adress_container_article h3");
 const loadPage = document.querySelector(".loadPage");
+const carShopContainer = document.getElementById("carShop");
+const carIcon = document.getElementById("carIcon");
 
 const getAllProducts = async () => {
 
@@ -33,6 +35,7 @@ const getInformationAboutTheProduct = async () => {
     }
 
     mainContainer.appendChild(fragmentHtml);
+    createCarShopLocalStorageList(document.querySelector(".product_container button"));
 }
 
 const createHtmlTemplate = (img, title, price, descripcion, category) => {
@@ -78,3 +81,101 @@ window.onload = async () => {
     document.body.style.overflow = "initial";
 
 };
+
+function getLocalStorage(){
+    return localStorage.getItem("list")?JSON.parse(localStorage.getItem("list")):[];
+}
+
+const addToCarShop = async (e) => {
+
+    const localStorageProducts = await getLocalStorage();
+    const product = await getInformationOfLocalStorage();
+
+    localStorageProducts.push(product);
+
+    localStorage.setItem("list", JSON.stringify(localStorageProducts));
+
+    carShopContainer.innerHTML = `<div class="product-in-car-total">
+                                    <h3>Total: $0</h3>
+                                    <a href="../../index.html"><button type="button">Buy</button></a>
+                                </div>`;
+
+    const btnBuy = document.querySelector(".product-in-car-total button");
+
+    btnBuy.addEventListener("click", ()=> {
+
+        alert("Thanks for your purchase!");
+
+        localStorage.clear();
+
+    });
+
+    setElementsInCarShop();
+
+}
+
+function createCarShopLocalStorageList (btn) {
+
+    btn.addEventListener("click", addToCarShop)
+
+} 
+
+const htmlProductsInCarShop = (img, title, price) => {
+
+    const div = document.createElement("div");
+
+    div.innerHTML = `<div class="product-in-car-img">
+                        <img src="${img}" alt="${title}">
+                    </div>
+
+                    <div class="product-in-car-information">
+                        <h3>${title}</h3>
+                        <p>$${price}</p>
+                    </div>`;
+
+    div.setAttribute("class", "product-in-car");
+
+    return div;
+
+}
+
+const setElementsInCarShop = async () => {
+
+    const localStorageProducts = await getLocalStorage();
+
+    for (let i = 0; i < localStorageProducts.length; i++){
+
+        fragmentHtml.append(htmlProductsInCarShop(localStorageProducts[i].image, localStorageProducts[i].title, localStorageProducts[i].price))
+
+    }
+
+    carShopContainer.insertBefore(fragmentHtml, document.querySelector(".product-in-car-total"));
+
+    if (localStorageProducts.length > 0){
+        
+        carIcon.style.color = `#FF0000`;
+        carIcon.textContent = `${localStorageProducts.length}`;
+    } else {
+        
+        carIcon.style.color = `#000`;
+        carIcon.textContent = ``;
+    }
+    
+}
+
+setElementsInCarShop();
+
+const btnBuy = document.querySelector(".product-in-car-total button");
+
+btnBuy.addEventListener("click", ()=> {
+
+    alert("Thanks for your purchase!");
+
+    carShopContainer.innerHTML = `<div class="product-in-car-total">
+                                    <h3>Total: $0</h3>
+                                    <button type="button">Buy</button>
+                                </div>`;
+
+    localStorage.clear();
+
+});
