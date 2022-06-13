@@ -1,0 +1,96 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.section_container_progress_steps{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 40rem;
+}
+
+    .article_progress_steps{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        position: relative;
+        max-width: 90%;
+        width: 100%;
+        height: 10rem;
+    }
+
+        .article_progress_steps::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: .5rem;
+            z-index: -1;
+            left: 0;
+            background: rgba(221, 221, 221, 0.507);
+        }
+
+        .progress{
+            position: absolute;
+            width: 0%;
+            height: .5rem;
+            z-index: -1;
+            left: 0;
+            background: rgba(0, 225, 255, 0.507);
+            transition: width 1s;
+        }
+
+        .circle{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: #fff;
+            height: 4rem;
+            width: 4rem;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            padding: .5rem;
+            border: .3rem solid rgba(221, 221, 221, 0.507);
+            transition: border 1s;
+        }
+
+        .active{
+            border: .3rem solid rgba(0, 225, 255, 0.507);
+            transition: border 1s;
+        }
+
+    .article_progress_steps_btns{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        height: 10rem;
+    }
+
+        .article_progress_steps_btns button{
+            padding: 1rem;
+            font-size: 2rem;
+            margin: 1rem;
+            border: .1rem solid rgba(0, 225, 255, 0.507);
+            background: #fff;
+            border-radius: .5rem;
+            cursor: pointer;
+        }
