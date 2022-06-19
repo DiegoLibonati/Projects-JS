@@ -1,0 +1,68 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.section_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8a2be2;
+    width: 100vw;
+    height: 100vh;
+}
+
+    .article_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3rem;
+        width: 23rem;
+    }
+
+    .inputClass{
+        height: 3rem;
+        width: 20rem;
+        opacity: 0;
+        max-width: 0;
+        outline: none;
+        font-size: 2rem;
+        padding-left: .5rem;
+        transition: max-width 1s, opacity 1s;
+    }
+
+    .article_container button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border: .1rem solid #000;
+        width: 3rem;
+        height: 3rem;
+        outline: none;
+        cursor: pointer;
+    }
+
+        .article_container button i{
+            font-size: 1.2rem;
+        }
+    
+        .openInput{
+            max-width: 20rem;
+            opacity: 1;
+            transition: max-width 1s, opacity 1s;
+        }
